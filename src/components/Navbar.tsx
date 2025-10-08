@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { Menu, X, Phone } from 'lucide-react';
+import Link from 'next/link'; // <--- ADDED THIS IMPORT
 
 const navLinks = [
   { name: 'Home', href: '/' },
@@ -35,14 +36,14 @@ const Navbar = () => {
       <nav className="container mx-auto px-6 py-4">
         <div className="flex justify-between items-center">
           {/* Logo/Brand Name */}
-          <a href="/" className={`text-2xl font-bold transition-colors ${isScrolled || isMenuOpen ? 'text-gray-800' : 'text-white'}`}>
-            Al Madina Hijama Center {/* <--- Changed here */}
-          </a>
+          <Link href="/" className={`text-2xl font-bold transition-colors ${isScrolled || isMenuOpen ? 'text-gray-800' : 'text-white'}`}>
+            Al Madina Hijama Center
+          </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.name}
                 href={link.href}
                 className={`transition-colors text-lg ${
@@ -50,15 +51,16 @@ const Navbar = () => {
                 }`}
               >
                 {link.name}
-              </a>
+              </Link>
             ))}
+             {/* This is an external link (tel:), so it correctly stays as an <a> tag */}
              <a
-                href="tel:0333-482427"
-                className="inline-flex items-center px-4 py-2 bg-orange-500 text-white font-semibold rounded-lg shadow-md hover:bg-orange-600 transition-all duration-300 transform hover:scale-105"
-              >
-                <Phone className="mr-2 h-5 w-5" />
-                Call Us
-              </a>
+              href="tel:0333-482427"
+              className="inline-flex items-center px-4 py-2 bg-orange-500 text-white font-semibold rounded-lg shadow-md hover:bg-orange-600 transition-all duration-300 transform hover:scale-105"
+            >
+              <Phone className="mr-2 h-5 w-5" />
+              Call Us
+            </a>
           </div>
 
           {/* Mobile Menu Button */}
@@ -74,15 +76,16 @@ const Navbar = () => {
           <div className="md:hidden mt-4 bg-white rounded-lg shadow-xl animate-slideDown">
             <div className="flex flex-col items-center space-y-4 py-4">
               {navLinks.map((link) => (
-                <a
+                <Link
                   key={link.name}
                   href={link.href}
                   onClick={() => setIsMenuOpen(false)}
                   className="text-gray-700 hover:text-teal-600 text-lg"
                 >
                   {link.name}
-                </a>
+                </Link>
               ))}
+              {/* This is an external link (tel:), so it correctly stays as an <a> tag */}
               <a
                 href="tel:0333-482427"
                 className="inline-flex items-center px-6 py-3 bg-orange-500 text-white font-semibold rounded-lg shadow-md hover:bg-orange-600 transition-colors duration-300"

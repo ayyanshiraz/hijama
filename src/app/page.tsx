@@ -2,6 +2,7 @@
 
 import { Phone, Heart, Ghost, Zap } from 'lucide-react';
 import { useState, useEffect } from 'react';
+import Link from 'next/link'; // <--- ADDED THIS IMPORT
 
 // --- How to use images from the 'public' folder in Next.js ---
 // The 'public' directory is the correct place for static assets like images.
@@ -68,7 +69,7 @@ const features = [
   {
     icon: Heart,
     title: 'Natural Immunity Boost',
-    description: 'Strengthen your body\'s natural defenses with Hijama cupping. Our therapy promotes detoxification and enhances immune response for lasting wellness.',
+    description: 'Strengthen your bodys natural defenses with Hijama cupping. Our therapy promotes detoxification and enhances immune response for lasting wellness.',
   },
   {
     icon: Zap,
@@ -128,13 +129,25 @@ const HomePage = () => {
               {currentSlide.subtitle}
             </p>
             <div className="mt-8">
-              <a
-                href={currentSlide.buttonLink}
-                className="inline-flex items-center px-8 py-4 bg-orange-500 text-white font-semibold rounded-lg shadow-md hover:bg-orange-600 transition-all duration-300 transform hover:scale-105"
-              >
-                <Phone className="mr-3 h-6 w-6" />
-                {currentSlide.buttonText}
-              </a>
+              {/* --- THIS IS THE FIXED PART --- */}
+              {/* Conditionally render <a> for external links (tel:) and <Link> for internal links (#) */}
+              {currentSlide.buttonLink.startsWith('tel:') ? (
+                <a
+                  href={currentSlide.buttonLink}
+                  className="inline-flex items-center px-8 py-4 bg-orange-500 text-white font-semibold rounded-lg shadow-md hover:bg-orange-600 transition-all duration-300 transform hover:scale-105"
+                >
+                  <Phone className="mr-3 h-6 w-6" />
+                  {currentSlide.buttonText}
+                </a>
+              ) : (
+                <Link
+                  href={currentSlide.buttonLink}
+                  className="inline-flex items-center px-8 py-4 bg-orange-500 text-white font-semibold rounded-lg shadow-md hover:bg-orange-600 transition-all duration-300 transform hover:scale-105"
+                >
+                  <Phone className="mr-3 h-6 w-6" />
+                  {currentSlide.buttonText}
+                </Link>
+              )}
             </div>
           </div>
         </div>
