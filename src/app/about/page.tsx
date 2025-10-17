@@ -136,7 +136,7 @@ const AboutPage = () => {
             <motion.div variants={fadeInLeft} className="text-center lg:text-left">
                 <h2 className="text-4xl md:text-5xl font-extrabold text-gray-800">Our Mission</h2>
                 <p className="mt-6 text-lg text-gray-600">
-                    Our mission is guided by the prophetic tradition: <i>&quot;Whoever performs Hijama on the 17th, 19th or 21st of the lunar month, it is a cure, by Allah&apos;s permission.&quot;</i> (Sunan Abi Dawud). We are dedicated to reviving this Sunnah by providing authentic, accessible healing to the community of Lahore. To honor this, we offer dedicated male therapists for men and female therapists for women, along with convenient home services, ensuring a comfortable and trusted experience for every client.
+                    Our mission is guided by the prophetic tradition: <i>&quot;Whoever perform Hijama on the 17th, 19th or 21st of the lunar month, it is a cure, by Allah&apos;s permission.&quot;</i> (Sunan Abi Dawud). We are dedicated to reviving this Sunnah by providing authentic, accessible healing to the community of Lahore. To honor this, we offer dedicated male therapists for men and female therapists for women, along with convenient home services, ensuring a comfortable and trusted experience for every client.
                 </p>
             </motion.div>
             <motion.div variants={fadeInRight} className="flex justify-center">
