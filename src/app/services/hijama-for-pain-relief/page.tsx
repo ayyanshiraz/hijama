@@ -3,6 +3,7 @@
 import { Phone, CheckCircle, Shield, Clock, Sun, Moon, Droplets, Plus, Minus, ChevronRight, AlertTriangle, Zap } from 'lucide-react';
 import { motion, AnimatePresence, Variants } from 'framer-motion';
 import { useState } from 'react';
+import Breadcrumbs from '@/components/Breadcrumbs';
 
 const benefits = [
     { icon: CheckCircle, text: 'Provides natural relief from chronic and acute pain' },
@@ -118,6 +119,12 @@ const PainReliefPage = () => {
         visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
     };
     
+    const breadcrumbItems = [
+        { name: 'Home', href: '/' },
+        { name: 'Services', href: '/services' },
+        { name: 'Hijama for Pain Relief', href: '/services/hijama-for-pain-relief' },
+    ];
+
     return (
         <main className="bg-white text-gray-800">
             {/* Injecting JSON-LD Schemas */}
@@ -133,8 +140,8 @@ const PainReliefPage = () => {
             {/* --- Hero Section --- */}
             <section className="relative bg-gray-800 text-white py-32 sm:py-48 flex items-center justify-center">
                 <div 
-                  className="absolute inset-0 bg-cover bg-center"
-                  style={{ backgroundImage: "url('/service_pain_relief.jpg')" }}
+                    className="absolute inset-0 bg-cover bg-center"
+                    style={{ backgroundImage: "url('/service_pain_relief.jpg')" }}
                 ></div>
                 <div className="absolute inset-0 bg-black opacity-60"></div>
                 <div className="relative container mx-auto px-6 text-center z-10">
@@ -157,6 +164,8 @@ const PainReliefPage = () => {
                 </div>
             </section>
 
+            <Breadcrumbs items={breadcrumbItems} />
+
             {/* --- Main Content Section --- */}
             <section className="py-24">
                 <div className="container mx-auto px-8 sm:px-16">
@@ -170,7 +179,7 @@ const PainReliefPage = () => {
                                     Hijama for Pain Relief is a specialized treatment designed to address the root causes of chronic pain. By applying cups to specific points along the bodys meridians and areas of tension, this therapy helps to release blockages, reduce inflammation, and stimulate the flow of oxygenated blood. It is a time-tested, safe, and effective alternative to long-term pain medication.
                                 </motion.p>
                                 <motion.p variants={itemVariants} className="mt-4 text-lg text-gray-600 leading-relaxed">
-                                   Whether you suffer from back pain, migraines, or arthritis, our certified practitioners can tailor a session to your specific needs. We offer this specialized service for both men and women, with the option of a comfortable and convenient session at your home.
+                                    Whether you suffer from back pain, migraines, or arthritis, our certified practitioners can tailor a session to your specific needs. We offer this specialized service for both men and women, with the option of a comfortable and convenient session at your home.
                                 </motion.p>
 
                                 {/* Benefits Section */}
@@ -356,4 +365,3 @@ const PainReliefPage = () => {
 };
 
 export default PainReliefPage;
-
