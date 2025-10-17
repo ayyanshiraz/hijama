@@ -161,7 +161,7 @@ const testimonials = [
     rating: 5,
   },
   {
-    text: "As a busy professional, the mens home service from Al Madina Hijama Center was a game-changer for my stress and high blood pressure. Their expert and efficient approach is something I'd recommend to any man looking to improve his health and regain focus.",
+    text: "As a busy professional, the mens home service from Al Madina Hijama Center was a game-changer for my stress and high blood pressure. Their expert and efficient approach is something Id recommend to any man looking to improve his health and regain focus.",
     name: "Abdul Muhaymin",
     rating: 4,
   },
@@ -639,11 +639,11 @@ const HomePage = () => {
 
           <div className="relative mt-16">
             <div className="flex items-center justify-between">
-              <button onClick={prevTestimonial} className="z-20 bg-white rounded-full shadow-md w-12 h-12 flex items-center justify-center text-gray-600 hover:bg-gray-100 transition" aria-label="Previous testimonial">
+              <button onClick={prevTestimonial} className="z-20 bg-white rounded-full shadow-md w-12 h-12 flex items-center justify-center text-gray-600 hover:bg-gray-100 transition flex-shrink-0" aria-label="Previous testimonial">
                 <ChevronLeft className="w-6 h-6" />
               </button>
 
-              <div className="w-full max-w-5xl mx-4 overflow-hidden relative" style={{ height: '380px' }}>
+              <div className="flex-1 w-full max-w-5xl mx-2 sm:mx-4 overflow-hidden relative h-[480px] sm:h-[420px] md:h-[380px]">
                 <AnimatePresence initial={false} custom={direction}>
                   <motion.div
                     key={currentTestimonialIndex}
@@ -662,12 +662,12 @@ const HomePage = () => {
                     {getVisibleTestimonials().map((testimonial, index) => (
                       <div
                         key={`${currentTestimonialIndex}-${index}`}
-                        className="bg-white p-5 rounded-2xl shadow-lg flex flex-col items-start text-left h-full"
+                        className="bg-white p-6 rounded-2xl shadow-lg flex flex-col text-left h-full"
                       >
                         <p className="text-gray-600 leading-relaxed flex-grow mb-4">
                           &ldquo;{testimonial.text}&rdquo;
                         </p>
-                        <div className="flex flex-col items-start mt-auto pt-4 border-t border-gray-100 w-full">
+                        <div className="mt-auto pt-4 border-t border-gray-100 w-full">
                           <h4 className="text-lg font-bold text-gray-900">
                             {testimonial.name}
                           </h4>
@@ -686,7 +686,7 @@ const HomePage = () => {
                 </AnimatePresence>
               </div>
 
-              <button onClick={nextTestimonial} className="z-20 bg-white rounded-full shadow-md w-12 h-12 flex items-center justify-center text-gray-600 hover:bg-gray-100 transition" aria-label="Next testimonial">
+              <button onClick={nextTestimonial} className="z-20 bg-white rounded-full shadow-md w-12 h-12 flex items-center justify-center text-gray-600 hover:bg-gray-100 transition flex-shrink-0" aria-label="Next testimonial">
                 <ChevronRight className="w-6 h-6" />
               </button>
             </div>

@@ -15,10 +15,11 @@ type BreadcrumbsProps = {
 
 const Breadcrumbs = ({ items }: BreadcrumbsProps) => {
   return (
-    // Updated styling to match the screenshot
-    <nav aria-label="Breadcrumb" className="bg-white py-4">
+    // 1. Increased top padding from py-4 to pt-8 pb-4
+    <nav aria-label="Breadcrumb" className="bg-white pt-8 pb-4">
       <div className="container mx-auto px-8 sm:px-16">
-        <ol className="flex items-center text-sm">
+        {/* 2. Increased font size from text-sm to text-base */}
+        <ol className="flex items-center text-base">
           {items.map((item, index) => (
             <li key={item.name} className="flex items-center">
               {/* Add a slash separator for all items except the first one */}
