@@ -276,7 +276,7 @@ const InternalHealthPage = () => {
                     <motion.div initial="hidden" animate="visible" variants={staggerContainer} className="mt-24">
                         <motion.h2 variants={itemVariants} className="text-4xl font-extrabold text-gray-900 text-center">Preparation & After-care</motion.h2>
                         <motion.p variants={itemVariants} className="mt-4 text-lg text-gray-600 text-center max-w-3xl mx-auto">
-                           Proper preparation and after-care are vital for supporting your body's detoxification and healing process.
+                           Proper preparation and after-care are vital for supporting your bodys detoxification and healing process.
                         </motion.p>
 
                         <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-12">

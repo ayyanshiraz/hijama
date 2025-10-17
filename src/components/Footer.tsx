@@ -43,7 +43,7 @@ const Footer = () => {
             </div>
             
             <blockquote className="mt-6 border-l-4 border-orange-500 pl-4 text-left w-full">
-              <p className="italic text-gray-300 text-sm">"Whoever performs Hijama on the 17th, 19th or 21st of the lunar month, it is a cure, by Allah's permission."</p>
+              <p className="italic text-gray-300 text-sm">Whoever performs Hijama on the 17th, 19th or 21st of the lunar month, it is a cure, by Allahs permission.</p>
               <cite className="mt-2 block text-xs text-gray-400 not-italic">(Sunan Abi Dawud, 3861)</cite>
             </blockquote>
 

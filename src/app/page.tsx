@@ -665,7 +665,7 @@ const HomePage = () => {
                         className="bg-white p-5 rounded-2xl shadow-lg flex flex-col items-start text-left h-full"
                       >
                         <p className="text-gray-600 leading-relaxed flex-grow mb-4">
-                          "{testimonial.text}"
+                          &ldquo;{testimonial.text}&rdquo;
                         </p>
                         <div className="flex flex-col items-start mt-auto pt-4 border-t border-gray-100 w-full">
                           <h4 className="text-lg font-bold text-gray-900">
