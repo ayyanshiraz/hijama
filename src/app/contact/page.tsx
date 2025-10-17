@@ -10,7 +10,7 @@ const contactDetails = [
     icon: MapPin,
     title: 'Our Address',
     lines: ['MashaAllah Center, 213-A, opp. Car Parking Grand Mosque, Commercial Sector C Bahria Town, Lahore, 53720'],
-    href: 'https://maps.google.com/',
+    href: 'https://maps.google.com/', // NOTE: You might want to update this with a real Google Maps link later
   },
   {
     icon: Phone,
@@ -78,12 +78,6 @@ const ContactPage = () => {
   // State to manage which FAQ item is open
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
 
-  // Group FAQs into rows of 2 for proper grid alignment
-  const faqRows = [];
-  for (let i = 0; i < faqs.length; i += 2) {
-    faqRows.push(faqs.slice(i, i + 2));
-  }
-
   // Animation variants for Framer Motion
   const staggerContainer: Variants = {
     hidden: { opacity: 0 },
@@ -115,7 +109,7 @@ const ContactPage = () => {
     <main className="bg-white text-gray-800">
       {/* Hero Section */}
       <section className="relative bg-gray-900 text-white py-32 sm:py-48 flex items-center justify-center">
-        <div 
+        <div
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: "url('/contact.jpg')" }}
         ></div>
@@ -151,57 +145,53 @@ const ContactPage = () => {
             </motion.p>
           </motion.div>
 
-          <div className="mx-auto flex flex-col gap-y-6">
-            {faqRows.map((row, rowIndex) => (
-              <div key={rowIndex} className="grid grid-cols-1 md:grid-cols-2 gap-x-8 items-start">
-                {row.map((faq, colIndex) => {
-                  const originalIndex = rowIndex * 2 + colIndex;
-                  const isOpen = openFaqIndex === originalIndex;
+          {/* Single column layout for FAQs - Wider */}
+          <div className="max-w-5xl mx-auto flex flex-col gap-y-4"> {/* Changed max-w-3xl to max-w-5xl */}
+            {faqs.map((faq, index) => { // Iterate directly over faqs array
+              const isOpen = openFaqIndex === index;
 
-                  return (
-                    <div key={originalIndex}>
-                      <button
-                        onClick={() => setOpenFaqIndex(isOpen ? null : originalIndex)}
-                        className={`w-full flex justify-between items-center text-left gap-4 bg-[#1E4137] p-6 text-white transition-all duration-300 ${
-                          isOpen ? 'rounded-t-lg' : 'rounded-lg'
-                        }`}
+              return (
+                <div key={index}> {/* Render each item directly */}
+                  <button
+                    onClick={() => setOpenFaqIndex(isOpen ? null : index)}
+                    className={`w-full flex justify-between items-center text-left gap-4 bg-[#1E4137] p-6 text-white transition-all duration-300 ${
+                      isOpen ? 'rounded-t-lg' : 'rounded-lg hover:bg-opacity-90'
+                    }`}
+                  >
+                    <span className="text-lg font-semibold">{faq.question}</span>
+                    {isOpen ? <Minus className="w-5 h-5 text-white flex-shrink-0" /> : <Plus className="w-5 h-5 text-white flex-shrink-0" />}
+                  </button>
+                  <AnimatePresence>
+                    {isOpen && (
+                      <motion.div
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: 'auto' }}
+                        exit={{ opacity: 0, height: 0 }}
+                        transition={{ duration: 0.3, ease: 'easeInOut' }}
+                        className="overflow-hidden bg-white rounded-b-lg border border-t-0 border-gray-200"
                       >
-                        <span className="text-lg font-semibold">{faq.question}</span>
-                        {isOpen ? <Minus className="w-5 h-5 text-white flex-shrink-0" /> : <Plus className="w-5 h-5 text-white flex-shrink-0" />}
-                      </button>
-                      <AnimatePresence>
-                        {isOpen && (
-                          <motion.div
-                            initial={{ opacity: 0, height: 0 }}
-                            animate={{ opacity: 1, height: 'auto' }}
-                            exit={{ opacity: 0, height: 0 }}
-                            transition={{ duration: 0.3, ease: 'easeInOut' }}
-                            className="overflow-hidden bg-white rounded-b-lg shadow-lg"
-                          >
-                            <div className="p-6">
-                              <p className="text-gray-700 leading-relaxed">
-                                {faq.answer}
-                              </p>
-                            </div>
-                          </motion.div>
-                        )}
-                      </AnimatePresence>
-                    </div>
-                  );
-                })}
-              </div>
-            ))}
+                        <div className="p-6">
+                          <p className="text-gray-700 leading-relaxed">
+                            {faq.answer}
+                          </p>
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
 
       {/* Animated Combined Contact Section */}
-      <section 
-        ref={ref} 
+      <section
+        ref={ref}
         className="bg-white text-gray-800 pt-0 pb-24 sm:pb-32 overflow-hidden"
       >
         <div className="container mx-auto px-8 sm:px-16">
-          <motion.div 
+          <motion.div
             initial="hidden"
             animate={inView ? "show" : "hidden"}
             variants={staggerContainer}
@@ -213,30 +203,30 @@ const ContactPage = () => {
 
           <div className="max-w-6xl mx-auto mt-16">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-              
-              <motion.div 
+
+              <motion.div
                 initial="hidden"
                 animate={inView ? "show" : "hidden"}
-                variants={fadeInLeft} 
+                variants={fadeInLeft}
                 className="bg-[#1E4137] text-white p-8 rounded-lg h-full"
               >
                 <h2 className="text-3xl font-bold mb-6">Send us a message</h2>
                 <form action="#" method="POST" className="space-y-6">
                   <div>
                     <label htmlFor="full-name" className="block text-sm font-medium text-gray-300 mb-1">Full Name</label>
-                    <input type="text" name="full-name" id="full-name" className="w-full px-4 py-3 bg-white rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-black text-black" />
+                    <input type="text" name="full-name" id="full-name" className="w-full px-4 py-3 bg-white rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-black text-black placeholder-gray-500" placeholder="Your Name" />
                   </div>
                   <div>
                     <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-1">Email Address</label>
-                    <input type="email" name="email" id="email" className="w-full px-4 py-3 bg-white rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-black text-black" />
+                    <input type="email" name="email" id="email" className="w-full px-4 py-3 bg-white rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-black text-black placeholder-gray-500" placeholder="your.email@example.com" />
                   </div>
-                  <div>
+                   <div>
                     <label htmlFor="subject" className="block text-sm font-medium text-gray-300 mb-1">Subject</label>
-                    <input type="text" name="subject" id="subject" className="w-full px-4 py-3 bg-white rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-black text-black" />
+                    <input type="text" name="subject" id="subject" className="w-full px-4 py-3 bg-white rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-black text-black placeholder-gray-500" placeholder="Reason for contacting us" />
                   </div>
                   <div>
                     <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-1">Message</label>
-                    <textarea name="message" id="message" rows={5} className="w-full px-4 py-3 bg-white rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-black text-black"></textarea>
+                    <textarea name="message" id="message" rows={5} className="w-full px-4 py-3 bg-white rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-black text-black placeholder-gray-500" placeholder="Write your message here..." ></textarea>
                   </div>
                   <div>
                     <button type="submit" className="w-full px-8 py-4 bg-white text-black font-semibold rounded-lg hover:bg-gray-200 transition-colors duration-300">
@@ -246,19 +236,19 @@ const ContactPage = () => {
                 </form>
               </motion.div>
 
-              <motion.div 
+              <motion.div
                 initial="hidden"
                 animate={inView ? "show" : "hidden"}
                 variants={fadeInRight}
                 className="flex flex-col space-y-6"
               >
-                <motion.div 
+                <motion.div
                   variants={staggerContainer}
                   className="grid grid-cols-1 sm:grid-cols-2 gap-6"
                 >
                   {contactDetails.map((detail, index) => (
-                    <motion.a 
-                      key={index} 
+                    <motion.a
+                      key={index}
                       href={detail.href}
                       variants={fadeInUp}
                       target="_blank"
@@ -277,7 +267,7 @@ const ContactPage = () => {
                 </motion.div>
                 <motion.div variants={fadeInUp} className="rounded-lg overflow-hidden">
                   <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3406.6080539835734!2d74.18216067544479!3d31.369793374283226!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3918ffe68d865491%3A0xe0baf4f3c53bc165!2sAl-Madina%20Hijama%20Center!5e0!3m2!1sen!2s!4v1760633158199!5m2!1sen!2"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3406.6080539835734!2d74.18216067544479!3d31.369793374283226!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3918ffe68d865491%3A0xe0baf4f3c53bc165!2sAl-Madina%20Hijama%20Center!5e0!3m2!1sen!2s!4v1760633158199!5m2!1sen!2" // NOTE: You might want to update this with a real Google Maps embed link later
                     width="100%"
                     height="300"
                     style={{ border: 0 }}

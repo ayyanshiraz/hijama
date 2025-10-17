@@ -11,7 +11,7 @@ const serviceLinks = [
   { name: 'Dry & Massage Cupping', href: '/services/dry-cupping' },
   { name: 'Hijama for Pain Relief', href: '/services/hijama-for-pain-relief' },
   { name: 'Hijama for Internal Health', href: '/services/hijama-for-internal-health' },
-  { name: 'Hijama for Sports Recovery', href: '/services/hijama-for-sport-recovery' },
+  { name: 'Hijama for Sports Recovery', href: '/services/hijama-for-sports-recovery' }, // Corrected href
   { name: 'Hijama for Detox & Wellness', href: '/services/hijama-for-detox' }
 ];
 
@@ -37,7 +37,7 @@ const Navbar = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-  
+
   const showBackground = isScrolled || isMenuOpen || isDesktopServicesOpen;
 
   return (
@@ -118,7 +118,7 @@ const Navbar = () => {
         {/* Mobile Menu */}
         <AnimatePresence>
         {isMenuOpen && (
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
@@ -129,45 +129,62 @@ const Navbar = () => {
                 <div key={link.name} className="w-full text-center">
                   {link.subLinks ? (
                     <>
-                      <button
-                        onClick={() => setIsServicesOpen(!isServicesOpen)}
-                        className="text-gray-700 hover:text-teal-600 text-lg py-2 w-full flex justify-center items-center"
-                      >
-                        {link.name}
-                        <ChevronDown className={`ml-1 h-5 w-5 transition-transform duration-300 ${isServicesOpen ? 'rotate-180' : ''}`} />
-                      </button>
+                      {/* Container for Link + Toggle Button */}
+                      <div className="flex justify-center items-center w-full px-4 py-2">
+                        {/* Link for the text part - Navigates to /services */}
+                        <Link
+                          href={link.href}
+                          onClick={() => setIsMenuOpen(false)} // Close menu on navigation
+                          className="text-gray-700 hover:text-teal-600 text-lg flex-grow text-center" // Text aligns center
+                        >
+                          {link.name}
+                        </Link>
+                        {/* Button ONLY for the icon - Toggles dropdown */}
+                        <button
+                          onClick={(e) => {
+                            e.stopPropagation(); // Prevent triggering the Link navigation when clicking the arrow
+                            setIsServicesOpen(!isServicesOpen);
+                          }}
+                          className="text-gray-700 hover:text-teal-600 ml-2 p-1 flex-shrink-0" // Added padding, adjust as needed
+                          aria-label="Toggle services submenu" // Accessibility improvement
+                        >
+                          <ChevronDown className={`h-5 w-5 transition-transform duration-300 ${isServicesOpen ? 'rotate-180' : ''}`} />
+                        </button>
+                      </div>
+                      {/* Dropdown remains the same */}
                       <AnimatePresence>
                         {isServicesOpen && (
-                          <motion.div
-                            initial={{ height: 0, opacity: 0 }}
-                            animate={{ height: 'auto', opacity: 1 }}
-                            exit={{ height: 0, opacity: 0 }}
-                            className="overflow-hidden bg-gray-50/50"
-                          >
-                            <div className="flex flex-col items-center space-y-2 py-2">
-                              {link.subLinks.map((subLink) => (
-                                <Link
-                                  key={subLink.name}
-                                  href={subLink.href}
-                                  onClick={() => setIsMenuOpen(false)}
-                                  className="text-gray-600 hover:text-white hover:bg-[#1E4137] text-base py-2 w-full transition-colors"
-                                >
-                                  {subLink.name}
-                                </Link>
-                              ))}
-                            </div>
-                          </motion.div>
+                           <motion.div
+                             initial={{ height: 0, opacity: 0 }}
+                             animate={{ height: 'auto', opacity: 1 }}
+                             exit={{ height: 0, opacity: 0 }}
+                             className="overflow-hidden bg-gray-50/50" // Background for dropdown items
+                           >
+                             <div className="flex flex-col items-center space-y-2 py-2">
+                               {link.subLinks.map((subLink) => (
+                                 <Link
+                                   key={subLink.name}
+                                   href={subLink.href}
+                                   onClick={() => setIsMenuOpen(false)} // Close menu when sub-link clicked
+                                   className="text-gray-600 hover:text-white hover:bg-[#1E4137] text-base py-2 w-full transition-colors" // Full width for easier tap
+                                 >
+                                   {subLink.name}
+                                 </Link>
+                               ))}
+                             </div>
+                           </motion.div>
                         )}
                       </AnimatePresence>
                     </>
                   ) : (
-                    <Link
-                      href={link.href}
-                      onClick={() => setIsMenuOpen(false)}
-                      className="text-gray-700 hover:text-teal-600 text-lg py-2 block w-full"
-                    >
-                      {link.name}
-                    </Link>
+                     // Regular link rendering (Home, About Us, Contact)
+                     <Link
+                       href={link.href}
+                       onClick={() => setIsMenuOpen(false)}
+                       className="text-gray-700 hover:text-teal-600 text-lg py-2 block w-full"
+                     >
+                       {link.name}
+                     </Link>
                   )}
                 </div>
               ))}

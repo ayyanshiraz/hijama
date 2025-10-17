@@ -3,6 +3,7 @@
 import { Phone, CheckCircle, Shield, Clock, Sun, Moon, Droplets, Plus, Minus, ChevronRight, AlertTriangle, Wind } from 'lucide-react';
 import { motion, AnimatePresence, Variants } from 'framer-motion';
 import { useState } from 'react';
+import Breadcrumbs from '@/components/Breadcrumbs';
 
 const benefits = [
     { icon: CheckCircle, text: 'Relieves muscle tension and stiffness' },
@@ -117,6 +118,12 @@ const DryCuppingPage = () => {
         hidden: { opacity: 0, y: 20 },
         visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
     };
+
+    const breadcrumbItems = [
+        { name: 'Home', href: '/' },
+        { name: 'Services', href: '/services' },
+        { name: 'Dry & Massage Cupping', href: '/services/dry-cupping' },
+    ];
     
     return (
         <main className="bg-white text-gray-800">
@@ -133,8 +140,8 @@ const DryCuppingPage = () => {
             {/* --- Hero Section --- */}
             <section className="relative bg-gray-800 text-white py-32 sm:py-48 flex items-center justify-center">
                 <div 
-                  className="absolute inset-0 bg-cover bg-center"
-                  style={{ backgroundImage: "url('/service_dry_cupping.jpg')" }}
+                    className="absolute inset-0 bg-cover bg-center"
+                    style={{ backgroundImage: "url('/service_dry_cupping.jpg')" }}
                 ></div>
                 <div className="absolute inset-0 bg-black opacity-60"></div>
                 <div className="relative container mx-auto px-6 text-center z-10">
@@ -156,6 +163,8 @@ const DryCuppingPage = () => {
                     </motion.p>
                 </div>
             </section>
+
+            <Breadcrumbs items={breadcrumbItems} />
 
             {/* --- Main Content Section --- */}
             <section className="py-24">
@@ -356,4 +365,3 @@ const DryCuppingPage = () => {
 };
 
 export default DryCuppingPage;
-

@@ -1,8 +1,9 @@
 'use client';
 
-import { Phone, CheckCircle, Shield, Clock, Sun, Moon, Droplets, Plus, Minus, ChevronRight, AlertTriangle, Heart, Brain, Zap } from 'lucide-react';
+import { Phone, CheckCircle, Shield, Clock, Sun, Moon, Droplets, Plus, Minus, ChevronRight, AlertTriangle, Heart } from 'lucide-react';
 import { motion, AnimatePresence, Variants } from 'framer-motion';
 import { useState } from 'react';
+import Breadcrumbs from '@/components/Breadcrumbs';
 
 const benefits = [
     { icon: CheckCircle, text: 'Supports detoxification of the liver and kidneys' },
@@ -117,6 +118,12 @@ const InternalHealthPage = () => {
         hidden: { opacity: 0, y: 20 },
         visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
     };
+
+    const breadcrumbItems = [
+        { name: 'Home', href: '/' },
+        { name: 'Services', href: '/services' },
+        { name: 'Hijama for Internal Health', href: '/services/hijama-for-internal-health' },
+    ];
     
     return (
         <main className="bg-white text-gray-800">
@@ -133,8 +140,8 @@ const InternalHealthPage = () => {
             {/* --- Hero Section --- */}
             <section className="relative bg-gray-800 text-white py-32 sm:py-48 flex items-center justify-center">
                 <div 
-                  className="absolute inset-0 bg-cover bg-center"
-                  style={{ backgroundImage: "url('/service_internal_health.jpg')" }}
+                    className="absolute inset-0 bg-cover bg-center"
+                    style={{ backgroundImage: "url('/service_internal_health.jpg')" }}
                 ></div>
                 <div className="absolute inset-0 bg-black opacity-60"></div>
                 <div className="relative container mx-auto px-6 text-center z-10">
@@ -157,6 +164,8 @@ const InternalHealthPage = () => {
                 </div>
             </section>
 
+            <Breadcrumbs items={breadcrumbItems} />
+
             {/* --- Main Content Section --- */}
             <section className="py-24">
                 <div className="container mx-auto px-8 sm:px-16">
@@ -170,7 +179,7 @@ const InternalHealthPage = () => {
                                     Hijama for Internal Health is a holistic treatment that focuses on optimizing the function of your bodys vital systems. By applying cups to specific points related to the organs and endocrine glands, this therapy helps to purify the bloodstream, support natural detoxification, and regulate bodily functions.
                                 </motion.p>
                                 <motion.p variants={itemVariants} className="mt-4 text-lg text-gray-600 leading-relaxed">
-                                   This is an ideal therapy for those dealing with systemic issues like digestive problems, hormonal imbalances, high blood pressure, or chronic fatigue. Our certified practitioners for men and women provide this service with expert care, also available through our convenient home service.
+                                    This is an ideal therapy for those dealing with systemic issues like digestive problems, hormonal imbalances, high blood pressure, or chronic fatigue. Our certified practitioners for men and women provide this service with expert care, also available through our convenient home service.
                                 </motion.p>
 
                                 {/* Benefits Section */}
@@ -276,7 +285,7 @@ const InternalHealthPage = () => {
                     <motion.div initial="hidden" animate="visible" variants={staggerContainer} className="mt-24">
                         <motion.h2 variants={itemVariants} className="text-4xl font-extrabold text-gray-900 text-center">Preparation & After-care</motion.h2>
                         <motion.p variants={itemVariants} className="mt-4 text-lg text-gray-600 text-center max-w-3xl mx-auto">
-                           Proper preparation and after-care are vital for supporting your bodys detoxification and healing process.
+                            Proper preparation and after-care are vital for supporting your bodys detoxification and healing process.
                         </motion.p>
 
                         <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-12">
@@ -356,4 +365,3 @@ const InternalHealthPage = () => {
 };
 
 export default InternalHealthPage;
-

@@ -1,8 +1,9 @@
 'use client';
 
-import { Phone, CheckCircle, Shield, Clock, Sun, Moon, Droplets, Plus, Minus, ChevronRight, AlertTriangle, Sparkles, Wind, Leaf } from 'lucide-react';
+import { Phone, CheckCircle, Shield, Clock, Sun, Moon, Droplets, Plus, Minus, ChevronRight, AlertTriangle, Sparkles, Leaf } from 'lucide-react';
 import { motion, AnimatePresence, Variants } from 'framer-motion';
 import { useState } from 'react';
+import Breadcrumbs from '@/components/Breadcrumbs';
 
 const benefits = [
     { icon: CheckCircle, text: 'Effectively removes stagnant blood and metabolic waste' },
@@ -115,6 +116,12 @@ const DetoxWellnessPage = () => {
         hidden: { opacity: 0, y: 20 },
         visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
     };
+
+    const breadcrumbItems = [
+        { name: 'Home', href: '/' },
+        { name: 'Services', href: '/services' },
+        { name: 'Hijama for Detox & Wellness', href: '/services/hijama-for-detox' },
+    ];
     
     return (
         <main className="bg-white text-gray-800">
@@ -131,8 +138,8 @@ const DetoxWellnessPage = () => {
             {/* --- Hero Section --- */}
             <section className="relative bg-gray-800 text-white py-32 sm:py-48 flex items-center justify-center">
                 <div 
-                  className="absolute inset-0 bg-cover bg-center"
-                  style={{ backgroundImage: "url('/service_detox.jpg')" }}
+                    className="absolute inset-0 bg-cover bg-center"
+                    style={{ backgroundImage: "url('/service_detox.jpg')" }}
                 ></div>
                 <div className="absolute inset-0 bg-black opacity-60"></div>
                 <div className="relative container mx-auto px-6 text-center z-10">
@@ -154,6 +161,8 @@ const DetoxWellnessPage = () => {
                     </motion.p>
                 </div>
             </section>
+
+            <Breadcrumbs items={breadcrumbItems} />
 
             {/* --- Main Content Section --- */}
             <section className="py-24">
@@ -274,7 +283,7 @@ const DetoxWellnessPage = () => {
                     <motion.div initial="hidden" animate="visible" variants={staggerContainer} className="mt-24">
                         <motion.h2 variants={itemVariants} className="text-4xl font-extrabold text-gray-900 text-center">Preparation & After-care</motion.h2>
                         <motion.p variants={itemVariants} className="mt-4 text-lg text-gray-600 text-center max-w-3xl mx-auto">
-                           To achieve the best results, please follow these simple but important guidelines before and after your session.
+                            To achieve the best results, please follow these simple but important guidelines before and after your session.
                         </motion.p>
 
                         <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-12">
@@ -354,4 +363,3 @@ const DetoxWellnessPage = () => {
 };
 
 export default DetoxWellnessPage;
-

@@ -15,7 +15,7 @@ const serviceLinks = [
   { name: 'Dry & Massage Cupping', href: '/services/dry-cupping' },
   { name: 'Pain Relief', href: '/services/hijama-for-pain-relief' },
   { name: 'Internal Health', href: '/services/hijama-for-internal-health' },
-  { name: 'Sports Recovery', href: '/services/hijama-for-sport-recovery' },
+  { name: 'Sports Recovery', href: '/services/hijama-for-sports-recovery' }, // <- Correct href
   { name: 'Detox & Wellness', href: '/services/hijama-for-detox' }
 ];
 
