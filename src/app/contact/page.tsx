@@ -125,7 +125,7 @@ const ContactPage = () => {
             Contact Us
           </h1>
           <p className="mt-4 text-2xl text-gray-300 max-w-2xl mx-auto">
-            We're here to help and answer any question you might have. We look forward to hearing from you.
+            We are here to help and answer any question you might have. We look forward to hearing from you.
           </p>
         </div>
       </section>

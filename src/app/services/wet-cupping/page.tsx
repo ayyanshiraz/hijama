@@ -315,7 +315,7 @@ const WetCuppingPage = () => {
                                 Frequently Asked Questions
                             </motion.h2>
                             <motion.p variants={itemVariants} className="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">
-                                We've compiled answers to common questions about Wet Hijama to help you feel informed and confident.
+                                We have compiled answers to common questions about Wet Hijama to help you feel informed and confident.
                             </motion.p>
                         </motion.div>
                         

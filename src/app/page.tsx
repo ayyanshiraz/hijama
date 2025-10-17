@@ -156,17 +156,17 @@ const testimonials = [
     rating: 5,
   },
   {
-    text: "I'm so grateful for the women's home service at Al Madina Hijama Center; it has worked wonders for my persistent skin issues and brought back my natural glow. Their professional and comfortable approach is something I highly recommend to all women seeking holistic care.",
+    text: "I am so grateful for the womens home service at Al Madina Hijama Center; it has worked wonders for my persistent skin issues and brought back my natural glow. Their professional and comfortable approach is something I highly recommend to all women seeking holistic care.",
     name: "Fizza Bashir",
     rating: 5,
   },
   {
-    text: "As a busy professional, the men's home service from Al Madina Hijama Center was a game-changer for my stress and high blood pressure. Their expert and efficient approach is something I'd recommend to any man looking to improve his health and regain focus.",
+    text: "As a busy professional, the mens home service from Al Madina Hijama Center was a game-changer for my stress and high blood pressure. Their expert and efficient approach is something I'd recommend to any man looking to improve his health and regain focus.",
     name: "Abdul Muhaymin",
     rating: 4,
   },
   {
-    text: "My visit to Al Madina Hijama Center was excellent, all thanks to Jameel ur Rehman's professional care which provided immense relief for my chronic back pain. I highly recommend their center to any man looking for effective, traditional healing.",
+    text: "My visit to Al Madina Hijama Center was excellent, all thanks to Jameel ur Rehman is professional care which provided immense relief for my chronic back pain. I highly recommend their center to any man looking for effective, traditional healing.",
     name: "Moiz Ahmad",
     rating: 4,
   },
@@ -711,7 +711,7 @@ const HomePage = () => {
       <section className="bg-[#1E4137] py-24">
         <div className="container mx-auto px-8 text-center">
           <h2 className="text-4xl md:text-5xl font-extrabold text-white">
-            Let's Book a Call to See How We can Help You!
+            Lets Book a Call to See How We can Help You!
           </h2>
           <p className="mt-4 text-lg text-gray-300 max-w-2xl mx-auto">
             Book a Free On-Call Consultation With Mr Jameel ur Rehman and we will guide you how Hijama can do wonders for you.
