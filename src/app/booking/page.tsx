@@ -4,6 +4,9 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronRight, Calendar, Clock, User, Check, Droplets, Wind, Zap, Heart, ShieldCheck, Award } from 'lucide-react';
 import Link from 'next/link';
+// 1. Import DatePicker and its CSS
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 
 // --- Data ---
 const services = [
@@ -49,9 +52,16 @@ const services = [
 const BookingPage = () => {
   const [step, setStep] = useState(1);
   const [selectedService, setSelectedService] = useState<typeof services[0] | null>(null);
+  const [selectedDate, setSelectedDate] = useState<Date | null>(null); // Use Date type
+  // Add state for form fields
+  const [name, setName] = useState('');
+  const [phone, setPhone] = useState('');
+  const [notes, setNotes] = useState(''); // Optional notes
+
 
   const handleSelectService = (service: typeof services[0]) => {
     setSelectedService(service);
+    setSelectedDate(null); // Reset date when service changes
     setStep(2); // Move to the next step
   };
 
@@ -60,6 +70,76 @@ const BookingPage = () => {
     center: { opacity: 1, x: 0 },
     exit: { opacity: 0, x: -50 },
   };
+
+  // Basic time filtering (optional): Prevent selecting past times on the current day
+  const filterPassedTime = (time: Date) => {
+    const currentDate = new Date();
+    const selectedDt = new Date(time);
+    return currentDate.getTime() < selectedDt.getTime();
+  };
+
+  // Handle form submission and redirect to WhatsApp
+  const handleBookingSubmit = (event: React.FormEvent) => {
+    event.preventDefault(); // Prevent default form submission
+    if (!name || !phone || !selectedService || !selectedDate) {
+      alert('Please fill in all required fields.'); // Basic validation
+      return;
+    }
+
+    // --- WhatsApp Integration ---
+    const yourWhatsappNumber = '+923007598000'; // Replace with YOUR WhatsApp number
+    const formattedDate = selectedDate.toLocaleString('en-US', {
+      weekday: 'long',
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+      hour: 'numeric',
+      minute: 'numeric',
+      hour12: true
+    });
+
+    // Construct the message - Ensure newlines are consistent
+    let messageLines = [
+      '*New Hijama Booking Request*',
+      '', // Add an empty line for spacing
+      `*Service:* ${selectedService.name}`,
+      `*Price:* Rs. ${selectedService.price}`,
+      `*Date & Time:* ${formattedDate}`,
+      `*Name:* ${name}`,
+      `*Phone:* ${phone}`,
+    ];
+    if (notes.trim() !== '') {
+        messageLines.push(`*Notes:* ${notes}`);
+    }
+    messageLines.push(''); // Add an empty line before the final text
+    messageLines.push('Please confirm this booking.');
+
+    // Join lines with newline character for encoding
+    const message = messageLines.join('\n');
+
+
+    // Encode the message for the URL
+    const encodedMessage = encodeURIComponent(message);
+
+    // --- Use the web.whatsapp.com format ---
+    const cleanPhoneNumber = yourWhatsappNumber.replace(/\D/g, '');
+    const whatsappUrl = `https://web.whatsapp.com/send?phone=${cleanPhoneNumber}&text=${encodedMessage}`;
+
+
+    // --- Debugging: Log the URL ---
+    console.log("Generated WhatsApp URL (Web):", whatsappUrl);
+    // --- End Debugging ---
+
+    // Redirect the user to WhatsApp
+    window.location.href = whatsappUrl;
+
+    // Optional: Reset state if needed
+    // --- End WhatsApp Integration ---
+  };
+
+  // Basic validation check for the submit button
+  const isStep3Valid = name.trim() !== '' && phone.trim() !== '';
+
 
   return (
     <main className="bg-gray-50 min-h-screen">
@@ -139,7 +219,7 @@ const BookingPage = () => {
                 </div>
               )}
 
-              {/* --- Step 2: Pick Date & Time (Placeholder) --- */}
+              {/* --- Step 2: Pick Date & Time --- */}
               {step === 2 && (
                 <div>
                   <h2 className="text-2xl font-bold text-gray-800 mb-6 flex items-center">
@@ -147,46 +227,154 @@ const BookingPage = () => {
                     Pick a Date & Time
                   </h2>
                    <div className="p-6 bg-white border border-gray-200 rounded-lg shadow-sm">
-                    <div className="mb-4">
-                        <h3 className="font-bold text-lg text-gray-800">Selected Service:</h3>
-                        <p className="text-teal-700 font-medium">{selectedService?.name}</p>
+                    {/* Display Selected Service */}
+                    <div className="mb-6">
+                      <h3 className="font-bold text-lg text-gray-800">Selected Service:</h3>
+                      <p className="text-teal-700 font-medium">{selectedService?.name || 'None selected'}</p>
                     </div>
-                     <div className="text-center py-10 border-2 border-dashed border-gray-300 rounded-lg">
-                       <Calendar className="w-12 h-12 text-gray-300 mx-auto mb-4" />
-                       <h3 className="text-xl font-bold text-gray-400">Date & Time Picker</h3>
-                       <p className="text-gray-400">This feature is under construction.</p>
-                       <button onClick={() => setStep(3)} className="mt-6 inline-flex items-center px-6 py-3 bg-teal-600 text-white font-semibold rounded-lg shadow-md hover:bg-teal-700 transition-colors">
-                           Proceed to Confirmation (Demo)
-                           <ChevronRight className="ml-2 h-5 w-5" />
+
+                    {/* Date & Time Picker Implementation */}
+                    <div className="mb-6">
+                        <label htmlFor="dateTime" className="block text-sm font-medium text-gray-700 mb-2">
+                            Choose Date & Time:
+                        </label>
+                        <DatePicker
+                            id="dateTime"
+                            selected={selectedDate}
+                            onChange={(date: Date | null) => setSelectedDate(date)}
+                            showTimeSelect // Enable time selection
+                            minDate={new Date()} // Prevent selecting past dates
+                            // filterTime={filterPassedTime} // Optional: filter past times
+                            dateFormat="MMMM d, yyyy h:mm aa" // Format for display
+                            timeIntervals={30} // Set time intervals (e.g., every 30 mins)
+                            className="w-full px-4 py-3 bg-gray-100 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-teal-500 text-black placeholder-gray-500" // Tailwind Styling
+                            placeholderText="Click to select date and time"
+                            wrapperClassName="w-full" // Ensure wrapper takes full width
+                        />
+                         {/* Basic error/guidance message */}
+                        {!selectedDate && (
+                          <p className="text-xs text-red-500 mt-1">Please select a date and time.</p>
+                        )}
+                    </div>
+
+                    {/* Display Selected Date/Time (Optional but helpful) */}
+                    {selectedDate && (
+                      <div className="mb-6 p-3 bg-teal-50 rounded-md border border-teal-200">
+                        <p className="text-sm font-medium text-teal-800">
+                          Selected Appointment: {selectedDate.toLocaleString('en-US', { dateStyle: 'full', timeStyle: 'short' })}
+                        </p>
+                      </div>
+                    )}
+
+                    {/* Navigation Buttons */}
+                    <div className="flex justify-between items-center mt-8">
+                       <button onClick={() => setStep(1)} className="text-sm text-gray-500 hover:text-gray-800 transition-colors">
+                            ← Back to Services
                        </button>
-                     </div>
-                     <button onClick={() => setStep(1)} className="mt-4 text-sm text-gray-500 hover:text-gray-800 transition-colors">
-                        &larr; Back to Services
-                     </button>
+                       <button
+                         onClick={() => {
+                            if (selectedDate) { // Only proceed if date is selected
+                                setStep(3);
+                            }
+                         }}
+                         disabled={!selectedDate} // Disable button if no date is selected
+                         className={`inline-flex items-center px-6 py-3 font-semibold rounded-lg shadow-md transition-colors ${
+                            selectedDate
+                             ? 'bg-[#FF6900] text-white hover:brightness-90'
+                             : 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                         }`}
+                       >
+                         Proceed to Confirmation
+                         <ChevronRight className="ml-2 h-5 w-5" />
+                       </button>
+                    </div>
                    </div>
                 </div>
               )}
 
-              {/* --- Step 3: Confirm Details (Placeholder) --- */}
+              {/* --- Step 3: Confirm Details --- */}
               {step === 3 && (
                 <div>
-                   <h2 className="text-2xl font-bold text-gray-800 mb-6 flex items-center">
-                    <span className="bg-teal-600 text-white rounded-full w-8 h-8 text-lg flex items-center justify-center mr-3">3</span>
-                    Confirm Your Details
-                  </h2>
-                  <div className="p-6 bg-white border border-gray-200 rounded-lg shadow-sm">
-                     <div className="text-center py-10 border-2 border-dashed border-gray-300 rounded-lg">
-                       <User className="w-12 h-12 text-gray-300 mx-auto mb-4" />
-                       <h3 className="text-xl font-bold text-gray-400">Confirmation Form</h3>
-                       <p className="text-gray-400">This feature is under construction.</p>
-                       <Link href="/" className="mt-6 inline-flex items-center px-6 py-3 bg-teal-600 text-white font-semibold rounded-lg shadow-md hover:bg-teal-700 transition-colors">
-                           Finish Booking (Demo)
-                       </Link>
-                     </div>
-                     <button onClick={() => setStep(2)} className="mt-4 text-sm text-gray-500 hover:text-gray-800 transition-colors">
-                        &larr; Back to Date & Time
-                     </button>
-                  </div>
+                    <h2 className="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+                     <span className="bg-teal-600 text-white rounded-full w-8 h-8 text-lg flex items-center justify-center mr-3">3</span>
+                     Confirm Your Details
+                   </h2>
+                  {/* Form for user details */}
+                  <form onSubmit={handleBookingSubmit} className="p-6 bg-white border border-gray-200 rounded-lg shadow-sm space-y-6">
+                       {/* Display selected service and time */}
+                       <div className="mb-4 pb-4 border-b border-gray-200">
+                         <h3 className="font-bold text-lg text-gray-800 mb-2">Review Your Booking:</h3>
+                         <p className="text-gray-600">Service: <span className="text-teal-700 font-medium">{selectedService?.name}</span></p>
+                         <p className="text-gray-600">Price: <span className="text-teal-700 font-medium">Rs. {selectedService?.price}</span></p>
+                         <p className="text-gray-600">Date & Time: <span className="text-teal-700 font-medium">{selectedDate ? selectedDate.toLocaleString('en-US', { dateStyle: 'full', timeStyle: 'short' }) : 'Not selected'}</span></p>
+                       </div>
+
+                       {/* Name Input */}
+                       <div>
+                         <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
+                           Full Name <span className="text-red-500">*</span>
+                         </label>
+                         <input
+                           type="text"
+                           id="name"
+                           value={name}
+                           onChange={(e) => setName(e.target.value)}
+                           required
+                           className="w-full px-4 py-3 bg-gray-100 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-teal-500 text-black placeholder-gray-500"
+                           placeholder="Enter your full name"
+                         />
+                       </div>
+
+                       {/* Phone Input */}
+                       <div>
+                         <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">
+                           Phone Number <span className="text-red-500">*</span>
+                         </label>
+                         <input
+                           type="tel" // Use type="tel" for phone numbers
+                           id="phone"
+                           value={phone}
+                           onChange={(e) => setPhone(e.target.value)}
+                           required
+                           className="w-full px-4 py-3 bg-gray-100 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-teal-500 text-black placeholder-gray-500"
+                           placeholder="Enter your phone number (e.g., 03xx-xxxxxxx)"
+                         />
+                       </div>
+
+                       {/* Optional Notes */}
+                        <div>
+                         <label htmlFor="notes" className="block text-sm font-medium text-gray-700 mb-1">
+                           Additional Notes (Optional)
+                         </label>
+                         <textarea
+                           id="notes"
+                           value={notes}
+                           onChange={(e) => setNotes(e.target.value)}
+                           rows={3}
+                           className="w-full px-4 py-3 bg-gray-100 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-teal-500 text-black placeholder-gray-500"
+                           placeholder="Any specific requests or health information?"
+                         ></textarea>
+                       </div>
+
+                       {/* Navigation and Submit Buttons */}
+                       <div className="flex justify-between items-center pt-4">
+                         <button type="button" onClick={() => setStep(2)} className="text-sm text-gray-500 hover:text-gray-800 transition-colors">
+                             ← Back to Date & Time
+                         </button>
+                         <button
+                           type="submit" // This button now triggers the form's onSubmit
+                           disabled={!isStep3Valid} // Disable if name or phone is empty
+                           className={`inline-flex items-center px-8 py-3 font-semibold rounded-lg shadow-md transition-colors ${
+                              isStep3Valid
+                               ? 'bg-[#FF6900] text-white hover:brightness-90'
+                               : 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                           }`}
+                         >
+                           {/* --- TEXT CHANGE HERE --- */}
+                           Confirm Booking
+                         </button>
+                       </div>
+                  </form>
                 </div>
               )}
 
@@ -194,9 +382,18 @@ const BookingPage = () => {
           </AnimatePresence>
         </div>
       </div>
+      {/* Add custom styles for react-datepicker if needed */}
+      <style jsx global>{`
+        .react-datepicker-wrapper {
+          width: 100%; /* Make the input wrapper take full width */
+        }
+        .react-datepicker__input-container input {
+          width: 100%; /* Make the input field take full width */
+        }
+        /* You can add more overrides here if necessary */
+      `}</style>
     </main>
   );
 };
 
 export default BookingPage;
-
