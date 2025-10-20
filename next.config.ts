@@ -1,7 +1,11 @@
-import type { NextConfig } from "next";
-
-const nextConfig: NextConfig = {
-  output: 'export', // Add this line
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  // Add this images block:
+  images: {
+    unoptimized: true,
+  },
+  // output: 'export', // You likely already have this line if you got the error
+  // ... any other configurations you might have
 };
 
-export default nextConfig;
+module.exports = nextConfig;

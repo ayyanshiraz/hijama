@@ -15,8 +15,8 @@ import {
 import { useState } from 'react';
 import { motion, AnimatePresence, Variants } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import Link from 'next/link'; // Import Link for navigation
-import Image from 'next/image';
+import Link from 'next/link';
+import Image from 'next/image'; // <-- Make sure Image is imported
 
 // Data for the services offered
 const servicesList = [
@@ -113,13 +113,13 @@ const ServicesPage = () => {
     <main className="bg-white text-gray-800">
       {/* --- Hero Section --- */}
       <section className="relative bg-gray-800 text-white py-32 sm:py-48 flex items-center justify-center">
-        <div 
+        <div
           className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: "url('/services/1.avif')" }}
+          style={{ backgroundImage: "url('/services/1.avif')" }} // This is likely a background, keep as style
         ></div>
         <div className="absolute inset-0 bg-black opacity-60"></div>
         <div className="relative container mx-auto px-6 text-center z-10">
-          <motion.h1 
+          <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: 'easeOut' }}
@@ -127,7 +127,7 @@ const ServicesPage = () => {
           >
             Our Hijama Services
           </motion.h1>
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
@@ -162,13 +162,22 @@ const ServicesPage = () => {
               <motion.div
                 key={index}
                 variants={itemVariants}
-                className="h-full"
+                className="h-full" // Ensure motion.div takes full height for Link
               >
                 <Link href={service.learnMoreLink} passHref className="h-full">
+                  {/* The clickable card */}
                   <div className="bg-[#1E4137] rounded-2xl shadow-lg overflow-hidden flex flex-col group transform transition-transform duration-300 hover:-translate-y-2 cursor-pointer h-full">
+                    {/* Image Container */}
                     <div className="relative w-full h-48">
-                      <Image src={service.image} alt={service.title} className="w-full h-full object-cover" />
+                      <Image
+                        src={service.image}
+                        alt={service.title}
+                        fill={true} // Use fill prop
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" // Add sizes
+                        className="object-cover" // Removed w-full h-full as fill handles it
+                      />
                     </div>
+                    {/* Text Content Container */}
                     <div className="p-6 flex flex-col flex-grow text-white">
                       <div className="flex items-center mb-4">
                         <div className="bg-white/10 text-white rounded-lg w-10 h-10 flex items-center justify-center mr-4 shrink-0">
@@ -206,53 +215,53 @@ const ServicesPage = () => {
       {/* --- FAQ Section --- */}
       <section className="bg-gray-50 py-24">
         <div className="container mx-auto px-8 sm:px-16">
-            <motion.div 
-                className="text-center mb-16"
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.2 }}
-                variants={staggerContainer}
+            <motion.div
+              className="text-center mb-16"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
+              variants={staggerContainer}
             >
-                <motion.h2 variants={itemVariants} className="text-4xl md:text-5xl font-extrabold text-gray-800">
-                    Frequently Asked Questions
-                </motion.h2>
-                <motion.p variants={itemVariants} className="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">
-                    Your questions, answered. Here is some information to help you feel prepared for your healing journey.
-                </motion.p>
+              <motion.h2 variants={itemVariants} className="text-4xl md:text-5xl font-extrabold text-gray-800">
+                Frequently Asked Questions
+              </motion.h2>
+              <motion.p variants={itemVariants} className="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">
+                Your questions, answered. Here is some information to help you feel prepared for your healing journey.
+              </motion.p>
             </motion.div>
-            
+
             <div className="max-w-4xl mx-auto flex flex-col gap-y-4">
-                {faqs.map((faq, index) => {
-                    const isOpen = openFaqIndex === index;
-                    return (
-                        <div key={index}>
-                            <button
-                                onClick={() => setOpenFaqIndex(isOpen ? null : index)}
-                                className={`w-full flex justify-between items-center text-left gap-4 bg-[#1E4137] p-6 text-white transition-all duration-300 hover:bg-opacity-90 ${isOpen ? 'rounded-t-lg' : 'rounded-lg'}`}
-                            >
-                                <span className="text-lg font-semibold">{faq.question}</span>
-                                {isOpen ? <Minus className="w-5 h-5 text-white flex-shrink-0" /> : <Plus className="w-5 h-5 text-white flex-shrink-0" />}
-                            </button>
-                            <AnimatePresence>
-                                {isOpen && (
-                                    <motion.div
-                                        initial={{ opacity: 0, height: 0 }}
-                                        animate={{ opacity: 1, height: 'auto' }}
-                                        exit={{ opacity: 0, height: 0 }}
-                                        transition={{ duration: 0.3, ease: 'easeInOut' }}
-                                        className="overflow-hidden bg-white rounded-b-lg border border-t-0 border-gray-200"
-                                    >
-                                        <div className="p-6">
-                                            <p className="text-gray-700 leading-relaxed">
-                                                {faq.answer}
-                                            </p>
-                                        </div>
-                                    </motion.div>
-                                )}
-                            </AnimatePresence>
-                        </div>
-                    );
-                })}
+              {faqs.map((faq, index) => {
+                  const isOpen = openFaqIndex === index;
+                  return (
+                    <div key={index}>
+                      <button
+                        onClick={() => setOpenFaqIndex(isOpen ? null : index)}
+                        className={`w-full flex justify-between items-center text-left gap-4 bg-[#1E4137] p-6 text-white transition-all duration-300 hover:bg-opacity-90 ${isOpen ? 'rounded-t-lg' : 'rounded-lg'}`}
+                      >
+                        <span className="text-lg font-semibold">{faq.question}</span>
+                        {isOpen ? <Minus className="w-5 h-5 text-white flex-shrink-0" /> : <Plus className="w-5 h-5 text-white flex-shrink-0" />}
+                      </button>
+                      <AnimatePresence>
+                        {isOpen && (
+                          <motion.div
+                            initial={{ opacity: 0, height: 0 }}
+                            animate={{ opacity: 1, height: 'auto' }}
+                            exit={{ opacity: 0, height: 0 }}
+                            transition={{ duration: 0.3, ease: 'easeInOut' }}
+                            className="overflow-hidden bg-white rounded-b-lg border border-t-0 border-gray-200"
+                          >
+                            <div className="p-6">
+                              <p className="text-gray-700 leading-relaxed">
+                                {faq.answer}
+                              </p>
+                            </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </div>
+                  );
+              })}
             </div>
         </div>
       </section>
@@ -282,4 +291,3 @@ const ServicesPage = () => {
 };
 
 export default ServicesPage;
-

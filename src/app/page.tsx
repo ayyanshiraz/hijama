@@ -147,42 +147,42 @@ const hijamaBenefits = [
 
 const testimonials = [
   {
-    text: "The professional home service for both men and women at Al Madina Hijama Center is exceptional, providing incredible relief for my chronic fatigue and headaches. I wholeheartedly recommend their effective, natural healing methods for anyone seeking renewed well-being.",
+    text: "The wet cupping session significantly eased my chronic back pain; the staff was incredibly professional.",
     name: "Musa Mutahir",
     rating: 4,
   },
   {
-    text: "The convenient home service from Al Madina Hijama Center, available for both men and women, provided incredible relief for my persistent back and shoulder pain. I highly recommend their professional and effective therapy for anyone dealing with joint or muscle discomfort.",
+    text: "Hijama with Mr. Jameel ur Rehman has been a game-changer for my post-workout sports recovery.",
     name: "Muhammad Mustafa",
     rating: 5,
   },
   {
-    text: "I am so grateful for the womens home service at Al Madina Hijama Center; it has worked wonders for my persistent skin issues and brought back my natural glow. Their professional and comfortable approach is something I highly recommend to all women seeking holistic care.",
+    text: "After just one session for my migraine, I felt amazing. So grateful they have female therapists available!",
     name: "Fizza Bashir",
     rating: 5,
   },
   {
-    text: "As a busy professional, the mens home service from Al Madina Hijama Center was a game-changer for my stress and high blood pressure. Their expert and efficient approach is something Id recommend to any man looking to improve his health and regain focus.",
+    text: "My muscle stiffness is completely gone after the dry cupping therapy, I highly recommend their services.",
     name: "Abdul Muhaymin",
     rating: 4,
   },
   {
-    text: "My visit to Al Madina Hijama Center was excellent, all thanks to Jameel ur Rehman is professional care which provided immense relief for my chronic back pain. I highly recommend their center to any man looking for effective, traditional healing.",
+    text: "The hijama for back pain performed by Mr. Jameel ur Rehman provided instant and lasting relief.",
     name: "Moiz Ahmad",
     rating: 4,
   },
   {
-    text: "After struggling with digestive issues for months, the treatment at Al Madina Hijama Center brought me incredible relief and a feeling of total wellness. The staff is professional, and the facility is exceptionally clean; I wholeheartedly recommend their services.",
+    text: "It's wonderful that they offer both male and female therapists, making it very comfortable for my family.",
     name: "Roshaan Ahmed",
     rating: 5,
   },
   {
-    text: "I was amazed by the results for my persistent skin issues and hair fall after visiting Al Madina Hijama Center. The female practitioners were incredibly understanding and professional, creating a very comfortable and safe environment for my treatment. My skin has never looked clearer!",
+    text: "I was so impressed with their hygienic and convenient home service; the whole process was seamless.",
     name: "Ayesha Akhtar",
     rating: 5,
   },
   {
-    text: "Dealing with constant fatigue was draining, but the Hijama session at Al Madina Hijama Center was a game-changer for my energy levels. The male practitioners were professional and made the experience comfortable, and I feel completely revitalized. I highly recommend it for any man looking to boost his vitality.",
+    text: "The wet cupping treatment was excellent and the clinic environment is very clean and professional.",
     name: "Sanaan Zahid",
     rating: 4,
   },

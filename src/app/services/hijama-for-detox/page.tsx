@@ -4,6 +4,8 @@ import { Phone, CheckCircle, Shield, Clock, Sun, Moon, Droplets, Plus, Minus, Ch
 import { motion, AnimatePresence, Variants } from 'framer-motion';
 import { useState } from 'react';
 import Breadcrumbs from '@/components/Breadcrumbs';
+import Image from 'next/image';
+import Link from 'next/link';
 
 const benefits = [
     { icon: CheckCircle, text: 'Effectively removes stagnant blood and metabolic waste' },
@@ -260,13 +262,13 @@ const DetoxWellnessPage = () => {
                                 </div>
 
 
-                                <a
-                                    href="tel:+923007598000"
+                                 <Link
+                                    href="/booking"
                                     className="mt-6 inline-flex w-full items-center justify-center px-6 py-4 bg-[#FF6900] text-white font-bold text-lg rounded-lg shadow-md hover:brightness-90 transition-all duration-300 transform hover:scale-105"
                                 >
-                                    <Phone className="mr-3 h-5 w-5" />
+                                    
                                     Book Now
-                                </a>
+                                </Link>
 
                                 <div className="mt-8 text-center">
                                     <h4 className="text-lg font-semibold text-gray-800">Your Specialist</h4>

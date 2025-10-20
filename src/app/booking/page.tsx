@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronRight, Check, Droplets, Wind, Zap, Heart, ShieldCheck, Award } from 'lucide-react';
+import { ChevronRight, Calendar, Clock, User, Check, Droplets, Wind, Zap, Heart, ShieldCheck, Award } from 'lucide-react';
 import Link from 'next/link';
 // 1. Import DatePicker and its CSS
 import DatePicker from 'react-datepicker';
@@ -71,7 +71,12 @@ const BookingPage = () => {
     exit: { opacity: 0, x: -50 },
   };
 
-  
+  // Basic time filtering (optional): Prevent selecting past times on the current day
+  const filterPassedTime = (time: Date) => {
+    const currentDate = new Date();
+    const selectedDt = new Date(time);
+    return currentDate.getTime() < selectedDt.getTime();
+  };
 
   // Handle form submission and redirect to WhatsApp
   const handleBookingSubmit = (event: React.FormEvent) => {
@@ -94,7 +99,7 @@ const BookingPage = () => {
     });
 
     // Construct the message - Ensure newlines are consistent
-    const messageLines = [
+    let messageLines = [
       '*New Hijama Booking Request*',
       '', // Add an empty line for spacing
       `*Service:* ${selectedService.name}`,
@@ -116,13 +121,14 @@ const BookingPage = () => {
     // Encode the message for the URL
     const encodedMessage = encodeURIComponent(message);
 
-    // --- Use the web.whatsapp.com format ---
+    // --- CHANGE BACK HERE: Use the wa.me format ---
+    // Remove '+' and any non-digit characters from the number
     const cleanPhoneNumber = yourWhatsappNumber.replace(/\D/g, '');
-    const whatsappUrl = `https://web.whatsapp.com/send?phone=${cleanPhoneNumber}&text=${encodedMessage}`;
-
+    const whatsappUrl = `https://wa.me/${cleanPhoneNumber}?text=${encodedMessage}`;
+    // --- END CHANGE ---
 
     // --- Debugging: Log the URL ---
-    console.log("Generated WhatsApp URL (Web):", whatsappUrl);
+    console.log("Generated WhatsApp URL (wa.me):", whatsappUrl);
     // --- End Debugging ---
 
     // Redirect the user to WhatsApp
@@ -365,7 +371,6 @@ const BookingPage = () => {
                                : 'bg-gray-300 text-gray-500 cursor-not-allowed'
                            }`}
                          >
-                           {/* --- TEXT CHANGE HERE --- */}
                            Confirm Booking
                          </button>
                        </div>

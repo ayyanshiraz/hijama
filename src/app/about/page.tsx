@@ -142,7 +142,7 @@ const AboutPage = () => {
                 </p>
             </motion.div>
             <motion.div variants={fadeInRight} className="flex justify-center">
-                 <Image
+                 <img
                     src="/mission.jpg"
                     alt="Hijama therapy session in progress, focusing on healing"
                     width={500}

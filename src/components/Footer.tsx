@@ -8,6 +8,8 @@ const footerNavLinks = [
   { name: 'About', href: '/about' },
   { name: 'Services', href: '/services' },
   { name: 'Contact', href: '/contact' },
+   { name: 'Blog', href: '/blog' },
+  { name: 'Privacy Policy', href: '/privacy-policy' },
 ];
 
 const serviceLinks = [
@@ -15,7 +17,7 @@ const serviceLinks = [
   { name: 'Dry & Massage Cupping', href: '/services/dry-cupping' },
   { name: 'Pain Relief', href: '/services/hijama-for-pain-relief' },
   { name: 'Internal Health', href: '/services/hijama-for-internal-health' },
-  { name: 'Sports Recovery', href: '/services/hijama-for-sports-recovery' }, // <- Correct href
+  { name: 'Sports Recovery', href: '/services/hijama-for-sports-recovery' },
   { name: 'Detox & Wellness', href: '/services/hijama-for-detox' }
 ];
 
@@ -82,8 +84,8 @@ const Footer = () => {
             <nav className="flex flex-col space-y-3">
               {serviceLinks.map((link) => (
                 <Link key={link.name} href={link.href} className="text-gray-300 hover:text-white transition-colors flex items-center justify-center sm:justify-start gap-2">
-                   <ChevronRight className="w-4 h-4 flex-shrink-0" />
-                   <span>{link.name}</span>
+                    <ChevronRight className="w-4 h-4 flex-shrink-0" />
+                    <span>{link.name}</span>
                 </Link>
               ))}
             </nav>
@@ -121,3 +123,4 @@ const Footer = () => {
 };
 
 export default Footer;
+
