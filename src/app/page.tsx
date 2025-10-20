@@ -8,7 +8,7 @@ import {
 import { useState, useEffect, useRef } from 'react';
 import { useInView } from 'react-intersection-observer';
 import { motion, Variants, animate, AnimatePresence } from 'framer-motion';
-import Image from 'next/image';
+
 
 const slideshowData = [
   {
