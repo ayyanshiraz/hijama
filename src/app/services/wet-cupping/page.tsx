@@ -4,6 +4,7 @@ import { Phone, CheckCircle, Shield, Clock, Sun, Moon, Droplets, Plus, Minus, Ch
 import { motion, AnimatePresence, Variants } from 'framer-motion';
 import { useState } from 'react';
 import Breadcrumbs from '@/components/Breadcrumbs'; // Import the new component
+import Image from 'next/image';
 
 const benefits = [
     { icon: CheckCircle, text: 'Removes toxins and stagnant blood' },

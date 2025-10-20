@@ -16,6 +16,7 @@ import { useState } from 'react';
 import { motion, AnimatePresence, Variants } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import Link from 'next/link'; // Import Link for navigation
+import Image from 'next/image';
 
 // Data for the services offered
 const servicesList = [
@@ -166,7 +167,7 @@ const ServicesPage = () => {
                 <Link href={service.learnMoreLink} passHref className="h-full">
                   <div className="bg-[#1E4137] rounded-2xl shadow-lg overflow-hidden flex flex-col group transform transition-transform duration-300 hover:-translate-y-2 cursor-pointer h-full">
                     <div className="relative w-full h-48">
-                      <img src={service.image} alt={service.title} className="w-full h-full object-cover" />
+                      <Image src={service.image} alt={service.title} className="w-full h-full object-cover" />
                     </div>
                     <div className="p-6 flex flex-col flex-grow text-white">
                       <div className="flex items-center mb-4">

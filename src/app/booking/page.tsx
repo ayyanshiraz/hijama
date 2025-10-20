@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronRight, Calendar, Clock, User, Check, Droplets, Wind, Zap, Heart, ShieldCheck, Award } from 'lucide-react';
+import { ChevronRight, Check, Droplets, Wind, Zap, Heart, ShieldCheck, Award } from 'lucide-react';
 import Link from 'next/link';
 // 1. Import DatePicker and its CSS
 import DatePicker from 'react-datepicker';
@@ -71,12 +71,7 @@ const BookingPage = () => {
     exit: { opacity: 0, x: -50 },
   };
 
-  // Basic time filtering (optional): Prevent selecting past times on the current day
-  const filterPassedTime = (time: Date) => {
-    const currentDate = new Date();
-    const selectedDt = new Date(time);
-    return currentDate.getTime() < selectedDt.getTime();
-  };
+  
 
   // Handle form submission and redirect to WhatsApp
   const handleBookingSubmit = (event: React.FormEvent) => {
@@ -99,7 +94,7 @@ const BookingPage = () => {
     });
 
     // Construct the message - Ensure newlines are consistent
-    let messageLines = [
+    const messageLines = [
       '*New Hijama Booking Request*',
       '', // Add an empty line for spacing
       `*Service:* ${selectedService.name}`,

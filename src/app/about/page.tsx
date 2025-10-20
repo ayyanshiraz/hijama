@@ -5,6 +5,8 @@ import { motion, Variants } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { useEffect, useRef } from 'react';
 import { animate } from 'framer-motion';
+import Image from 'next/image';
+
 
 // --- Reusable AnimatedStat Component ---
 type AnimatedStatProps = {
@@ -140,7 +142,7 @@ const AboutPage = () => {
                 </p>
             </motion.div>
             <motion.div variants={fadeInRight} className="flex justify-center">
-                 <img
+                 <Image
                     src="/mission.jpg"
                     alt="Hijama therapy session in progress, focusing on healing"
                     width={500}
