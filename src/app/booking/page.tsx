@@ -99,7 +99,7 @@ const BookingPage = () => {
     });
 
     // Construct the message - Ensure newlines are consistent
-    let messageLines = [
+    const messageLines = [
       '*New Hijama Booking Request*',
       '', // Add an empty line for spacing
       `*Service:* ${selectedService.name}`,
