@@ -25,7 +25,7 @@ const slideshowData = [
     hasIcon: true, // Keep icon for phone number
   },
   {
-    image: '/hero5.webp',
+    image: '/hero5.jpg',
     title: (
       <>
         Discover <span className="text-teal-400">Natural Healing</span>
@@ -53,7 +53,7 @@ const slideshowData = [
     hasIcon: false, // No icon for our services
   },
   {
-    image: '/hero2.webp',
+    image: '/hero2.jpg',
     title: (
       <>
         Revitalize Your Body
@@ -62,9 +62,9 @@ const slideshowData = [
       </>
     ),
     subtitle: 'Take the first step towards better health. Schedule your personal consultation and therapy session today.',
-    buttonText: 'Book An Appointment',
-    buttonLink: 'tel:+92 300 7598000', // This link is now updated
-    hasIcon: true, // No icon for book appointment
+    buttonText: 'Book A Session',
+    buttonLink: '/services', // UPDATED: This now points to the services page to start the funnel.
+    hasIcon: false, // UPDATED: The phone icon is removed.
   },
 ];
 
@@ -98,49 +98,49 @@ const hijamaBenefits = [
         icon: SquareKanban,
         title: "Enhanced Detoxification",
         description: "Draws out toxins and impurities from the body, promoting clearer skin and improved organ function.",
-        image: "/hijama-detox.png"
+        image: "/hijama-detox.jpg"
     },
     {
         icon: LineChart,
         title: "Improved Blood Circulation",
         description: "Stimulates blood flow to ensure oxygen and essential nutrients reach all tissues effectively.",
-        image: "/hijama-blood.png"
+        image: "/hijama-blood.jpg"
     },
     {
         icon: Droplets,
         title: "Reduced Inflammation",
         description: "Provides natural relief from joint pain, arthritis, and muscle soreness without medication.",
-        image: "/hijama-inflammation.png"
+        image: "/hijama-inflammation.jpg"
     },
     {
         icon: Brain,
         title: "Mental Clarity & Stress Relief",
         description: "Calms the nervous system, leading to better sleep, improved focus, and a sense of well-being.",
-        image: "/hijama-mind.png"
+        image: "/hijama-mind.jpg"
     },
     {
         icon: ShieldCheck,
         title: "Strengthened Immune System",
         description: "Activates the bodys natural defenses by stimulating the production of immune cells.",
-        image: "/hijama-immune.png"
+        image: "/hijama-immune.jpg"
     },
     {
         icon: Sunrise,
         title: "Accelerated Healing",
         description: "Boosts the bodys natural repair processes for faster recovery from injuries and muscle fatigue.",
-        image: "/hijama-healing.png"
+        image: "/hijama-healing.jpg"
     },
     {
         icon: Sparkles,
         title: "Rejuvenated Skin Health",
         description: "Helps treat skin conditions like acne and eczema by improving local circulation and detoxification.",
-        image: "/hijama-skin.png"
+        image: "/hijama-skin.jpg"
     },
     {
         icon: Soup,
         title: "Regulated Digestive System",
         description: "Aids in relieving digestive issues such as bloating, constipation, and loss of appetite.",
-        image: "/hijama-digestive.png"
+        image: "/hijama-digestive.jpg"
     }
 ];
 
@@ -454,7 +454,7 @@ const HomePage = () => {
               variants={fadeInVariants}
             >
               <img 
-                src="/hijama-process.png"
+                src="/hijama.jpg"
                 alt="Hijama cupping therapy showing cups on a back in a clean, serene setting" 
                 className="w-full h-full object-cover rounded-2xl" 
               />
@@ -664,7 +664,7 @@ const HomePage = () => {
                         key={`${currentTestimonialIndex}-${index}`}
                         className="bg-white p-6 rounded-2xl shadow-lg flex flex-col text-left h-full"
                       >
-                        <p className="text-gray-600 leading-relaxed flex-grow mb-4">
+                        <p className="text-gray-600 leading-relaxed mb-4">
                           &ldquo;{testimonial.text}&rdquo;
                         </p>
                         <div className="mt-auto pt-4 border-t border-gray-100 w-full">
@@ -864,3 +864,4 @@ const HomePage = () => {
 };
 
 export default HomePage;
+

@@ -141,7 +141,7 @@ const AboutPage = () => {
             </motion.div>
             <motion.div variants={fadeInRight} className="flex justify-center">
                  <img
-                    src="/mission.png"
+                    src="/mission.jpg"
                     alt="Hijama therapy session in progress, focusing on healing"
                     width={500}
                     height={400}
@@ -162,7 +162,7 @@ const AboutPage = () => {
         <div className="container mx-auto px-12 sm:px-20 lg:px-32 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <motion.div variants={fadeInLeft} className="flex justify-center">
                  <img
-                    src="/vision.png"
+                    src="/vision.jpg"
                     alt="A serene, healthy environment representing the vision of community well-being"
                     width={500}
                     height={400}

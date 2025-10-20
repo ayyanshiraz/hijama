@@ -15,6 +15,7 @@ import {
 import { useState } from 'react';
 import { motion, AnimatePresence, Variants } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import Link from 'next/link'; // Import Link for navigation
 
 // Data for the services offered
 const servicesList = [
@@ -22,43 +23,43 @@ const servicesList = [
     icon: Droplets,
     title: 'Wet Cupping (Hijama)',
     description: 'The traditional Prophetic method involving light scratches and suction to remove stagnant blood and toxins, boosting immunity and promoting overall healing.',
-    image: '/service_wet_cupping.jpg',
-    link: '/services/wet-cupping'
+    image: '/services/s1.jpg',
+    learnMoreLink: '/services/wet-cupping'
   },
   {
     icon: Wind,
     title: 'Dry & Massage Cupping',
     description: 'A non-invasive technique where suction is applied to the skin, helping to relieve muscle tension, reduce inflammation, and improve blood flow without incisions.',
-    image: '/service_dry_cupping.jpg',
-    link: '/services/dry-cupping'
+    image: '/services/s2.jpg',
+    learnMoreLink: '/services/dry-cupping'
   },
   {
     icon: Zap,
     title: 'Hijama for Pain Relief',
     description: 'Targeted therapy for chronic pain conditions such as migraines, lower back pain, sciatica, and arthritis. A natural alternative to medication.',
-    image: '/service_pain_relief.jpg',
-    link: '/services/hijama-for-pain-relief'
+    image: '/services/s3.jpg',
+    learnMoreLink: '/services/hijama-for-pain-relief'
   },
   {
     icon: Heart,
     title: 'Hijama for Internal Health',
     description: 'A holistic approach to managing internal conditions like high blood pressure, digestive issues, and hormonal imbalances including PCOS and fertility.',
-    image: '/service_internal_health.jpg',
-    link: '/services/hijama-for-internal-health'
+    image: '/services/s4.jpg',
+    learnMoreLink: '/services/hijama-for-internal-health'
   },
   {
     icon: ShieldCheck,
     title: 'Hijama for Sports Recovery',
     description: 'Accelerate muscle recovery, reduce soreness, and improve flexibility for athletes and active individuals. Enhances performance and prevents injuries.',
-    image: '/service_sports_recovery.jpg',
-    link: '/services/hijama-for-sports-recovery'
+    image: '/services/s5.jpg',
+    learnMoreLink: '/services/hijama-for-sports-recovery'
   },
   {
     icon: Award,
     title: 'Hijama for Detox & Wellness',
     description: 'A comprehensive full-body detox to cleanse impurities, boost your immune system, improve skin health, and increase energy levels and mental clarity.',
-    image: '/service_detox.jpg',
-    link: '/services/hijama-for-detox'
+    image: '/services/s6.jpg',
+    learnMoreLink: '/services/hijama-for-detox'
   }
 ];
 
@@ -113,7 +114,7 @@ const ServicesPage = () => {
       <section className="relative bg-gray-800 text-white py-32 sm:py-48 flex items-center justify-center">
         <div 
           className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: "url('/services_hero.jpg')" }}
+          style={{ backgroundImage: "url('/services/1.avif')" }}
         ></div>
         <div className="absolute inset-0 bg-black opacity-60"></div>
         <div className="relative container mx-auto px-6 text-center z-10">
@@ -160,31 +161,41 @@ const ServicesPage = () => {
               <motion.div
                 key={index}
                 variants={itemVariants}
-                className="bg-[#1E4137] rounded-2xl shadow-lg overflow-hidden flex flex-col group transform transition-transform duration-300 hover:-translate-y-2 hover:scale-105"
+                className="h-full"
               >
-                <div className="relative w-full h-48">
-                  <img src={service.image} alt={service.title} className="w-full h-full object-cover" />
-                </div>
-                <div className="p-6 flex flex-col flex-grow text-white">
-                  <div className="flex items-center mb-4">
-                    <div className="bg-white/10 text-white rounded-lg w-10 h-10 flex items-center justify-center mr-4 shrink-0">
-                      <service.icon className="w-6 h-6" />
+                <Link href={service.learnMoreLink} passHref className="h-full">
+                  <div className="bg-[#1E4137] rounded-2xl shadow-lg overflow-hidden flex flex-col group transform transition-transform duration-300 hover:-translate-y-2 cursor-pointer h-full">
+                    <div className="relative w-full h-48">
+                      <img src={service.image} alt={service.title} className="w-full h-full object-cover" />
                     </div>
-                    <h3 className="text-xl font-bold leading-tight">
-                      {service.title}
-                    </h3>
+                    <div className="p-6 flex flex-col flex-grow text-white">
+                      <div className="flex items-center mb-4">
+                        <div className="bg-white/10 text-white rounded-lg w-10 h-10 flex items-center justify-center mr-4 shrink-0">
+                          <service.icon className="w-6 h-6" />
+                        </div>
+                        <h3 className="text-xl font-bold leading-tight">
+                          {service.title}
+                        </h3>
+                      </div>
+                      <p className="text-gray-300 text-sm flex-grow mb-6">
+                        {service.description}
+                      </p>
+                      <div className="mt-auto">
+                        <button
+                          onClick={(e) => {
+                            e.preventDefault(); // Prevent the Link's navigation
+                            e.stopPropagation(); // Stop the event from bubbling to the parent Link
+                            window.location.href = '/booking'; // Navigate manually to booking
+                          }}
+                          className="inline-flex items-center justify-center text-center px-5 py-3 bg-[#FF6900] text-white font-semibold rounded-lg hover:brightness-90 transition-all duration-300 w-full"
+                        >
+                          Book Now
+                          <ChevronRight className="ml-2 h-5 w-5" />
+                        </button>
+                      </div>
+                    </div>
                   </div>
-                  <p className="text-gray-300 text-sm flex-grow mb-4">
-                    {service.description}
-                  </p>
-                  <a
-                    href={service.link}
-                    className="mt-auto inline-flex items-center justify-center text-center px-5 py-3 bg-[#FF6900] text-white font-semibold rounded-lg hover:brightness-90 transition-all duration-300"
-                  >
-                    Learn More
-                    <ChevronRight className="ml-2 h-5 w-5" />
-                  </a>
-                </div>
+                </Link>
               </motion.div>
             ))}
           </div>
