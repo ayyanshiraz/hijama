@@ -1,0 +1,11 @@
+# Allow crawling for all compliant web crawlers
+User-agent: *
+Allow: /
+
+# Disallow specific paths if you need to block crawlers (optional examples)
+# Disallow: /admin/
+# Disallow: /temp/
+# Disallow: /api/ # You might want to disallow API routes if they aren't meant for public indexing
+
+# Point crawlers to your sitemap
+Sitemap: https://almadinahijamacenter.com/sitemap.xml

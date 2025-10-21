@@ -12,7 +12,7 @@ import { motion, Variants, animate, AnimatePresence } from 'framer-motion';
 
 const slideshowData = [
   {
-    image: '/hero1.jpg',
+    image: '/hero.jpg',
     title: (
       <>
         One Of The Most <span className="text-teal-400">Credible</span>
@@ -26,7 +26,7 @@ const slideshowData = [
     hasIcon: true, // Keep icon for phone number
   },
   {
-    image: '/hero5.jpg',
+    image: '/hero5.png',
     title: (
       <>
         Discover <span className="text-teal-400">Natural Healing</span>
@@ -54,7 +54,7 @@ const slideshowData = [
     hasIcon: false, // No icon for our services
   },
   {
-    image: '/hero2.jpg',
+    image: '/hero2.png',
     title: (
       <>
         Revitalize Your Body
@@ -172,7 +172,7 @@ const testimonials = [
     rating: 4,
   },
   {
-    text: "It's wonderful that they offer both male and female therapists, making it very comfortable for my family.",
+    text: "Its wonderful that they offer both male and female therapists, making it very comfortable for my family.",
     name: "Roshaan Ahmed",
     rating: 5,
   },
@@ -328,7 +328,7 @@ const HomePage = () => {
     setDirection(-1);
     setCurrentTestimonialIndex((prevIndex) => (prevIndex - 1 + testimonials.length) % testimonials.length);
   };
-  
+
   const goToTestimonial = (index: number) => {
     setDirection(index > currentTestimonialIndex ? 1 : -1);
     setCurrentTestimonialIndex(index);
@@ -392,7 +392,7 @@ const HomePage = () => {
           ))}
         </div>
       </section>
-      
+
       {/* --- FEATURES SECTION --- */}
       <section id="features" className="relative py-24">
         <div className="absolute top-0 left-0 w-full overflow-hidden leading-none">
@@ -405,8 +405,8 @@ const HomePage = () => {
           <h2 className="text-4xl md:text-5xl font-extrabold text-gray-800 mt-2">Restore Your Mind, Body & Soul</h2>
           <div className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {features.map((feature, index) => (
-              <div 
-                key={index} 
+              <div
+                key={index}
                 className="bg-white p-8 rounded-2xl shadow-lg flex flex-col items-center transform hover:-translate-y-2 transition-transform duration-300"
               >
                 <div className="bg-orange-100 rounded-full p-4">
@@ -425,8 +425,8 @@ const HomePage = () => {
       </section>
 
       {/* --- What is Hijama Section --- */}
-      <motion.section 
-        id="about" 
+      <motion.section
+        id="about"
         className="py-24 bg-white"
         ref={hijamaRef}
         initial="hidden"
@@ -435,13 +435,13 @@ const HomePage = () => {
       >
         <div className="container mx-auto px-8 sm:px-16">
           <div className="text-center">
-            <motion.h2 
+            <motion.h2
               className="text-4xl md:text-5xl font-black text-black tracking-tight"
               variants={itemVariants}
             >
               But What Is Hijama?
             </motion.h2>
-            <motion.p 
+            <motion.p
               className="mt-4 text-lg text-black"
               variants={itemVariants}
             >
@@ -450,19 +450,22 @@ const HomePage = () => {
           </div>
 
           <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <motion.div 
+            {/* <<< Hijama Image with Hover Effect >>> */}
+            <motion.div
               className="relative w-full h-110 rounded-2xl shadow-2xl overflow-hidden"
               variants={fadeInVariants}
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
             >
-              <img 
-                src="/hijama.jpg"
-                alt="Hijama cupping therapy showing cups on a back in a clean, serene setting" 
-                className="w-full h-full object-cover rounded-2xl" 
+              <img
+                src="/why.jpg"
+                alt="Hijama cupping therapy showing cups on a back in a clean, serene setting"
+                className="w-full h-full object-cover rounded-2xl"
               />
             </motion.div>
 
             <div className="text-left md:pl-8">
-              <motion.p 
+              <motion.p
                 className="text-black leading-relaxed"
                 variants={itemVariants}
               >
@@ -471,13 +474,13 @@ const HomePage = () => {
                 wide range of benefits all the way from head to toe.
               </motion.p>
 
-              <motion.div 
+              <motion.div
                 className="mt-8 grid grid-cols-2 gap-y-8 gap-x-4 text-center"
                 variants={staggerContainerVariants}
               >
                 {benefits.map((benefit, index) => (
-                  <motion.div 
-                    key={index} 
+                  <motion.div
+                    key={index}
                     className="flex flex-col items-center justify-start"
                     variants={itemVariants}
                   >
@@ -503,8 +506,8 @@ const HomePage = () => {
       </motion.section>
 
       {/* --- Benefits Of Hijama Section --- */}
-      <motion.section 
-        id="benefits" 
+      <motion.section
+        id="benefits"
         className="py-24 bg-[#F0FDF4]"
         ref={benefitsRef}
         initial="hidden"
@@ -512,13 +515,13 @@ const HomePage = () => {
         variants={staggerContainerVariants}
       >
         <div className="container mx-auto px-8 sm:px-16 text-center">
-          <motion.h2 
+          <motion.h2
             className="text-4xl md:text-5xl font-extrabold text-gray-800"
             variants={itemVariants}
           >
             Benefits Of Hijama Cupping Therapy
           </motion.h2>
-          <motion.p 
+          <motion.p
             className="mt-4 text-lg text-gray-600 max-w-3xl mx-auto"
             variants={itemVariants}
           >
@@ -527,8 +530,8 @@ const HomePage = () => {
 
           <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {hijamaBenefits.map((benefit, index) => (
-              <motion.div 
-                key={index} 
+              <motion.div
+                key={index}
                 className="bg-white rounded-2xl shadow-lg text-left transform hover:-translate-y-2 transition-transform duration-300 overflow-hidden flex flex-col"
                 variants={itemVariants}
               >
@@ -579,13 +582,13 @@ const HomePage = () => {
               <p className="mt-6 text-gray-600 leading-relaxed">
                 Meet Mr. Jameel ur Rehman, a certified Hijama Specialist from Oman and a Tibbenabvi Hakeem in Pakistan. With 25 years of dedicated experience, his expertise is rooted in the authentic, Sunnah-based traditions of cupping therapy. Mr. Rehman is proficient in treating a wide array of health conditions, believing in a holistic approach to wellness. He effectively addresses issues ranging from brain and nervous system disorders like migraines and stress, to heart, liver, and digestive problems. His gentle approach and deep understanding of prophetic medicine have helped countless individuals find natural healing and restore balance to their lives.
               </p>
-              
+
               <div className="mt-10 flex justify-center lg:justify-start items-center space-x-12">
                 {therapistInView && <AnimatedStat to={10} suffix="K+" text="Satisfied Clients" />}
                 <div className="h-16 w-px bg-gray-300"></div>
                 {therapistInView && <AnimatedStat to={25} text="Years of Experience" />}
               </div>
-              
+
               <div className="mt-10">
                 <a
                   href="tel:+92 300 7598000"
@@ -596,20 +599,27 @@ const HomePage = () => {
                 </a>
               </div>
             </motion.div>
-            
-            <motion.div 
-              className="flex justify-center lg:justify-end" 
+
+            {/* <<< Therapist Image with Hover Effect >>> */}
+            <motion.div
+              className="flex justify-center lg:justify-end"
               variants={imageVariants}
               initial="hidden"
               animate={therapistInView ? "visible" : "hidden"}
             >
-              <img
-                src="/ceo.jpg"
-                alt="Mr Jameel ur Rehman, expert Hijama therapist in Lahore"
-                width="400"
-                height="450"
-                className="rounded-2xl shadow-2xl object-cover w-full h-auto max-w-md"
-              />
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.3, ease: "easeInOut" }}
+                className="rounded-2xl shadow-2xl overflow-hidden"
+              >
+                <img
+                  src="/ceo.jpg"
+                  alt="Mr Jameel ur Rehman, expert Hijama therapist in Lahore"
+                  width="400"
+                  height="450"
+                  className="rounded-2xl shadow-2xl object-cover w-full h-auto max-w-md"
+                />
+              </motion.div>
             </motion.div>
           </div>
         </div>
@@ -666,7 +676,7 @@ const HomePage = () => {
                         className="bg-white p-6 rounded-2xl shadow-lg flex flex-col text-left h-full"
                       >
                         <p className="text-gray-600 leading-relaxed mb-4">
-                          &ldquo;{testimonial.text}&rdquo;
+                          “{testimonial.text}”
                         </p>
                         <div className="mt-auto pt-4 border-t border-gray-100 w-full">
                           <h4 className="text-lg font-bold text-gray-900">
@@ -746,7 +756,7 @@ const HomePage = () => {
           <div className="mt-16 max-w-4xl mx-auto">
             {/* Main Content Grid */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
-              
+
               {/* Left Column: Contact Details */}
               <div className="space-y-8">
                 {/* Whatsapp Item */}
@@ -788,42 +798,42 @@ const HomePage = () => {
               <div>
                 <form action="#" method="POST" className="space-y-6">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                    <input 
-                      type="text" 
-                      name="name" 
-                      id="name" 
-                      placeholder="Name" 
+                    <input
+                      type="text"
+                      name="name"
+                      id="name"
+                      placeholder="Name"
                       className="w-full px-4 py-3 bg-gray-100 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-teal-500 text-black placeholder-black"
                     />
-                    <input 
-                      type="tel" 
-                      name="phone" 
-                      id="phone" 
-                      placeholder="Phone" 
-                      className="w-full px-4 py-3 bg-gray-100 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-teal-500 text-black placeholder-black"
-                    />
-                  </div>
-                  <div>
-                    <input 
-                      type="text" 
-                      name="subject" 
-                      id="subject" 
-                      placeholder="Subject" 
+                    <input
+                      type="tel"
+                      name="phone"
+                      id="phone"
+                      placeholder="Phone"
                       className="w-full px-4 py-3 bg-gray-100 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-teal-500 text-black placeholder-black"
                     />
                   </div>
                   <div>
-                    <textarea 
-                      name="message" 
-                      id="message" 
-                      rows={5} 
-                      placeholder="Message" 
+                    <input
+                      type="text"
+                      name="subject"
+                      id="subject"
+                      placeholder="Subject"
+                      className="w-full px-4 py-3 bg-gray-100 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-teal-500 text-black placeholder-black"
+                    />
+                  </div>
+                  <div>
+                    <textarea
+                      name="message"
+                      id="message"
+                      rows={5}
+                      placeholder="Message"
                       className="w-full px-4 py-3 bg-gray-100 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-teal-500 text-black placeholder-black"
                     ></textarea>
                   </div>
                   <div>
-                    <button 
-                      type="submit" 
+                    <button
+                      type="submit"
                       className="inline-flex items-center justify-center px-8 py-3 bg-[#FF6900] text-white font-semibold rounded-lg shadow-md hover:brightness-90 transition-colors duration-300"
                     >
                       Send Message
@@ -865,4 +875,3 @@ const HomePage = () => {
 };
 
 export default HomePage;
-

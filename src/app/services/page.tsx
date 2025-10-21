@@ -24,42 +24,42 @@ const servicesList = [
     icon: Droplets,
     title: 'Wet Cupping (Hijama)',
     description: 'The traditional Prophetic method involving light scratches and suction to remove stagnant blood and toxins, boosting immunity and promoting overall healing.',
-    image: '/services/s1.jpg',
+    image: '/services/s1.png',
     learnMoreLink: '/services/wet-cupping'
   },
   {
     icon: Wind,
     title: 'Dry & Massage Cupping',
     description: 'A non-invasive technique where suction is applied to the skin, helping to relieve muscle tension, reduce inflammation, and improve blood flow without incisions.',
-    image: '/services/s2.jpg',
+    image: '/services/s2.png',
     learnMoreLink: '/services/dry-cupping'
   },
   {
     icon: Zap,
     title: 'Hijama for Pain Relief',
     description: 'Targeted therapy for chronic pain conditions such as migraines, lower back pain, sciatica, and arthritis. A natural alternative to medication.',
-    image: '/services/s3.jpg',
+    image: '/services/s3.png',
     learnMoreLink: '/services/hijama-for-pain-relief'
   },
   {
     icon: Heart,
     title: 'Hijama for Internal Health',
     description: 'A holistic approach to managing internal conditions like high blood pressure, digestive issues, and hormonal imbalances including PCOS and fertility.',
-    image: '/services/s4.jpg',
+    image: '/services/s4.png',
     learnMoreLink: '/services/hijama-for-internal-health'
   },
   {
     icon: ShieldCheck,
     title: 'Hijama for Sports Recovery',
     description: 'Accelerate muscle recovery, reduce soreness, and improve flexibility for athletes and active individuals. Enhances performance and prevents injuries.',
-    image: '/services/s5.jpg',
+    image: '/services/s5.png',
     learnMoreLink: '/services/hijama-for-sports-recovery'
   },
   {
     icon: Award,
     title: 'Hijama for Detox & Wellness',
     description: 'A comprehensive full-body detox to cleanse impurities, boost your immune system, improve skin health, and increase energy levels and mental clarity.',
-    image: '/services/s6.jpg',
+    image: '/services/s6.png',
     learnMoreLink: '/services/hijama-for-detox'
   }
 ];

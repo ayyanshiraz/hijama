@@ -1,7 +1,7 @@
 'use client';
 
 import { Phone, ShieldCheck, Heart, Star, Award } from 'lucide-react';
-import { motion, Variants } from 'framer-motion';
+import { motion, Variants } from 'framer-motion'; // Ensure motion is imported
 import { useInView } from 'react-intersection-observer';
 import { useEffect, useRef } from 'react';
 import { animate } from 'framer-motion';
@@ -48,12 +48,13 @@ function AnimatedStat({ to, text, suffix = "" }: AnimatedStatProps) {
 
 // --- Main About Page Component ---
 const AboutPage = () => {
+  // Animation Variants
   const staggerContainer: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2,
+        staggerChildren: 0.2, // Stagger effect for children
         delayChildren: 0.1,
       },
     },
@@ -73,7 +74,7 @@ const AboutPage = () => {
     hidden: { opacity: 0, x: 50 },
     visible: { opacity: 1, x: 0, transition: { duration: 0.8, ease: 'easeOut' } },
   };
-  
+
   const commitments = [
       {
           icon: Star,
@@ -101,13 +102,13 @@ const AboutPage = () => {
     <main className="bg-white text-gray-800">
       {/* --- Hero Section --- */}
       <section className="relative bg-gray-800 text-white py-32 sm:py-48 flex items-center justify-center">
-        <div 
+        <div
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: "url('/about.jpg')" }}
         ></div>
         <div className="absolute inset-0 bg-black opacity-60"></div>
         <div className="relative container mx-auto px-6 text-center z-10">
-          <motion.h1 
+          <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: 'easeOut' }}
@@ -115,7 +116,7 @@ const AboutPage = () => {
           >
             About Us
           </motion.h1>
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
@@ -127,7 +128,7 @@ const AboutPage = () => {
       </section>
 
       {/* --- Our Mission Section --- */}
-      <motion.section 
+      <motion.section
         className="py-24 bg-[#F0FDF4]"
         initial="hidden"
         whileInView="visible"
@@ -138,23 +139,33 @@ const AboutPage = () => {
             <motion.div variants={fadeInLeft} className="text-center lg:text-left">
                 <h2 className="text-4xl md:text-5xl font-extrabold text-gray-800">Our Mission</h2>
                 <p className="mt-6 text-lg text-gray-600">
-                    Our mission is guided by the prophetic tradition: <i>&quot;Whoever perform Hijama on the 17th, 19th or 21st of the lunar month, it is a cure, by Allah&apos;s permission.&quot;</i> (Sunan Abi Dawud). We are dedicated to reviving this Sunnah by providing authentic, accessible healing to the community of Lahore. To honor this, we offer dedicated male therapists for men and female therapists for women, along with convenient home services, ensuring a comfortable and trusted experience for every client.
+                    Our mission is guided by the prophetic tradition: <i>"Whoever perform Hijama on the 17th, 19th or 21st of the lunar month, it is a cure, by Allahs permission."</i> (Sunan Abi Dawud). We are dedicated to reviving this Sunnah by providing authentic, accessible healing to the community of Lahore. To honor this, we offer dedicated male therapists for men and female therapists for women, along with convenient home services, ensuring a comfortable and trusted experience for every client.
                 </p>
             </motion.div>
-            <motion.div variants={fadeInRight} className="flex justify-center">
-                 <img
-                    src="/mission.jpg"
-                    alt="Hijama therapy session in progress, focusing on healing"
-                    width={500}
-                    height={400}
-                    className="rounded-2xl shadow-2xl object-cover"
-                />
+            {/* <<< MODIFICATION: Added hover pop-up >>> */}
+            <motion.div
+                variants={fadeInRight}
+                className="flex justify-center"
+            >
+                <motion.div
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ duration: 0.3, ease: "easeInOut" }}
+                    className="rounded-2xl shadow-2xl overflow-hidden"
+                >
+                    <img
+                        src="/mission.jpg"
+                        alt="Hijama therapy session in progress, focusing on healing"
+                        width={500}
+                        height={400}
+                        className="object-cover w-full h-full"
+                    />
+                </motion.div>
             </motion.div>
         </div>
       </motion.section>
 
       {/* --- Our Vision Section --- */}
-      <motion.section 
+      <motion.section
         className="py-24 bg-white"
         initial="hidden"
         whileInView="visible"
@@ -162,14 +173,24 @@ const AboutPage = () => {
         variants={staggerContainer}
       >
         <div className="container mx-auto px-12 sm:px-20 lg:px-32 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <motion.div variants={fadeInLeft} className="flex justify-center">
-                 <img
-                    src="/vision.jpg"
-                    alt="A serene, healthy environment representing the vision of community well-being"
-                    width={500}
-                    height={400}
-                    className="rounded-2xl shadow-2xl object-cover"
-                />
+            {/* <<< MODIFICATION: Added hover pop-up >>> */}
+            <motion.div
+                variants={fadeInLeft}
+                className="flex justify-center"
+            >
+                <motion.div
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ duration: 0.3, ease: "easeInOut" }}
+                    className="rounded-2xl shadow-2xl overflow-hidden"
+                >
+                    <img
+                        src="/vision.jpg"
+                        alt="A serene, healthy environment representing the vision of community well-being"
+                        width={500}
+                        height={400}
+                        className="object-cover w-full h-full"
+                    />
+                </motion.div>
             </motion.div>
             <motion.div variants={fadeInRight} className="text-center lg:text-left">
                 <h2 className="text-4xl md:text-5xl font-extrabold text-gray-800">Our Vision</h2>
@@ -179,7 +200,7 @@ const AboutPage = () => {
             </motion.div>
         </div>
       </motion.section>
-      
+
       {/* --- Meet The Therapist Section --- */}
       <motion.section
         className="py-24 bg-[#F0FDF4]"
@@ -200,24 +221,30 @@ const AboutPage = () => {
               <p className="mt-6 text-gray-600 leading-relaxed">
                 Meet Mr. Jameel ur Rehman, a certified Hijama Specialist from Oman and a Tibbenabvi Hakeem in Pakistan. With 25 years of dedicated experience, his expertise is rooted in the authentic, Sunnah-based traditions of cupping therapy. Mr. Rehman is proficient in treating a wide array of health conditions, believing in a holistic approach to wellness. He effectively addresses issues ranging from brain and nervous system disorders like migraines and stress, to heart, liver, and digestive problems. His gentle approach and deep understanding of prophetic medicine have helped countless individuals find natural healing and restore balance to their lives.
               </p>
-              
+
               <div className="mt-10 flex justify-center lg:justify-start items-center space-x-12">
                 <AnimatedStat to={10} suffix="K+" text="Satisfied Clients" />
                 <div className="h-16 w-px bg-gray-300"></div>
                 <AnimatedStat to={25} text="Years of Experience" />
               </div>
             </motion.div>
-            <motion.div 
-              className="flex justify-center lg:justify-end" 
+            <motion.div
+              className="flex justify-center lg:justify-end"
               variants={fadeInRight}
             >
-              <img
-                src="/ceo.jpg"
-                alt="Mr. Jameel ur Rehman, expert Hijama therapist in Lahore"
-                width="400"
-                height="450"
-                className="rounded-2xl shadow-2xl object-cover w-full h-auto max-w-md"
-              />
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.3, ease: "easeInOut" }}
+                className="rounded-2xl shadow-2xl overflow-hidden max-w-md w-full"
+              >
+                <img
+                  src="/ceo.jpg"
+                  alt="Mr. Jameel ur Rehman, Founder & Hijama Therapist"
+                  width={400}
+                  height={450}
+                  className="object-cover w-full h-auto"
+                />
+              </motion.div>
             </motion.div>
           </div>
         </div>
@@ -226,8 +253,8 @@ const AboutPage = () => {
       {/* --- Our Commitment Section --- */}
       <section className="py-24 bg-white">
         <div className="container mx-auto px-8 sm:px-16">
-            <motion.div 
-                className="text-center"
+            <motion.div
+                className="text-center mb-16"
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, amount: 0.2 }}
@@ -241,7 +268,7 @@ const AboutPage = () => {
                 </motion.p>
             </motion.div>
 
-            <motion.div 
+            <motion.div
                 className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
                 initial="hidden"
                 whileInView="visible"
@@ -249,10 +276,12 @@ const AboutPage = () => {
                 variants={staggerContainer}
             >
                 {commitments.map((item, index) => (
-                    <motion.div 
-                        key={index} 
+                    <motion.div
+                        key={index}
                         className="bg-white p-8 rounded-2xl shadow-lg text-center flex flex-col items-center"
                         variants={fadeInUp}
+                        whileHover={{ scale: 1.05, y: -5 }} // Added hover effect
+                        transition={{ duration: 0.3, ease: 'easeOut' }} // Added hover transition
                     >
                         <div className="bg-teal-100 rounded-full p-4">
                             <item.icon className="h-10 w-10 text-teal-600" />
@@ -290,4 +319,3 @@ const AboutPage = () => {
 };
 
 export default AboutPage;
-
