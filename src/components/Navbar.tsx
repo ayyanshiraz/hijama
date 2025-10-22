@@ -1,9 +1,12 @@
+// src/components/Navbar.tsx
 'use client';
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Menu, X, Phone, ChevronDown } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+// 1. IMPORT THE NEW SWITCHER COMPONENT
+import { LanguageSwitcher } from './LanguageSwitcher'; 
 
 // Service links for the dropdown
 const serviceLinks = [
@@ -11,7 +14,7 @@ const serviceLinks = [
   { name: 'Dry & Massage Cupping', href: '/services/dry-cupping' },
   { name: 'Hijama for Pain Relief', href: '/services/hijama-for-pain-relief' },
   { name: 'Hijama for Internal Health', href: '/services/hijama-for-internal-health' },
-  { name: 'Hijama for Sports Recovery', href: '/services/hijama-for-sports-recovery' }, // Corrected href
+  { name: 'Hijama for Sports Recovery', href: '/services/hijama-for-sports-recovery' },
   { name: 'Hijama for Detox & Wellness', href: '/services/hijama-for-detox' }
 ];
 
@@ -27,8 +30,8 @@ const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false); // For mobile dropdown
-  const [isDesktopServicesOpen, setIsDesktopServicesOpen] = useState(false); // For desktop dropdown
-
+  // Removed isDesktopServicesOpen state, using CSS hover instead for simplicity
+  
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
@@ -38,7 +41,7 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const showBackground = isScrolled || isMenuOpen || isDesktopServicesOpen;
+  const showBackground = isScrolled || isMenuOpen; // Simplified state for background
 
   return (
     <header
@@ -58,9 +61,7 @@ const Navbar = () => {
             {navLinks.map((link) => (
               <div
                 key={link.name}
-                className="relative"
-                onMouseEnter={() => link.subLinks && setIsDesktopServicesOpen(true)}
-                onMouseLeave={() => link.subLinks && setIsDesktopServicesOpen(false)}
+                className="relative group/service" // Use group/service for desktop hover
               >
                 <Link
                   href={link.href}
@@ -72,32 +73,29 @@ const Navbar = () => {
                   {link.subLinks && <ChevronDown className="ml-1 h-4 w-4" />}
                 </Link>
                 {link.subLinks && (
-                  <AnimatePresence>
-                    {isDesktopServicesOpen && (
-                      <motion.div
-                        initial={{ opacity: 0, y: -10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -10 }}
-                        transition={{ duration: 0.2, ease: 'easeOut' }}
-                        className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-72 bg-white rounded-md shadow-lg overflow-hidden"
-                      >
-                        <div className="flex flex-col py-2">
-                          {link.subLinks.map((subLink) => (
-                            <Link
-                              key={subLink.name}
-                              href={subLink.href}
-                              className="px-4 py-2 text-gray-700 hover:bg-[#1E4137] hover:text-white transition-colors"
-                            >
-                              {subLink.name}
-                            </Link>
-                          ))}
-                        </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
+                  <div // REPLACED motion.div with standard div and hover classes
+                    className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-72 bg-white rounded-md shadow-lg overflow-hidden 
+                                opacity-0 group-hover/service:opacity-100 transition-opacity duration-300 pointer-events-none group-hover/service:pointer-events-auto"
+                  >
+                    <div className="flex flex-col py-2">
+                      {link.subLinks.map((subLink) => (
+                        <Link
+                          key={subLink.name}
+                          href={subLink.href}
+                          className="px-4 py-2 text-gray-700 hover:bg-[#1E4137] hover:text-white transition-colors"
+                        >
+                          {subLink.name}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
                 )}
               </div>
             ))}
+            
+            {/* 2. ADD LANGUAGE SWITCHER TO DESKTOP NAV */}
+            <LanguageSwitcher showBackground={showBackground} /> 
+
             <a
               href="tel:+923007598000"
               className="inline-flex items-center px-4 py-2 bg-[#FF6900] text-white font-semibold rounded-lg shadow-md hover:brightness-90 transition-all duration-300 transform hover:scale-105"
@@ -108,7 +106,8 @@ const Navbar = () => {
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="md:hidden">
+          <div className="md:hidden flex items-center space-x-4">
+             {/* Mobile language switch is handled within the menu below */}
             <button onClick={() => setIsMenuOpen(!isMenuOpen)} className={`transition-colors ${showBackground ? 'text-gray-800' : 'text-white'}`}>
               {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
             </button>
@@ -125,6 +124,12 @@ const Navbar = () => {
             className="md:hidden mt-4 bg-white rounded-lg shadow-xl overflow-hidden"
           >
             <div className="flex flex-col items-center space-y-2 py-4">
+              
+              {/* 3. ADD LANGUAGE SWITCHER TO MOBILE MENU */}
+              <div className="w-full text-center py-2 border-b">
+                <LanguageSwitcher showBackground={true} />
+              </div>
+              
               {navLinks.map((link) => (
                 <div key={link.name} className="w-full text-center">
                   {link.subLinks ? (
@@ -135,18 +140,18 @@ const Navbar = () => {
                         <Link
                           href={link.href}
                           onClick={() => setIsMenuOpen(false)} // Close menu on navigation
-                          className="text-gray-700 hover:text-teal-600 text-lg flex-grow text-center" // Text aligns center
+                          className="text-gray-700 hover:text-teal-600 text-lg flex-grow text-center" 
                         >
                           {link.name}
                         </Link>
                         {/* Button ONLY for the icon - Toggles dropdown */}
                         <button
                           onClick={(e) => {
-                            e.stopPropagation(); // Prevent triggering the Link navigation when clicking the arrow
+                            e.stopPropagation(); 
                             setIsServicesOpen(!isServicesOpen);
                           }}
-                          className="text-gray-700 hover:text-teal-600 ml-2 p-1 flex-shrink-0" // Added padding, adjust as needed
-                          aria-label="Toggle services submenu" // Accessibility improvement
+                          className="text-gray-700 hover:text-teal-600 ml-2 p-1 flex-shrink-0" 
+                          aria-label="Toggle services submenu" 
                         >
                           <ChevronDown className={`h-5 w-5 transition-transform duration-300 ${isServicesOpen ? 'rotate-180' : ''}`} />
                         </button>
@@ -158,34 +163,34 @@ const Navbar = () => {
                              initial={{ height: 0, opacity: 0 }}
                              animate={{ height: 'auto', opacity: 1 }}
                              exit={{ height: 0, opacity: 0 }}
-                             className="overflow-hidden bg-gray-50/50" // Background for dropdown items
+                             className="overflow-hidden bg-gray-50/50" 
                            >
                              <div className="flex flex-col items-center space-y-2 py-2">
                                {link.subLinks.map((subLink) => (
                                  <Link
                                    key={subLink.name}
                                    href={subLink.href}
-                                   onClick={() => setIsMenuOpen(false)} // Close menu when sub-link clicked
-                                   className="text-gray-600 hover:text-white hover:bg-[#1E4137] text-base py-2 w-full transition-colors" // Full width for easier tap
+                                   onClick={() => setIsMenuOpen(false)} 
+                                   className="text-gray-600 hover:text-white hover:bg-[#1E4137] text-base py-2 w-full transition-colors" 
                                  >
                                    {subLink.name}
                                  </Link>
                                ))}
                              </div>
                            </motion.div>
-                        )}
+                         )}
                       </AnimatePresence>
                     </>
                   ) : (
-                     // Regular link rendering (Home, About Us, Contact)
-                     <Link
-                       href={link.href}
-                       onClick={() => setIsMenuOpen(false)}
-                       className="text-gray-700 hover:text-teal-600 text-lg py-2 block w-full"
-                     >
-                       {link.name}
-                     </Link>
-                  )}
+                      // Regular link rendering (Home, About Us, Contact)
+                      <Link
+                        href={link.href}
+                        onClick={() => setIsMenuOpen(false)}
+                        className="text-gray-700 hover:text-teal-600 text-lg py-2 block w-full"
+                      >
+                        {link.name}
+                      </Link>
+                    )}
                 </div>
               ))}
               <a

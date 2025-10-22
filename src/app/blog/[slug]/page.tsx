@@ -13,12 +13,12 @@ const blogPosts = [
     slug: 'the-sunnah-of-hijama',
     title: 'The Sunnah of Hijama: A Timeless Path to Wellness',
     excerpt: 'Explore the historical and spiritual significance of Hijama cupping therapy as practiced and recommended in the Sunnah.',
-    imageUrl: '/hero1.jpg',
+    imageUrl: '/blogs/b1.png',
     category: 'Sunnah & Healing',
     date: 'October 15, 2025',
     content: `
       <p>Hijama, also known as wet cupping, is a therapeutic practice with deep roots in Islamic tradition and prophetic medicine. It is a highly recommended Sunnah of the Prophet Muhammad (peace be upon him), who not only practiced it himself but also advised his followers to use it as a means of healing.</p>
-      <img src="https://placehold.co/800x400/e2e8f0/4a5568?text=Ancient+Healing+Tradition" alt="Illustration of ancient cupping tools" class="rounded-lg my-8 shadow-md" />
+      <img src="/blogs/b2.png" alt="Illustration of ancient cupping tools" class="rounded-lg my-8 shadow-md" />
       <p>The term "Hijama" is derived from the Arabic word 'hajm', which means 'sucking'. The procedure involves creating suction on the skin using cups and then making small, superficial incisions to draw out a small amount of stagnant, toxic blood from the body.</p>
       <h3 class="text-2xl font-bold mt-8 mb-4">The Spiritual and Physical Benefits</h3>
       <p>The practice is not just about physical detoxification; it is an act of faith, following the guidance of the Prophet (pbuh). It is reported in numerous hadiths that Hijama is a cure for a wide range of ailments.</p>
@@ -37,12 +37,12 @@ const blogPosts = [
     slug: 'benefits-of-wet-cupping',
     title: '5 Proven Benefits of Wet Cupping for Detoxification',
     excerpt: 'Discover how wet cupping (Hijama) can help purify your blood, remove toxins, and boost your overall immune system.',
-    imageUrl: '/services/s1.jpg',
+    imageUrl: '/blogs/b3.png',
     category: 'Health & Wellness',
     date: 'October 10, 2025',
     content: `
       <p>Wet cupping, known as Hijama, is one of the most effective natural detoxification methods available. It directly targets and removes stagnant blood and metabolic waste that can accumulate in the body over time. Here are five key benefits of this powerful therapy:</p>
-      <img src="https://placehold.co/800x400/e2e8f0/4a5568?text=Cupping+Therapy+in+Progress" alt="Close-up of cupping therapy on a patient's back" class="rounded-lg my-8 shadow-md" />
+      <img src="/blogs/b4.png" alt="Close-up of cupping therapy on a patient's back" class="rounded-lg my-8 shadow-md" />
       <h3 class="text-2xl font-bold mt-8 mb-4">1. Enhanced Blood Circulation</h3>
       <p>The suction from the cups draws blood to the surface, breaking up blockages and stimulating fresh, oxygenated blood flow to areas that may be suffering from poor circulation. This helps nourish tissues and accelerate healing.</p>
       <h3 class="text-2xl font-bold mt-8 mb-4">2. Removal of Toxins and Waste</h3>
@@ -59,12 +59,12 @@ const blogPosts = [
     slug: 'hijama-for-pain-relief',
     title: 'Natural Relief: How Hijama Can Alleviate Chronic Pain',
     excerpt: 'Learn about the mechanisms through which Hijama provides effective, natural relief for conditions like back pain, migraines, and arthritis.',
-    imageUrl: '/services/s3.jpg',
+    imageUrl: '/blogs/b8.png',
     category: 'Pain Management',
     date: 'October 5, 2025',
     content: `
       <p>For millions of people suffering from chronic pain, Hijama (cupping therapy) offers a powerful, medication-free alternative. Its effectiveness lies in its ability to address pain from multiple angles.</p>
-      <img src="https://placehold.co/800x400/e2e8f0/4a5568?text=Pain+Relief+Target+Area" alt="Anatomical drawing showing back muscles targeted for pain relief" class="rounded-lg my-8 shadow-md" />
+      <img src="/blogs/b7.png" alt="Anatomical drawing showing back muscles targeted for pain relief" class="rounded-lg my-8 shadow-md" />
       <h3 class="text-2xl font-bold mt-8 mb-4">Releasing Muscle Tension</h3>
       <p>The negative pressure from the cups lifts and separates soft tissue layers. This action releases deep muscle knots, trigger points, and fascial adhesions that are often the source of chronic stiffness and pain, particularly in the back, neck, and shoulders.</p>
       <h3 class="text-2xl font-bold mt-8 mb-4">Reducing Inflammation</h3>
