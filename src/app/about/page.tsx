@@ -295,11 +295,11 @@ const AboutPage = () => {
                 Meet Our Expert Hakeem
               </h2>
               <p className="mt-2 sm:mt-3 text-xl sm:text-2xl text-teal-700 font-semibold">
-                [Hakeem's Name Placeholder]
+                [Hakeems Name Placeholder]
               </p>
               <p className="mt-4 sm:mt-6 text-sm sm:text-base text-gray-600 leading-relaxed text-justify">
                 {/* Placeholder Text */}
-                Our experienced Hakeem specializes in traditional Tibb-e-Nabvi and herbal medicine. With a deep understanding of natural remedies and holistic health, [He/She] provides personalized consultations and treatments for various ailments, focusing on restoring the body's natural balance according to prophetic traditions. Discover the benefits of time-tested herbal wisdom for your well-being.
+                Our experienced Hakeem specializes in traditional Tibb-e-Nabvi and herbal medicine. With a deep understanding of natural remedies and holistic health, [He/She] provides personalized consultations and treatments for various ailments, focusing on restoring the bodys natural balance according to prophetic traditions. Discover the benefits of time-tested herbal wisdom for your well-being.
               </p>
               {/* Optional Stats */}
               {/* <div className="mt-8 sm:mt-10 flex flex-col items-center space-y-4 md:flex-row md:justify-center lg:justify-start md:items-center md:space-y-0 md:space-x-12">
@@ -327,7 +327,7 @@ const AboutPage = () => {
                 Meet Our Physiotherapist
               </h2>
               <p className="mt-2 sm:mt-3 text-xl sm:text-2xl text-teal-700 font-semibold">
-                [Physio's Name Placeholder]
+                [Physios Name Placeholder]
               </p>
               <p className="mt-4 sm:mt-6 text-sm sm:text-base text-gray-600 leading-relaxed text-justify">
                 {/* Placeholder Text */}
