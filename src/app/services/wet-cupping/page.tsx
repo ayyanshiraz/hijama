@@ -282,7 +282,7 @@ const WetCuppingPage = () => {
                                     <img src="/ceo.jpg" alt="Mr. Jameel ur Rehman" className="w-24 h-24 rounded-full mx-auto mt-4 object-cover" />
                                     <p className="mt-2 font-bold">Mr. Jameel ur Rehman</p>
                                     <p className="text-sm text-gray-600">Certified Hijama Therapist</p>
-                                    <a href="/about" className="text-teal-600 hover:underline mt-2 inline-block">View Profile</a>
+                                    <a href="/about#therapist" className="text-teal-600 hover:underline mt-2 inline-block">View Profile</a>
                                 </div>
                             </motion.div>
                         </aside>

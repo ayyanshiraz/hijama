@@ -20,10 +20,19 @@ const slideshowData = [
         Hijama Centers In Lahore
       </>
     ),
-    subtitle: 'With 25 years of Experience in Hijama and Alternative medicine, we are one of the most credible Hijama centers in Lahore.',
-    buttonText: 'Call +92 300 7598000',
-    buttonLink: 'tel:+92 300 7598000',
-    hasIcon: true, // Keep icon for phone number
+    // ===== MODIFIED SUBTITLE with Hadith =====
+    subtitle: (
+      <>
+        With 15 years of Experience in Hijama and Alternative medicine, we are one of the most credible Hijama centers in Lahore.
+        <blockquote className="mt-3 text-sm italic border-l-4 border-gray-400 pl-3 text-gray-300 max-w-xl mx-auto"> {/* Added max-width and mx-auto */}
+          The Prophet (ﷺ) said: I did not pass by any group of angels on the night of Isra (Night Journey) except that they said to me, O Muhammad, tell your Ummah to do Hijama (cupping).
+        </blockquote>
+      </>
+    ),
+    // ==========================================
+    buttonText: 'Our Services',
+    buttonLink: '/services',
+    hasIcon: false,
   },
   {
     image: '/hero5.png',
@@ -49,9 +58,9 @@ const slideshowData = [
       </>
     ),
     subtitle: 'Your health is our priority. Our certified practitioners ensure a sterile, safe, and comfortable experience.',
-    buttonText: 'Our Services',
+    buttonText: 'Book A Session',
     buttonLink: '/services',
-    hasIcon: false, // No icon for our services
+    hasIcon: false,
   },
   {
     image: '/hero2.png',
@@ -63,9 +72,9 @@ const slideshowData = [
       </>
     ),
     subtitle: 'Take the first step towards better health. Schedule your personal consultation and therapy session today.',
-    buttonText: 'Book A Session',
-    buttonLink: '/services', // UPDATED: This now points to the services page to start the funnel.
-    hasIcon: false, // UPDATED: The phone icon is removed.
+    buttonText: 'Call +92 300 7598000',
+    buttonLink: 'tel:+92 300 7598000',
+    hasIcon: true,
   },
 ];
 
@@ -344,9 +353,10 @@ const HomePage = () => {
 
 
   return (
-    <main className="font-sans bg-[#F0FDF4]">
+    <main className="font-sans bg-[#F0FDF4] border-0 overflow-x-hidden">
+
       {/* Hero Slideshow Section */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden text-white">
+      <section className="relative min-h-screen h-screen flex items-center justify-center overflow-hidden text-white">
         {slideshowData.map((slide, index) => (
           <div
             key={index}
@@ -357,7 +367,7 @@ const HomePage = () => {
           />
         ))}
         <div className="absolute inset-0 w-full h-full bg-black/60"></div>
-        <div className="relative z-10 container mx-auto px-4 text-center">
+        <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div
             key={currentSlideIndex}
             className="animate-fadeInUp"
@@ -365,26 +375,27 @@ const HomePage = () => {
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight text-shadow-lg">
               {currentSlide.title}
             </h1>
-            <p className="mt-6 text-lg text-gray-200 max-w-2xl mx-auto text-shadow">
+            {/* Display subtitle which can now contain JSX */}
+            <div className="mt-4 sm:mt-6 text-base sm:text-lg text-gray-200 max-w-xs sm:max-w-2xl mx-auto text-shadow">
               {currentSlide.subtitle}
-            </p>
-            <div className="mt-8">
+            </div>
+            <div className="mt-6 sm:mt-8">
               <a
                 href={currentSlide.buttonLink}
-                className="inline-flex items-center px-8 py-4 bg-[#FF6900] text-white font-semibold rounded-lg shadow-md hover:brightness-90 transition-all duration-300 transform hover:scale-105"
+                className="inline-flex items-center px-6 py-3 sm:px-8 sm:py-4 bg-[#FF6900] text-white text-sm sm:text-base font-semibold rounded-lg shadow-md hover:brightness-90 transition-all duration-300 transform hover:scale-105"
               >
-                {currentSlide.hasIcon && <Phone className="mr-3 h-6 w-6" />}
+                {currentSlide.hasIcon && <Phone className="mr-2 sm:mr-3 h-5 w-5 sm:h-6 sm:w-6" />}
                 {currentSlide.buttonText}
               </a>
             </div>
           </div>
         </div>
-        <div className="absolute z-10 bottom-8 left-1/2 -translate-x-1/2 flex space-x-3">
+        <div className="absolute z-10 bottom-6 sm:bottom-8 left-1/2 -translate-x-1/2 flex space-x-2 sm:space-x-3">
           {slideshowData.map((_, index) => (
             <button
               key={index}
               onClick={() => setCurrentSlideIndex(index)}
-              className={`w-3 h-3 rounded-full transition-colors duration-300 ${
+              className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full transition-colors duration-300 ${
                 index === currentSlideIndex ? 'bg-white' : 'bg-white/50 hover:bg-white'
               }`}
               aria-label={`Go to slide ${index + 1}`}
@@ -394,28 +405,28 @@ const HomePage = () => {
       </section>
 
       {/* --- FEATURES SECTION --- */}
-      <section id="features" className="relative py-24">
+      <section id="features" className="relative py-16 sm:py-24">
         <div className="absolute top-0 left-0 w-full overflow-hidden leading-none">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none" className="relative block w-full h-[50px] md:h-[100px]">
                 <path fill="#F0FDF4" d="M0,224L1440,32L1440,0L0,0Z"></path>
             </svg>
         </div>
-        <div className="container mx-auto px-8 sm:px-16 text-center">
-          <h3 className="text-teal-600 text-lg font-semibold uppercase">Holistic Hijama Therapy in Lahore</h3>
-          <h2 className="text-4xl md:text-5xl font-extrabold text-gray-800 mt-2">Restore Your Mind, Body & Soul</h2>
-          <div className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="container mx-auto px-4 sm:px-8 lg:px-16 text-center">
+          <h3 className="text-base sm:text-lg font-semibold uppercase text-teal-600">Holistic Hijama Therapy in Lahore</h3>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-800 mt-2">Restore Your Mind, Body & Soul</h2>
+          <div className="mt-12 sm:mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {features.map((feature, index) => (
               <div
                 key={index}
-                className="bg-white p-8 rounded-2xl shadow-lg flex flex-col items-center transform hover:-translate-y-2 transition-transform duration-300"
+                className="bg-white p-6 sm:p-8 rounded-2xl shadow-lg flex flex-col items-center transform hover:-translate-y-2 transition-transform duration-300"
               >
-                <div className="bg-orange-100 rounded-full p-4">
-                  <feature.icon className="h-10 w-10 text-orange-500" />
+                <div className="bg-orange-100 rounded-full p-3 sm:p-4">
+                  <feature.icon className="h-8 w-8 sm:h-10 sm:w-10 text-orange-500" />
                 </div>
-                <h4 className="text-2xl font-bold text-gray-900 mt-6">
+                <h4 className="text-xl sm:text-2xl font-bold text-gray-900 mt-4 sm:mt-6">
                   {feature.title}
                 </h4>
-                <p className="mt-2 text-gray-600 leading-relaxed">
+                <p className="mt-2 text-sm sm:text-base text-gray-600 leading-relaxed">
                   {feature.description}
                 </p>
               </div>
@@ -427,32 +438,31 @@ const HomePage = () => {
       {/* --- What is Hijama Section --- */}
       <motion.section
         id="about"
-        className="py-24 bg-white"
+        className="py-16 sm:py-24 bg-white"
         ref={hijamaRef}
         initial="hidden"
         animate={hijamaInView ? "visible" : "hidden"}
         variants={staggerContainerVariants}
       >
-        <div className="container mx-auto px-8 sm:px-16">
+        <div className="container mx-auto px-4 sm:px-8 lg:px-16">
           <div className="text-center">
             <motion.h2
-              className="text-4xl md:text-5xl font-black text-black tracking-tight"
+              className="text-3xl sm:text-4xl md:text-5xl font-black text-black tracking-tight"
               variants={itemVariants}
             >
               But What Is Hijama?
             </motion.h2>
             <motion.p
-              className="mt-4 text-lg text-black"
+              className="mt-2 sm:mt-4 text-base sm:text-lg text-black"
               variants={itemVariants}
             >
               Know The Process!
             </motion.p>
           </div>
 
-          <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            {/* <<< Hijama Image with Hover Effect >>> */}
+          <div className="mt-12 sm:mt-16 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
             <motion.div
-              className="relative w-full h-110 rounded-2xl shadow-2xl overflow-hidden"
+              className="relative w-full h-80 sm:h-96 md:h-110 rounded-2xl shadow-2xl overflow-hidden"
               variants={fadeInVariants}
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.3, ease: "easeInOut" }}
@@ -464,9 +474,9 @@ const HomePage = () => {
               />
             </motion.div>
 
-            <div className="text-left md:pl-8">
+            <div className="text-center md:text-left md:pl-8">
               <motion.p
-                className="text-black leading-relaxed"
+                className="text-black leading-relaxed text-base sm:text-lg text-justify"
                 variants={itemVariants}
               >
                 Hijama cupping therapy includes the elimination of toxic
@@ -475,7 +485,7 @@ const HomePage = () => {
               </motion.p>
 
               <motion.div
-                className="mt-8 grid grid-cols-2 gap-y-8 gap-x-4 text-center"
+                className="mt-6 sm:mt-8 grid grid-cols-2 gap-y-6 gap-x-4 text-center"
                 variants={staggerContainerVariants}
               >
                 {benefits.map((benefit, index) => (
@@ -484,19 +494,19 @@ const HomePage = () => {
                     className="flex flex-col items-center justify-start"
                     variants={itemVariants}
                   >
-                    <benefit.icon className="h-12 w-12 text-orange-500" />
-                    <p className="mt-3 font-bold text-gray-800">{benefit.text}</p>
+                    <benefit.icon className="h-10 w-10 sm:h-12 sm:w-12 text-orange-500" />
+                    <p className="mt-2 sm:mt-3 font-bold text-sm sm:text-base text-gray-800">{benefit.text}</p>
                   </motion.div>
                 ))}
               </motion.div>
 
-              <div className="mt-10 text-center">
+              <div className="mt-8 sm:mt-10 text-center">
                 <motion.a
                   href="tel:+92 300 7598000"
-                  className="inline-flex items-center justify-center px-6 py-3 bg-[#FF6900] text-white font-medium rounded-full shadow-lg hover:brightness-90 transition-all duration-300 transform hover:scale-105"
+                  className="inline-flex items-center justify-center px-5 py-2.5 sm:px-6 sm:py-3 bg-[#FF6900] text-white text-sm sm:text-base font-medium rounded-full shadow-lg hover:brightness-90 transition-all duration-300 transform hover:scale-105"
                   variants={itemVariants}
                 >
-                  Call For Free Consultation
+                  Book Your Free Consultation
                   <Phone className="ml-2 h-4 w-4" />
                 </motion.a>
               </div>
@@ -508,50 +518,50 @@ const HomePage = () => {
       {/* --- Benefits Of Hijama Section --- */}
       <motion.section
         id="benefits"
-        className="py-24 bg-[#F0FDF4]"
+        className="py-16 sm:py-24 bg-[#F0FDF4]"
         ref={benefitsRef}
         initial="hidden"
         animate={benefitsInView ? "visible" : "hidden"}
         variants={staggerContainerVariants}
       >
-        <div className="container mx-auto px-8 sm:px-16 text-center">
+        <div className="container mx-auto px-4 sm:px-8 lg:px-16 text-center">
           <motion.h2
-            className="text-4xl md:text-5xl font-extrabold text-gray-800"
+            className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-800"
             variants={itemVariants}
           >
             Benefits Of Hijama Cupping Therapy
           </motion.h2>
           <motion.p
-            className="mt-4 text-lg text-gray-600 max-w-3xl mx-auto"
+            className="mt-2 sm:mt-4 text-base sm:text-lg text-gray-600 max-w-md sm:max-w-3xl mx-auto"
             variants={itemVariants}
           >
             Experience a wide range of health improvements with this ancient prophetic healing method, trusted for centuries to restore balance and vitality.
           </motion.p>
 
-          <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="mt-12 sm:mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
             {hijamaBenefits.map((benefit, index) => (
               <motion.div
                 key={index}
                 className="bg-white rounded-2xl shadow-lg text-left transform hover:-translate-y-2 transition-transform duration-300 overflow-hidden flex flex-col"
                 variants={itemVariants}
               >
-                <div className="relative w-full h-48">
+                <div className="relative w-full h-40 sm:h-48">
                   <img
                     src={benefit.image}
                     alt={benefit.title}
                     className="w-full h-full object-cover"
                   />
                 </div>
-                <div className="p-6 flex-grow flex flex-col">
-                  <div className='flex items-center mb-4'>
-                    <div className="bg-teal-100 text-teal-600 rounded-lg w-12 h-12 flex items-center justify-center mr-4 shrink-0">
-                        <benefit.icon className="w-6 h-6" />
+                <div className="p-4 sm:p-6 flex-grow flex flex-col">
+                  <div className='flex items-center mb-3 sm:mb-4'>
+                    <div className="bg-teal-100 text-teal-600 rounded-lg w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center mr-3 sm:mr-4 shrink-0">
+                        <benefit.icon className="w-5 h-5 sm:w-6 sm:h-6" />
                     </div>
-                    <h3 className="text-xl font-bold text-gray-900 leading-tight">
+                    <h3 className="text-lg sm:text-xl font-bold text-gray-900 leading-tight">
                       {benefit.title}
                     </h3>
                   </div>
-                  <p className="text-gray-600 text-sm">
+                  <p className="text-gray-600 text-xs sm:text-sm">
                     {benefit.description}
                   </p>
                 </div>
@@ -564,45 +574,51 @@ const HomePage = () => {
       {/* --- Meet The Therapist Section --- */}
       <motion.section
         id="therapist"
-        className="py-24 bg-white"
+        className="py-16 sm:py-24 bg-white"
         ref={therapistRef}
         initial="hidden"
         animate={therapistInView ? "visible" : "hidden"}
         variants={staggerContainerVariants}
       >
-        <div className="container mx-auto px-12 sm:px-20 lg:px-32">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <motion.div variants={itemVariants}>
-              <h2 className="text-4xl md:text-5xl font-extrabold text-gray-800 tracking-tight">
+        <div className="container mx-auto px-4 sm:px-12 md:px-20 lg:px-32">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            {/* Text Column: order-2 lg:order-1 */}
+            <motion.div
+              variants={itemVariants}
+              className="text-center lg:text-left order-2 lg:order-1"
+            >
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-800 tracking-tight">
                 Mr. Jameel Ur Rehman
               </h2>
-              <p className="mt-3 text-lg text-teal-700 font-medium">
+              <p className="mt-2 sm:mt-3 text-base sm:text-lg text-teal-700 font-medium">
                 Your Therapist at our Hijama center
               </p>
-              <p className="mt-6 text-gray-600 leading-relaxed">
-                Meet Mr. Jameel ur Rehman, a certified Hijama Specialist from Oman and a Tibbenabvi Hakeem in Pakistan. With 25 years of dedicated experience, his expertise is rooted in the authentic, Sunnah-based traditions of cupping therapy. Mr. Rehman is proficient in treating a wide array of health conditions, believing in a holistic approach to wellness. He effectively addresses issues ranging from brain and nervous system disorders like migraines and stress, to heart, liver, and digestive problems. His gentle approach and deep understanding of prophetic medicine have helped countless individuals find natural healing and restore balance to their lives.
+              <p className="mt-4 sm:mt-6 text-sm sm:text-base text-gray-600 leading-relaxed text-justify">
+                Meet Mr. Jameel ur Rehman, a certified Hijama Specialist from Oman and a Tibbenabvi Hakeem in Pakistan. With 15 years of dedicated experience, his expertise is rooted in the authentic, Sunnah-based traditions of cupping therapy. Mr. Rehman is proficient in treating a wide array of health conditions, believing in a holistic approach to wellness. He effectively addresses issues ranging from brain and nervous system disorders like migraines and stress, to heart, liver, and digestive problems. His gentle approach and deep understanding of prophetic medicine have helped countless individuals find natural healing and restore balance to their lives.
               </p>
 
-              <div className="mt-10 flex justify-center lg:justify-start items-center space-x-12">
+              {/* Stats container */}
+              <div className="mt-8 sm:mt-10 flex flex-col items-center space-y-4 md:flex-row md:justify-center lg:justify-start md:items-center md:space-y-0 md:space-x-12">
                 {therapistInView && <AnimatedStat to={10} suffix="K+" text="Satisfied Clients" />}
-                <div className="h-16 w-px bg-gray-300"></div>
-                {therapistInView && <AnimatedStat to={25} text="Years of Experience" />}
+                <div className="h-16 w-px bg-gray-300 hidden md:block"></div>
+                {therapistInView && <AnimatedStat to={15} text="Years of Experience" />}
               </div>
 
-              <div className="mt-10">
+               {/* Button container */}
+              <div className="mt-8 sm:mt-10 text-center lg:text-left">
                 <a
                   href="tel:+92 300 7598000"
-                  className="inline-flex items-center px-8 py-4 bg-[#FF6900] text-white font-semibold rounded-lg shadow-md hover:brightness-90 transition-all duration-300 transform hover:scale-105"
+                  className="inline-flex items-center px-6 py-3 sm:px-8 sm:py-4 bg-[#FF6900] text-white text-sm sm:text-base font-semibold rounded-lg shadow-md hover:brightness-90 transition-all duration-300 transform hover:scale-105"
                 >
-                  Call For Free Consultation
-                  <Phone className="ml-3 h-5 w-5" />
+                  Speak to a Specialist
+                  <Phone className="ml-2 sm:ml-3 h-4 w-4 sm:h-5 sm:w-5" />
                 </a>
               </div>
             </motion.div>
 
-            {/* <<< Therapist Image with Hover Effect >>> */}
+            {/* Image Column: order-1 lg:order-2 */}
             <motion.div
-              className="flex justify-center lg:justify-end"
+              className="flex justify-center lg:justify-end order-1 lg:order-2"
               variants={imageVariants}
               initial="hidden"
               animate={therapistInView ? "visible" : "hidden"}
@@ -610,14 +626,14 @@ const HomePage = () => {
               <motion.div
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.3, ease: "easeInOut" }}
-                className="rounded-2xl shadow-2xl overflow-hidden"
-              >
+                className="rounded-2xl shadow-2xl overflow-hidden w-full max-w-xs sm:max-w-sm md:max-w-md"
+             >
                 <img
                   src="/ceo.jpg"
                   alt="Mr Jameel ur Rehman, expert Hijama therapist in Lahore"
                   width="400"
                   height="450"
-                  className="rounded-2xl shadow-2xl object-cover w-full h-auto max-w-md"
+                  className="rounded-2xl shadow-2xl object-cover w-full h-auto"
                 />
               </motion.div>
             </motion.div>
@@ -628,33 +644,33 @@ const HomePage = () => {
       {/* --- TESTIMONIALS SECTION --- */}
       <motion.section
         id="testimonials"
-        className="py-24 bg-[#F0FDF4]"
+        className="py-16 sm:py-24 bg-[#F0FDF4]"
         ref={testimonialsRef}
         initial="hidden"
         animate={testimonialsInView ? "visible" : "hidden"}
         variants={staggerContainerVariants}
       >
-        <div className="container mx-auto px-8 sm:px-16 text-center">
+        <div className="container mx-auto px-4 sm:px-8 lg:px-16 text-center">
           <motion.h2
-            className="text-4xl md:text-5xl font-extrabold text-gray-800 tracking-tight"
+            className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-800 tracking-tight"
             variants={itemVariants}
           >
             What Our Clients Says
           </motion.h2>
           <motion.p
-            className="mt-4 text-lg text-gray-600 max-w-2xl mx-auto"
+            className="mt-2 sm:mt-4 text-base sm:text-lg text-gray-600 max-w-md sm:max-w-2xl mx-auto"
             variants={itemVariants}
           >
             Hijama Healing That Gets People Talking.
           </motion.p>
 
-          <div className="relative mt-16">
+          <div className="relative mt-12 sm:mt-16">
             <div className="flex items-center justify-between">
-              <button onClick={prevTestimonial} className="z-20 bg-white rounded-full shadow-md w-12 h-12 flex items-center justify-center text-gray-600 hover:bg-gray-100 transition flex-shrink-0" aria-label="Previous testimonial">
-                <ChevronLeft className="w-6 h-6" />
+              <button onClick={prevTestimonial} className="z-20 bg-white rounded-full shadow-md w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center text-gray-600 hover:bg-gray-100 transition flex-shrink-0" aria-label="Previous testimonial">
+                <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
               </button>
 
-              <div className="flex-1 w-full max-w-5xl mx-2 sm:mx-4 overflow-hidden relative h-[480px] sm:h-[420px] md:h-[380px]">
+              <div className="flex-1 w-full max-w-5xl mx-1 sm:mx-2 overflow-hidden relative min-h-[250px]"> {/* Removed fixed height */}
                 <AnimatePresence initial={false} custom={direction}>
                   <motion.div
                     key={currentTestimonialIndex}
@@ -668,26 +684,26 @@ const HomePage = () => {
                       ease: "easeInOut",
                       duration: 0.6,
                     }}
-                    className="absolute top-0 left-0 w-full h-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-center"
+                    className="absolute top-0 left-0 w-full h-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8 items-start pt-4"
                   >
                     {getVisibleTestimonials().map((testimonial, index) => (
                       <div
                         key={`${currentTestimonialIndex}-${index}`}
-                        className="bg-white p-6 rounded-2xl shadow-lg flex flex-col text-left h-full"
+                        className="bg-white p-4 sm:p-6 rounded-2xl shadow-lg flex flex-col text-left" // Removed h-full
                       >
-                        <p className="text-gray-600 leading-relaxed mb-4">
+                        <p className="text-gray-600 leading-relaxed mb-4 text-sm sm:text-base"> {/* Removed flex-grow */}
                           “{testimonial.text}”
                         </p>
-                        <div className="mt-auto pt-4 border-t border-gray-100 w-full">
-                          <h4 className="text-lg font-bold text-gray-900">
+                        <div className="mt-auto pt-3 sm:pt-4 border-t border-gray-100 w-full">
+                          <h4 className="text-base sm:text-lg font-bold text-gray-900">
                             {testimonial.name}
                           </h4>
                           <div className="flex mt-1">
                             {[...Array(testimonial.rating)].map((_, i) => (
-                              <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
+                              <Star key={i} className="h-4 w-4 sm:h-5 sm:w-5 text-yellow-400 fill-current" />
                             ))}
                             {[...Array(5 - testimonial.rating)].map((_, i) => (
-                              <Star key={i} className="h-5 w-5 text-gray-300" />
+                              <Star key={i} className="h-4 w-4 sm:h-5 sm:w-5 text-gray-300" />
                             ))}
                           </div>
                         </div>
@@ -697,120 +713,129 @@ const HomePage = () => {
                 </AnimatePresence>
               </div>
 
-              <button onClick={nextTestimonial} className="z-20 bg-white rounded-full shadow-md w-12 h-12 flex items-center justify-center text-gray-600 hover:bg-gray-100 transition flex-shrink-0" aria-label="Next testimonial">
-                <ChevronRight className="w-6 h-6" />
+              <button onClick={nextTestimonial} className="z-20 bg-white rounded-full shadow-md w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center text-gray-600 hover:bg-gray-100 transition flex-shrink-0" aria-label="Next testimonial">
+                <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6" />
               </button>
             </div>
 
-            <div className="flex justify-center mt-8 space-x-3">
+            <div className="flex justify-center mt-4 sm:mt-6 space-x-2 sm:space-x-3">
               {testimonials.map((_, index) => (
                 <button
                   key={index}
                   onClick={() => goToTestimonial(index)}
-                  className={`w-3 h-3 rounded-full transition-colors duration-300 ${
+                  className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full transition-colors duration-300 ${
                     index === currentTestimonialIndex ? 'bg-teal-500' : 'bg-gray-300 hover:bg-gray-400'
                   }`}
                   aria-label={`Go to testimonial ${index + 1}`}
                 />
               ))}
             </div>
+
+            <motion.div
+              className="mt-6 sm:mt-8 text-center"
+              variants={itemVariants}
+            >
+              <a
+                href="https://www.google.com/search?q=Al-Madina+Hijama+Center&sca_esv=6d8773dfd8986ffe&ei=8BnzZcnMII-GjuMP-q-9sAw&ved=0ahUKEwipmKaJtKyFAxWPhYkEHPqXD8YQ4dUDCBA&uact=5&oq=Al-Madina+Hijama+Center&gs_lp=Egxnd3Mtd2l6LXNlcnAiGEFsLU1hZGluYSBIaWphbWEgQ2VudGVyMgQQABgeMggQABgWGB4YD0j1C1DJAli2CHACeACQAQCYAeQBoAGzBqoBAzItM7gBA8gBAPgBAZgCAqACswPCAgoQIxiABBiKBRgnwgIFEAAYgATiAwQYACBBiAYBkAYI&sclient=gws-wiz-serp#lrd=0x39190119335759ff:0x937c8ee18221b0dc,1,,,,"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center px-6 py-3 sm:px-8 sm:py-4 bg-[#FF6900] text-white text-sm sm:text-lg font-bold rounded-full shadow-lg hover:brightness-90 transition-all duration-300 transform hover:scale-105"
+              >
+                Explore All Reviews
+              </a>
+            </motion.div>
+
           </div>
         </div>
       </motion.section>
 
       {/* --- CTA Section --- */}
-      <section className="bg-[#1E4137] py-24">
-        <div className="container mx-auto px-8 text-center">
-          <h2 className="text-4xl md:text-5xl font-extrabold text-white">
+      <section className="bg-[#1E4137] py-16 sm:py-24">
+        <div className="container mx-auto px-4 sm:px-8 text-center">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white">
             Lets Book a Call to See How We can Help You!
           </h2>
-          <p className="mt-4 text-lg text-gray-300 max-w-2xl mx-auto">
+          <p className="mt-3 sm:mt-4 text-base sm:text-lg text-gray-300 max-w-md sm:max-w-2xl mx-auto">
             Book a Free On-Call Consultation With Mr Jameel ur Rehman and we will guide you how Hijama can do wonders for you.
           </p>
-          <div className="mt-10">
+          <div className="mt-8 sm:mt-10">
             <a
               href="tel:+92 300 7598000"
-              className="inline-flex items-center px-8 py-4 bg-[#FF6900] text-white font-bold text-lg rounded-full shadow-lg hover:brightness-90 transition-all duration-300 transform hover:scale-105"
+              className="inline-flex items-center px-6 py-3 sm:px-8 sm:py-4 bg-[#FF6900] text-white text-base sm:text-lg font-bold rounded-full shadow-lg hover:brightness-90 transition-all duration-300 transform hover:scale-105"
             >
               Call For Free Consultation
-              <Phone className="ml-3 h-5 w-5" />
+              <Phone className="ml-2 sm:ml-3 h-4 w-4 sm:h-5 sm:w-5" />
             </a>
           </div>
         </div>
       </section>
 
       {/* --- Contact Us Section --- */}
-      <section id="contact" className="bg-white py-24">
-        <div className="container mx-auto px-8 sm:px-16">
-          {/* Section Headings */}
+      <section id="contact" className="bg-white py-16 sm:py-24">
+        <div className="container mx-auto px-4 sm:px-8 lg:px-16">
           <div className="text-center">
-            <h2 className="text-4xl md:text-5xl font-extrabold text-gray-800">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-800">
               Contact Us
             </h2>
-            <p className="mt-2 text-lg text-gray-600">
+            <p className="mt-2 text-base sm:text-lg text-gray-600">
               Get in Touch
             </p>
           </div>
 
-          {/* Centering Wrapper for the Grid */}
-          <div className="mt-16 max-w-4xl mx-auto">
-            {/* Main Content Grid */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+          <div className="mt-12 sm:mt-16 max-w-4xl mx-auto">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
 
               {/* Left Column: Contact Details */}
-              <div className="space-y-8">
-                {/* Whatsapp Item */}
-                <div className="flex items-start gap-5">
-                  <div className="bg-green-100 p-3 rounded-full">
-                    <MessageSquare className="w-6 h-6 text-green-600" />
+              <div className="space-y-6 sm:space-y-8">
+                <div className="flex items-start gap-3 sm:gap-5">
+                  <div className="bg-green-100 p-2 sm:p-3 rounded-full">
+                    <MessageSquare className="w-5 h-5 sm:w-6 sm:h-6 text-green-600" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-gray-800">Whatsapp</h3>
-                    <p className="text-gray-600 mt-1">+92 300 7598000</p>
+                    <h3 className="text-lg sm:text-xl font-bold text-gray-800">Whatsapp</h3>
+                    <p className="text-gray-600 mt-1 text-sm sm:text-base">+92 300 7598000</p>
                   </div>
                 </div>
 
-                {/* Email Item */}
-                <div className="flex items-start gap-5">
-                  <div className="bg-green-100 p-3 rounded-full">
-                    <Mail className="w-6 h-6 text-green-600" />
+                <div className="flex items-start gap-3 sm:gap-5">
+                  <div className="bg-green-100 p-2 sm:p-3 rounded-full">
+                    <Mail className="w-5 h-5 sm:w-6 sm:h-6 text-green-600" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-gray-800">Email</h3>
-                    <p className="text-gray-600 mt-1">almadinahijamaclinic1400@gmail.com</p>
+                    <h3 className="text-lg sm:text-xl font-bold text-gray-800">Email</h3>
+                    <p className="text-gray-600 mt-1 text-sm sm:text-base break-all">info@almadinahijamacenter.com</p>
                   </div>
                 </div>
 
-                {/* Locations Item */}
-                <div className="flex items-start gap-5">
-                  <div className="bg-green-100 p-3 rounded-full">
-                    <MapPin className="w-6 h-6 text-green-600" />
+                <div className="flex items-start gap-3 sm:gap-5">
+                  <div className="bg-green-100 p-2 sm:p-3 rounded-full">
+                    <MapPin className="w-5 h-5 sm:w-6 sm:h-6 text-green-600" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-gray-800">Locations</h3>
-                    <p className="text-gray-600 mt-1">MashaAllah Center, 213-A, opp. Car Parking Grand Mosque,</p>
-                    <p className="text-gray-600">Commercial Sector C Bahria Town, Lahore, 53720</p>
+                    <h3 className="text-lg sm:text-xl font-bold text-gray-800">Locations</h3>
+                    <p className="text-gray-600 mt-1 text-sm sm:text-base">MashaAllah Center, 213-A, opp. Car Parking Grand Mosque,</p>
+                    <p className="text-gray-600 text-sm sm:text-base">Commercial Sector C Bahria Town, Lahore, 53720</p>
                   </div>
                 </div>
               </div>
 
               {/* Right Column: Contact Form */}
               <div>
-                <form action="#" method="POST" className="space-y-6">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <form action="#" method="POST" className="space-y-4 sm:space-y-6">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                     <input
                       type="text"
                       name="name"
                       id="name"
                       placeholder="Name"
-                      className="w-full px-4 py-3 bg-gray-100 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-teal-500 text-black placeholder-black"
+                      className="w-full px-3 py-2 sm:px-4 sm:py-3 bg-gray-100 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-teal-500 text-sm sm:text-base text-black placeholder-gray-500"
                     />
                     <input
                       type="tel"
                       name="phone"
                       id="phone"
                       placeholder="Phone"
-                      className="w-full px-4 py-3 bg-gray-100 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-teal-500 text-black placeholder-black"
+                      className="w-full px-3 py-2 sm:px-4 sm:py-3 bg-gray-100 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-teal-500 text-sm sm:text-base text-black placeholder-gray-500"
                     />
                   </div>
                   <div>
@@ -819,25 +844,25 @@ const HomePage = () => {
                       name="subject"
                       id="subject"
                       placeholder="Subject"
-                      className="w-full px-4 py-3 bg-gray-100 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-teal-500 text-black placeholder-black"
+                      className="w-full px-3 py-2 sm:px-4 sm:py-3 bg-gray-100 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-teal-500 text-sm sm:text-base text-black placeholder-gray-500"
                     />
                   </div>
                   <div>
                     <textarea
                       name="message"
                       id="message"
-                      rows={5}
+                      rows={4}
                       placeholder="Message"
-                      className="w-full px-4 py-3 bg-gray-100 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-teal-500 text-black placeholder-black"
+                      className="w-full px-3 py-2 sm:px-4 sm:py-3 bg-gray-100 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-teal-500 text-sm sm:text-base text-black placeholder-gray-500"
                     ></textarea>
                   </div>
                   <div>
                     <button
                       type="submit"
-                      className="inline-flex items-center justify-center px-8 py-3 bg-[#FF6900] text-white font-semibold rounded-lg shadow-md hover:brightness-90 transition-colors duration-300"
+                      className="inline-flex items-center justify-center px-6 py-2.5 sm:px-8 sm:py-3 bg-[#FF6900] text-white text-sm sm:text-base font-semibold rounded-lg shadow-md hover:brightness-90 transition-colors duration-300"
                     >
                       Send Message
-                      <ChevronRight className="ml-2 h-5 w-5" />
+                      <ChevronRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
                     </button>
                   </div>
                 </form>
@@ -868,6 +893,12 @@ const HomePage = () => {
         }
         .text-shadow {
           text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+        }
+        .text-justify {
+           text-align: justify;
+        }
+        body, html {
+           overflow-x: hidden;
         }
       `}</style>
     </main>

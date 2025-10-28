@@ -24,4 +24,10 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
-
+/* Add this at the end of globals.css */
+html::before, html::after,
+body::before, body::after {
+  border: none !important;
+  box-shadow: none !important;
+  background: none !important; /* Be cautious, this might hide intended backgrounds */
+}

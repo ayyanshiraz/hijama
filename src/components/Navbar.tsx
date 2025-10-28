@@ -1,3 +1,4 @@
+// src/components/Navbar.tsx
 'use client';
 
 import { useState, useEffect } from 'react';
@@ -21,6 +22,7 @@ const navLinks = [
   { name: 'About Us', href: '/about' },
   { name: 'Services', href: '/services', subLinks: serviceLinks },
   { name: 'Contact', href: '/contact' },
+  // { name: 'Blog', href: '/blog' }, // Example if Blog link is needed
 ];
 
 const Navbar = () => {
@@ -33,44 +35,69 @@ const Navbar = () => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
     };
+    // Close mobile menu on resize if screen becomes larger
+    const handleResize = () => {
+        if (window.innerWidth >= 768) { // md breakpoint
+            setIsMenuOpen(false);
+            setIsServicesOpen(false);
+        }
+    }
 
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener('resize', handleResize);
+    return () => {
+        window.removeEventListener('scroll', handleScroll);
+        window.removeEventListener('resize', handleResize);
+    }
   }, []);
 
   const showBackground = isScrolled || isMenuOpen || isDesktopServicesOpen;
 
+  // Function to close all menus
+  const closeAllMenus = () => {
+    setIsMenuOpen(false);
+    setIsServicesOpen(false);
+    setIsDesktopServicesOpen(false); // Also close desktop dropdown if needed
+  };
+
+
   return (
     <header
+      // Added min-h-[60px] or similar if needed to prevent layout shift when bg appears
       className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-300 ease-in-out ${
         showBackground ? 'bg-white shadow-md' : 'bg-transparent'
       }`}
     >
-      <nav className="container mx-auto px-6 py-4">
+      {/* Adjusted padding */}
+      <nav className="container mx-auto px-4 sm:px-6 py-3 sm:py-4">
         <div className="flex justify-between items-center">
-          {/* Logo/Brand Name */}
-          <Link href="/" className={`text-2xl font-bold transition-colors ${showBackground ? 'text-gray-800' : 'text-white'}`}>
+          {/* Logo/Brand Name - Responsive Text Size */}
+          <Link href="/" onClick={closeAllMenus} className={`text-xl sm:text-2xl font-bold transition-colors ${showBackground ? 'text-gray-800' : 'text-white'}`}>
             Al Madina Hijama Center
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          {/* Adjusted spacing */}
+          <div className="hidden md:flex items-center space-x-6 lg:space-x-8">
             {navLinks.map((link) => (
               <div
                 key={link.name}
-                className="relative"
+                className="relative group" // Use group hover for dropdown
                 onMouseEnter={() => link.subLinks && setIsDesktopServicesOpen(true)}
                 onMouseLeave={() => link.subLinks && setIsDesktopServicesOpen(false)}
               >
                 <Link
                   href={link.href}
-                  className={`transition-colors text-lg flex items-center ${
+                  onClick={() => !link.subLinks && closeAllMenus()} // Close if not a dropdown trigger
+                  // Adjusted text size and hover effect
+                  className={`transition-colors text-base lg:text-lg flex items-center py-1 ${
                     showBackground ? 'text-gray-600 hover:text-teal-600' : 'text-gray-200 hover:text-white'
                   }`}
                 >
                   {link.name}
-                  {link.subLinks && <ChevronDown className="ml-1 h-4 w-4" />}
+                  {link.subLinks && <ChevronDown className={`ml-1 h-4 w-4 transition-transform duration-200 ${isDesktopServicesOpen ? 'rotate-180' : ''}`} />}
                 </Link>
+                {/* Desktop Dropdown */}
                 {link.subLinks && (
                   <AnimatePresence>
                     {isDesktopServicesOpen && (
@@ -79,14 +106,17 @@ const Navbar = () => {
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -10 }}
                         transition={{ duration: 0.2, ease: 'easeOut' }}
-                        className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-72 bg-white rounded-md shadow-lg overflow-hidden"
+                        // Adjusted width and positioning
+                        className="absolute top-full left-1/2 -translate-x-1/2 mt-1 w-64 bg-white rounded-md shadow-lg overflow-hidden ring-1 ring-black ring-opacity-5"
                       >
-                        <div className="flex flex-col py-2">
+                        <div className="flex flex-col py-1">
                           {link.subLinks.map((subLink) => (
                             <Link
                               key={subLink.name}
                               href={subLink.href}
-                              className="px-4 py-2 text-gray-700 hover:bg-[#1E4137] hover:text-white transition-colors"
+                              onClick={closeAllMenus} // Close all menus on sublink click
+                               // Adjusted padding and text size
+                              className="px-4 py-2 text-sm text-gray-700 hover:bg-teal-600 hover:text-white transition-colors"
                             >
                               {subLink.name}
                             </Link>
@@ -98,19 +128,22 @@ const Navbar = () => {
                 )}
               </div>
             ))}
+            {/* Call Us Button - Responsive Styles */}
             <a
               href="tel:+923007598000"
-              className="inline-flex items-center px-4 py-2 bg-[#FF6900] text-white font-semibold rounded-lg shadow-md hover:brightness-90 transition-all duration-300 transform hover:scale-105"
+               // Adjusted padding and text size
+              className="inline-flex items-center px-3 py-1.5 sm:px-4 sm:py-2 bg-[#FF6900] text-white text-sm sm:text-base font-semibold rounded-lg shadow-md hover:brightness-90 transition-all duration-300 transform hover:scale-105"
             >
-              <Phone className="mr-2 h-5 w-5" />
+              <Phone className="mr-1 sm:mr-2 h-4 w-4 sm:h-5 sm:w-5" />
               Call Us
             </a>
           </div>
 
           {/* Mobile Menu Button */}
+          {/* Adjusted padding/margin if needed */}
           <div className="md:hidden">
-            <button onClick={() => setIsMenuOpen(!isMenuOpen)} className={`transition-colors ${showBackground ? 'text-gray-800' : 'text-white'}`}>
-              {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
+            <button onClick={() => setIsMenuOpen(!isMenuOpen)} className={`transition-colors p-1 ${showBackground ? 'text-gray-800' : 'text-white'}`}>
+              {isMenuOpen ? <X size={24} /> : <Menu size={24} />} {/* Adjusted size */}
             </button>
           </div>
         </div>
@@ -122,79 +155,91 @@ const Navbar = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden mt-4 bg-white rounded-lg shadow-xl overflow-hidden"
+            transition={{ duration: 0.3, ease: 'easeInOut' }}
+            // Ensure background color is set when open
+            className="md:hidden mt-2 bg-white rounded-lg shadow-xl overflow-hidden"
           >
-            <div className="flex flex-col items-center space-y-2 py-4">
+            <div className="flex flex-col items-stretch divide-y divide-gray-100"> {/* Use items-stretch */}
               {navLinks.map((link) => (
                 <div key={link.name} className="w-full text-center">
                   {link.subLinks ? (
                     <>
                       {/* Container for Link + Toggle Button */}
-                      <div className="flex justify-center items-center w-full px-4 py-2">
-                        {/* Link for the text part - Navigates to /services */}
+                       {/* Adjusted padding */}
+                      <div className="flex justify-between items-center w-full px-4 py-3">
+                         {/* Link for the text part - Navigates to /services */}
                         <Link
                           href={link.href}
                           onClick={() => setIsMenuOpen(false)} // Close menu on navigation
-                          className="text-gray-700 hover:text-teal-600 text-lg flex-grow text-center" // Text aligns center
+                           // Adjusted text size
+                          className="text-gray-700 hover:text-teal-600 text-base font-medium flex-grow text-center mr-2"
                         >
                           {link.name}
                         </Link>
-                        {/* Button ONLY for the icon - Toggles dropdown */}
+                         {/* Button ONLY for the icon - Toggles dropdown */}
                         <button
                           onClick={(e) => {
-                            e.stopPropagation(); // Prevent triggering the Link navigation when clicking the arrow
+                            e.stopPropagation();
                             setIsServicesOpen(!isServicesOpen);
                           }}
-                          className="text-gray-700 hover:text-teal-600 ml-2 p-1 flex-shrink-0" // Added padding, adjust as needed
-                          aria-label="Toggle services submenu" // Accessibility improvement
+                          className="text-gray-700 hover:text-teal-600 p-1 flex-shrink-0"
+                          aria-label="Toggle services submenu"
                         >
                           <ChevronDown className={`h-5 w-5 transition-transform duration-300 ${isServicesOpen ? 'rotate-180' : ''}`} />
                         </button>
                       </div>
-                      {/* Dropdown remains the same */}
+                       {/* Mobile Submenu Dropdown */}
                       <AnimatePresence>
                         {isServicesOpen && (
-                           <motion.div
-                             initial={{ height: 0, opacity: 0 }}
-                             animate={{ height: 'auto', opacity: 1 }}
-                             exit={{ height: 0, opacity: 0 }}
-                             className="overflow-hidden bg-gray-50/50" // Background for dropdown items
-                           >
-                             <div className="flex flex-col items-center space-y-2 py-2">
-                               {link.subLinks.map((subLink) => (
-                                 <Link
-                                   key={subLink.name}
-                                   href={subLink.href}
-                                   onClick={() => setIsMenuOpen(false)} // Close menu when sub-link clicked
-                                   className="text-gray-600 hover:text-white hover:bg-[#1E4137] text-base py-2 w-full transition-colors" // Full width for easier tap
-                                 >
-                                   {subLink.name}
-                                 </Link>
-                               ))}
-                             </div>
-                           </motion.div>
+                            <motion.div
+                            initial={{ height: 0, opacity: 0 }}
+                            animate={{ height: 'auto', opacity: 1 }}
+                            exit={{ height: 0, opacity: 0 }}
+                            transition={{ duration: 0.3, ease: 'easeInOut' }}
+                            className="overflow-hidden bg-gray-50 border-t border-gray-100" // Background for dropdown items
+                            >
+                            <div className="flex flex-col items-stretch space-y-0 py-2"> {/* Removed space-y */}
+                                {link.subLinks.map((subLink) => (
+                                <Link
+                                    key={subLink.name}
+                                    href={subLink.href}
+                                    onClick={closeAllMenus} // Close menu when sub-link clicked
+                                     // Adjusted text size and padding
+                                    className="text-gray-600 hover:text-white hover:bg-teal-600 text-sm py-2.5 px-4 text-center transition-colors"
+                                >
+                                    {subLink.name}
+                                </Link>
+                                ))}
+                            </div>
+                            </motion.div>
                         )}
-                      </AnimatePresence>
+                        </AnimatePresence>
                     </>
                   ) : (
-                     // Regular link rendering (Home, About Us, Contact)
-                     <Link
-                       href={link.href}
-                       onClick={() => setIsMenuOpen(false)}
-                       className="text-gray-700 hover:text-teal-600 text-lg py-2 block w-full"
-                     >
-                       {link.name}
-                     </Link>
+                       // Regular link rendering (Home, About Us, Contact)
+                       // Adjusted text size and padding
+                      <Link
+                      href={link.href}
+                      onClick={closeAllMenus}
+                      className="text-gray-700 hover:text-teal-600 text-base font-medium py-3 block w-full"
+                      >
+                      {link.name}
+                      </Link>
                   )}
                 </div>
               ))}
-              <a
-                href="tel:+923007598000"
-                className="mt-4 inline-flex items-center px-6 py-3 bg-[#FF6900] text-white font-semibold rounded-lg shadow-md hover:brightness-90 transition-colors duration-300"
-              >
-                <Phone className="mr-2 h-5 w-5" />
-                Call Us Now
-              </a>
+              {/* Call Us Button for Mobile Menu */}
+              <div className="p-4">
+                  <a
+                    href="tel:+923007598000"
+                    // Adjusted padding and text size
+                    className="w-full inline-flex items-center justify-center px-4 py-2.5 bg-[#FF6900] text-white text-base font-semibold rounded-lg shadow-md hover:brightness-90 transition-colors duration-300"
+                    onClick={closeAllMenus} // Close menu on click
+                 >
+                    <Phone className="mr-2 h-5 w-5" />
+                    Call Us Now
+                  </a>
+              </div>
             </div>
           </motion.div>
         )}
