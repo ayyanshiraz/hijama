@@ -50,7 +50,7 @@ const preparation = [
 
 const faqs = [
     {
-        question: "Does Wet Hijama hurt?",
+        question: "Does Blood Hijama hurt?",
         answer: "Most clients experience minimal discomfort. The incisions are very superficial, often described as light scratches. Our practitioners are trained to be gentle and ensure your comfort throughout the session."
     },
     {
@@ -62,7 +62,7 @@ const faqs = [
         answer: "The circular marks from the cups are temporary and typically fade within 3-10 days, depending on the level of stagnation. The scratches are superficial and do not leave permanent scars when proper after-care is followed."
     },
     {
-        question: "Who should not get Wet Hijama?",
+        question: "Who should not get Blood Hijama?",
         answer: "Individuals with certain medical conditions, such as bleeding disorders, severe anemia, or those on blood-thinning medication, should consult with our specialist first. It is also not recommended for pregnant women. Full disclosure of your medical history is essential for your safety."
     }
 ];
@@ -71,7 +71,7 @@ const faqs = [
 const schema = {
     "@context": "https://schema.org",
     "@type": "TherapeuticProcedure",
-    "name": "Wet Cupping (Hijama)",
+    "name": "Blood Cupping (Hijama)",
     "description": "A traditional Prophetic method of healing that involves creating suction on the skin and making small, superficial incisions to draw out stagnant blood and toxins. It is used to treat a variety of conditions by promoting detoxification, improving circulation, and boosting the immune system.",
     "indication": [
       { "@type": "MedicalCondition", "name": "Chronic Pain" },
@@ -124,7 +124,7 @@ const WetCuppingPage = () => {
     const breadcrumbItems = [
         { name: 'Home', href: '/' },
         { name: 'Services', href: '/services' },
-        { name: 'Wet Cupping (Hijama)', href: '/services/wet-cupping' },
+        { name: 'Blood Cupping (Hijama)', href: '/services/blood-cupping' },
     ];
     
     return (
@@ -153,7 +153,7 @@ const WetCuppingPage = () => {
                         transition={{ duration: 0.8, ease: 'easeOut' }}
                         className="text-5xl md:text-7xl font-extrabold tracking-tight"
                     >
-                        Wet Cupping (Hijama)
+                        Blood Cupping (Hijama)
                     </motion.h1>
                     <motion.p 
                         initial={{ opacity: 0, y: 20 }}
@@ -178,7 +178,7 @@ const WetCuppingPage = () => {
                             <motion.div initial="hidden" animate="visible" variants={staggerContainer}>
                                 <motion.h2 variants={itemVariants} className="text-4xl font-extrabold text-gray-900">A Powerful Tradition for Modern Ailments</motion.h2>
                                 <motion.p variants={itemVariants} className="mt-4 text-lg text-gray-600 leading-relaxed">
-                                    Wet Cupping, or Hijama, is a cornerstone of traditional and prophetic medicine. This therapeutic practice involves creating suction on the skin and then making tiny, superficial incisions to draw out a small quantity of stagnant blood and toxins. It is a powerful method for purifying the body, stimulating the immune system, and promoting the body’s natural ability to heal itself.
+                                    Blood Cupping, or Hijama, is a cornerstone of traditional and prophetic medicine. This therapeutic practice involves creating suction on the skin and then making tiny, superficial incisions to draw out a small quantity of stagnant blood and toxins. It is a powerful method for purifying the body, stimulating the immune system, and promoting the body’s natural ability to heal itself.
                                 </motion.p>
                                 <motion.p variants={itemVariants} className="mt-4 text-lg text-gray-600 leading-relaxed">
                                     At Al Madina Hijama Center, we perform this sacred therapy with the utmost respect for tradition and the highest standards of hygiene. Our certified practitioners ensure a safe, comfortable, and spiritually uplifting experience.
@@ -188,7 +188,7 @@ const WetCuppingPage = () => {
                                 </motion.p>
 
                                 {/* Benefits Section */}
-                                <motion.h3 variants={itemVariants} className="mt-12 text-3xl font-bold text-gray-900">Key Benefits of Wet Cupping</motion.h3>
+                                <motion.h3 variants={itemVariants} className="mt-12 text-3xl font-bold text-gray-900">Key Benefits of Blood Cupping</motion.h3>
                                 <motion.ul variants={staggerContainer} className="mt-6 space-y-4">
                                     {benefits.map((benefit, index) => (
                                         <motion.li key={index} variants={itemVariants} className="flex items-start">
@@ -200,7 +200,7 @@ const WetCuppingPage = () => {
 
                                 {/* Indications/Contraindications Section */}
                                 <motion.div variants={itemVariants} className="mt-12">
-                                    <h3 className="text-3xl font-bold text-gray-900">Is Wet Cupping Right for You?</h3>
+                                    <h3 className="text-3xl font-bold text-gray-900">Is Blood Cupping Right for You?</h3>
                                     <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-8">
                                         <div>
                                             <h4 className="text-xl font-semibold text-gray-800 flex items-center"><CheckCircle className="h-6 w-6 text-green-600 mr-2" />Indications</h4>
@@ -254,7 +254,7 @@ const WetCuppingPage = () => {
                                 className="sticky top-24 bg-gray-50 p-8 rounded-2xl shadow-lg"
                             >
                                 <h3 className="text-2xl font-bold text-gray-900">Book Your Session</h3>
-                                <p className="mt-2 text-gray-600">Experience the benefits of Wet Cupping.</p>
+                                <p className="mt-2 text-gray-600">Experience the benefits of Blood Cupping.</p>
                                 
                                 <div className="mt-6 space-y-2">
                                     <div>
@@ -327,7 +327,7 @@ const WetCuppingPage = () => {
                                 Frequently Asked Questions
                             </motion.h2>
                             <motion.p variants={itemVariants} className="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">
-                                We have compiled answers to common questions about Wet Hijama to help you feel informed and confident.
+                                We have compiled answers to common questions about Blood Hijama to help you feel informed and confident.
                             </motion.p>
                         </motion.div>
                         

@@ -8,7 +8,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 // Service links for the dropdown
 const serviceLinks = [
-  { name: 'Wet Cupping (Hijama)', href: '/services/wet-cupping' },
+  { name: 'Blood Cupping (Hijama)', href: '/services/blood-cupping' },
   { name: 'Dry & Massage Cupping', href: '/services/dry-cupping' },
   { name: 'Hijama for Pain Relief', href: '/services/hijama-for-pain-relief' },
   { name: 'Hijama for Internal Health', href: '/services/hijama-for-internal-health' },

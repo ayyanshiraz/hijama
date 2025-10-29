@@ -83,7 +83,7 @@ const CookieBanner = () => {
                  // Adjusted positioning and padding
                 className="absolute top-1 right-1 sm:static sm:ml-2 p-1.5 text-gray-300 hover:text-white transition-colors duration-200 rounded-full hover:bg-white/10"
               >
-                <X size={18} className="sm:size-20" /> {/* Adjusted icon size */}
+                <X size={18} /> {/* Adjusted icon size */}
               </button>
             </div>
           </div>

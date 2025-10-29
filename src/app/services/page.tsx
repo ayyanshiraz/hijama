@@ -22,10 +22,10 @@ import Image from 'next/image'; // <-- Make sure Image is imported
 const servicesList = [
   {
     icon: Droplets,
-    title: 'Wet Cupping (Hijama)',
+    title: 'Blood Cupping (Hijama)',
     description: 'The traditional Prophetic method involving light scratches and suction to remove stagnant blood and toxins, boosting immunity and promoting overall healing.',
     image: '/services/s1.png',
-    learnMoreLink: '/services/wet-cupping'
+    learnMoreLink: '/services/blood-cupping'
   },
   {
     icon: Wind,
@@ -67,8 +67,8 @@ const servicesList = [
 // Data for the FAQ section
 const faqs = [
   {
-    question: "What is the difference between Wet and Dry Hijama?",
-    answer: "Wet Hijama involves making small, superficial scratches on the skin to draw out a small amount of toxic blood. Dry Hijama uses only suction to stimulate blood flow and relieve muscle tension without any incisions. Both are effective, but for different purposes."
+    question: "What is the difference between Blood and Dry Hijama?",
+    answer: "Blood Hijama involves making small, superficial scratches on the skin to draw out a small amount of toxic blood. Dry Hijama uses only suction to stimulate blood flow and relieve muscle tension without any incisions. Both are effective, but for different purposes."
   },
   {
     question: "How do I know which therapy is right for me?",
@@ -153,7 +153,7 @@ const ServicesPage = () => {
               A Treatment For Every Need
             </motion.h2>
             <motion.p variants={itemVariants} className="mt-4 text-lg text-black max-w-3xl mx-auto">
-              From traditional wet cupping to specialized treatments for chronic pain and wellness, our services are performed by certified practitioners in a safe, hygienic environment.
+              From traditional blood cupping to specialized treatments for chronic pain and wellness, our services are performed by certified practitioners in a safe, hygienic environment.
             </motion.p>
           </div>
 

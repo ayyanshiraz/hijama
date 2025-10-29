@@ -147,20 +147,20 @@ const AboutPage = () => {
               variants={fadeInRight}
               className="flex justify-center"
           >
-              <motion.div
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ duration: 0.3, ease: "easeInOut" }}
-                   // Responsive max width
-                  className="rounded-2xl shadow-2xl overflow-hidden max-w-sm sm:max-w-md md:max-w-lg w-full"
-              >
-                  <img
-                      src="/mission.jpg"
-                      alt="Hijama therapy session in progress, focusing on healing"
-                      width={500}
-                      height={400}
-                      className="object-cover w-full h-auto" // Responsive image
-                  />
-              </motion.div>
+            <motion.div
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.3, ease: "easeInOut" }}
+                 // Responsive max width
+                className="rounded-2xl shadow-2xl overflow-hidden max-w-sm sm:max-w-md md:max-w-lg w-full"
+            >
+              <Image
+                src="/mission.jpg"
+                alt="Hijama therapy session in progress, focusing on healing"
+                width={500}
+                height={400}
+                className="object-cover w-full h-auto" // Responsive image
+              />
+            </motion.div>
           </motion.div>
         </div>
       </motion.section>
@@ -180,20 +180,20 @@ const AboutPage = () => {
               variants={fadeInLeft}
               className="flex justify-center order-1 lg:order-2" // Responsive order
           >
-              <motion.div
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ duration: 0.3, ease: "easeInOut" }}
-                   // Responsive max width
-                  className="rounded-2xl shadow-2xl overflow-hidden max-w-sm sm:max-w-md md:max-w-lg w-full"
-              >
-                  <img
-                      src="/vision.jpg"
-                      alt="A serene, healthy environment representing the vision of community well-being"
-                      width={500}
-                      height={400}
-                      className="object-cover w-full h-auto" // Responsive image
-                  />
-              </motion.div>
+            <motion.div
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.3, ease: "easeInOut" }}
+                 // Responsive max width
+                className="rounded-2xl shadow-2xl overflow-hidden max-w-sm sm:max-w-md md:max-w-lg w-full"
+            >
+              <Image
+                src="/vision.jpg"
+                alt="A serene, healthy environment representing the vision of community well-being"
+                width={500}
+                height={400}
+                className="object-cover w-full h-auto" // Responsive image
+              />
+            </motion.div>
           </motion.div>
           {/* Text second on mobile, first on desktop */}
           <motion.div variants={fadeInRight} className="order-2 lg:order-1 text-center lg:text-left"> {/* Responsive order */}
@@ -246,7 +246,7 @@ const AboutPage = () => {
                 transition={{ duration: 0.3, ease: "easeInOut" }}
                 className="rounded-2xl shadow-2xl overflow-hidden max-w-xs sm:max-w-sm md:max-w-md w-full"
               >
-                <img
+                <Image
                   src="/ceo.jpg"
                   alt="Mr. Jameel ur Rehman, Founder & Hijama Therapist"
                   width={400}
@@ -259,7 +259,7 @@ const AboutPage = () => {
         </div>
       </motion.section>
 
-      {/* ===== START: NEW HAKEEM SECTION ===== */}
+      {/* ===== START: UPDATED HAKEEM SECTION ===== */}
       <motion.section
         className="py-16 sm:py-24 bg-white" // White background
         initial="hidden"
@@ -279,9 +279,9 @@ const AboutPage = () => {
                 transition={{ duration: 0.3, ease: "easeInOut" }}
                 className="rounded-2xl shadow-2xl overflow-hidden max-w-xs sm:max-w-sm md:max-w-md w-full"
               >
-                <img
-                  src="/hakeem.jpg" // Placeholder Image
-                  alt="Our Expert Hakeem"
+                <Image
+                  src="/hakeem.jpg" // Your placeholder image
+                  alt="Hakeem Muhammad Atif Ali Aqasha"
                   width={400}
                   height={450}
                   className="object-cover w-full h-auto"
@@ -295,21 +295,25 @@ const AboutPage = () => {
                 Meet Our Expert Hakeem
               </h2>
               <p className="mt-2 sm:mt-3 text-xl sm:text-2xl text-teal-700 font-semibold">
-                [Hakeems Name Placeholder]
+                Hakeem Muhammad Atif Ali Aqasha
               </p>
               <p className="mt-4 sm:mt-6 text-sm sm:text-base text-gray-600 leading-relaxed text-justify">
-                {/* Placeholder Text */}
-                Our experienced Hakeem specializes in traditional Tibb-e-Nabvi and herbal medicine. With a deep understanding of natural remedies and holistic health, [He/She] provides personalized consultations and treatments for various ailments, focusing on restoring the bodys natural balance according to prophetic traditions. Discover the benefits of time-tested herbal wisdom for your well-being.
+                We are honored to introduce <strong>Hakeem Muhammad Atif Ali Aqasha</strong>, a highly qualified and registered practitioner of traditional Tibb. He is officially licensed by the <strong>National Council for Tibb (NCT), Government of Pakistan</strong> (Reg. No. QH-37741-A), ensuring his practice meets the highest national standards.
               </p>
-              {/* Optional Stats */}
-              {/* <div className="mt-8 sm:mt-10 flex flex-col items-center space-y-4 md:flex-row md:justify-center lg:justify-start md:items-center md:space-y-0 md:space-x-12">
-                 Add relevant stats if available
-              </div> */}
+              <p className="mt-4 text-sm sm:text-base text-gray-600 leading-relaxed text-justify">
+                Hakeem Atif Ali holds a comprehensive four-year diploma as a <strong>Fazil-ut-Tibb-Wal-Jarahat (FTJ)</strong> from the esteemed Razi Tibbia College, Gojra. His expertise is further enriched by a diploma in the <strong>Muhammadin System of Shafa (M.D.S.S)</strong> and a specialization in <strong>Tibb-e-Nabvi</strong> (Prophetic Medicine). With a deep-rooted foundation in both traditional Tibb and Islamic knowledge, he provides personalized, holistic consultations to help restore your body's natural balance.
+              </p>
+              {/* Stats container */}
+              <div className="mt-8 sm:mt-10 flex flex-col items-center space-y-4 md:flex-row md:justify-center lg:justify-start md:items-center md:space-y-0 md:space-x-12">
+                <AnimatedStat to={10} suffix="+" text="Years of Experience" />
+                <div className="h-16 w-px bg-gray-300 hidden md:block"></div>
+                <AnimatedStat to={4} suffix="+" text="Formal Qualifications" />
+              </div>
             </motion.div>
           </div>
         </div>
       </motion.section>
-      {/* ===== END: NEW HAKEEM SECTION ===== */}
+      {/* ===== END: UPDATED HAKEEM SECTION ===== */}
 
       {/* ===== START: NEW PHYSIO SECTION ===== */}
       <motion.section
@@ -332,11 +336,11 @@ const AboutPage = () => {
               <p className="mt-4 sm:mt-6 text-sm sm:text-base text-gray-600 leading-relaxed text-justify">
                 {/* Placeholder Text */}
                 Complementing our traditional therapies, our skilled Physiotherapist offers expert care for musculoskeletal issues. Specializing in rehabilitation, pain management, and mobility enhancement, [He/She] integrates modern physiotherapy techniques with holistic principles. Whether recovering from injury or seeking to improve physical function, our physiotherapist provides tailored exercise programs and manual therapy to support your health goals.
-             </p>
+               </p>
               {/* Optional Stats */}
               {/* <div className="mt-8 sm:mt-10 flex flex-col items-center space-y-4 md:flex-row md:justify-center lg:justify-start md:items-center md:space-y-0 md:space-x-12">
-                 Add relevant stats if available
-              </div> */}
+                   Add relevant stats if available
+               </div> */}
             </motion.div>
 
             {/* Image Column: order-1 lg:order-2 (Right on Desktop) */}
@@ -349,7 +353,7 @@ const AboutPage = () => {
                 transition={{ duration: 0.3, ease: "easeInOut" }}
                 className="rounded-2xl shadow-2xl overflow-hidden max-w-xs sm:max-w-sm md:max-w-md w-full"
               >
-                <img
+                <Image
                   src="/physio.jpg" // Placeholder Image
                   alt="Our Physiotherapist"
                   width={400}
@@ -363,10 +367,9 @@ const AboutPage = () => {
       </motion.section>
       {/* ===== END: NEW PHYSIO SECTION ===== */}
 
-
       {/* --- Our Commitment Section --- */}
       <section className="py-16 sm:py-24 bg-white"> {/* Adjusted padding */}
-        {/* Adjusted padding */}
+         {/* Adjusted padding */}
         <div className="container mx-auto px-4 sm:px-8 lg:px-16">
             <motion.div
                 className="text-center mb-12 sm:mb-16" // Adjusted margin
@@ -377,10 +380,10 @@ const AboutPage = () => {
             >
                 {/* Responsive text */}
                 <motion.h2 variants={fadeInUp} className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-800">
-                    Our Commitment to Your Well-Being
+                  Our Commitment to Your Well-Being
                 </motion.h2>
                 <motion.p variants={fadeInUp} className="mt-3 sm:mt-4 text-base sm:text-lg text-gray-600 max-w-xl sm:max-w-3xl mx-auto">
-                    Your health is our utmost priority. We are dedicated to providing a healing experience that is not only effective but also safe, comfortable, and spiritually uplifting.
+                  Your health is our utmost priority. We are dedicated to providing a healing experience that is not only effective but also safe, comfortable, and spiritually uplifting.
                 </motion.p>
             </motion.div>
 
@@ -393,7 +396,7 @@ const AboutPage = () => {
                 variants={staggerContainer}
             >
                 {commitments.map((item, index) => (
-                    <motion.div
+                  <motion.div
                         key={index}
                          // Adjusted padding
                         className="bg-gray-50 p-6 sm:p-8 rounded-2xl shadow-lg text-center flex flex-col items-center"
@@ -405,7 +408,7 @@ const AboutPage = () => {
                             {/* Responsive Icon */}
                             <item.icon className="h-8 w-8 sm:h-10 sm:w-10 text-teal-600" />
                         </div>
-                         {/* Responsive text */}
+                        {/* Responsive text */}
                         <h3 className="text-lg sm:text-xl font-bold text-gray-900 mt-4 sm:mt-5">{item.title}</h3>
                         <p className="mt-2 text-sm sm:text-base text-gray-600 flex-grow">{item.description}</p>
                     </motion.div>
@@ -416,7 +419,7 @@ const AboutPage = () => {
 
       {/* --- CTA Section --- */}
       <section className="bg-[#F0FDF4] py-16 sm:py-24"> {/* Adjusted padding */}
-        {/* Adjusted padding */}
+         {/* Adjusted padding */}
         <div className="container mx-auto px-4 sm:px-8 text-center">
            {/* Responsive text */}
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-black">
