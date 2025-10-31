@@ -10,7 +10,15 @@ import {
   Plus,
   Minus,
   Phone,
-  ChevronRight
+  ChevronRight,
+  Flame,      // <-- Added
+  Sparkles,   // <-- Added
+  Leaf,       // <-- Added
+  Sunrise,    // <-- Added
+  ShieldAlert,// <-- Added
+  Smile,      // <-- Added
+  Activity, // <-- Added for Breast Gilti
+  Target    // <-- Added for PCOS
 } from 'lucide-react';
 import { useState } from 'react';
 import { motion, AnimatePresence, Variants } from 'framer-motion';
@@ -24,44 +32,99 @@ const servicesList = [
     icon: Droplets,
     title: 'Blood Cupping (Hijama)',
     description: 'The traditional Prophetic method involving light scratches and suction to remove stagnant blood and toxins, boosting immunity and promoting overall healing.',
-    image: '/services/s1.png',
+    image: '/services/s1.jpg',
     learnMoreLink: '/services/blood-cupping'
   },
   {
     icon: Wind,
     title: 'Dry & Massage Cupping',
     description: 'A non-invasive technique where suction is applied to the skin, helping to relieve muscle tension, reduce inflammation, and improve blood flow without incisions.',
-    image: '/services/s2.png',
+    image: '/services/s2.jpg',
     learnMoreLink: '/services/dry-cupping'
   },
   {
     icon: Zap,
     title: 'Hijama for Pain Relief',
     description: 'Targeted therapy for chronic pain conditions such as migraines, lower back pain, sciatica, and arthritis. A natural alternative to medication.',
-    image: '/services/s3.png',
+    image: '/services/s3.jpg',
     learnMoreLink: '/services/hijama-for-pain-relief'
   },
   {
     icon: Heart,
     title: 'Hijama for Internal Health',
     description: 'A holistic approach to managing internal conditions like high blood pressure, digestive issues, and hormonal imbalances including PCOS and fertility.',
-    image: '/services/s4.png',
+    image: '/services/s4.jpg',
     learnMoreLink: '/services/hijama-for-internal-health'
   },
   {
     icon: ShieldCheck,
     title: 'Hijama for Sports Recovery',
     description: 'Accelerate muscle recovery, reduce soreness, and improve flexibility for athletes and active individuals. Enhances performance and prevents injuries.',
-    image: '/services/s5.png',
+    image: '/services/s5.jpg',
     learnMoreLink: '/services/hijama-for-sports-recovery'
   },
   {
     icon: Award,
     title: 'Hijama for Detox & Wellness',
     description: 'A comprehensive full-body detox to cleanse impurities, boost your immune system, improve skin health, and increase energy levels and mental clarity.',
-    image: '/services/s6.png',
+    image: '/services/s6.jpg',
     learnMoreLink: '/services/hijama-for-detox'
+  },
+  {
+    icon: Flame,
+    title: 'Fire Cupping',
+    description: 'The traditional method using glass cups and flame to create powerful suction, ideal for deep-seated tension, respiratory issues, and promoting Qi flow.',
+    image: '/services/s7.jpg',
+    learnMoreLink: '/services/fire-cupping'
+  },
+  // ===== SEPARATED SERVICES =====
+  {
+    icon: Smile, // Changed icon
+    title: 'Female Face Hijama (Jonk)', // Specific title
+    description: 'A specialized Leech Therapy (Jonk) treatment for women, focusing on facial rejuvenation, reducing fine lines, and promoting a natural glow.',
+    image: '/services/s8.jpg', // Kept original image
+    learnMoreLink: '/services/female-face-hijama' // New link
+  },
+  {
+    icon: Sparkles, // Kept icon
+    title: 'Beauty Hijama', // General title
+    description: 'Gentle cupping techniques for men and women to enhance skin tone, reduce puffiness, stimulate collagen, and achieve a radiant complexion.',
+    image: '/services/s9.jpg', // New image needed
+    learnMoreLink: '/services/beauty-hijama' // New link
+  },
+  // =============================
+  // ===== REPLACED Leech Therapy with Breast Gilti =====
+  {
+    icon: Activity, // Using Activity icon
+    title: 'Hijama for Breast Cysts',
+    description: 'A focused, non-invasive therapy to help manage and reduce breast cysts (Gilti) by improving local circulation, reducing inflammation, and promoting lymphatic drainage.',
+    image: '/services/s10.jpg', // New image path
+    learnMoreLink: '/services/breast-cysts' // New link
+  },
+  // ================================================
+  {
+    icon: Sunrise,
+    title: 'Hijama for Baldness',
+    description: 'Stimulates blood flow to the scalp, nourishing dormant hair follicles and promoting natural hair regrowth. A natural therapy for hair thinning.',
+    image: '/services/s11.jpg',
+    learnMoreLink: '/services/hijama-for-baldness'
+  },
+  {
+    icon: ShieldAlert,
+    title: 'Hijama for Fistula',
+    description: 'A specialized, non-invasive treatment aimed at managing and healing anal fistulas by reducing inflammation, clearing toxins, and promoting tissue repair.',
+    image: '/services/s12.jpg',
+    learnMoreLink: '/services/hijama-for-fistula'
+  },
+// ===== ADDED PCOS Service =====
+  {
+    icon: Target, // Using Target icon
+    title: 'Hijama for PCOS',
+    description: 'Targeted Hijama therapy to help regulate menstrual cycles, balance hormones, reduce symptoms like cysts and insulin resistance associated with PCOS.',
+    image: '/services/s13.jpg', // New image path
+    learnMoreLink: '/services/pcos' // New link
   }
+  // ============================
 ];
 
 // Data for the FAQ section
@@ -164,8 +227,12 @@ const ServicesPage = () => {
                 variants={itemVariants}
                 className="h-full" // Ensure motion.div takes full height for Link
               >
-                <Link href={service.learnMoreLink} passHref className="h-full">
-                  {/* The clickable card */}
+                {/* --- FIX: Updated Link Component --- */}
+                <Link 
+                  href={service.learnMoreLink} 
+                  className="h-full" // Moved className from <a> to <Link>
+                >
+                  {/* The <a> tag is removed */}
                   <div className="bg-[#1E4137] rounded-2xl shadow-lg overflow-hidden flex flex-col group transform transition-transform duration-300 hover:-translate-y-2 cursor-pointer h-full">
                     {/* Image Container */}
                     <div className="relative w-full h-48">
@@ -229,6 +296,74 @@ const ServicesPage = () => {
                 Your questions, answered. Here is some information to help you feel prepared for your healing journey.
               </motion.p>
             </motion.div>
+
+            {/* --- NEW PRICING CHART --- */}
+            <motion.div
+              className="max-w-4xl mx-auto mb-16"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.6, ease: 'easeOut' }}
+            >
+              <h3 className="text-3xl font-bold text-gray-800 text-center mb-8">
+                Session Pricing
+              </h3>
+              <div className="bg-white rounded-lg shadow-lg overflow-hidden border border-gray-200">
+                <table className="w-full divide-y divide-gray-200">
+                  {/* --- THIS IS THE UPDATED BLOCK --- */}
+                  <thead className="bg-[#1E4137]">
+                    <tr>
+                      <th scope="col" className="px-6 py-4 text-left text-xs font-medium text-gray-100 uppercase tracking-wider">
+                        Service
+                      </th>
+                      <th scope="col" className="px-6 py-4 text-left text-xs font-medium text-gray-100 uppercase tracking-wider">
+                        Details
+                      </th>
+                      <th scope="col" className="px-6 py-4 text-right text-xs font-medium text-gray-100 uppercase tracking-wider">
+                        Price
+                      </th>
+                    </tr>
+                  </thead>
+                  {/* --- END OF UPDATE --- */}
+                  <tbody className="bg-white divide-y divide-gray-200">
+                    <tr>
+                      <td className="px-6 py-4 whitespace-nowrap">
+                        <div className="text-sm font-semibold text-gray-900">Per Cup</div>
+                      </td>
+                      <td className="px-6 py-4">
+                        <div className="text-sm text-gray-700">Select the exact number of cups you need.</div>
+                      </td>
+                      <td className="px-6 py-4 text-right whitespace-nowrap">
+                        <div className="text-sm font-semibold text-teal-600">Rs. 300 / cup</div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td className="px-6 py-4 whitespace-nowrap">
+                        <div className="text-sm font-semibold text-gray-900">According to Sunnah</div>
+                      </td>
+                      <td className="px-6 py-4">
+                        <div className="text-sm text-gray-700">Fixed 11-cup session as per Sunnah.</div>
+                      </td>
+                      <td className="px-6 py-4 text-right whitespace-nowrap">
+                        <div className="text-sm font-semibold text-teal-600">Rs. 3300 (Fixed)</div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td className="px-6 py-4 whitespace-nowrap">
+                        <div className="text-sm font-semibold text-gray-900">General Session</div>
+                      </td>
+                      <td className="px-6 py-4">
+                        <div className="text-sm text-gray-700">Fixed 15-cup session for general detox.</div>
+                      </td>
+                      <td className="px-6 py-4 text-right whitespace-nowrap">
+                        <div className="text-sm font-semibold text-teal-600">Rs. 4500 (Fixed)</div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </motion.div>
+            {/* --- END OF PRICING CHART --- */}
 
             <div className="max-w-4xl mx-auto flex flex-col gap-y-4">
               {faqs.map((faq, index) => {

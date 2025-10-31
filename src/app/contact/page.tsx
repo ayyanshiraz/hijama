@@ -1,6 +1,7 @@
 'use client';
 
-import { Phone, Mail, MapPin, MessageSquare, Plus, Minus, Globe } from 'lucide-react';
+// Import 'Send' icon
+import { Phone, Mail, MapPin, MessageSquare, Plus, Minus, Globe, Send } from 'lucide-react';
 import { motion, Variants, AnimatePresence } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { useState } from 'react';
@@ -10,7 +11,7 @@ const contactDetails = [
     icon: MapPin,
     title: 'Our Address',
     lines: ['MashaAllah Center, 213-A, opp. Car Parking Grand Mosque, Commercial Sector C Bahria Town, Lahore, 53720'],
-    href: 'https://maps.google.com/', // NOTE: You might want to update this with a real Google Maps link later
+    href: 'https://maps.app.goo.gl/hR1i8x4iPivJ3b3d6',
   },
   {
     icon: Phone,
@@ -21,8 +22,8 @@ const contactDetails = [
   {
     icon: Mail,
     title: 'Email Us',
-    lines: ['almadinahijamaclinic1400@gmail.com'],
-    href: 'mailto:almadinahijamaclinic1400@gmail.com',
+    lines: ['info@almadinahijamacenter.com'],
+    href: 'mailto:info@almadinahijamacenter.com',
   },
   {
     icon: MessageSquare,
@@ -69,16 +70,20 @@ const faqs = [
 
 
 const ContactPage = () => {
-  // Hook to trigger animation when the element is in view
   const { ref, inView } = useInView({
-    triggerOnce: true, // Ensures the animation runs only once
-    threshold: 0.1,    // Triggers when 10% of the section is visible
+    triggerOnce: true,
+    threshold: 0.1,
   });
 
-  // State to manage which FAQ item is open
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
 
-  // Animation variants for Framer Motion
+  // --- State for the form inputs ---
+  const [fullName, setFullName] = useState('');
+  const [email, setEmail] = useState('');
+  const [subject, setSubject] = useState('');
+  const [message, setMessage] = useState('');
+
+  // ... Animation variants remain the same ...
   const staggerContainer: Variants = {
     hidden: { opacity: 0 },
     show: {
@@ -105,9 +110,38 @@ const ContactPage = () => {
     show: { opacity: 1, x: 0, transition: { duration: 0.8, ease: 'easeOut' } },
   };
 
+  // --- NEW: WhatsApp Form submission handler ---
+  const handleWhatsAppSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    const whatsappNumber = "923007598000"; // Your WhatsApp number
+    const formattedMessage = `
+*New Inquiry from Contact Page:*
+---------------------------
+*Name:* ${fullName}
+*Email:* ${email}
+*Subject:* ${subject}
+
+*Message:*
+${message}
+    `;
+
+    const encodedMessage = encodeURIComponent(formattedMessage);
+    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+
+    // Open WhatsApp in a new tab
+    window.open(whatsappUrl, '_blank');
+
+    // Clear the form
+    setFullName('');
+    setEmail('');
+    setSubject('');
+    setMessage('');
+  };
+
   return (
     <main className="bg-white text-gray-800">
-      {/* Hero Section */}
+      {/* ... Hero Section remains the same ... */}
       <section className="relative bg-gray-900 text-white py-32 sm:py-48 flex items-center justify-center">
         <div
           className="absolute inset-0 bg-cover bg-center"
@@ -124,8 +158,150 @@ const ContactPage = () => {
         </div>
       </section>
 
-      {/* --- FAQ Section --- */}
-      <section className="bg-white pt-16 pb-24 sm:pt-20 sm:pb-32">
+      <section
+        ref={ref}
+        className="bg-white text-gray-800 pt-16 pb-24 sm:pt-20 sm:pb-32 overflow-hidden" 
+      >
+        <div className="container mx-auto px-8 sm:px-16">
+          {/* ... "Get In Touch" title remains the same ... */}
+          <motion.div
+            initial="hidden"
+            animate={inView ? "show" : "hidden"}
+            variants={staggerContainer}
+            className="text-center"
+          >
+            <motion.h2 variants={fadeInUp} className="text-5xl font-bold text-black">Get In Touch</motion.h2>
+            <motion.p variants={fadeInUp} className="mt-4 text-xl text-gray-600">Book your session today and experience the benefits of natural healing.</motion.p>
+          </motion.div>
+
+          <div className="max-w-6xl mx-auto mt-16">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+
+              <motion.div
+                initial="hidden"
+                animate={inView ? "show" : "hidden"}
+                variants={fadeInLeft}
+                className="bg-[#1E4137] text-white p-8 rounded-lg h-full"
+              >
+                <h2 className="text-3xl font-bold mb-6">Send us a message</h2>
+                      
+                {/* --- UPDATED FORM with new onSubmit --- */}
+                <form onSubmit={handleWhatsAppSubmit} className="space-y-6">
+                  <div>
+                    <label htmlFor="full-name" className="block text-sm font-medium text-gray-300 mb-1">Full Name</label>
+                    <input 
+                        type="text" 
+                        name="full-name" 
+                        id="full-name" 
+                        className="w-full px-4 py-3 bg-white rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-black text-black placeholder-gray-500" 
+                        placeholder="Your Name" 
+                        value={fullName}
+                        onChange={(e) => setFullName(e.target.value)}
+                        required
+                      />
+                  </div>
+                  <div>
+                    <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-1">Email Address</label>
+                    <input 
+                        type="email" 
+                        name="email" 
+                        id="email" 
+                        className="w-full px-4 py-3 bg-white rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-black text-black placeholder-gray-500" 
+                        placeholder="your.email@example.com" 
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        required
+                      />
+                  </div>
+                    <div>
+                    <label htmlFor="subject" className="block text-sm font-medium text-gray-300 mb-1">Subject</label>
+                    <input 
+                        type="text" 
+                        name="subject" 
+                        id="subject" 
+                        className="w-full px-4 py-3 bg-white rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-black text-black placeholder-gray-500" 
+                        placeholder="Reason for contacting us" 
+                        value={subject}
+                        onChange={(e) => setSubject(e.target.value)}
+                        required
+                      />
+                  </div>
+                  <div>
+                    <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-1">Message</label>
+                    <textarea 
+                        name="message" 
+                        id="message" 
+                        rows={5} 
+                        className="w-full px-4 py-3 bg-white rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-black text-black placeholder-gray-500" 
+                        placeholder="Write your message here..." 
+                        value={message}
+                        onChange={(e) => setMessage(e.target.value)}
+                        required
+                      ></textarea>
+                  </div>
+                  <div>
+                    <button 
+                        type="submit" 
+                        className="w-full px-8 py-4 bg-white text-black font-semibold rounded-lg hover:bg-gray-200 transition-colors duration-300 flex items-center justify-center"
+                      >
+                        Send Message <Send className="w-4 h-4 ml-2" />
+                    </button>
+                  </div>
+                </form>
+              </motion.div>
+
+              {/* ... Contact Details and Map column remains the same ... */}
+              <motion.div
+                initial="hidden"
+                animate={inView ? "show" : "hidden"}
+                variants={fadeInRight}
+                className="flex flex-col space-y-6"
+              >
+                <motion.div
+                  variants={staggerContainer}
+                  className="grid grid-cols-1 sm:grid-cols-2 gap-6"
+                >
+                  {contactDetails.map((detail, index) => (
+                    <motion.a
+                      key={index}
+                      href={detail.href}
+                      variants={fadeInUp}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="bg-[#1E4137] text-white p-5 rounded-lg text-center flex flex-col items-center justify-center hover:bg-opacity-90 transition-colors"
+                    >
+                      <detail.icon className="w-8 h-8 mb-3 text-white" />
+                      <h3 className="text-lg font-bold">{detail.title}</h3>
+                      <div className="mt-1 text-sm text-gray-300">
+                        {detail.lines.map((line, i) => (
+                          <p key={i}>{line}</p>
+                        ))}
+                      </div>
+                    </motion.a>
+                  ))}
+                </motion.div>
+                <motion.div variants={fadeInUp} className="rounded-lg overflow-hidden">
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3406.6080539835734!2d74.18216067544479!3d31.369793374283226!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3918ffe68d865491%3A0xe0baf4f3c53bc165!2sAl-Madina%20Hijama%20Center!5e0!3m2!1sen!2s!4v1760633158199!5m2!1sen!2"
+                    width="100%"
+                    height="300"
+                    style={{ border: 0 }}
+                    allowFullScreen={true}
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                  ></iframe>
+                </motion.div>
+              </motion.div>
+
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ... FAQ Section remains the same ... */}
+      <section 
+        className="bg-white pt-0 pb-24 sm:pb-32" 
+      >
         <div className="container mx-auto px-8 sm:px-16">
           <motion.div
             className="text-center mb-16"
@@ -135,7 +311,7 @@ const ContactPage = () => {
             variants={staggerContainer}
           >
             <motion.div variants={fadeInUp} className="flex justify-center mb-6">
-                <Globe className="w-12 h-12 text-gray-800" />
+              <Globe className="w-12 h-12 text-gray-800" />
             </motion.div>
             <motion.h2 variants={fadeInUp} className="text-4xl md:text-5xl font-extrabold text-gray-800 tracking-wider">
               FAQS
@@ -145,13 +321,12 @@ const ContactPage = () => {
             </motion.p>
           </motion.div>
 
-          {/* Single column layout for FAQs - Wider */}
-          <div className="max-w-5xl mx-auto flex flex-col gap-y-4"> {/* Changed max-w-3xl to max-w-5xl */}
-            {faqs.map((faq, index) => { // Iterate directly over faqs array
+          <div className="max-w-5xl mx-auto flex flex-col gap-y-4">
+            {faqs.map((faq, index) => {
               const isOpen = openFaqIndex === index;
 
               return (
-                <div key={index}> {/* Render each item directly */}
+                <div key={index}>
                   <button
                     onClick={() => setOpenFaqIndex(isOpen ? null : index)}
                     className={`w-full flex justify-between items-center text-left gap-4 bg-[#1E4137] p-6 text-white transition-all duration-300 ${
@@ -185,103 +360,6 @@ const ContactPage = () => {
         </div>
       </section>
 
-      {/* Animated Combined Contact Section */}
-      <section
-        ref={ref}
-        className="bg-white text-gray-800 pt-0 pb-24 sm:pb-32 overflow-hidden"
-      >
-        <div className="container mx-auto px-8 sm:px-16">
-          <motion.div
-            initial="hidden"
-            animate={inView ? "show" : "hidden"}
-            variants={staggerContainer}
-            className="text-center"
-          >
-            <motion.h2 variants={fadeInUp} className="text-5xl font-bold text-black">Get In Touch</motion.h2>
-            <motion.p variants={fadeInUp} className="mt-4 text-xl text-gray-600">Book your session today and experience the benefits of natural healing.</motion.p>
-          </motion.div>
-
-          <div className="max-w-6xl mx-auto mt-16">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-
-              <motion.div
-                initial="hidden"
-                animate={inView ? "show" : "hidden"}
-                variants={fadeInLeft}
-                className="bg-[#1E4137] text-white p-8 rounded-lg h-full"
-              >
-                <h2 className="text-3xl font-bold mb-6">Send us a message</h2>
-                <form action="#" method="POST" className="space-y-6">
-                  <div>
-                    <label htmlFor="full-name" className="block text-sm font-medium text-gray-300 mb-1">Full Name</label>
-                    <input type="text" name="full-name" id="full-name" className="w-full px-4 py-3 bg-white rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-black text-black placeholder-gray-500" placeholder="Your Name" />
-                  </div>
-                  <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-1">Email Address</label>
-                    <input type="email" name="email" id="email" className="w-full px-4 py-3 bg-white rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-black text-black placeholder-gray-500" placeholder="your.email@example.com" />
-                  </div>
-                   <div>
-                    <label htmlFor="subject" className="block text-sm font-medium text-gray-300 mb-1">Subject</label>
-                    <input type="text" name="subject" id="subject" className="w-full px-4 py-3 bg-white rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-black text-black placeholder-gray-500" placeholder="Reason for contacting us" />
-                  </div>
-                  <div>
-                    <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-1">Message</label>
-                    <textarea name="message" id="message" rows={5} className="w-full px-4 py-3 bg-white rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-black text-black placeholder-gray-500" placeholder="Write your message here..." ></textarea>
-                  </div>
-                  <div>
-                    <button type="submit" className="w-full px-8 py-4 bg-white text-black font-semibold rounded-lg hover:bg-gray-200 transition-colors duration-300">
-                      Send Message
-                    </button>
-                  </div>
-                </form>
-              </motion.div>
-
-              <motion.div
-                initial="hidden"
-                animate={inView ? "show" : "hidden"}
-                variants={fadeInRight}
-                className="flex flex-col space-y-6"
-              >
-                <motion.div
-                  variants={staggerContainer}
-                  className="grid grid-cols-1 sm:grid-cols-2 gap-6"
-                >
-                  {contactDetails.map((detail, index) => (
-                    <motion.a
-                      key={index}
-                      href={detail.href}
-                      variants={fadeInUp}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="bg-[#1E4137] text-white p-5 rounded-lg text-center flex flex-col items-center justify-center hover:bg-opacity-90 transition-colors"
-                    >
-                      <detail.icon className="w-8 h-8 mb-3 text-white" />
-                      <h3 className="text-lg font-bold">{detail.title}</h3>
-                      <div className="mt-1 text-sm text-gray-300">
-                        {detail.lines.map((line, i) => (
-                          <p key={i}>{line}</p>
-                        ))}
-                      </div>
-                    </motion.a>
-                  ))}
-                </motion.div>
-                <motion.div variants={fadeInUp} className="rounded-lg overflow-hidden">
-                  <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3406.6080539835734!2d74.18216067544479!3d31.369793374283226!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3918ffe68d865491%3A0xe0baf4f3c53bc165!2sAl-Madina%20Hijama%20Center!5e0!3m2!1sen!2s!4v1760633158199!5m2!1sen!2" // NOTE: You might want to update this with a real Google Maps embed link later
-                    width="100%"
-                    height="300"
-                    style={{ border: 0 }}
-                    allowFullScreen={true}
-                    loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"
-                  ></iframe>
-                </motion.div>
-              </motion.div>
-
-            </div>
-          </div>
-        </div>
-      </section>
     </main>
   );
 };

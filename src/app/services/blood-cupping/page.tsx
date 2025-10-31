@@ -35,6 +35,7 @@ const indications = [
 ];
 
 const contraindications = [
+    'In Periods hijama cannot be done.',
     'Are pregnant or breastfeeding.',
     'Are currently undergoing cancer treatment.',
     'Have a bleeding disorder like hemophilia.',
@@ -143,7 +144,7 @@ const WetCuppingPage = () => {
             <section className="relative bg-gray-800 text-white py-32 sm:py-48 flex items-center justify-center">
                 <div 
                     className="absolute inset-0 bg-cover bg-center"
-                    style={{ backgroundImage: "url('/services/s1.png')" }}
+                    style={{ backgroundImage: "url('/services/s1.jpg')" }}
                 ></div>
                 <div className="absolute inset-0 bg-black opacity-60"></div>
                 <div className="relative container mx-auto px-6 text-center z-10">
@@ -258,8 +259,8 @@ const WetCuppingPage = () => {
                                 
                                 <div className="mt-6 space-y-2">
                                     <div>
-                                        <p className="text-4xl font-extrabold text-teal-600">Rs. 2,500</p>
-                                        <p className="text-sm text-gray-500">per session</p>
+                                        <p className="text-4xl font-extrabold text-teal-600">Rs. 300</p>
+                                        <p className="text-sm text-gray-500">per cup</p>
                                     </div>
                                     <div>
                                         <p className="text-lg font-bold text-gray-800">Session Duration</p>
@@ -278,11 +279,20 @@ const WetCuppingPage = () => {
 
 
                                 <div className="mt-8 text-center">
-                                    <h4 className="text-lg font-semibold text-gray-800">Your Specialist</h4>
-                                    <img src="/ceo.jpg" alt="Mr. Jameel ur Rehman" className="w-24 h-24 rounded-full mx-auto mt-4 object-cover" />
-                                    <p className="mt-2 font-bold">Mr. Jameel ur Rehman</p>
-                                    <p className="text-sm text-gray-600">Certified Hijama Therapist</p>
-                                    <a href="/about#therapist" className="text-teal-600 hover:underline mt-2 inline-block">View Profile</a>
+                                    <h4 className="text-lg font-semibold text-gray-800">Your Specialists</h4>
+                                    <div className="flex justify-center items-center gap-8 mt-4">
+                                        <div>
+                                            <img src="/ceo.jpg" alt="Mr. Jameel ur Rehman" className="w-24 h-24 rounded-full mx-auto object-cover" />
+                                            <p className="mt-2 font-bold">Mr. Jameel ur Rehman</p>
+                                            <p className="text-sm text-gray-600">Certified Hijama Therapist</p>
+                                        </div>
+                                        <div>
+                                            {/* Assuming you have an image for the female specialist at /female-specialist.jpg */}
+                                            <img src="/female-specialist.jpg" alt="Ms. Fatima Khan" className="w-24 h-24 rounded-full mx-auto object-cover" />
+                                            <p className="mt-2 font-bold">Ms. Fatima Khan</p>
+                                            <p className="text-sm text-gray-600">Certified Hijama Therapist</p>
+                                        </div>
+                                    </div>
                                 </div>
                             </motion.div>
                         </aside>
@@ -315,7 +325,7 @@ const WetCuppingPage = () => {
                         </div>
                     </motion.div>
 
-                     {/* --- FAQ Section --- */}
+                    {/* --- FAQ Section --- */}
                     <section className="mt-24">
                         <motion.div 
                             className="text-center mb-16"
@@ -372,4 +382,3 @@ const WetCuppingPage = () => {
 };
 
 export default WetCuppingPage;
-

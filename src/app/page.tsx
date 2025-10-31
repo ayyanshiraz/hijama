@@ -9,7 +9,6 @@ import { useState, useEffect, useRef } from 'react';
 import { useInView } from 'react-intersection-observer';
 import { motion, Variants, animate, AnimatePresence } from 'framer-motion';
 
-
 const slideshowData = [
   {
     image: '/hero.jpg',
@@ -20,16 +19,14 @@ const slideshowData = [
         Hijama Centers In Lahore
       </>
     ),
-    // ===== MODIFIED SUBTITLE with Hadith =====
     subtitle: (
       <>
         With 15 years of Experience in Hijama and Alternative medicine, we are one of the most credible Hijama centers in Lahore.
-        <blockquote className="mt-3 text-sm italic border-l-4 border-gray-400 pl-3 text-gray-300 max-w-xl mx-auto"> {/* Added max-width and mx-auto */}
+        <blockquote className="mt-3 text-sm italic border-l-4 border-gray-400 pl-3 text-gray-300 max-w-xl mx-auto">
           The Prophet (ﷺ) said: I did not pass by any group of angels on the night of Isra (Night Journey) except that they said to me, O Muhammad, tell your Ummah to do Hijama (cupping).
         </blockquote>
       </>
     ),
-    // ==========================================
     buttonText: 'Our Services',
     buttonLink: '/services',
     hasIcon: false,
@@ -46,7 +43,7 @@ const slideshowData = [
     subtitle: 'Embrace a holistic approach to wellness with our traditional and effective Hijama cupping therapies.',
     buttonText: 'Learn More',
     buttonLink: '/about',
-    hasIcon: false, // No icon for learn more
+    hasIcon: false,
   },
   {
     image: '/hero3.jpg',
@@ -104,54 +101,54 @@ const benefits = [
 ];
 
 const hijamaBenefits = [
-    {
-        icon: SquareKanban,
-        title: "Enhanced Detoxification",
-        description: "Draws out toxins and impurities from the body, promoting clearer skin and improved organ function.",
-        image: "/hijama-detox.jpg"
-    },
-    {
-        icon: LineChart,
-        title: "Improved Blood Circulation",
-        description: "Stimulates blood flow to ensure oxygen and essential nutrients reach all tissues effectively.",
-        image: "/hijama-blood.jpg"
-    },
-    {
-        icon: Droplets,
-        title: "Reduced Inflammation",
-        description: "Provides natural relief from joint pain, arthritis, and muscle soreness without medication.",
-        image: "/hijama-inflammation.jpg"
-    },
-    {
-        icon: Brain,
-        title: "Mental Clarity & Stress Relief",
-        description: "Calms the nervous system, leading to better sleep, improved focus, and a sense of well-being.",
-        image: "/hijama-mind.jpg"
-    },
-    {
-        icon: ShieldCheck,
-        title: "Strengthened Immune System",
-        description: "Activates the bodys natural defenses by stimulating the production of immune cells.",
-        image: "/hijama-immune.jpg"
-    },
-    {
-        icon: Sunrise,
-        title: "Accelerated Healing",
-        description: "Boosts the bodys natural repair processes for faster recovery from injuries and muscle fatigue.",
-        image: "/hijama-healing.jpg"
-    },
-    {
-        icon: Sparkles,
-        title: "Rejuvenated Skin Health",
-        description: "Helps treat skin conditions like acne and eczema by improving local circulation and detoxification.",
-        image: "/hijama-skin.jpg"
-    },
-    {
-        icon: Soup,
-        title: "Regulated Digestive System",
-        description: "Aids in relieving digestive issues such as bloating, constipation, and loss of appetite.",
-        image: "/hijama-digestive.jpg"
-    }
+  {
+    icon: SquareKanban,
+    title: "Enhanced Detoxification",
+    description: "Draws out toxins and impurities from the body, promoting clearer skin and improved organ function.",
+    image: "/hijama-detox.jpg"
+  },
+  {
+    icon: LineChart,
+    title: "Improved Blood Circulation",
+    description: "Stimulates blood flow to ensure oxygen and essential nutrients reach all tissues effectively.",
+    image: "/hijama-blood.jpg"
+  },
+  {
+    icon: Droplets,
+    title: "Reduced Inflammation",
+    description: "Provides natural relief from joint pain, arthritis, and muscle soreness without medication.",
+    image: "/hijama-inflammation.jpg"
+  },
+  {
+    icon: Brain,
+    title: "Mental Clarity & Stress Relief",
+    description: "Calms the nervous system, leading to better sleep, improved focus, and a sense of well-being.",
+    image: "/hijama-mind.jpg"
+  },
+  {
+    icon: ShieldCheck,
+    title: "Strengthened Immune System",
+    description: "Activates the bodys natural defenses by stimulating the production of immune cells.",
+    image: "/hijama-immune.jpg"
+  },
+  {
+    icon: Sunrise,
+    title: "Accelerated Healing",
+    description: "Boosts the bodys natural repair processes for faster recovery from injuries and muscle fatigue.",
+    image: "/hijama-healing.jpg"
+  },
+  {
+    icon: Sparkles,
+    title: "Rejuvenated Skin Health",
+    description: "Helps treat skin conditions like acne and eczema by improving local circulation and detoxification.",
+    image: "/hijama-skin.jpg"
+  },
+  {
+    icon: Soup,
+    title: "Regulated Digestive System",
+    description: "Aids in relieving digestive issues such as bloating, constipation, and loss of appetite.",
+    image: "/hijama-digestive.jpg"
+  }
 ];
 
 const testimonials = [
@@ -238,6 +235,13 @@ const HomePage = () => {
   const [currentTestimonialIndex, setCurrentTestimonialIndex] = useState(0);
   const [direction, setDirection] = useState(0);
   const [numVisibleTestimonials, setNumVisibleTestimonials] = useState(1);
+
+  // --- ADDED --- State for the contact form
+  const [name, setName] = useState('');
+  const [phone, setPhone] = useState('');
+  const [subject, setSubject] = useState('');
+  const [message, setMessage] = useState('');
+  // -------------
 
   const [hijamaRef, hijamaInView] = useInView({
     triggerOnce: true,
@@ -351,6 +355,36 @@ const HomePage = () => {
     return visibleTestimonials;
   };
 
+  // --- ADDED --- Form submit handler
+  const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    const whatsappNumber = "923007598000"; // Your number without '+' or spaces
+    const formattedMessage = `
+*New Inquiry from Website:*
+---------------------------
+*Name:* ${name}
+*Phone:* ${phone}
+*Subject:* ${subject}
+
+*Message:*
+${message}
+    `;
+
+    const encodedMessage = encodeURIComponent(formattedMessage);
+    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+
+    // Open WhatsApp in a new tab
+    window.open(whatsappUrl, '_blank');
+
+    // Optional: Clear the form after submission
+    setName('');
+    setPhone('');
+    setSubject('');
+    setMessage('');
+  };
+  // ------------------
+
 
   return (
     <main className="font-sans bg-[#F0FDF4] border-0 overflow-x-hidden">
@@ -462,7 +496,7 @@ const HomePage = () => {
 
           <div className="mt-12 sm:mt-16 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
             <motion.div
-              className="relative w-full h-80 sm:h-96 md:h-110 rounded-2xl shadow-2xl overflow-hidden"
+              className="relative w-full h-80 sm:h-96 md:h-[27.5rem] rounded-2xl shadow-2xl overflow-hidden"
               variants={fadeInVariants}
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.3, ease: "easeInOut" }}
@@ -604,7 +638,7 @@ const HomePage = () => {
                 {therapistInView && <AnimatedStat to={15} text="Years of Experience" />}
               </div>
 
-               {/* Button container */}
+                {/* Button container */}
               <div className="mt-8 sm:mt-10 text-center lg:text-left">
                 <a
                   href="tel:+92 300 7598000"
@@ -627,7 +661,8 @@ const HomePage = () => {
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.3, ease: "easeInOut" }}
                 className="rounded-2xl shadow-2xl overflow-hidden w-full max-w-xs sm:max-w-sm md:max-w-md"
-             >
+              >
+                {/* --- THIS IS WHERE THE 'a' or 's' ERROR WAS --- */}
                 <img
                   src="/ceo.jpg"
                   alt="Mr Jameel ur Rehman, expert Hijama therapist in Lahore"
@@ -642,6 +677,7 @@ const HomePage = () => {
       </motion.section>
 
       {/* --- TESTIMONIALS SECTION --- */}
+      {/* --- THIS IS WHERE THE 'section' ERROR WAS --- */}
       <motion.section
         id="testimonials"
         className="py-16 sm:py-24 bg-[#F0FDF4]"
@@ -670,8 +706,9 @@ const HomePage = () => {
                 <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
               </button>
 
-              <div className="flex-1 w-full max-w-5xl mx-1 sm:mx-2 overflow-hidden relative min-h-[250px]"> {/* Removed fixed height */}
+              <div className="flex-1 w-full max-w-5xl mx-1 sm:mx-2 overflow-hidden relative min-h-[250px]">
                 <AnimatePresence initial={false} custom={direction}>
+                  {/* --- THIS IS WHERE THE '}' and 'token' ERRORS WERE --- */}
                   <motion.div
                     key={currentTestimonialIndex}
                     custom={direction}
@@ -689,9 +726,9 @@ const HomePage = () => {
                     {getVisibleTestimonials().map((testimonial, index) => (
                       <div
                         key={`${currentTestimonialIndex}-${index}`}
-                        className="bg-white p-4 sm:p-6 rounded-2xl shadow-lg flex flex-col text-left" // Removed h-full
+                        className="bg-white p-4 sm:p-6 rounded-2xl shadow-lg flex flex-col text-left"
                       >
-                        <p className="text-gray-600 leading-relaxed mb-4 text-sm sm:text-base"> {/* Removed flex-grow */}
+                        <p className="text-gray-600 leading-relaxed mb-4 text-sm sm:text-base">
                           “{testimonial.text}”
                         </p>
                         <div className="mt-auto pt-3 sm:pt-4 border-t border-gray-100 w-full">
@@ -720,6 +757,7 @@ const HomePage = () => {
 
             <div className="flex justify-center mt-4 sm:mt-6 space-x-2 sm:space-x-3">
               {testimonials.map((_, index) => (
+                // --- THIS IS WHERE THE 's' ERROR WAS ---
                 <button
                   key={index}
                   onClick={() => goToTestimonial(index)}
@@ -736,7 +774,7 @@ const HomePage = () => {
               variants={itemVariants}
             >
               <a
-                href="https://www.google.com/search?sca_esv=6a64c5c2ce68276f&rlz=1C1GCEA_enPK1067PK1067&sxsrf=AE3TifNj8Me2_vga4fNUIQOUpn3cd16Q2Q:1761733440190&si=AMgyJEtREmoPL4P1I5IDCfuA8gybfVI2d5Uj7QMwYCZHKDZ-ExKhdI146abDEbXiuY9QUAly2a675CnAiSrYdHeCMSA3vTwBZIibkvKy4-3NfQMKU7ZC3BKUN26o52BrCgB0Vd60UVfAjAAQMhOxmoYv141W8YoLVQ%3D%3D&q=Al-Madina+Hijama+Center+Reviews&sa=X&ved=2ahUKEwjt0JC_mMmQAxXlLRAIHUomHncQ0bkNegQILxAE&biw=1536&bih=703&dpr=1.25"
+                href="https://www.google.com/search?sca_esv=6a64c5c2ce68276f&rlz=1C1GCEA_enPK1067PK1067&sxsrf=AE3TifNj8Me2_vga4fNUIQOUpn3cd16Q2Q:1761733440190&si=AMgyJEtREmoPL4P1I5IDCfuA8gybfVI2d5Uj7QMwYCZHKDZ-ExKhdI146abDEbXiuY9QUAly2a675CnAiSrYdHeCMSA3vTwBZIibkvKy4-3NfQMKU7ZC3BKUN26o52BrCgB0Vd60UVfAjAAQMhOxmoYv1141W8YoLVQ%3D%3D&q=Al-Madina+Hijama+Center+Reviews&sa=X&ved=2ahUKEwjt0JC_mMmQAxXlLRAIHUomHncQ0bkNegQILxAE&biw=1536&bih=703&dpr=1.25"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center px-6 py-3 sm:px-8 sm:py-4 bg-[#FF6900] text-white text-sm sm:text-lg font-bold rounded-full shadow-lg hover:brightness-90 transition-all duration-300 transform hover:scale-105"
@@ -819,15 +857,18 @@ const HomePage = () => {
                 </div>
               </div>
 
-              {/* Right Column: Contact Form */}
+              {/* Right Column: Contact Form (Fixed in previous step) */}
               <div>
-                <form action="#" method="POST" className="space-y-4 sm:space-y-6">
+                <form onSubmit={handleFormSubmit} className="space-y-4 sm:space-y-6">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                     <input
                       type="text"
                       name="name"
                       id="name"
                       placeholder="Name"
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
+                      required
                       className="w-full px-3 py-2 sm:px-4 sm:py-3 bg-gray-100 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-teal-500 text-sm sm:text-base text-black placeholder-gray-500"
                     />
                     <input
@@ -835,6 +876,9 @@ const HomePage = () => {
                       name="phone"
                       id="phone"
                       placeholder="Phone"
+                      value={phone}
+                      onChange={(e) => setPhone(e.target.value)}
+                      required
                       className="w-full px-3 py-2 sm:px-4 sm:py-3 bg-gray-100 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-teal-500 text-sm sm:text-base text-black placeholder-gray-500"
                     />
                   </div>
@@ -844,7 +888,10 @@ const HomePage = () => {
                       name="subject"
                       id="subject"
                       placeholder="Subject"
-                      className="w-full px-3 py-2 sm:px-4 sm:py-3 bg-gray-100 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-teal-500 text-sm sm:text-base text-black placeholder-gray-500"
+                      value={subject}
+                      onChange={(e) => setSubject(e.target.value)}
+                      required
+                      className="w-full px-3 py-2 sm:px-4 sm:py-3 bg-gray-100 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-teal-5E500 text-sm sm:text-base text-black placeholder-gray-500"
                     />
                   </div>
                   <div>
@@ -853,6 +900,9 @@ const HomePage = () => {
                       id="message"
                       rows={4}
                       placeholder="Message"
+                      value={message}
+                      onChange={(e) => setMessage(e.target.value)}
+                      required
                       className="w-full px-3 py-2 sm:px-4 sm:py-3 bg-gray-100 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-teal-500 text-sm sm:text-base text-black placeholder-gray-500"
                     ></textarea>
                   </div>

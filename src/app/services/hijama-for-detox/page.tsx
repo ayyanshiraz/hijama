@@ -35,6 +35,7 @@ const indications = [
 ];
 
 const contraindications = [
+    'In Periods hijama cannot be done.',
     'During pregnancy or breastfeeding.',
     'If you have severe anemia or are feeling very weak.',
     'Active infections or fever.',
@@ -141,7 +142,7 @@ const DetoxWellnessPage = () => {
             <section className="relative bg-gray-800 text-white py-32 sm:py-48 flex items-center justify-center">
                 <div 
                     className="absolute inset-0 bg-cover bg-center"
-                    style={{ backgroundImage: "url('/services/s6.png')" }}
+                    style={{ backgroundImage: "url('/services/s6.jpg')" }}
                 ></div>
                 <div className="absolute inset-0 bg-black opacity-60"></div>
                 <div className="relative container mx-auto px-6 text-center z-10">
@@ -252,8 +253,8 @@ const DetoxWellnessPage = () => {
                                 
                                 <div className="mt-6 space-y-2">
                                     <div>
-                                        <p className="text-4xl font-extrabold text-teal-600">Rs. 2,500</p>
-                                        <p className="text-sm text-gray-500">per session</p>
+                                        <p className="text-4xl font-extrabold text-teal-600">Rs. 300</p>
+                                        <p className="text-sm text-gray-500">per cup</p>
                                     </div>
                                     <div>
                                         <p className="text-lg font-bold text-gray-800">Session Duration</p>
@@ -262,7 +263,7 @@ const DetoxWellnessPage = () => {
                                 </div>
 
 
-                                 <Link
+                                <Link
                                     href="/booking"
                                     className="mt-6 inline-flex w-full items-center justify-center px-6 py-4 bg-[#FF6900] text-white font-bold text-lg rounded-lg shadow-md hover:brightness-90 transition-all duration-300 transform hover:scale-105"
                                 >
@@ -270,17 +271,26 @@ const DetoxWellnessPage = () => {
                                     Book Now
                                 </Link>
 
+
                                 <div className="mt-8 text-center">
-                                    <h4 className="text-lg font-semibold text-gray-800">Your Specialist</h4>
-                                    <img src="/ceo.jpg" alt="Mr. Jameel ur Rehman" className="w-24 h-24 rounded-full mx-auto mt-4 object-cover" />
-                                    <p className="mt-2 font-bold">Mr. Jameel ur Rehman</p>
-                                    <p className="text-sm text-gray-600">Certified Hijama Therapist</p>
-                                    <a href="/about" className="text-teal-600 hover:underline mt-2 inline-block">View Profile</a>
+                                    <h4 className="text-lg font-semibold text-gray-800">Your Specialists</h4>
+                                    <div className="flex justify-center items-center gap-8 mt-4">
+                                        <div>
+                                            <img src="/ceo.jpg" alt="Mr. Jameel ur Rehman" className="w-24 h-24 rounded-full mx-auto object-cover" />
+                                            <p className="mt-2 font-bold">Mr. Jameel ur Rehman</p>
+                                            <p className="text-sm text-gray-600">Certified Hijama Therapist</p>
+                                        </div>
+                                        <div>
+                                            {/* Assuming you have an image for the female specialist at /female-specialist.jpg */}
+                                            <img src="/female-specialist.jpg" alt="Ms. Fatima Khan" className="w-24 h-24 rounded-full mx-auto object-cover" />
+                                            <p className="mt-2 font-bold">Ms. Fatima Khan</p>
+                                            <p className="text-sm text-gray-600">Certified Hijama Therapist</p>
+                                        </div>
+                                    </div>
                                 </div>
                             </motion.div>
                         </aside>
                     </div>
-
                     {/* Preparation & After-care Section */}
                     <motion.div initial="hidden" animate="visible" variants={staggerContainer} className="mt-24">
                         <motion.h2 variants={itemVariants} className="text-4xl font-extrabold text-gray-900 text-center">Preparation & After-care</motion.h2>

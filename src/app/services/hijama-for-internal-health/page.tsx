@@ -3,9 +3,37 @@
 import { Phone, CheckCircle, Shield, Clock, Sun, Moon, Droplets, Plus, Minus, ChevronRight, AlertTriangle, Heart } from 'lucide-react';
 import { motion, AnimatePresence, Variants } from 'framer-motion';
 import { useState } from 'react';
-import Breadcrumbs from '@/components/Breadcrumbs';
+// import Breadcrumbs from '@/components/Breadcrumbs'; // <-- REMOVED this import
 import Image from 'next/image';
 import Link from 'next/link';
+
+// +++ START of inlined Breadcrumbs component +++
+const Breadcrumbs = ({ items }: { items: { name: string, href: string }[] }) => (
+  <nav aria-label="Breadcrumb" className="bg-gray-50 py-3 border-b border-gray-200">
+    <div className="container mx-auto px-8 sm:px-16">
+      <ol className="flex items-center space-x-2 text-sm text-gray-500">
+        {items.map((item, index) => (
+          <li key={item.name}>
+            <div className="flex items-center">
+              {index > 0 && (
+                <ChevronRight className="h-4 w-4 flex-shrink-0 text-gray-400 mr-2" />
+              )}
+              <Link
+                href={item.href}
+                className={`font-medium ${index === items.length - 1 ? 'text-gray-700' : 'text-gray-500 hover:text-gray-700'}`}
+                aria-current={index === items.length - 1 ? 'page' : undefined}
+              >
+                {item.name}
+              </Link>
+            </div>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </nav>
+);
+// +++ END of inlined Breadcrumbs component +++
+
 
 const benefits = [
     { icon: CheckCircle, text: 'Supports detoxification of the liver and kidneys' },
@@ -35,6 +63,7 @@ const indications = [
 ];
 
 const contraindications = [
+    'In Periods hijama cannot be done.', 
     'Severe organ disease (e.g., kidney failure, liver cirrhosis) without a doctor\'s consent.',
     'Individuals with pacemakers or severe heart conditions.',
     'During pregnancy.',
@@ -74,18 +103,18 @@ const schema = {
     "name": "Hijama for Internal Health",
     "description": "A holistic Hijama therapy focused on improving organ function, balancing hormones, and promoting overall internal wellness. This treatment supports the body's natural detoxification processes and helps manage systemic issues like digestive disorders and hormonal imbalances.",
     "indication": [
-      { "@type": "MedicalCondition", "name": "Digestive Disorders" },
-      { "@type": "MedicalCondition", "name": "Hormonal Imbalance" },
-      { "@type": "MedicalCondition", "name": "Hypertension" },
-      { "@type": "MedicalCondition", "name": "Chronic Fatigue Syndrome" },
-      { "@type": "MedicalCondition", "name": "Stress" }
+        { "@type": "MedicalCondition", "name": "Digestive Disorders" },
+        { "@type": "MedicalCondition", "name": "Hormonal Imbalance" },
+        { "@type": "MedicalCondition", "name": "Hypertension" },
+        { "@type": "MedicalCondition", "name": "Chronic Fatigue Syndrome" },
+        { "@type": "MedicalCondition", "name": "Stress" }
     ],
     "bodyLocation": "Applied to specific points on the back, abdomen, and other areas corresponding to internal organs and endocrine glands.",
     "provider": {
-      "@type": "MedicalBusiness",
-      "name": "Al Madina Hijama Center",
-      "url": "https://almadinahijamacenter.com",
-      "logo": "https://almadinahijamacenter.com/logo.png"
+        "@type": "MedicalBusiness",
+        "name": "Al Madina Hijama Center",
+        "url": "https://almadinahijamacenter.com",
+        "logo": "https://almadinahijamacenter.com/logo.png"
     }
 };
 
@@ -108,11 +137,11 @@ const InternalHealthPage = () => {
     const staggerContainer: Variants = {
         hidden: { opacity: 0 },
         visible: {
-          opacity: 1,
-          transition: {
-            staggerChildren: 0.1,
-            delayChildren: 0.2,
-          },
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.1,
+                delayChildren: 0.2,
+            },
         },
     };
 
@@ -143,7 +172,7 @@ const InternalHealthPage = () => {
             <section className="relative bg-gray-800 text-white py-32 sm:py-48 flex items-center justify-center">
                 <div 
                     className="absolute inset-0 bg-cover bg-center"
-                    style={{ backgroundImage: "url('/services/s4.png')" }}
+                    style={{ backgroundImage: "url('/services/s4.jpg')" }}
                 ></div>
                 <div className="absolute inset-0 bg-black opacity-60"></div>
                 <div className="relative container mx-auto px-6 text-center z-10">
@@ -254,8 +283,8 @@ const InternalHealthPage = () => {
                                 
                                 <div className="mt-6 space-y-2">
                                     <div>
-                                        <p className="text-4xl font-extrabold text-teal-600">Rs. 2,800</p>
-                                        <p className="text-sm text-gray-500">per session</p>
+                                        <p className="text-4xl font-extrabold text-teal-600">Rs. 300</p>
+                                        <p className="text-sm text-gray-500">per cup</p>
                                     </div>
                                     <div>
                                         <p className="text-lg font-bold text-gray-800">Session Duration</p>
@@ -264,7 +293,7 @@ const InternalHealthPage = () => {
                                 </div>
 
 
-                                 <Link
+                                <Link
                                     href="/booking"
                                     className="mt-6 inline-flex w-full items-center justify-center px-6 py-4 bg-[#FF6900] text-white font-bold text-lg rounded-lg shadow-md hover:brightness-90 transition-all duration-300 transform hover:scale-105"
                                 >
@@ -274,11 +303,20 @@ const InternalHealthPage = () => {
 
 
                                 <div className="mt-8 text-center">
-                                    <h4 className="text-lg font-semibold text-gray-800">Your Specialist</h4>
-                                    <img src="/ceo.jpg" alt="Mr. Jameel ur Rehman" className="w-24 h-24 rounded-full mx-auto mt-4 object-cover" />
-                                    <p className="mt-2 font-bold">Mr. Jameel ur Rehman</p>
-                                    <p className="text-sm text-gray-600">Certified Hijama Therapist</p>
-                                    <a href="/about" className="text-teal-600 hover:underline mt-2 inline-block">View Profile</a>
+                                    <h4 className="text-lg font-semibold text-gray-800">Your Specialists</h4>
+                                    <div className="flex justify-center items-center gap-8 mt-4">
+                                        <div>
+                                            <img src="/ceo.jpg" alt="Mr. Jameel ur Rehman" className="w-24 h-24 rounded-full mx-auto object-cover" />
+                                            <p className="mt-2 font-bold">Mr. Jameel ur Rehman</p>
+                                            <p className="text-sm text-gray-600">Certified Hijama Therapist</p>
+                                        </div>
+                                        <div>
+                                            {/* Assuming you have an image for the female specialist at /female-specialist.jpg */}
+                                            <img src="/female-specialist.jpg" alt="Ms. Fatima Khan" className="w-24 h-24 rounded-full mx-auto object-cover" />
+                                            <p className="mt-2 font-bold">Ms. Fatima Khan</p>
+                                            <p className="text-sm text-gray-600">Certified Hijama Therapist</p>
+                                        </div>
+                                    </div>
                                 </div>
                             </motion.div>
                         </aside>
@@ -368,3 +406,4 @@ const InternalHealthPage = () => {
 };
 
 export default InternalHealthPage;
+

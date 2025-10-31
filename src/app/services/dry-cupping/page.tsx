@@ -35,6 +35,7 @@ const indications = [
 ];
 
 const contraindications = [
+    'In Periods hijama cannot be done.',
     'On areas with broken skin, rashes, or sunburn.',
     'Over varicose veins, arteries, or lymph nodes.',
     'If you have a history of blood clots.',
@@ -143,7 +144,7 @@ const DryCuppingPage = () => {
             <section className="relative bg-gray-800 text-white py-32 sm:py-48 flex items-center justify-center">
                 <div 
                     className="absolute inset-0 bg-cover bg-center"
-                    style={{ backgroundImage: "url('/services/s2.png')" }}
+                    style={{ backgroundImage: "url('/services/s2.jpg')" }}
                 ></div>
                 <div className="absolute inset-0 bg-black opacity-60"></div>
                 <div className="relative container mx-auto px-6 text-center z-10">
@@ -254,12 +255,12 @@ const DryCuppingPage = () => {
                                 
                                 <div className="mt-6 space-y-2">
                                     <div>
-                                        <p className="text-4xl font-extrabold text-teal-600">Rs. 2,000</p>
-                                        <p className="text-sm text-gray-500">per session</p>
+                                        <p className="text-4xl font-extrabold text-teal-600">Rs. 300</p>
+                                        <p className="text-sm text-gray-500">per cup</p>
                                     </div>
                                     <div>
                                         <p className="text-lg font-bold text-gray-800">Session Duration</p>
-                                        <p className="text-gray-600">Approx. 20-30 minutes</p>
+                                        <p className="text-gray-600">Approx. 30-45 minutes</p>
                                     </div>
                                 </div>
 
@@ -272,12 +273,22 @@ const DryCuppingPage = () => {
                                     Book Now
                                 </Link>
 
+
                                 <div className="mt-8 text-center">
-                                    <h4 className="text-lg font-semibold text-gray-800">Your Specialist</h4>
-                                    <img src="/ceo.jpg" alt="Mr. Jameel ur Rehman" className="w-24 h-24 rounded-full mx-auto mt-4 object-cover" />
-                                    <p className="mt-2 font-bold">Mr. Jameel ur Rehman</p>
-                                    <p className="text-sm text-gray-600">Certified Hijama Therapist</p>
-                                    <a href="/about" className="text-teal-600 hover:underline mt-2 inline-block">View Profile</a>
+                                    <h4 className="text-lg font-semibold text-gray-800">Your Specialists</h4>
+                                    <div className="flex justify-center items-center gap-8 mt-4">
+                                        <div>
+                                            <img src="/ceo.jpg" alt="Mr. Jameel ur Rehman" className="w-24 h-24 rounded-full mx-auto object-cover" />
+                                            <p className="mt-2 font-bold">Mr. Jameel ur Rehman</p>
+                                            <p className="text-sm text-gray-600">Certified Hijama Therapist</p>
+                                        </div>
+                                        <div>
+                                            {/* Assuming you have an image for the female specialist at /female-specialist.jpg */}
+                                            <img src="/female-specialist.jpg" alt="Ms. Fatima Khan" className="w-24 h-24 rounded-full mx-auto object-cover" />
+                                            <p className="mt-2 font-bold">Ms. Fatima Khan</p>
+                                            <p className="text-sm text-gray-600">Certified Hijama Therapist</p>
+                                        </div>
+                                    </div>
                                 </div>
                             </motion.div>
                         </aside>

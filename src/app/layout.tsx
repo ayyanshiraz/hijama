@@ -5,6 +5,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import CookieBanner from "@/components/CookieBanner";
+import FloatingWhatsApp from '@/components/FloatingWhatsApp'; // <-- 1. IMPORT IT
 
 export const metadata: Metadata = {
   title: "Al Madina Hijama Center",
@@ -25,6 +26,7 @@ export default function RootLayout({
       >
         <Navbar />
         {children}
+        <FloatingWhatsApp /> {/* <-- 2. ADD IT HERE */}
         <Footer />
         <CookieBanner />
       </body>

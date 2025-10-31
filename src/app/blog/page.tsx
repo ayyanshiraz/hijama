@@ -12,7 +12,7 @@ const blogPosts = [
     slug: 'the-sunnah-of-hijama',
     title: 'The Sunnah of Hijama: A Timeless Path to Wellness',
     excerpt: 'Explore the historical and spiritual significance of Hijama cupping therapy as practiced and recommended in the Sunnah.',
-    imageUrl: '/blogs/b1.png', // Replace with a relevant blog image
+    imageUrl: '/blogs/b1.jpg', // Replace with a relevant blog image
     category: 'Sunnah & Healing',
     date: 'October 15, 2025',
   },
@@ -20,7 +20,7 @@ const blogPosts = [
     slug: 'benefits-of-wet-cupping',
     title: '5 Proven Benefits of Wet Cupping for Detoxification',
     excerpt: 'Discover how wet cupping (Hijama) can help purify your blood, remove toxins, and boost your overall immune system.',
-    imageUrl: '/blogs/b3.png', // Replace with a relevant blog image
+    imageUrl: '/blogs/b3.jpg', // Replace with a relevant blog image
     category: 'Health & Wellness',
     date: 'October 10, 2025',
   },
@@ -28,7 +28,7 @@ const blogPosts = [
     slug: 'hijama-for-pain-relief',
     title: 'Natural Relief: How Hijama Can Alleviate Chronic Pain',
     excerpt: 'Learn about the mechanisms through which Hijama provides effective, natural relief for conditions like back pain, migraines, and arthritis.',
-    imageUrl: '/blogs/b8.png', // Replace with a relevant blog image
+    imageUrl: '/blogs/b8.jpg', // Replace with a relevant blog image
     category: 'Pain Management',
     date: 'October 5, 2025',
   },

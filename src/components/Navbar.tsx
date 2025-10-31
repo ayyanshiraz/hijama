@@ -13,7 +13,14 @@ const serviceLinks = [
   { name: 'Hijama for Pain Relief', href: '/services/hijama-for-pain-relief' },
   { name: 'Hijama for Internal Health', href: '/services/hijama-for-internal-health' },
   { name: 'Hijama for Sports Recovery', href: '/services/hijama-for-sports-recovery' }, // Corrected href
-  { name: 'Hijama for Detox & Wellness', href: '/services/hijama-for-detox' }
+  { name: 'Hijama for Detox & Wellness', href: '/services/hijama-for-detox' },
+  { name: 'Fire Cupping', href: '/services/fire-cupping' },
+  { name: 'Female Face Hijama (Jonk)', href: '/services/female-face-hijama' },
+  { name: 'Beauty Hijama', href: '/services/beauty-hijama' },
+  { name: 'Hijama for Breast Cysts', href: '/services/breast-cysts' },
+  { name: 'Hijama for Baldness', href: '/services/hijama-for-baldness' },
+  { name: 'Hijama for Fistula', href: '/services/hijama-for-fistula' },
+  { name: 'Hijama for PCOS', href: '/services/pcos' },
 ];
 
 // Main navigation links
