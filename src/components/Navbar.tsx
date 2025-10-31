@@ -16,11 +16,11 @@ const serviceLinks = [
   { name: 'Hijama for Detox & Wellness', href: '/services/hijama-for-detox' },
   { name: 'Fire Cupping', href: '/services/fire-cupping' },
   { name: 'Female Face Hijama (Jonk)', href: '/services/female-face-hijama' },
-  { name: 'Beauty Hijama', href: '/services/beauty-hijama' },
-  { name: 'Hijama for Breast Cysts', href: '/services/breast-cysts' },
-  { name: 'Hijama for Baldness', href: '/services/hijama-for-baldness' },
-  { name: 'Hijama for Fistula', href: '/services/hijama-for-fistula' },
-  { name: 'Hijama for PCOS', href: '/services/pcos' },
+  { name: 'Beauty Hijama', href: '/services/beauty-hijama' },
+  { name: 'Hijama for Breast Cysts', href: '/services/breast-cysts' },
+  { name: 'Hijama for Baldness', href: '/services/hijama-for-baldness' },
+  { name: 'Hijama for Fistula', href: '/services/hijama-for-fistula' },
+  { name: 'Hijama for PCOS', href: '/services/pcos' },
 ];
 
 // Main navigation links
@@ -122,7 +122,7 @@ const Navbar = () => {
                               key={subLink.name}
                               href={subLink.href}
                               onClick={closeAllMenus} // Close all menus on sublink click
-                               // Adjusted padding and text size
+                              // Adjusted padding and text size
                               className="px-4 py-2 text-sm text-gray-700 hover:bg-teal-600 hover:text-white transition-colors"
                             >
                               {subLink.name}
@@ -138,7 +138,7 @@ const Navbar = () => {
             {/* Call Us Button - Responsive Styles */}
             <a
               href="tel:+923007598000"
-               // Adjusted padding and text size
+              // Adjusted padding and text size
               className="inline-flex items-center px-3 py-1.5 sm:px-4 sm:py-2 bg-[#FF6900] text-white text-sm sm:text-base font-semibold rounded-lg shadow-md hover:brightness-90 transition-all duration-300 transform hover:scale-105"
             >
               <Phone className="mr-1 sm:mr-2 h-4 w-4 sm:h-5 sm:w-5" />
@@ -166,24 +166,28 @@ const Navbar = () => {
             // Ensure background color is set when open
             className="md:hidden mt-2 bg-white rounded-lg shadow-xl overflow-hidden"
           >
-            <div className="flex flex-col items-stretch divide-y divide-gray-100"> {/* Use items-stretch */}
+            {/* THIS IS THE FIXED LINE:
+              We added max-h-[80vh] (or another value like 70vh) to limit the height.
+              We added overflow-y-auto to allow scrolling if the content is taller than the max-height.
+            */}
+            <div className="flex flex-col items-stretch divide-y divide-gray-100 max-h-[80vh] overflow-y-auto">
               {navLinks.map((link) => (
                 <div key={link.name} className="w-full text-center">
                   {link.subLinks ? (
                     <>
                       {/* Container for Link + Toggle Button */}
-                       {/* Adjusted padding */}
+                      {/* Adjusted padding */}
                       <div className="flex justify-between items-center w-full px-4 py-3">
-                         {/* Link for the text part - Navigates to /services */}
+                        {/* Link for the text part - Navigates to /services */}
                         <Link
                           href={link.href}
                           onClick={() => setIsMenuOpen(false)} // Close menu on navigation
-                           // Adjusted text size
+                          // Adjusted text size
                           className="text-gray-700 hover:text-teal-600 text-base font-medium flex-grow text-center mr-2"
                         >
                           {link.name}
                         </Link>
-                         {/* Button ONLY for the icon - Toggles dropdown */}
+                        {/* Button ONLY for the icon - Toggles dropdown */}
                         <button
                           onClick={(e) => {
                             e.stopPropagation();
@@ -195,43 +199,43 @@ const Navbar = () => {
                           <ChevronDown className={`h-5 w-5 transition-transform duration-300 ${isServicesOpen ? 'rotate-180' : ''}`} />
                         </button>
                       </div>
-                       {/* Mobile Submenu Dropdown */}
+                      {/* Mobile Submenu Dropdown */}
                       <AnimatePresence>
                         {isServicesOpen && (
-                            <motion.div
+                          <motion.div
                             initial={{ height: 0, opacity: 0 }}
                             animate={{ height: 'auto', opacity: 1 }}
                             exit={{ height: 0, opacity: 0 }}
                             transition={{ duration: 0.3, ease: 'easeInOut' }}
                             className="overflow-hidden bg-gray-50 border-t border-gray-100" // Background for dropdown items
-                            >
+                          >
                             <div className="flex flex-col items-stretch space-y-0 py-2"> {/* Removed space-y */}
-                                {link.subLinks.map((subLink) => (
+                              {link.subLinks.map((subLink) => (
                                 <Link
-                                    key={subLink.name}
-                                    href={subLink.href}
-                                    onClick={closeAllMenus} // Close menu when sub-link clicked
-                                     // Adjusted text size and padding
-                                    className="text-gray-600 hover:text-white hover:bg-teal-600 text-sm py-2.5 px-4 text-center transition-colors"
+                                  key={subLink.name}
+                                  href={subLink.href}
+                                  onClick={closeAllMenus} // Close menu when sub-link clicked
+                                  // Adjusted text size and padding
+                                  className="text-gray-600 hover:text-white hover:bg-teal-600 text-sm py-2.5 px-4 text-center transition-colors"
                                 >
-                                    {subLink.name}
+                                  {subLink.name}
                                 </Link>
-                                ))}
+                              ))}
                             </div>
-                            </motion.div>
+                          </motion.div>
                         )}
-                        </AnimatePresence>
+                      </AnimatePresence>
                     </>
                   ) : (
-                       // Regular link rendering (Home, About Us, Contact)
-                       // Adjusted text size and padding
-                      <Link
+                    // Regular link rendering (Home, About Us, Contact)
+                    // Adjusted text size and padding
+                    <Link
                       href={link.href}
                       onClick={closeAllMenus}
                       className="text-gray-700 hover:text-teal-600 text-base font-medium py-3 block w-full"
-                      >
+                    >
                       {link.name}
-                      </Link>
+                    </Link>
                   )}
                 </div>
               ))}
@@ -242,7 +246,7 @@ const Navbar = () => {
                     // Adjusted padding and text size
                     className="w-full inline-flex items-center justify-center px-4 py-2.5 bg-[#FF6900] text-white text-base font-semibold rounded-lg shadow-md hover:brightness-90 transition-colors duration-300"
                     onClick={closeAllMenus} // Close menu on click
-                 >
+                  >
                     <Phone className="mr-2 h-5 w-5" />
                     Call Us Now
                   </a>

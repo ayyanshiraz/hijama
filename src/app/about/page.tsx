@@ -331,16 +331,18 @@ const AboutPage = () => {
                 Meet Our Physiotherapist
               </h2>
               <p className="mt-2 sm:mt-3 text-xl sm:text-2xl text-teal-700 font-semibold">
-                [Physios Name Placeholder]
+                Dr. Arish Ahmed (DPT)
               </p>
               <p className="mt-4 sm:mt-6 text-sm sm:text-base text-gray-600 leading-relaxed text-justify">
-                {/* Placeholder Text */}
-                Complementing our traditional therapies, our skilled Physiotherapist offers expert care for musculoskeletal issues. Specializing in rehabilitation, pain management, and mobility enhancement, [He/She] integrates modern physiotherapy techniques with holistic principles. Whether recovering from injury or seeking to improve physical function, our physiotherapist provides tailored exercise programs and manual therapy to support your health goals.
-               </p>
+                We believe in a truly holistic path to recovery. While Hijama therapy excels at detoxifying the body, reducing inflammation, and releasing deep muscle tension, our expert physiotherapy services focus on restoring long-term function and movement.
+              </p>
+              <p className="mt-4 text-sm sm:text-base text-gray-600 leading-relaxed text-justify">
+                Our physiotherapist specializes in treating musculoskeletal issues, from chronic back pain to sports injuries. By integrating Hijama with physiotherapy, our clients often experience faster recovery. The Hijama session prepares the muscles by improving blood flow, making manual therapy and rehabilitative exercises more effective. This powerful combination ensures we not only manage your pain but also address its root cause, giving you the tools for lasting health.
+              </p>
               {/* Optional Stats */}
               {/* <div className="mt-8 sm:mt-10 flex flex-col items-center space-y-4 md:flex-row md:justify-center lg:justify-start md:items-center md:space-y-0 md:space-x-12">
-                   Add relevant stats if available
-               </div> */}
+                  Add relevant stats if available
+                </div> */}
             </motion.div>
 
             {/* Image Column: order-1 lg:order-2 (Right on Desktop) */}
@@ -355,7 +357,7 @@ const AboutPage = () => {
               >
                 <Image
                   src="/physio.jpg" // Placeholder Image
-                  alt="Our Physiotherapist"
+                  alt="Dr. Arish Ahmed, Physiotherapist at Al Madina Hijama Center"
                   width={400}
                   height={450}
                   className="object-cover w-full h-auto"
@@ -431,7 +433,7 @@ const AboutPage = () => {
            {/* Adjusted margin */}
           <div className="mt-8 sm:mt-10">
             <a
-              href="/contact"
+              href="/booking"
                // Adjusted padding and text size
               className="inline-flex items-center px-6 py-3 sm:px-8 sm:py-4 bg-[#FF6900] text-white text-base sm:text-lg font-bold rounded-full shadow-lg hover:brightness-90 transition-all duration-300 transform hover:scale-105"
             >

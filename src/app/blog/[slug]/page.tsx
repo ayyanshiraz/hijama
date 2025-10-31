@@ -17,7 +17,7 @@ const blogPosts = [
     category: 'Sunnah & Healing',
     date: 'October 15, 2025',
     content: `
-      <p>Hijama, also known as wet cupping, is a therapeutic practice with deep roots in Islamic tradition and prophetic medicine. It is a highly recommended Sunnah of the Prophet Muhammad (peace be upon him), who not only practiced it himself but also advised his followers to use it as a means of healing.</p>
+      <p>Hijama, also known as blood cupping, is a therapeutic practice with deep roots in Islamic tradition and prophetic medicine. It is a highly recommended Sunnah of the Prophet Muhammad (peace be upon him), who not only practiced it himself but also advised his followers to use it as a means of healing.</p>
       <img src="/blogs/b2.jpg" alt="Illustration of ancient cupping tools" class="rounded-lg my-8 shadow-md" />
       <p>The term "Hijama" is derived from the Arabic word 'hajm', which means 'sucking'. The procedure involves creating suction on the skin using cups and then making small, superficial incisions to draw out a small amount of stagnant, toxic blood from the body.</p>
       <h3 class="text-2xl font-bold mt-8 mb-4">The Spiritual and Physical Benefits</h3>
@@ -34,14 +34,14 @@ const blogPosts = [
     `
   },
   {
-    slug: 'benefits-of-wet-cupping',
-    title: '5 Proven Benefits of Wet Cupping for Detoxification',
-    excerpt: 'Discover how wet cupping (Hijama) can help purify your blood, remove toxins, and boost your overall immune system.',
+    slug: 'benefits-of-blood-cupping',
+    title: '5 Proven Benefits of Blood Cupping for Detoxification',
+    excerpt: 'Discover how blood cupping (Hijama) can help purify your blood, remove toxins, and boost your overall immune system.',
     imageUrl: '/blogs/b3.jpg',
     category: 'Health & Wellness',
     date: 'October 10, 2025',
     content: `
-      <p>Wet cupping, known as Hijama, is one of the most effective natural detoxification methods available. It directly targets and removes stagnant blood and metabolic waste that can accumulate in the body over time. Here are five key benefits of this powerful therapy:</p>
+      <p>Blood cupping, known as Hijama, is one of the most effective natural detoxification methods available. It directly targets and removes stagnant blood and metabolic waste that can accumulate in the body over time. Here are five key benefits of this powerful therapy:</p>
       <img src="/blogs/b4.jpg" alt="Close-up of cupping therapy on a patient's back" class="rounded-lg my-8 shadow-md" />
       <h3 class="text-2xl font-bold mt-8 mb-4">1. Enhanced Blood Circulation</h3>
       <p>The suction from the cups draws blood to the surface, breaking up blockages and stimulating fresh, oxygenated blood flow to areas that may be suffering from poor circulation. This helps nourish tissues and accelerate healing.</p>
@@ -68,7 +68,7 @@ const blogPosts = [
       <h3 class="text-2xl font-bold mt-8 mb-4">Releasing Muscle Tension</h3>
       <p>The negative pressure from the cups lifts and separates soft tissue layers. This action releases deep muscle knots, trigger points, and fascial adhesions that are often the source of chronic stiffness and pain, particularly in the back, neck, and shoulders.</p>
       <h3 class="text-2xl font-bold mt-8 mb-4">Reducing Inflammation</h3>
-      <p>Chronic pain is often fueled by inflammation. Wet cupping physically removes inflammatory mediators and toxins from the affected area, providing direct relief and allowing the tissue to begin healing. This is especially beneficial for joint pain caused by conditions like arthritis.</p>
+      <p>Chronic pain is often fueled by inflammation. Blood cupping physically removes inflammatory mediators and toxins from the affected area, providing direct relief and allowing the tissue to begin healing. This is especially beneficial for joint pain caused by conditions like arthritis.</p>
       <h3 class="text-2xl font-bold mt-8 mb-4">Stimulating Natural Painkillers</h3>
       <p>The process of Hijama is believed to stimulate the nervous system, encouraging the release of the body’s own natural painkillers, such as endorphins. This creates a sense of well-being and reduces the perception of pain.</p>
       <p>Whether you suffer from persistent migraines, debilitating lower back pain, or sciatica, a targeted Hijama session can help break the cycle of chronic pain and restore your quality of life.</p>

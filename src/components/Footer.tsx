@@ -9,7 +9,7 @@ const footerNavLinks = [
   { name: 'About', href: '/about' },
   { name: 'Services', href: '/services' },
   { name: 'Contact', href: '/contact' },
-  { name: 'Blog', href: '/blog' },
+  { name: 'Blogs', href: '/blog' },
   { name: 'Privacy Policy', href: '/privacy-policy' },
 ];
 

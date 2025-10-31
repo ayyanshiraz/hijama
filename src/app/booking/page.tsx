@@ -109,7 +109,7 @@ const BookingPage = () => {
 
     // Only allow numbers or an empty string
     if (!/^[0-9]*$/.test(val)) {
-      return; // Don't update if it's not a number
+      return; // Dont update if its not a number
     }
 
     if (val === '') {
@@ -264,7 +264,7 @@ const isStep1Valid = selectedOption && (selectedOption !== 'perCup' || (selected
                   </div>
                   
                   {/* Connector Line (if not the last item) */}
-                  {/* The line is aligned to the top (mt-4) to match the circle's center */}
+                  {/* The line is aligned to the top (mt-4) to match the circles center */}
                   {/* mx-1 sm:mx-2 for smaller mobile margins */}
                   {index < 2 && (
                     <div className={`flex-1 h-0.5 mt-4 mx-1 sm:mx-2 transition-colors ${isCompleted ? 'bg-teal-600' : 'bg-gray-200'}`}></div>
@@ -598,7 +598,7 @@ const isStep1Valid = selectedOption && (selectedOption !== 'perCup' || (selected
         </div>
       </div>
       
-      {/* --- Global Styles (FINAL FIX) --- */}
+      {/* --- Global Styles (FIXED) --- */}
       <style jsx global>{`
         .react-datepicker-wrapper {
           width: 100%; 
@@ -612,15 +612,9 @@ const isStep1Valid = selectedOption && (selectedOption !== 'perCup' || (selected
           z-index: 50 !important; 
         }
 
-        /* --- FIX 2: This forces the side-by-side layout --- */
-        .react-datepicker {
-          display: flex !important; /* Use !important to be sure */
-        }
-
-        /* This just gives the time list a bit of space and a separator */
-        .react-datepicker__time-container {
-          border-left: 1px solid #aeaeae;
-        }
+        /* * The 'display: flex' and 'border-left' rules were removed 
+         * to allow the datepicker to stack vertically on mobile screens.
+         */
       `}</style>
     </main>
   );

@@ -17,9 +17,9 @@ const blogPosts = [
     date: 'October 15, 2025',
   },
   {
-    slug: 'benefits-of-wet-cupping',
-    title: '5 Proven Benefits of Wet Cupping for Detoxification',
-    excerpt: 'Discover how wet cupping (Hijama) can help purify your blood, remove toxins, and boost your overall immune system.',
+    slug: 'benefits-of-blood-cupping',
+    title: '5 Proven Benefits of Blood Cupping for Detoxification',
+    excerpt: 'Discover how blood cupping (Hijama) can help purify your blood, remove toxins, and boost your overall immune system.',
     imageUrl: '/blogs/b3.jpg', // Replace with a relevant blog image
     category: 'Health & Wellness',
     date: 'October 10, 2025',
@@ -38,7 +38,7 @@ const blogPosts = [
 const BlogPage = () => {
     const breadcrumbItems = [
         { name: 'Home', href: '/' },
-        { name: 'Blog', href: '/blog' },
+        { name: 'Blogs', href: '/blog' },
     ];
     
     return (
@@ -57,7 +57,7 @@ const BlogPage = () => {
                         transition={{ duration: 0.8, ease: 'easeOut' }}
                         className="text-5xl md:text-7xl font-extrabold tracking-tight"
                     >
-                        Our Blog
+                        Our Blogs
                     </motion.h1>
                     <motion.p 
                         initial={{ opacity: 0, y: 20 }}
