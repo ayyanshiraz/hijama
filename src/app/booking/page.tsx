@@ -3,17 +3,20 @@
 // Import React
 import React, { useState } from 'react'; 
 import { motion, AnimatePresence } from 'framer-motion';
-// Import all icons
+
+// --- 1. COMBINED Icon Import ---
 import { 
   ChevronRight, Check, Droplets, ShieldCheck, Award, Home, MapPin,
   Wind, Heart, Zap, Flame, Sparkles, Leaf, Sunrise, ShieldAlert, Smile, Activity, Target
 } from 'lucide-react';
+
+// --- 2. Other Imports ---
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { useSearchParams } from 'next/navigation';
 import Image from 'next/image';
 
-// --- SERVICES LIST ---
+// --- 3. SERVICES LIST (Added once) ---
 const servicesList = [
   {
     icon: Droplets,
@@ -108,8 +111,7 @@ const servicesList = [
   }
 ];
 
-
-// --- Data for options (Per Cup, etc.) ---
+// --- 4. SESSION OPTIONS (Added once) ---
 const options = [
   {
     id: 'perCup',
@@ -134,7 +136,7 @@ const options = [
   },
 ];
 
-// ... (other data: homeServiceOptions, constants)
+// --- 5. OTHER CONSTANTS (Added once) ---
 const homeServiceOptions = [
   { id: '10km', label: 'Up to 10km', fee: 0, description: 'Free Service' },
   { id: '15km', label: 'Up to 15km', fee: 450, description: 'Rs. 450' },
@@ -144,23 +146,23 @@ const CUP_PRICE = 300;
 const SUNNAH_CUPS = 11;
 const GENERAL_CUPS = 15;
 
-// Define types
+// --- 6. TYPES (Added once) ---
 type ServiceOption = 'perCup' | 'sunnah' | 'general' | null;
 type HomeServiceFee = 0 | 450 | 500;
 
-// --- Wrapper Component (unchanged) ---
+// --- 7. WRAPPER COMPONENT (Added once) ---
 const BookingPageWrapper = () => {
   const searchParams = useSearchParams();
   const serviceName = searchParams.get('service');
   return <BookingPage serviceNameFromUrl={serviceName} />;
 }
 
-// --- Main Component ---
+// --- 8. MAIN COMPONENT (Added once) ---
 const BookingPage = ({ serviceNameFromUrl }: { serviceNameFromUrl: string | null }) => {
   
   // State
   const [selectedService, setSelectedService] = useState<string | null>(serviceNameFromUrl);
-  const [step, setStep] = useState(serviceNameFromUrl ? 2 : 1);
+  const [step, setStep] = useState(serviceNameFromUrl ? 2 : 1); // Start at step 2 if service is in URL
   const [selectedOption, setSelectedOption] = useState<ServiceOption>(null);
   const [cupQuantity, setCupQuantity] = useState<number | ''>(1);
   const [totalPrice, setTotalPrice] = useState(0);
@@ -170,10 +172,10 @@ const BookingPage = ({ serviceNameFromUrl }: { serviceNameFromUrl: string | null
   const [phone, setPhone] = useState('');
   const [notes, setNotes] = useState('');
 
-  // --- Handlers ---
+  // --- Handlers (Added once) ---
   const handleServiceSelect = (serviceTitle: string) => {
     setSelectedService(serviceTitle);
-    setStep(2); 
+    setStep(2); // Move to next step
   };
   
   const handleOptionSelect = (option: ServiceOption) => {
@@ -295,15 +297,13 @@ const BookingPage = ({ serviceNameFromUrl }: { serviceNameFromUrl: string | null
     window.location.href = whatsappUrl;
   };
 
-  // Validation checks
+  // --- 9. Validation & Dynamic Text (Added once) ---
   const isStep2Valid = selectedOption && (selectedOption !== 'perCup' || (selectedOption === 'perCup' && Number(cupQuantity) >= 1));
   const isStep4Valid = name.trim() !== '' && phone.trim() !== '';
-
   const { name: serviceNameForReview, price: servicePriceForReview } = getBookingDetails();
 
   // Dynamic titles
   const pageTitle = selectedService ? `Book ${selectedService}` : 'Book Your Session';
-  
   const dynamicSubtitle = selectedService
     ? `You are booking a session for ${selectedService}. Please select a session type below.`
     : 'Follow these simple steps to schedule your appointment for natural healing.';
@@ -322,10 +322,10 @@ const BookingPage = ({ serviceNameFromUrl }: { serviceNameFromUrl: string | null
           </p>
         </div>
 
-        {/* --- THIS IS THE MODIFIED BLOCK --- */}
+        {/* --- 10. STEP INDICATOR (Corrected) --- */}
         <div className="w-full max-w-4xl mx-auto mb-12">
           <div className="flex items-start sm:items-center justify-between">
-            {/* Array labels are changed here */}
+            {/* Array labels are changed as requested */}
             {['Services', 'Choose Session', 'Pick Date & Time', 'Confirm Details'].map((label, index) => {
               const stepNumber = index + 1;
               const isCompleted = step > stepNumber;
@@ -351,7 +351,7 @@ const BookingPage = ({ serviceNameFromUrl }: { serviceNameFromUrl: string | null
                     </span>
                   </div>
                   
-                  {index < 3 && (
+                  {index < 3 && ( // index < 3 because there are 4 items
                     <div className={`flex-1 h-0.5 mt-4 mx-1 sm:mx-2 transition-colors ${isCompleted ? 'bg-teal-600' : 'bg-gray-200'}`}></div>
                   )}
                 </React.Fragment>
@@ -359,10 +359,8 @@ const BookingPage = ({ serviceNameFromUrl }: { serviceNameFromUrl: string | null
             })}
           </div>
         </div>
-        {/* --- END OF MODIFIED BLOCK --- */}
 
-
-        {/* Step Content */}
+        {/* --- 11. STEP CONTENT (All steps cleaned) --- */}
         <div className="max-w-3xl mx-auto"> 
           <AnimatePresence mode="wait">
             <motion.div
@@ -514,6 +512,7 @@ const BookingPage = ({ serviceNameFromUrl }: { serviceNameFromUrl: string | null
                                   </div>
                                   
                                   <div className="flex w-full sm:w-auto sm:items-center sm:gap-x-4">
+                                    {/* Show "Back" button only if user didn't come from a direct link */}
                                     {!serviceNameFromUrl && (
                                       <button 
                                         onClick={() => setStep(1)} 
@@ -523,7 +522,7 @@ const BookingPage = ({ serviceNameFromUrl }: { serviceNameFromUrl: string | null
                                       </button>
                                     )}
                                     <button
-                                      onClick={() => setStep(3)}
+                                      onClick={() => setStep(3)} // Go to Step 3
                                       disabled={!isStep2Valid}
                                       className={`w-full sm:w-auto inline-flex items-center justify-center px-6 py-3 font-semibold rounded-lg shadow-md transition-colors ${
                                         isStep2Valid
@@ -602,7 +601,7 @@ const BookingPage = ({ serviceNameFromUrl }: { serviceNameFromUrl: string | null
                       <button
                         onClick={() => {
                           if (selectedDate) {
-                            setStep(4);
+                            setStep(4); // Go to Step 4
                           }
                         }}
                         disabled={!selectedDate}
@@ -679,7 +678,7 @@ const BookingPage = ({ serviceNameFromUrl }: { serviceNameFromUrl: string | null
                       <textarea
                         id="notes"
                         value={notes}
-                        onChange={(e) => setNotes(e.target.value)}
+                        onChange={(e) => setNotes(e.target.value)} // <-- TYPO FIXED
                         rows={3}
                         className="w-full px-4 py-3 bg-gray-100 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-teal-500 text-black placeholder-gray-500"
                         placeholder="Any specific requests or health information?"
@@ -711,7 +710,7 @@ const BookingPage = ({ serviceNameFromUrl }: { serviceNameFromUrl: string | null
         </div>
       </div>
       
-      {/* (Global styles... no changes) */}
+      {/* --- 12. GLOBAL STYLES (Added once) --- */}
       <style jsx global>{`
         .react-datepicker-wrapper {
           width: 100%; 
@@ -728,4 +727,5 @@ const BookingPage = ({ serviceNameFromUrl }: { serviceNameFromUrl: string | null
   );
 };
 
+// --- 13. FINAL EXPORT (Added once) ---
 export default BookingPageWrapper;
