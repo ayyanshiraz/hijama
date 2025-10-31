@@ -315,59 +315,7 @@ const AboutPage = () => {
       </motion.section>
       {/* ===== END: UPDATED HAKEEM SECTION ===== */}
 
-      {/* ===== START: NEW PHYSIO SECTION ===== */}
-      <motion.section
-        className="py-16 sm:py-24 bg-[#F0FDF4]" // Alternate background
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.3 }}
-        variants={staggerContainer}
-      >
-        <div className="container mx-auto px-4 sm:px-12 md:px-20 lg:px-32">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-            {/* Text Column: order-2 lg:order-1 (Left on Desktop) */}
-            <motion.div variants={fadeInLeft} className="order-2 lg:order-1 text-center lg:text-left">
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-800 tracking-tight">
-                Meet Our Physiotherapist
-              </h2>
-              <p className="mt-2 sm:mt-3 text-xl sm:text-2xl text-teal-700 font-semibold">
-                Dr. Arish Ahmed (DPT)
-              </p>
-              <p className="mt-4 sm:mt-6 text-sm sm:text-base text-gray-600 leading-relaxed text-justify">
-                We believe in a truly holistic path to recovery. While Hijama therapy excels at detoxifying the body, reducing inflammation, and releasing deep muscle tension, our expert physiotherapy services focus on restoring long-term function and movement.
-              </p>
-              <p className="mt-4 text-sm sm:text-base text-gray-600 leading-relaxed text-justify">
-                Our physiotherapist specializes in treating musculoskeletal issues, from chronic back pain to sports injuries. By integrating Hijama with physiotherapy, our clients often experience faster recovery. The Hijama session prepares the muscles by improving blood flow, making manual therapy and rehabilitative exercises more effective. This powerful combination ensures we not only manage your pain but also address its root cause, giving you the tools for lasting health.
-              </p>
-              {/* Optional Stats */}
-              {/* <div className="mt-8 sm:mt-10 flex flex-col items-center space-y-4 md:flex-row md:justify-center lg:justify-start md:items-center md:space-y-0 md:space-x-12">
-                  Add relevant stats if available
-                </div> */}
-            </motion.div>
-
-            {/* Image Column: order-1 lg:order-2 (Right on Desktop) */}
-            <motion.div
-              className="flex justify-center lg:justify-end order-1 lg:order-2"
-              variants={fadeInRight}
-            >
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                transition={{ duration: 0.3, ease: "easeInOut" }}
-                className="rounded-2xl shadow-2xl overflow-hidden max-w-xs sm:max-w-sm md:max-w-md w-full"
-              >
-                <Image
-                  src="/physio.jpg" // Placeholder Image
-                  alt="Dr. Arish Ahmed, Physiotherapist at Al Madina Hijama Center"
-                  width={400}
-                  height={450}
-                  className="object-cover w-full h-auto"
-                />
-              </motion.div>
-            </motion.div>
-          </div>
-        </div>
-      </motion.section>
-      {/* ===== END: NEW PHYSIO SECTION ===== */}
+      
 
       {/* --- Our Commitment Section --- */}
       <section className="py-16 sm:py-24 bg-white"> {/* Adjusted padding */}
