@@ -277,7 +277,7 @@ const BeautyHijamaPage = () => {
 
 
                                 <div className="mt-8 text-center">
-                                    <h4 className="text-lg font-semibold text-gray-800">Your Specialists</h4>
+                                    <h4 className="text-lg font-semibold text-gray-800">Your Specialist</h4>
                                     <div className="flex justify-center items-center gap-8 mt-4">
                                         <div>
                                             {/* Assuming you have an image for the female specialist at /female-specialist.jpg */}
