@@ -13,6 +13,13 @@ const serviceSlugs = [
   'hijama-for-internal-health',
   'hijama-for-sports-recovery',
   'hijama-for-detox',
+  'fire-cupping',
+  'female-face-hijama',
+  'beauty-hijama',
+  'breast-cysts',
+  'hijama-for-baldness',
+  'hijama-for-fistula',
+  'pcos'
 ];
 
 const blogPostSlugs = [
