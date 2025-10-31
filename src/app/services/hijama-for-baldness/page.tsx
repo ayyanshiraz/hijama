@@ -21,7 +21,7 @@ const benefits = [
 const processSteps = [
     { icon: Droplets, title: 'Scalp Assessment', description: 'Our specialist examines your scalp condition and pattern of hair loss.' },
     { icon: Shield, title: 'Scalp Sterilization', description: 'The scalp is gently cleaned and sterilized to ensure a hygienic procedure.' },
-    { icon: Sunrise, title: 'Targeted Cupping', description: 'Small cups are applied to the affected areas, often using a combination of dry and light wet cupping.' },
+    { icon: Sunrise, title: 'Targeted Cupping', description: 'Small cups are applied to the affected areas, often using a combination of dry and light blood cupping.' },
     { icon: Clock, title: 'Follicle Stimulation', description: 'The gentle suction draws blood to the surface, nourishing the follicles and stimulating the scalp.' },
     { icon: Shield, title: 'Post-Treatment Care', description: 'The scalp is cleaned again, and you receive after-care instructions for your hair and scalp.' },
 ];
@@ -57,7 +57,7 @@ const faqs = [
     },
     {
         question: "Is the treatment painful?",
-        answer: "The scalp is a sensitive area, but the procedure is generally well-tolerated. We use very small cups and make tiny, superficial scratches (in wet cupping) that most clients describe as minimally uncomfortable, not painful."
+        answer: "The scalp is a sensitive area, but the procedure is generally well-tolerated. We use very small cups and make tiny, superficial scratches (in blood cupping) that most clients describe as minimally uncomfortable, not painful."
     },
     {
         question: "How many sessions are needed to see results?",
@@ -177,7 +177,7 @@ const HijamaForBaldnessPage = () => {
                             <motion.div initial="hidden" animate="visible" variants={staggerContainer}>
                                 <motion.h2 variants={itemVariants} className="text-4xl font-extrabold text-gray-900">Nourish Your Roots, Naturally</motion.h2>
                                 <motion.p variants={itemVariants} className="mt-4 text-lg text-gray-600 leading-relaxed">
-                                    Hijama for Baldness is a traditional and effective method for combating hair loss in both men and women. The primary cause of hair loss is often poor blood circulation to the scalp, which starves hair follicles of essential nutrients. This therapy directly addresses this issue by applying cupping (both dry and wet) to the scalp.
+                                    Hijama for Baldness is a traditional and effective method for combating hair loss in both men and women. The primary cause of hair loss is often poor blood circulation to the scalp, which starves hair follicles of essential nutrients. This therapy directly addresses this issue by applying cupping (both dry and blood) to the scalp.
                                 </motion.p>
                                 <motion.p variants={itemVariants} className="mt-4 text-lg text-gray-600 leading-relaxed">
                                     The suction dramatically increases blood flow, bringing a rich supply of oxygen and nutrients to the hair roots. It also helps in clearing toxins and potential buildup of DHT (a hormone linked to hair loss) from the scalp. This process can awaken dormant follicles, strengthen existing hair, and encourage new, healthy hair growth over time.

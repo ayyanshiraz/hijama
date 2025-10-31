@@ -55,7 +55,7 @@ const faqs = [
         answer: "No, it is a non-invasive and generally painless therapy. You will feel a pulling sensation as the cups create suction, which most people find relaxing, similar to a deep-tissue massage."
     },
     {
-        question: "How is this different from Wet Hijama?",
+        question: "How is this different from Blood Hijama?",
         answer: "The main difference is that Dry and Massage Cupping do not involve any incisions or blood removal. It is a non-invasive technique focused on lifting tissue, improving circulation, and relieving muscle tension."
     },
     {

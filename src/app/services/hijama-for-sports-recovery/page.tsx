@@ -20,7 +20,7 @@ const processSteps = [
     { icon: Droplets, title: 'Performance Assessment', description: 'We evaluate your training regimen, areas of muscle strain, and recovery goals.' },
     { icon: Shield, title: 'Targeted Sterilization', description: 'The specific muscle groups and areas of tightness are prepared for treatment.' },
     { icon: Zap, title: 'Dynamic Cupping', description: 'A combination of stationary and massage cupping is used to release deep muscle knots and improve circulation.' },
-    { icon: Clock, title: 'Recovery Stimulation', description: 'Wet cupping is often applied to key points to draw out metabolic waste and accelerate the healing process.' },
+    { icon: Clock, title: 'Recovery Stimulation', description: 'Blood cupping is often applied to key points to draw out metabolic waste and accelerate the healing process.' },
     { icon: ShieldCheck, title: 'Post-Session Protocol', description: 'You receive professional advice on hydration, stretching, and when to resume training.' },
 ];
 

@@ -23,7 +23,7 @@ const processSteps = [
     { icon: Droplets, title: 'Sensitive Consultation', description: 'A private and respectful consultation with our female specialist to discuss your concerns.' },
     { icon: Shield, title: 'Gentle Preparation', description: 'The area is assessed and gently sterilized, ensuring complete comfort and hygiene.' },
     { icon: Activity, title: 'Targeted Application', description: 'Small cups are carefully placed on specific points around the breast tissue (not directly on the cyst) to promote circulation.' },
-    { icon: Clock, title: 'Therapeutic Session', description: 'A combination of gentle Dry and Wet cupping is used to draw out stagnation and inflammation from the surrounding area.' },
+    { icon: Clock, title: 'Therapeutic Session', description: 'A combination of gentle Dry and Blood cupping is used to draw out stagnation and inflammation from the surrounding area.' },
     { icon: Shield, title: 'Post-Therapy Care', description: 'The area is cleaned, and you receive guidance on after-care and breast health.' },
 ];
 

@@ -53,7 +53,7 @@ const preparation = [
 
 const faqs = [
     {
-        question: "Is Beauty Hijama the same as Wet Hijama (Blood Cupping)?",
+        question: "Is Beauty Hijama the same as Blood Hijama (Blood Cupping)?",
         answer: "No, this is a completely different and non-invasive therapy. Beauty Hijama uses only Dry/Massage cupping. No incisions are made, and no blood is drawn. It is a gentle, relaxing facial treatment."
     },
     {

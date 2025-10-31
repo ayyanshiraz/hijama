@@ -22,7 +22,7 @@ const benefits = [
 const processSteps = [
     { icon: Droplets, title: 'Holistic Consultation', description: 'A private consultation with our female specialist to discuss your PCOS symptoms and health goals.' },
     { icon: Shield, title: 'Sterilization', description: 'Specific points on the back, abdomen, and lower body are gently sterilized.' },
-    { icon: Target, title: 'Targeted Cupping', description: 'Wet cupping is applied to key points corresponding to the endocrine glands and reproductive system.' },
+    { icon: Target, title: 'Targeted Cupping', description: 'Blood cupping is applied to key points corresponding to the endocrine glands and reproductive system.' },
     { icon: Clock, title: 'Hormonal Rebalancing', description: 'The therapy helps purify the blood and stimulate the nervous system, encouraging hormonal regulation.' },
     { icon: Shield, title: 'Wellness Plan', description: 'You receive after-care advice, including dietary and lifestyle tips to manage PCOS.' },
 ];

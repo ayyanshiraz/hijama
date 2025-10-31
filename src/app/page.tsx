@@ -153,7 +153,7 @@ const hijamaBenefits = [
 
 const testimonials = [
   {
-    text: "The wet cupping session significantly eased my chronic back pain; the staff was incredibly professional.",
+    text: "The blood cupping session significantly eased my chronic back pain; the staff was incredibly professional.",
     name: "Musa Mutahir",
     rating: 4,
   },
@@ -188,7 +188,7 @@ const testimonials = [
     rating: 5,
   },
   {
-    text: "The wet cupping treatment was excellent and the clinic environment is very clean and professional.",
+    text: "The blood cupping treatment was excellent and the clinic environment is very clean and professional.",
     name: "Sanaan Zahid",
     rating: 4,
   },

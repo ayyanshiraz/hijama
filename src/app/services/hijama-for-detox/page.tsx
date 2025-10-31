@@ -19,7 +19,7 @@ const benefits = [
 const processSteps = [
     { icon: Droplets, title: 'Wellness Consultation', description: 'A discussion about your lifestyle and wellness goals to tailor the detox session.' },
     { icon: Shield, title: 'Area Sterilization', description: 'Key points on the back and shoulders, known for toxin accumulation, are sterilized.' },
-    { icon: Sparkles, title: 'Purification Cupping', description: 'Wet cupping is applied to specific Sunnah points to draw out toxins and impurities from the body.' },
+    { icon: Sparkles, title: 'Purification Cupping', description: 'Blood cupping is applied to specific Sunnah points to draw out toxins and impurities from the body.' },
     { icon: Clock, title: 'Revitalization', description: 'The removal of stagnant blood stimulates fresh, oxygenated blood flow, revitalizing the entire body.' },
     { icon: Leaf, title: 'Post-Detox Guidance', description: 'You receive advice on diet and hydration to enhance and prolong the detoxifying effects.' },
 ];
@@ -177,7 +177,7 @@ const DetoxWellnessPage = () => {
                             <motion.div initial="hidden" animate="visible" variants={staggerContainer}>
                                 <motion.h2 variants={itemVariants} className="text-4xl font-extrabold text-gray-900">Purify, Refresh, and Rejuvenate</motion.h2>
                                 <motion.p variants={itemVariants} className="mt-4 text-lg text-gray-600 leading-relaxed">
-                                    Hijama for Detox & Wellness is a foundational therapy for maintaining optimal health in a world full of environmental and dietary toxins. This treatment focuses on full-body purification by applying Wet Cupping to key Sunnah points, which are traditionally known as the most effective sites for clearing stagnant blood and metabolic waste.
+                                    Hijama for Detox & Wellness is a foundational therapy for maintaining optimal health in a world full of environmental and dietary toxins. This treatment focuses on full-body purification by applying Blood Cupping to key Sunnah points, which are traditionally known as the most effective sites for clearing stagnant blood and metabolic waste.
                                 </motion.p>
                                 <motion.p variants={itemVariants} className="mt-4 text-lg text-gray-600 leading-relaxed">
                                     This therapy is perfect for anyone looking to feel more energetic, improve their skin clarity, and support their bodys natural cleansing processes. We provide a clean, safe, and comfortable experience with dedicated practitioners for both men and women, with the added convenience of home service.

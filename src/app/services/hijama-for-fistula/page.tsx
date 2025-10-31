@@ -22,7 +22,7 @@ const benefits = [
 const processSteps = [
     { icon: Droplets, title: 'Sensitive Consultation', description: 'A private, respectful consultation to discuss your medical diagnosis and symptoms.' },
     { icon: Shield, title: 'Hygienic Preparation', description: 'The surrounding area is meticulously sterilized. This therapy is never applied directly to the fistula opening.' },
-    { icon: ShieldAlert, title: 'Targeted Cupping', description: 'Dry and/or Wet cupping is applied to specific points on the lower back, sacrum, and buttocks to improve circulation to the entire region.' },
+    { icon: ShieldAlert, title: 'Targeted Cupping', description: 'Dry and Blood cupping is applied to specific points on the lower back, sacrum, and buttocks to improve circulation to the entire region.' },
     { icon: Clock, title: 'Detoxification', description: 'This process helps to pull deep inflammation and toxins away from the affected tract, promoting healing from within.' },
     { icon: Shield, title: 'Post-Therapy Care', description: 'The area is cleaned, and you receive crucial after-care guidance on hygiene and diet.' },
 ];

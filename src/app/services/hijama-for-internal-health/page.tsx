@@ -48,7 +48,7 @@ const processSteps = [
     { icon: Droplets, title: 'Holistic Consultation', description: 'We discuss your internal health concerns, from digestion to stress, to create a targeted plan.' },
     { icon: Shield, title: 'Sterilization', description: 'The specific points on the body related to organ function are carefully sterilized.' },
     { icon: Heart, title: 'Strategic Cupping', description: 'Cups are placed on key points (often on the back) corresponding to different organs to stimulate their function.' },
-    { icon: Clock, title: 'Purification', description: 'Wet cupping is typically used to draw out metabolic waste and toxins, purifying the blood and supporting organ health.' },
+    { icon: Clock, title: 'Purification', description: 'Blood cupping is typically used to draw out metabolic waste and toxins, purifying the blood and supporting organ health.' },
     { icon: Shield, title: 'After-care Plan', description: 'You receive dietary and lifestyle advice to support the long-term benefits of the therapy.' },
 ];
 

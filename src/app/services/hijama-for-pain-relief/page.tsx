@@ -20,7 +20,7 @@ const processSteps = [
     { icon: Droplets, title: 'Pain Point Assessment', description: 'Our specialist identifies the precise locations and root cause of your pain.' },
     { icon: Shield, title: 'Sterilization', description: 'The targeted areas are carefully sterilized to ensure a hygienic procedure.' },
     { icon: Zap, title: 'Targeted Cupping', description: 'Cups are applied to specific meridians and trigger points related to your pain.' },
-    { icon: Clock, title: 'Therapeutic Action', description: 'The therapy proceeds with either Wet or Dry cupping, depending on your condition, to release pressure and toxins.' },
+    { icon: Clock, title: 'Therapeutic Action', description: 'The therapy proceeds with either Blood or Dry cupping, depending on your condition, to release pressure and toxins.' },
     { icon: Shield, title: 'After-care', description: 'The area is cleaned, and you receive tailored advice for post-treatment care to maximize pain relief.' },
 ];
 
@@ -73,7 +73,7 @@ const schema = {
     "@context": "https://schema.org",
     "@type": "TherapeuticProcedure",
     "name": "Hijama for Pain Relief",
-    "description": "A targeted, natural therapy using Wet or Dry cupping to effectively manage chronic pain, reduce inflammation, and restore mobility. It addresses the root causes of discomfort without medication.",
+    "description": "A targeted, natural therapy using Blood or Dry cupping to effectively manage chronic pain, reduce inflammation, and restore mobility. It addresses the root causes of discomfort without medication.",
     "indication": [
       { "@type": "MedicalCondition", "name": "Back Pain" },
       { "@type": "MedicalCondition", "name": "Migraine" },
