@@ -214,6 +214,13 @@ const isStep1Valid = selectedOption && (selectedOption !== 'perCup' || (selected
 
   const { name: serviceNameForReview, price: servicePriceForReview } = getBookingDetails();
 
+  // --- MODIFIED: Get dynamic title and subtitle ---
+  const selectedService = options.find(option => option.id === selectedOption);
+  const dynamicTitle = selectedService ? selectedService.name : 'Your Session';
+  const dynamicSubtitle = selectedService 
+    ? `You are booking: ${selectedService.name}. Follow the steps below.`
+    : 'Follow these simple steps to schedule your appointment for natural healing.';
+
 
   return (
     <main className="bg-gray-50 min-h-screen">
@@ -223,10 +230,12 @@ const isStep1Valid = selectedOption && (selectedOption !== 'perCup' || (selected
         <div className="text-center mb-12">
           {/* text-3xl sm:text-4xl md:text-5xl for better mobile scaling */}
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-800 tracking-tight">
-            Book Your Session
+            {/* --- MODIFIED --- */}
+            {`Book ${dynamicTitle}`}
           </h1>
           <p className="mt-4 text-base sm:text-lg text-gray-600 max-w-2xl mx-auto">
-            Follow these simple steps to schedule your appointment for natural healing.
+            {/* --- MODIFIED --- */}
+            {dynamicSubtitle}
           </p>
         </div>
 
