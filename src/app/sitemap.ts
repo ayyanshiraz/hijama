@@ -7,7 +7,7 @@ const BASE_URL = 'https://almadinahijamacenter.com'; // Example: Use your real d
 // --- Data for dynamic routes (Simulated - In real app, fetch this data) ---
 // Based on the data you provided in page.tsx and blog/page.tsx
 const serviceSlugs = [
-  'wet-cupping',
+  'blood-cupping',
   'dry-cupping',
   'hijama-for-pain-relief',
   'hijama-for-internal-health',
@@ -24,7 +24,7 @@ const serviceSlugs = [
 
 const blogPostSlugs = [
   'the-sunnah-of-hijama',
-  'benefits-of-wet-cupping',
+  'benefits-of-blood-cupping',
   'hijama-for-pain-relief',
   // Add more slugs if you have more posts
 ];
