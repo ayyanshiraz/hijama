@@ -11,7 +11,7 @@ import { motion, Variants, animate, AnimatePresence } from 'framer-motion';
 
 const slideshowData = [
   {
-    image: '/hero.jpg',
+    image: '/hero.webp',
     title: (
       <>
         One Of The Most <span className="text-teal-400">Credible</span>
@@ -32,7 +32,7 @@ const slideshowData = [
     hasIcon: false,
   },
   {
-    image: '/hero5.png',
+    image: '/hero5.webp',
     title: (
       <>
         Discover <span className="text-teal-400">Natural Healing</span>
@@ -46,7 +46,7 @@ const slideshowData = [
     hasIcon: false,
   },
   {
-    image: '/hero3.jpg',
+    image: '/hero3.webp',
     title: (
       <>
         Safe & Hygienic
@@ -60,7 +60,7 @@ const slideshowData = [
     hasIcon: false,
   },
   {
-    image: '/hero2.png',
+    image: '/hero2.webp',
     title: (
       <>
         Revitalize Your Body
