@@ -154,7 +154,7 @@ const AboutPage = () => {
                 className="rounded-2xl shadow-2xl overflow-hidden max-w-sm sm:max-w-md md:max-w-lg w-full"
             >
               <Image
-                src="/mission.jpg"
+                src="/mission.webp"
                 alt="Hijama therapy session in progress, focusing on healing"
                 width={500}
                 height={400}
@@ -187,7 +187,7 @@ const AboutPage = () => {
                 className="rounded-2xl shadow-2xl overflow-hidden max-w-sm sm:max-w-md md:max-w-lg w-full"
             >
               <Image
-                src="/vision.jpg"
+                src="/vision.webp"
                 alt="A serene, healthy environment representing the vision of community well-being"
                 width={500}
                 height={400}

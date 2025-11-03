@@ -105,49 +105,49 @@ const hijamaBenefits = [
     icon: SquareKanban,
     title: "Enhanced Detoxification",
     description: "Draws out toxins and impurities from the body, promoting clearer skin and improved organ function.",
-    image: "/hijama-detox.jpg"
+    image: "/hijama-detox.webp"
   },
   {
     icon: LineChart,
     title: "Improved Blood Circulation",
     description: "Stimulates blood flow to ensure oxygen and essential nutrients reach all tissues effectively.",
-    image: "/hijama-blood.jpg"
+    image: "/hijama-blood.webp"
   },
   {
     icon: Droplets,
     title: "Reduced Inflammation",
     description: "Provides natural relief from joint pain, arthritis, and muscle soreness without medication.",
-    image: "/hijama-inflammation.jpg"
+    image: "/hijama-inflammation.webp"
   },
   {
     icon: Brain,
     title: "Mental Clarity & Stress Relief",
     description: "Calms the nervous system, leading to better sleep, improved focus, and a sense of well-being.",
-    image: "/hijama-mind.jpg"
+    image: "/hijama-mind.webp"
   },
   {
     icon: ShieldCheck,
     title: "Strengthened Immune System",
     description: "Activates the bodys natural defenses by stimulating the production of immune cells.",
-    image: "/hijama-immune.jpg"
+    image: "/hijama-immune.webp"
   },
   {
     icon: Sunrise,
     title: "Accelerated Healing",
     description: "Boosts the bodys natural repair processes for faster recovery from injuries and muscle fatigue.",
-    image: "/hijama-healing.jpg"
+    image: "/hijama-healing.webp"
   },
   {
     icon: Sparkles,
     title: "Rejuvenated Skin Health",
     description: "Helps treat skin conditions like acne and eczema by improving local circulation and detoxification.",
-    image: "/hijama-skin.jpg"
+    image: "/hijama-skin.webp"
   },
   {
     icon: Soup,
     title: "Regulated Digestive System",
     description: "Aids in relieving digestive issues such as bloating, constipation, and loss of appetite.",
-    image: "/hijama-digestive.jpg"
+    image: "/hijama-digestive.webp"
   }
 ];
 
@@ -502,7 +502,7 @@ ${message}
               transition={{ duration: 0.3, ease: "easeInOut" }}
             >
               <img
-                src="/why.jpg"
+                src="/why.webp"
                 alt="Hijama cupping therapy showing cups on a back in a clean, serene setting"
                 className="w-full h-full object-cover rounded-2xl"
               />
