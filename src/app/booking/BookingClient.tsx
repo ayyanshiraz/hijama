@@ -1,117 +1,110 @@
 'use client';
-
-// Import React
 import React, { useState } from 'react'; 
 import { motion, AnimatePresence } from 'framer-motion';
-
-// --- 1. COMBINED Icon Import ---
 import { 
   ChevronRight, Check, Droplets, ShieldCheck, Award, Home, MapPin,
   Wind, Heart, Zap, Flame, Sparkles, Leaf, Sunrise, ShieldAlert, Smile, Activity, Target
 } from 'lucide-react';
-
-// --- 2. Other Imports ---
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { useSearchParams } from 'next/navigation';
 import Image from 'next/image';
 
-// --- 3. SERVICES LIST (Added once) ---
+
 const servicesList = [
   {
     icon: Droplets,
     title: 'Blood Cupping (Hijama)',
     description: 'The traditional Prophetic method...',
-    image: '/services/s1.jpg',
+    image: '/services/s1.webp',
     learnMoreLink: '/services/blood-cupping'
   },
   {
     icon: Wind,
     title: 'Dry & Massage Cupping',
     description: 'A non-invasive technique...',
-    image: '/services/s2.jpg',
+    image: '/services/s2.webp',
     learnMoreLink: '/services/dry-cupping'
   },
   {
     icon: Zap,
     title: 'Hijama for Pain Relief',
     description: 'Targeted therapy for chronic pain...',
-    image: '/services/s3.jpg',
+    image: '/services/s3.webp',
     learnMoreLink: '/services/hijama-for-pain-relief'
   },
   {
     icon: Heart,
     title: 'Hijama for Internal Health',
     description: 'A holistic approach to managing internal conditions...',
-    image: '/services/s4.jpg',
+    image: '/services/s4.webp',
     learnMoreLink: '/services/hijama-for-internal-health'
   },
   {
     icon: ShieldCheck,
     title: 'Hijama for Sports Recovery',
     description: 'Accelerate muscle recovery...',
-    image: '/services/s5.jpg',
+    image: '/services/s5.webp',
     learnMoreLink: '/services/hijama-for-sports-recovery'
   },
   {
     icon: Award,
     title: 'Hijama for Detox & Wellness',
     description: 'A comprehensive full-body detox...',
-    image: '/services/s6.jpg',
+    image: '/services/s6.webp',
     learnMoreLink: '/services/hijama-for-detox'
   },
   {
     icon: Flame,
     title: 'Fire Cupping',
     description: 'The traditional method using glass cups...',
-    image: '/services/s7.jpg',
+    image: '/services/s7.webp',
     learnMoreLink: '/services/fire-cupping'
   },
   {
     icon: Smile,
     title: 'Female Face Hijama (Jonk)',
     description: 'A specialized Leech Therapy (Jonk)...',
-    image: '/services/s8.jpg',
+    image: '/services/s8.webp',
     learnMoreLink: '/services/female-face-hijama'
   },
   {
     icon: Sparkles,
     title: 'Beauty Hijama',
     description: 'Gentle cupping techniques for men and women...',
-    image: '/services/s9.jpg',
+    image: '/services/s9.webp',
     learnMoreLink: '/services/beauty-hijama'
   },
   {
     icon: Activity, 
     title: 'Hijama for Breast Cysts',
     description: 'A focused, non-invasive therapy...',
-    image: '/services/s10.jpg',
+    image: '/services/s10.webp',
     learnMoreLink: '/services/breast-cysts'
   },
   {
     icon: Sunrise,
     title: 'Hijama for Baldness',
     description: 'Stimulates blood flow to the scalp...',
-    image: '/services/s11.jpg',
+    image: '/services/s11.webp',
     learnMoreLink: '/services/hijama-for-baldness'
   },
   {
     icon: ShieldAlert,
     title: 'Hijama for Fistula',
     description: 'A specialized, non-invasive treatment...',
-    image: '/services/s12.jpg',
+    image: '/services/s12.webp',
     learnMoreLink: '/services/hijama-for-fistula'
   },
   {
     icon: Target, 
     title: 'Hijama for PCOS',
     description: 'Targeted Hijama therapy to help regulate...',
-    image: '/services/s13.jpg',
+    image: '/services/s13.webp',
     learnMoreLink: '/services/pcos'
   }
 ];
 
-// --- 4. SESSION OPTIONS (Added once) ---
 const options = [
   {
     id: 'perCup',
@@ -136,7 +129,6 @@ const options = [
   },
 ];
 
-// --- 5. OTHER CONSTANTS (Added once) ---
 const homeServiceOptions = [
   { id: '10km', label: 'Up to 10km', fee: 0, description: 'Free Service' },
   { id: '15km', label: 'Up to 15km', fee: 450, description: 'Rs. 450' },
@@ -146,11 +138,9 @@ const CUP_PRICE = 300;
 const SUNNAH_CUPS = 11;
 const GENERAL_CUPS = 15;
 
-// --- 6. TYPES (Added once) ---
 type ServiceOption = 'perCup' | 'sunnah' | 'general' | null;
 type HomeServiceFee = 0 | 450 | 500;
 
-// --- 7. WRAPPER COMPONENT (Added once) ---
 const BookingPageWrapper = () => {
   const searchParams = useSearchParams();
   const serviceName = searchParams.get('service');

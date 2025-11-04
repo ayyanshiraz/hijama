@@ -145,7 +145,7 @@ ${message}
       <section className="relative bg-gray-900 text-white py-32 sm:py-48 flex items-center justify-center">
         <div
           className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: "url('/contact.jpg')" }}
+          style={{ backgroundImage: "url('/contact.webp')" }}
         ></div>
         <div className="absolute inset-0 bg-black opacity-60"></div>
         <div className="relative container mx-auto px-6 text-center">

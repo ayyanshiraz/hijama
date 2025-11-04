@@ -664,7 +664,7 @@ ${message}
               >
                 {/* --- THIS IS WHERE THE 'a' or 's' ERROR WAS --- */}
                 <img
-                  src="/ceo.jpg"
+                  src="/ceo.webp"
                   alt="Mr Jameel ur Rehman, expert Hijama therapist in Lahore"
                   width="400"
                   height="450"

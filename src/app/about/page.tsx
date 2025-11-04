@@ -103,7 +103,7 @@ const AboutPage = () => {
       <section className="relative bg-gray-800 text-white py-32 sm:py-48 flex items-center justify-center">
         <div
           className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: "url('/about.jpg')" }}
+          style={{ backgroundImage: "url('/about.webp')" }}
         ></div>
         <div className="absolute inset-0 bg-black opacity-60"></div>
         <div className="relative container mx-auto px-6 text-center z-10">
@@ -126,7 +126,6 @@ const AboutPage = () => {
         </div>
       </section>
 
-      {/* --- Our Mission Section --- */}
       <motion.section
         className="py-16 sm:py-24 bg-[#F0FDF4]" // Adjusted padding
         initial="hidden"
@@ -134,10 +133,9 @@ const AboutPage = () => {
         viewport={{ once: true, amount: 0.2 }}
         variants={staggerContainer}
       >
-        {/* Adjusted padding */}
+  
         <div className="container mx-auto px-4 sm:px-12 md:px-20 lg:px-32 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           <motion.div variants={fadeInLeft} className="text-center lg:text-left">
-            {/* Responsive text */}
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-800">Our Mission</h2>
             <p className="mt-4 sm:mt-6 text-base sm:text-lg text-gray-600 text-justify"> {/* Added text-justify */}
                 Our mission is guided by the prophetic tradition: <i>Whoever perform Hijama on the 17th, 19th or 21st of the lunar month, it is a cure, by Allahs permission.</i> (Sunan Abi Dawud). We are dedicated to reviving this Sunnah by providing authentic, accessible healing to the community of Lahore. To honor this, we offer dedicated male therapists for men and female therapists for women, along with convenient home services, ensuring a comfortable and trusted experience for every client.
@@ -150,7 +148,6 @@ const AboutPage = () => {
             <motion.div
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.3, ease: "easeInOut" }}
-                 // Responsive max width
                 className="rounded-2xl shadow-2xl overflow-hidden max-w-sm sm:max-w-md md:max-w-lg w-full"
             >
               <Image
@@ -247,7 +244,7 @@ const AboutPage = () => {
                 className="rounded-2xl shadow-2xl overflow-hidden max-w-xs sm:max-w-sm md:max-w-md w-full"
               >
                 <Image
-                  src="/ceo.jpg"
+                  src="/ceo.webp"
                   alt="Mr. Jameel ur Rehman, Founder & Hijama Therapist"
                   width={400}
                   height={450}

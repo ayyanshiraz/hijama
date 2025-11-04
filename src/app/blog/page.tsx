@@ -6,13 +6,13 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowRight } from 'lucide-react';
 
-// Sample blog post data
+
 const blogPosts = [
   {
     slug: 'the-sunnah-of-hijama',
     title: 'The Sunnah of Hijama: A Timeless Path to Wellness',
     excerpt: 'Explore the historical and spiritual significance of Hijama cupping therapy as practiced and recommended in the Sunnah.',
-    imageUrl: '/blogs/b1.jpg', // Replace with a relevant blog image
+    imageUrl: '/blogs/b1.jpg', 
     category: 'Sunnah & Healing',
     date: 'October 15, 2025',
   },
@@ -20,7 +20,7 @@ const blogPosts = [
     slug: 'benefits-of-blood-cupping',
     title: '5 Proven Benefits of Blood Cupping for Detoxification',
     excerpt: 'Discover how blood cupping (Hijama) can help purify your blood, remove toxins, and boost your overall immune system.',
-    imageUrl: '/blogs/b3.jpg', // Replace with a relevant blog image
+    imageUrl: '/blogs/b3.jpg', 
     category: 'Health & Wellness',
     date: 'October 10, 2025',
   },
@@ -28,7 +28,7 @@ const blogPosts = [
     slug: 'hijama-for-pain-relief',
     title: 'Natural Relief: How Hijama Can Alleviate Chronic Pain',
     excerpt: 'Learn about the mechanisms through which Hijama provides effective, natural relief for conditions like back pain, migraines, and arthritis.',
-    imageUrl: '/blogs/b8.jpg', // Replace with a relevant blog image
+    imageUrl: '/blogs/b8.jpg', 
     category: 'Pain Management',
     date: 'October 5, 2025',
   },
@@ -43,11 +43,11 @@ const BlogPage = () => {
     
     return (
         <main className="bg-white text-gray-800">
-            {/* --- Hero Section --- */}
+            
             <section className="relative bg-gray-800 text-white py-32 sm:py-40 flex items-center justify-center">
                 <div 
                     className="absolute inset-0 bg-cover bg-center"
-                    style={{ backgroundImage: "url('/blogs.jpg')" }} // Using a generic background image
+                    style={{ backgroundImage: "url('/blogs.webp')" }} 
                 ></div>
                 <div className="absolute inset-0 bg-black opacity-60"></div>
                 <div className="relative container mx-auto px-6 text-center z-10">
@@ -72,7 +72,7 @@ const BlogPage = () => {
 
             <Breadcrumbs items={breadcrumbItems} />
 
-            {/* --- Blog Grid Section --- */}
+            
             <section className="py-16 sm:py-24">
                 <div className="container mx-auto px-8 sm:px-16">
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
