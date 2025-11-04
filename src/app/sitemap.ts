@@ -1,11 +1,7 @@
 import { MetadataRoute } from 'next';
 
-// --- IMPORTANT: Define your website's base URL ---
-// Replace this with your actual production domain
 const BASE_URL = 'https://almadinahijamacenter.com'; // Example: Use your real domain
 
-// --- Data for dynamic routes (Simulated - In real app, fetch this data) ---
-// Based on the data you provided in page.tsx and blog/page.tsx
 const serviceSlugs = [
   'blood-cupping',
   'dry-cupping',
@@ -26,7 +22,7 @@ const blogPostSlugs = [
   'the-sunnah-of-hijama',
   'benefits-of-blood-cupping',
   'hijama-for-pain-relief',
-  // Add more slugs if you have more posts
+  
 ];
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
