@@ -440,7 +440,7 @@ const jsonLdSchema = {
         "addressCountry": "PK"
     },
     "url": "https://www.almadinahijamacenter.com/",
-    "openingHours": "Mo-Su 10:00-18:00", // ⬅️ CRITICAL: UPDATE THIS WITH ACTUAL HOURS!
+    "openingHours": "Mo-Su 00:00-23:59", // ⬅️ CRITICAL: UPDATE THIS WITH ACTUAL HOURS!
     "medicalSpecialty": "Alternative Medicine",
     "availableService": {
         "@type": "Medical Procedure",

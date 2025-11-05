@@ -8,8 +8,8 @@ import CookieBanner from "@/components/CookieBanner";
 import FloatingWhatsApp from '@/components/FloatingWhatsApp'; // <-- 1. IMPORT IT
 
 export const metadata: Metadata = {
-  title: "Al Madina Hijama Center",
-  description: "Al Madina Hijama Center",
+    title: "Al Madina Hijama Center | Expert Cupping Therapy in Bahria Town, Lahore", // Title mein bhi Bahria Town add kiya
+    description: "Experience holistic healing at Al Madina Hijama Center, Bahria Town, Lahore. Our certified specialist, Mr. Jameel Ur Rehman, offers expert cupping therapy for pain relief, detox, and wellness. Book your appointment today.", // Description mein Bahria Town add kiya
 };
 
 export default function RootLayout({
@@ -20,9 +20,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-      // ===== ADD border-0 HERE =====
+      
         className={`${GeistSans.variable} ${GeistMono.variable} antialiased border-0`}
-        // ============================
+        
       >
         <Navbar />
         {children}
