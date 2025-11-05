@@ -222,7 +222,7 @@ const AboutPage = () => {
                 Mr. Jameel ur Rehman
               </p>
               <p className="mt-4 sm:mt-6 text-sm sm:text-base text-gray-600 leading-relaxed text-justify">
-                Meet Mr. Jameel ur Rehman, a certified Hijama Specialist from Oman and a Tibbenabvi Hakeem in Pakistan. With 15 years of dedicated experience, his expertise is rooted in the authentic, Sunnah-based traditions of cupping therapy. Mr. Rehman is proficient in treating a wide array of health conditions, believing in a holistic approach to wellness. He effectively addresses issues ranging from brain and nervous system disorders like migraines and stress, to heart, liver, and digestive problems. His gentle approach and deep understanding of prophetic medicine have helped countless individuals find natural healing and restore balance to their lives.
+                Meet Mr. Jameel Ur Rehman, our lead practitioner and a Certified Hijama Specialist (Oman) and recognized Tibbenabvi Hakeem (Pakistan). With 15 years of dedicated experience, his expertise is rooted in the authentic, Sunnah-based traditions of cupping therapy. Mr. Rehman is proficient in treating a wide array of health conditions, believing in a holistic approach to wellness. He effectively addresses issues ranging from brain and nervous system disorders like migraines and stress, to heart, liver, and digestive problems. His gentle approach and deep understanding of prophetic medicine have helped countless individuals find natural healing and restore balance to their lives.
               </p>
 
               {/* Stats container adapts */}

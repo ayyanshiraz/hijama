@@ -12,20 +12,20 @@ import { motion, Variants, animate, AnimatePresence } from 'framer-motion';
 const slideshowData = [
   {
     image: '/hero.webp',
-    altText: 'Al Madina Hijama Center interior view, with practitioner ready for cupping therapy.',
+    altText: 'Al Madina Hijama Center Lahore interior view, with practitioner ready for cupping therapy.',
     title: (
       <>
       <h1>
-        One Of The Most <span className="text-teal-400">Credible</span>
+        One Of The Most <span className="text-teal-400">Credible </span>
         <br />
-        Hijama Centers In Lahore
+        Hijama Center in Lahore
         </h1>
       </>
     ),
     subtitle: (
       <>
       <p>
-        With 15 years of Experience in Hijama and Alternative medicine, we are one of the most credible Hijama centers in Lahore.
+        Led by Mr. Jameel Ur Rehman, a Certified Hijama Specialist from Oman and an experienced Tibbenabvi Hakeem, we offer 15 years of dedicated expertise in alternative medicine right here in Lahore.
         <blockquote className="mt-3 text-sm italic border-l-4 border-gray-400 pl-3 text-gray-300 max-w-xl mx-auto">
           The Prophet (ﷺ) said: I did not pass by any group of angels on the night of Isra (Night Journey) except that they said to me, O Muhammad, tell your Ummah to do Hijama (cupping).
         </blockquote>
@@ -42,10 +42,10 @@ const slideshowData = [
     title: (
       <>
       <h1>
-        Discover <span className="text-teal-400">Natural Healing</span>
-        <br />
-        Through Sunnah
-        </h1>
+        Discover Natural Healing  
+        <br />
+        Through <span className="text-teal-400">Sunnah Hijama </span>
+        </h1>
       </>
     ),
     subtitle: 'Embrace a holistic approach to wellness with our traditional and effective Hijama cupping therapies.',
@@ -58,12 +58,12 @@ const slideshowData = [
     altText: 'Certified Hijama therapist preparing a sterile, safe, and hygienic treatment room.',
     title: (
       <>
-        Safe & Hygienic
+        Certified & Hygienic
         <br />
-        <span className="text-teal-400">Expert Care</span>
+        <span className="text-teal-400">Hijama Expert Care</span>
       </>
     ),
-    subtitle: 'Your health is our priority. Our certified practitioners ensure a sterile, safe, and comfortable experience.',
+    subtitle: 'Your health is our priority. Our certified Hijama specialists, led by Mr. Jameel Ur Rehman, ensure a sterile, safe, and comfortable experience.',
     buttonText: 'Book A Session',
     buttonLink: '/services',
     hasIcon: false,
@@ -73,7 +73,7 @@ const slideshowData = [
     altText: 'Patient booking a consultation for Hijama cupping therapy to revitalize their body in Lahore.',
     title: (
       <>
-        Revitalize Your Body
+        Detox Your Body
         <br />
         <span className="text-teal-400">Book A Session</span>
       </>
@@ -89,17 +89,17 @@ const features = [
   {
     icon: Heart,
     title: 'Natural Immunity Boost',
-    description: 'Strengthen your bodys natural defenses with Hijama cupping. Our therapy promotes detoxification and enhances immune response for lasting wellness.',
+    description: 'Strengthen your bodys natural defenses with Sunnah-based Hijama cupping. Our therapy promotes detoxification and enhances immune response for lasting holistic wellness.',
   },
   {
     icon: Zap,
     title: 'Effective Pain Management',
-    description: 'Find relief from chronic pain, migraines, and muscle tension. Hijama improves blood flow to help you manage discomfort and regain mobility without medication.',
+    description: 'Find powerful relief from chronic pain, migraines, and severe muscle tension. Hijama improves blood flow to help you manage discomfort and regain mobility without medication.',
   },
   {
     icon: Ghost,
     title: 'Safe & Holistic Healing',
-    description: 'Embrace a trusted, non-invasive treatment rooted in Sunnah. Hijama is a 100% natural therapy that works in harmony with your body, free from side effects.',
+    description: 'Embrace a trusted, non-invasive treatment rooted in Sunnah. Our certified specialists ensure Hijama is a 100% natural therapy that works in harmony with your body, free from side effects.',
   },
 ];
 
@@ -543,7 +543,7 @@ const jsonLdSchema = {
               className="text-3xl sm:text-4xl md:text-5xl font-black text-black tracking-tight"
               variants={itemVariants}
             >
-              What Is Hijama (Cupping Therapy)?
+              What is Hijama (Cupping Therapy)?
             </motion.h2>
             <motion.p
               className="mt-2 sm:mt-4 text-base sm:text-lg text-black"
@@ -572,9 +572,10 @@ const jsonLdSchema = {
                 className="text-black leading-relaxed text-base sm:text-lg text-justify"
                 variants={itemVariants}
               >
-                Hijama cupping therapy includes the elimination of toxic
-                substances from the blood. Hijama cupping therapy has a
-                wide range of benefits all the way from head to toe.
+                Hijama Cupping Therapy is an ancient, Sunnah-based treatment 
+                that focuses on eliminating stagnant blood and toxic substances
+                from the body. As certified Hijama Specialists in Lahore, we offer 
+                this effective method for detoxification, pain management, and holistic wellness.
               </motion.p>
 
               <motion.div
