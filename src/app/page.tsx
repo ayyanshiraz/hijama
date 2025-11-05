@@ -12,19 +12,24 @@ import { motion, Variants, animate, AnimatePresence } from 'framer-motion';
 const slideshowData = [
   {
     image: '/hero.webp',
+    altText: 'Al Madina Hijama Center interior view, with practitioner ready for cupping therapy.',
     title: (
       <>
+      <h1>
         One Of The Most <span className="text-teal-400">Credible</span>
         <br />
         Hijama Centers In Lahore
+        </h1>
       </>
     ),
     subtitle: (
       <>
+      <p>
         With 15 years of Experience in Hijama and Alternative medicine, we are one of the most credible Hijama centers in Lahore.
         <blockquote className="mt-3 text-sm italic border-l-4 border-gray-400 pl-3 text-gray-300 max-w-xl mx-auto">
           The Prophet (ﷺ) said: I did not pass by any group of angels on the night of Isra (Night Journey) except that they said to me, O Muhammad, tell your Ummah to do Hijama (cupping).
         </blockquote>
+        </p>
       </>
     ),
     buttonText: 'Our Services',
@@ -33,11 +38,14 @@ const slideshowData = [
   },
   {
     image: '/hero5.webp',
+    altText: 'Traditional Hijama cups and tools laid out for treatment, emphasizing Sunnah healing',
     title: (
       <>
+      <h1>
         Discover <span className="text-teal-400">Natural Healing</span>
         <br />
         Through Sunnah
+        </h1>
       </>
     ),
     subtitle: 'Embrace a holistic approach to wellness with our traditional and effective Hijama cupping therapies.',
@@ -47,6 +55,7 @@ const slideshowData = [
   },
   {
     image: '/hero3.webp',
+    altText: 'Certified Hijama therapist preparing a sterile, safe, and hygienic treatment room.',
     title: (
       <>
         Safe & Hygienic
@@ -61,6 +70,7 @@ const slideshowData = [
   },
   {
     image: '/hero2.webp',
+    altText: 'Patient booking a consultation for Hijama cupping therapy to revitalize their body in Lahore.',
     title: (
       <>
         Revitalize Your Body
@@ -105,49 +115,57 @@ const hijamaBenefits = [
     icon: SquareKanban,
     title: "Enhanced Detoxification",
     description: "Draws out toxins and impurities from the body, promoting clearer skin and improved organ function.",
-    image: "/hijama-detox.webp"
+    image: "/hijama-detox.webp",
+    altText: "Patient receiving Hijama cupping for detoxification at our Lahore clinic"
   },
   {
     icon: LineChart,
     title: "Improved Blood Circulation",
     description: "Stimulates blood flow to ensure oxygen and essential nutrients reach all tissues effectively.",
-    image: "/hijama-blood.webp"
+    image: "/hijama-blood.webp",
+    altText: "Hijama cupping therapy for improved blood circulation"
   },
   {
     icon: Droplets,
     title: "Reduced Inflammation",
     description: "Provides natural relief from joint pain, arthritis, and muscle soreness without medication.",
-    image: "/hijama-inflammation.webp"
+    image: "/hijama-inflammation.webp",
+    altText: "Close-up of Hijama cups on a patient's back for inflammation" 
   },
   {
     icon: Brain,
     title: "Mental Clarity & Stress Relief",
     description: "Calms the nervous system, leading to better sleep, improved focus, and a sense of well-being.",
-    image: "/hijama-mind.webp"
+    image: "/hijama-mind.webp",
+    altText: "Patient relaxing during Hijama treatment for stress relief" //
   },
   {
     icon: ShieldCheck,
     title: "Strengthened Immune System",
     description: "Activates the bodys natural defenses by stimulating the production of immune cells.",
-    image: "/hijama-immune.webp"
+    image: "/hijama-immune.webp",
+    altText: "Cupping therapy on patient's shoulder to strengthen immune system"
   },
   {
     icon: Sunrise,
     title: "Accelerated Healing",
     description: "Boosts the bodys natural repair processes for faster recovery from injuries and muscle fatigue.",
-    image: "/hijama-healing.webp"
+    image: "/hijama-healing.webp",
+    altText: "Hijama cupping marks showing accelerated healing and recovery"
   },
   {
     icon: Sparkles,
     title: "Rejuvenated Skin Health",
     description: "Helps treat skin conditions like acne and eczema by improving local circulation and detoxification.",
-    image: "/hijama-skin.webp"
+    image: "/hijama-skin.webp",
+    altText: "Close-up of skin after Hijama for rejuvenation and detoxification"
   },
   {
     icon: Soup,
     title: "Regulated Digestive System",
     description: "Aids in relieving digestive issues such as bloating, constipation, and loss of appetite.",
-    image: "/hijama-digestive.webp"
+    image: "/hijama-digestive.webp",
+    altText: "Hijama cupping for regulated digestive system health"
   }
 ];
 
@@ -383,11 +401,52 @@ ${message}
     setSubject('');
     setMessage('');
   };
+  // app/page.tsx (Inside const HomePage = () => { ... } )
+
+// ... (Your other hooks and state definitions)
+
+// -----------------------------------------------------------------------------------------
+// SEO FIX 1: LOCAL BUSINESS SCHEMA
+// -----------------------------------------------------------------------------------------
+const jsonLdSchema = {
+    "@context": "https://schema.org",
+    "@type": "Medical Clinic",
+    "name": "Al Madina Hijama Center",
+    "alternateName": "Al Madina Cupping Therapy Lahore",
+    "description": "Expert Hijama and cupping therapy in Lahore for pain management, detoxification, and holistic wellness.",
+    "image": "https://www.almadinahijamacenter.com/why.webp",
+    "telephone": "+92 300 7598000",
+    "email": "info@almadinahijamacenter.com",
+    "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "MashaAllah Center, 213-A, opp. Car Parking Grand Mosque, Commercial Sector C Bahria Town",
+        "addressLocality": "Lahore",
+        "postalCode": "53720",
+        "addressCountry": "PK"
+    },
+    "url": "https://www.almadinahijamacenter.com/",
+    "openingHours": "Mo-Su 10:00-18:00", // ⬅️ CRITICAL: UPDATE THIS WITH ACTUAL HOURS!
+    "medicalSpecialty": "Alternative Medicine",
+    "availableService": {
+        "@type": "Medical Procedure",
+        "name": "Hijama Cupping Therapy"
+    },
+    "founder": {
+        "@type": "Person",
+        "name": "Mr. Jameel Ur Rehman"
+    }
+};
+
+// ... (Your other functions/handlers)
   // ------------------
 
 
   return (
     <main className="font-sans bg-[#F0FDF4] border-0 overflow-x-hidden">
+      <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdSchema) }}
+      />
 
       {/* Hero Slideshow Section */}
       <section className="relative min-h-screen h-screen flex items-center justify-center overflow-hidden text-white">
@@ -446,7 +505,7 @@ ${message}
             </svg>
         </div>
         <div className="container mx-auto px-4 sm:px-8 lg:px-16 text-center">
-          <h3 className="text-base sm:text-lg font-semibold uppercase text-teal-600">Holistic Hijama Therapy in Lahore</h3>
+          <p className="text-base sm:text-lg font-semibold uppercase text-teal-600">Holistic Hijama Therapy in Lahore</p>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-800 mt-2">Restore Your Mind, Body & Soul</h2>
           <div className="mt-12 sm:mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {features.map((feature, index) => (
@@ -484,7 +543,7 @@ ${message}
               className="text-3xl sm:text-4xl md:text-5xl font-black text-black tracking-tight"
               variants={itemVariants}
             >
-              But What Is Hijama?
+              What Is Hijama (Cupping Therapy)?
             </motion.h2>
             <motion.p
               className="mt-2 sm:mt-4 text-base sm:text-lg text-black"
@@ -503,7 +562,7 @@ ${message}
             >
               <img
                 src="/why.webp"
-                alt="Hijama cupping therapy showing cups on a back in a clean, serene setting"
+                alt="Hijama cupping therapy at Al Madina Hijama Center, Lahore"
                 className="w-full h-full object-cover rounded-2xl"
               />
             </motion.div>
@@ -563,7 +622,7 @@ ${message}
             className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-800"
             variants={itemVariants}
           >
-            Benefits Of Hijama Cupping Therapy
+            Conditions We Treat with Hijama
           </motion.h2>
           <motion.p
             className="mt-2 sm:mt-4 text-base sm:text-lg text-gray-600 max-w-md sm:max-w-3xl mx-auto"
@@ -582,7 +641,7 @@ ${message}
                 <div className="relative w-full h-40 sm:h-48">
                   <img
                     src={benefit.image}
-                    alt={benefit.title}
+                    alt={benefit.altText}
                     className="w-full h-full object-cover"
                   />
                 </div>
@@ -622,7 +681,7 @@ ${message}
               className="text-center lg:text-left order-2 lg:order-1"
             >
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-800 tracking-tight">
-                Mr. Jameel Ur Rehman
+                Meet Your Certified Hijama Specialist
               </h2>
               <p className="mt-2 sm:mt-3 text-base sm:text-lg text-teal-700 font-medium">
                 Your Therapist at our Hijama center
@@ -691,7 +750,7 @@ ${message}
             className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-800 tracking-tight"
             variants={itemVariants}
           >
-            What Our Clients Says
+            What Our Patients Say
           </motion.h2>
           <motion.p
             className="mt-2 sm:mt-4 text-base sm:text-lg text-gray-600 max-w-md sm:max-w-2xl mx-auto"
@@ -791,7 +850,7 @@ ${message}
       <section className="bg-[#1E4137] py-16 sm:py-24">
         <div className="container mx-auto px-4 sm:px-8 text-center">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white">
-            Lets Book a Call to See How We can Help You!
+            Book Your Consultation Today
           </h2>
           <p className="mt-3 sm:mt-4 text-base sm:text-lg text-gray-300 max-w-md sm:max-w-2xl mx-auto">
             Book a Free On-Call Consultation With Mr Jameel ur Rehman and we will guide you how Hijama can do wonders for you.
@@ -813,7 +872,7 @@ ${message}
         <div className="container mx-auto px-4 sm:px-8 lg:px-16">
           <div className="text-center">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-800">
-              Contact Us
+              Our Location & Contact Details
             </h2>
             <p className="mt-2 text-base sm:text-lg text-gray-600">
               Get in Touch
