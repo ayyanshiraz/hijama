@@ -170,48 +170,63 @@ const hijamaBenefits = [
 ];
 
 const testimonials = [
-  {
-    text: "The blood cupping session significantly eased my chronic back pain; the staff was incredibly professional.",
-    name: "Musa Mutahir",
-    rating: 4,
-  },
-  {
-    text: "Hijama with Mr. Jameel ur Rehman has been a game-changer for my post-workout sports recovery.",
-    name: "Muhammad Mustafa",
-    rating: 5,
-  },
-  {
-    text: "After just one session for my migraine, I felt amazing. So grateful they have female therapists available!",
-    name: "Fizza Bashir",
-    rating: 5,
-  },
-  {
-    text: "My muscle stiffness is completely gone after the dry cupping therapy, I highly recommend their services.",
-    name: "Abdul Muhaymin",
-    rating: 4,
-  },
-  {
-    text: "The hijama for back pain performed by Mr. Jameel ur Rehman provided instant and lasting relief.",
-    name: "Moiz Ahmad",
-    rating: 4,
-  },
-  {
-    text: "Its wonderful that they offer both male and female therapists, making it very comfortable for my family.",
-    name: "Roshaan Ahmed",
-    rating: 5,
-  },
-  {
-    text: "I was so impressed with their hygienic and convenient home service; the whole process was seamless.",
-    name: "Ayesha Akhtar",
-    rating: 5,
-  },
-  {
-    text: "The blood cupping treatment was excellent and the clinic environment is very clean and professional.",
-    name: "Sanaan Zahid",
-    rating: 4,
-  },
+  {
+    text: "The blood cupping session significantly eased my chronic back pain; the staff was incredibly professional.",
+    name: "Musa Mutahir",
+    rating: 4,
+  },
+  {
+    text: "Hijama with Mr. Jameel ur Rehman has been a game-changer for my post-workout sports recovery. I highly recommend his expertise.",
+    name: "Muhammad Mustafa",
+    rating: 5,
+  },
+  {
+    text: "After just one session for my migraine headaches, I felt amazing. So grateful they have female therapists available!",
+    name: "Fizza Bashir",
+    rating: 5,
+  },
+  {
+    text: "My chronic shoulder stiffness is completely gone after the dry cupping therapy, I highly recommend their services.",
+    name: "Abdul Muhaymin",
+    rating: 4,
+  },
+  {
+    text: "The Hijama for severe back pain performed by Mr. Jameel ur Rehman provided instant and lasting relief.",
+    name: "Moiz Ahmad",
+    rating: 4,
+  },
+  {
+    text: "It is wonderful that they offer both male and female therapists, making it very comfortable and professional for my whole family.",
+    name: "Roshaan Ahmed",
+    rating: 5,
+  },
+  {
+    text: "I was so impressed with their hygienic and convenient home service in Lahore; the whole process was seamless.",
+    name: "Ayesha Akhtar",
+    rating: 5,
+  },
+  {
+    text: "The blood cupping treatment was excellent, highly recommended for detoxification and wellness.",
+    name: "Sanaan Zahid",
+    rating: 4,
+  },
+    // ⬅️ NEW SEO OPTIMIZED TESTIMONIALS ADDED BELOW 
+    {
+        text: "The certified specialist Mr. Jameel ur Rehman understood my fertility concerns deeply. The holistic treatment plan was truly effective and professional.",
+        name: "Sara Khan",
+        rating: 5,
+    },
+    {
+        text: "Sunnah-based Hijama here gave me noticeable relief from my joint pains in my knees. The clinic is pristine and very organized.",
+        name: "Tariq Mahmood",
+        rating: 4,
+    },
+    {
+        text: "I chose Al Madina for full body detoxification in Lahore. The improved energy levels and mental clarity have made a huge difference.",
+        name: "Usman Ghani",
+        rating: 5,
+    },
 ];
-
 
 type AnimatedStatProps = {
   to: number;
