@@ -452,10 +452,6 @@ const jsonLdSchema = {
     }
 };
 
-// ... (Your other functions/handlers)
-  // ------------------
-
-
   return (
     <main className="font-sans bg-[#F0FDF4] border-0 overflow-x-hidden">
       <script
@@ -463,7 +459,6 @@ const jsonLdSchema = {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdSchema) }}
       />
 
-      {/* Hero Slideshow Section */}
       <section className="relative min-h-screen h-screen flex items-center justify-center overflow-hidden text-white">
         {slideshowData.map((slide, index) => (
           <div
@@ -543,7 +538,6 @@ const jsonLdSchema = {
         </div>
       </section>
 
-      {/* --- What is Hijama Section --- */}
       <motion.section
         id="about"
         className="py-16 sm:py-24 bg-white"
