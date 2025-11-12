@@ -272,7 +272,7 @@ export const blogPosts: BlogPost[] = [
         <p class="text-justify">For Muslims, Hijama holds a special and sacred place. It is a cherished Sunnah. This means it is a practice and a strong recommendation of the Prophet Muhammad, peace be upon him. He practiced Hijama himself and praised it highly. He taught that it was one of the best forms of healing available to people. This prophetic recommendation elevates Hijama from a simple folk remedy to a meaningful act of faith. Following this Sunnah is a way for a person to seek wellness while following divine guidance. There is a deep spiritual comfort in this connection.</p>
         <p class="text-justify">The tradition also guides us on the optimal timings for the procedure. It suggests the 17th, 19th, or 21st days of the Islamic lunar month as being particularly beneficial for receiving Hijama.</p>
 
-        <img src="/blogs/b1.webp" alt="A patient showing peace and wellness after receiving Hijama cupping therapy" class="rounded-lg my-8 shadow-md" /> 
+        <img src="/blogs/b1(1).webp" alt="A patient showing peace and wellness after receiving Hijama cupping therapy" class="rounded-lg my-8 shadow-md" /> 
 
         <h2 class="text-3xl font-bold mt-10 mb-4 text-teal-700">The Timeless Benefits for Wellness</h2>
         <p class="text-justify">The enduring popularity of Hijama comes from its wide-ranging benefits. It is a truly holistic practice that treats the person as a whole, not just a single symptom.</p>
