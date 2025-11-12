@@ -1,6 +1,8 @@
 import { MetadataRoute } from 'next';
+import { blogPosts } from './blog/data'; 
 
-const BASE_URL = 'https://almadinahijamacenter.com'; // Example: Use your real domain
+export const dynamic = 'force-dynamic'; 
+const BASE_URL = 'https://almadinahijamacenter.com';
 
 const serviceSlugs = [
   'blood-cupping',
@@ -18,17 +20,10 @@ const serviceSlugs = [
   'pcos'
 ];
 
-const blogPostSlugs = [
-  'the-sunnah-of-hijama',
-  'benefits-of-blood-cupping',
-  'hijama-for-pain-relief',
-  
-];
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const currentDate = new Date().toISOString();
 
-  // 1. Static Pages
   const staticPages: MetadataRoute.Sitemap = [
     {
       url: `${BASE_URL}/`,
@@ -51,7 +46,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     {
       url: `${BASE_URL}/booking`,
       lastModified: currentDate,
-      changeFrequency: 'yearly', // Booking form itself rarely changes
+      changeFrequency: 'yearly',
       priority: 0.7,
     },
     {
@@ -63,7 +58,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     {
       url: `${BASE_URL}/blog`,
       lastModified: currentDate,
-      changeFrequency: 'weekly', // Assuming blog is updated
+      changeFrequency: 'weekly',
       priority: 0.7,
     },
     {
@@ -74,22 +69,20 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
   ];
 
-  // 2. Dynamic Service Pages
   const servicePages = serviceSlugs.map((slug) => ({
     url: `${BASE_URL}/services/${slug}`,
     lastModified: currentDate,
-    changeFrequency: 'monthly' as const, // Explicitly type 'monthly'
+    changeFrequency: 'monthly' as const,
     priority: 0.8,
   }));
 
-  // 3. Dynamic Blog Post Pages
-  const blogPages = blogPostSlugs.map((slug) => ({
-    url: `${BASE_URL}/blog/${slug}`,
-    lastModified: currentDate, // Ideally, fetch the actual publish/update date
-    changeFrequency: 'yearly' as const, // Posts might not change often once published
+  // 🚀 AUTOMATIC FIX: blogPosts array se slugs, title, aur date khud-ba-khud uthaenge
+  const blogPages = blogPosts.map((post) => ({
+    url: `${BASE_URL}/blog/${post.slug}`,
+    lastModified: new Date(post.date).toISOString(), // Blog ki actual date use hogi
+    changeFrequency: 'weekly' as const, 
     priority: 0.6,
   }));
 
-  // Combine all pages
   return [...staticPages, ...servicePages, ...blogPages];
 }
