@@ -7,13 +7,14 @@ import Breadcrumbs from '@/components/Breadcrumbs';
 import Image from 'next/image';
 import Link from 'next/link';
 
+// 🛑 Benefits list (as previously set)
 const benefits = [
-    { icon: CheckCircle, text: 'Relieves muscle tension and stiffness' },
-    { icon: CheckCircle, text: 'Reduces inflammation and pain' },
-    { icon: CheckCircle, text: 'Improves blood and lymph circulation' },
-    { icon: CheckCircle, text: 'Breaks down adhesions and scar tissue' },
-    { icon: CheckCircle, text: 'Promotes relaxation and reduces stress' },
-    { icon: CheckCircle, text: 'Aids in sports recovery and enhances mobility' },
+    { icon: CheckCircle, text: '<strong>Muscle Tension & Knot Release</strong>: The lifting action softens tight muscles and releases painful knots that restrict movement.' },
+    { icon: CheckCircle, text: '<strong>Enhanced Blood Circulation</strong>: Suction promotes better blood flow, supplying muscles with fresh oxygen and nutrients.' },
+    { icon: CheckCircle, text: '<strong>Relief from Chronic Stiffness</strong>: Excellent for chronic neck stiffness, shoulder pain, and tension headaches caused by tight muscles.' },
+    { icon: CheckCircle, text: '<strong>Lactic Acid Flush</strong>: Aids in removing metabolic waste and lactic acid from the tissues, reducing pain and soreness.' },
+    { icon: CheckCircle, text: '<strong>Reduced Pain and Inflammation</strong>: By supporting lymphatic drainage, this therapy naturally reduces localized inflammation.' },
+    { icon: CheckCircle, text: '<strong>Promotes Deep Relaxation</strong>: The deep, localized massage effect helps calm the nervous system and significantly reduces overall stress.' },
 ];
 
 const processSteps = [
@@ -125,7 +126,7 @@ const DryCuppingPage = () => {
     const breadcrumbItems = [
         { name: 'Home', href: '/' },
         { name: 'Services', href: '/services' },
-        { name: 'Dry & Massage Cupping', href: '/services/dry-cupping' },
+        { name: 'Dry & Massage Cupping', href: '/services/dry-and-massage-cupping' },
     ];
     
     return (
@@ -154,6 +155,7 @@ const DryCuppingPage = () => {
                         transition={{ duration: 0.8, ease: 'easeOut' }}
                         className="text-5xl md:text-7xl font-extrabold tracking-tight"
                     >
+                         {/* H1 Title Fix */}
                         Dry & Massage Cupping
                     </motion.h1>
                     <motion.p 
@@ -177,31 +179,132 @@ const DryCuppingPage = () => {
                         {/* Left Column (Main Content) */}
                         <div className="lg:col-span-2">
                             <motion.div initial="hidden" animate="visible" variants={staggerContainer}>
-                                <motion.h2 variants={itemVariants} className="text-4xl font-extrabold text-gray-900">Gentle Relief, Powerful Results</motion.h2>
-                                <motion.p variants={itemVariants} className="mt-4 text-lg text-gray-600 leading-relaxed">
-                                    Dry and Massage Cupping are gentle, non-invasive therapies that use suction to lift tissue, release tension, and promote circulation. In Dry Cupping, cups are placed on the skin and left stationary. For Massage Cupping, oil is applied, allowing the practitioner to glide the cups across the skin, providing a unique deep-tissue massage that helps break down adhesions and soothe sore muscles.
-                                </motion.p>
-                                <motion.p variants={itemVariants} className="mt-4 text-lg text-gray-600 leading-relaxed">
-                                    This therapy is an excellent alternative for those seeking the benefits of cupping without incisions. It is highly effective for pain management, sports recovery, and deep relaxation. We also offer this service for both men and women, with dedicated practitioners and a convenient home service option available.
+                                
+                                {/* 🛑 H2: Introduction and Expertise (NEW Content Start) */}
+                                <motion.h2 variants={itemVariants} className="text-4xl font-extrabold text-teal-600">Expert Dry Cupping & Therapeutic Massage Cupping in Lahore</motion.h2>
+                                <motion.p variants={itemVariants} className="mt-4 text-lg text-gray-600 leading-relaxed text-justify">
+                                    Welcome to the expert dry cupping therapy facility in Lahore. Using localized suction, dry cupping is a mild, non-invasive method that effectively mobilizes deep tissue. This therapy is highly effective for relieving chronic muscle knots, stiffness and promoting superior blood circulation without any incisions. We offer specialized Massage Cupping services across Lahore, designed to target chronic muscle tension and enhance athletic recovery. Our clinic in Bahria Town is available 24/7, with dedicated male and female specialists ready to serve you.
                                 </motion.p>
 
-                                {/* Benefits Section */}
-                                <motion.h3 variants={itemVariants} className="mt-12 text-3xl font-bold text-gray-900">Key Benefits of Dry & Massage Cupping</motion.h3>
+                                {/* 🛑 H3: Dry Cupping vs Massage Cupping Definition */}
+                                <motion.h3 variants={itemVariants} className="mt-8 text-3xl font-bold text-teal-600">What is Dry Cupping and Massage Cupping?</motion.h3>
+                                <motion.p variants={itemVariants} className="mt-4 text-lg text-gray-600 leading-relaxed text-justify">
+                                    <strong>Dry Cupping Therapy</strong> involves placing smooth, specialized cups on the skin and using a vacuum effect. This suction gently pulls the skin, underlying fascia, and muscle tissue into the cup. When the cups are left stationary, they provide focused static tension release.
+                                </motion.p>
+                                
+                                <motion.h3 variants={itemVariants} className="mt-6 text-3xl font-bold text-teal-600">What is Therapeutic Massage Cupping?</motion.h3>
+                                <motion.p variants={itemVariants} className="mt-4 text-lg text-gray-600 leading-relaxed text-justify">
+                                    Therapeutic <strong>Massage Cupping</strong>, often referred to as gliding cupping, utilizes the same suction cups but applies a lubricant (like massage oil) to the skin. Instead of leaving the cups fixed, the certified specialist slowly moves the suctioned cups across large areas of the muscle tissue. This technique acts like a <strong>reverse deep tissue massage</strong>, pulling the muscle up and separating tissue layers. This lifting action is uniquely effective at breaking up deep-seated fascial restrictions and muscle knots that cause chronic pain.
+                                </motion.p>
+
+                                {/* Purpose List */}
+                                <motion.h4 variants={itemVariants} className="mt-6 text-xl font-semibold text-teal-600">The main purpose of both Dry and Massage Cupping is:</motion.h4>
+                                <motion.ul variants={staggerContainer} className="mt-4 space-y-2 list-disc list-inside ml-5">
+                                    <motion.li variants={itemVariants} className="text-gray-700">To release tension and tightness in muscles.</motion.li>
+                                    <motion.li variants={itemVariants} className="text-gray-700">Promote blood flow to stagnant areas.</motion.li>
+                                    <motion.li variants={itemVariants} className="text-gray-700">To aid lymphatic drainage, reduce inflammation.</motion.li>
+                                </motion.ul>
+
+
+                                {/* Dry vs Wet Cupping Table - FIXED WIDTH/BORDER */}
+                                <motion.h3 variants={itemVariants} className="mt-12 text-3xl font-bold text-teal-600">Dry Cupping vs. Wet Cupping: Which is Right for You?</motion.h3>
+                                <motion.p variants={itemVariants} className="mt-4 text-lg text-gray-600 leading-relaxed text-justify">
+                                    The difference between dry and wet cupping is critical. Dry Cupping is purely mechanical and relaxing, while Wet Cupping (Hijama) is for deep detoxification.
+                                </motion.p>
+                                
+                                {/* TABLE 1: Dry vs Wet Cupping - FIXED WIDTH/BORDER */}
+                                <motion.table variants={itemVariants} className="min-w-full w-full border-collapse border border-black-400 mt-6 divide-y divide-gray-200">
+                                    <thead className="bg-gray-50">
+                                        <tr>
+                                            <th className="px-6 py-3 text-left text-xs font-medium text-teal-600 uppercase tracking-wider border border-black-400">Feature</th>
+                                            <th className="px-6 py-3 text-left text-xs font-medium text-teal-600 uppercase tracking-wider border border-black-400">Dry Cupping / Massage Cupping</th>
+                                            <th className="px-6 py-3 text-left text-xs font-medium text-teal-600 uppercase tracking-wider border border-black-400">Wet Cupping (Hijama)</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody className="bg-white divide-y divide-gray-200">
+                                        <tr>
+                                            <td className="px-6 py-4 text-sm font-medium text-gray-600 border border-black-400">Method</td>
+                                            <td className="px-6 py-4 text-sm text-gray-600 border border-black-400">Suction only; no skin puncture.</td>
+                                            <td className="px-6 py-4 text-sm text-gray-600 border border-black-400">Suction followed by tiny, superficial incisions.</td>
+                                        </tr>
+                                        <tr>
+                                            <td className="px-6 py-4 text-sm font-medium text-gray-600 border border-black-400">Primary Goal</td>
+                                            <td className="px-6 py-4 text-sm text-gray-600 border border-black-400">Muscle relaxation, tension relief, circulation boost, pain management.</td>
+                                            <td className="px-6 py-4 text-sm text-gray-600 border border-black-400">Deep detoxification and removal of stagnant blood.</td>
+                                        </tr>
+                                        <tr>
+                                            <td className="px-6 py-4 text-sm font-medium text-gray-600 border border-black-400">Best For</td>
+                                            <td className="px-6 py-4 text-sm text-gray-600 border border-black-400">Muscle knots, stiffness, back/neck tension, sports recovery.</td>
+                                            <td className="px-6 py-4 text-sm text-gray-600 border border-black-400">Systemic detoxification, internal health issues.</td>
+                                        </tr>
+                                    </tbody>
+                                </motion.table>
+
+                                {/* Service Commitment Table - FIXED WIDTH/BORDER */}
+                                <motion.h3 variants={itemVariants} className="mt-12 text-3xl font-bold text-teal-600">Our Expert Service Commitment in Lahore</motion.h3>
+                                <motion.p variants={itemVariants} className="mt-4 text-lg text-gray-600 leading-relaxed text-justify">
+                                    We ensure our <strong>Dry Cupping Therapy</strong> is delivered safely and conveniently across <strong>Lahore</strong>.
+                                </motion.p>
+                                
+                                {/* TABLE 2: Service Commitment - FIXED WIDTH/BORDER */}
+                                <motion.table variants={itemVariants} className="min-w-full w-full border-collapse border border-black-400 mt-6 divide-y divide-gray-200">
+                                    <thead className="bg-gray-50">
+                                        <tr>
+                                            <th className="px-6 py-3 text-left text-xs font-medium text-teal-600 uppercase tracking-wider border border-black-400">Service Aspect</th>
+                                            <th className="px-6 py-3 text-left text-xs font-medium text-teal-600 uppercase tracking-wider border border-black-400">Our Standard</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody className="bg-white divide-y divide-gray-200">
+                                        <tr>
+                                            <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-600 border border-black-400">Availability</td>
+                                            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600 border border-black-400">Open 24/7 for flexible appointment booking.</td>
+                                        </tr>
+                                        <tr>
+                                            <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-600 border border-black-400">Specialists</td>
+                                            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600 border border-black-400">Certified Male and Female Specialists available (strict gender privacy maintained).</td>
+                                        </tr>
+                                        <tr>
+                                            <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-600 border border-black-400">Home Service</td>
+                                            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600 border border-black-400">Professional and discreet Home Service available throughout Lahore.</td>
+                                        </tr>
+                                        <tr>
+                                            <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-600 border border-black-400">Location</td>
+                                            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600 border border-black-400">Easily accessible clinic located in Bahria Town, Lahore.</td>
+                                        </tr>
+                                        <tr>
+                                            <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-600 border border-black-400">Hygiene</td>
+                                            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600 border border-black-400">All cups and equipment are thoroughly sterilized before every session.</td>
+                                        </tr>
+                                    </tbody>
+                                </motion.table>
+
+                                {/* Conclusion */}
+                                <motion.h3 variants={itemVariants} className="mt-12 text-3xl font-bold text-teal-600">Conclusion: Book Your Tension-Free Session Today</motion.h3>
+                                <motion.p variants={itemVariants} className="mt-4 text-lg text-gray-600 leading-relaxed text-justify">
+                                    If you are experiencing chronic muscle stiffness or searching for a superior alternative to traditional deep tissue massage, our <strong>Dry Cupping</strong> and <strong>Massage Cupping</strong> service in <strong>Lahore</strong> is the perfect solution. This therapy helps you quickly return to an active, pain-free life.
+                                </motion.p>
+                                <motion.p variants={itemVariants} className="mt-4 text-lg text-gray-600 leading-relaxed text-justify">
+                                    Do not let muscle tension slow you down. Contact us today to book your session with a certified specialist at our 24/7 clinic or schedule a convenient <strong className=" text-blue-600"><a href="https://www.almadinahijamacenter.com/booking">Home Service</a></strong> appointment in Lahore.
+                                </motion.p>
+                                
+                                {/* Benefits Section (using updated array) */}
+                                <motion.h3 variants={itemVariants} className="mt-12 text-3xl font-bold text-teal-600">Key Benefits of Dry & Massage Cupping</motion.h3>
                                 <motion.ul variants={staggerContainer} className="mt-6 space-y-4">
                                     {benefits.map((benefit, index) => (
                                         <motion.li key={index} variants={itemVariants} className="flex items-start">
                                             <benefit.icon className="h-6 w-6 text-teal-600 mr-3 mt-1 flex-shrink-0" />
-                                            <span className="text-gray-700">{benefit.text}</span>
+                                            {/* 🛑 FIX: Rendering HTML content (strong tags) using dangerouslySetInnerHTML */}
+                                            <span className="text-gray-700" dangerouslySetInnerHTML={{ __html: benefit.text }} />
                                         </motion.li>
                                     ))}
                                 </motion.ul>
 
                                 {/* Indications/Contraindications Section */}
                                 <motion.div variants={itemVariants} className="mt-12">
-                                    <h3 className="text-3xl font-bold text-gray-900">Is This Therapy Right for You?</h3>
+                                    <h3 className="text-3xl font-bold text-teal-600">Is This Therapy Right for You?</h3>
                                     <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-8">
                                         <div>
-                                            <h4 className="text-xl font-semibold text-gray-800 flex items-center"><CheckCircle className="h-6 w-6 text-green-600 mr-2" />Indications</h4>
+                                            <h4 className="text-xl font-semibold text-teal-600 flex items-center"><CheckCircle className="h-6 w-6 text-green-600 mr-2" />Indications</h4>
                                             <p className="mt-2 text-gray-600">This therapy is highly recommended for:</p>
                                             <ul className="mt-4 space-y-2 text-gray-700">
                                                 {indications.map((item, index) => (
@@ -210,7 +313,7 @@ const DryCuppingPage = () => {
                                             </ul>
                                         </div>
                                         <div>
-                                            <h4 className="text-xl font-semibold text-gray-800 flex items-center"><AlertTriangle className="h-6 w-6 text-red-600 mr-2" />Contraindications</h4>
+                                            <h4 className="text-xl font-semibold text-teal-600 flex items-center"><AlertTriangle className="h-6 w-6 text-red-600 mr-2" />Contraindications</h4>
                                             <p className="mt-2 text-gray-600">This therapy may not be suitable if you have:</p>
                                             <ul className="mt-4 space-y-2 text-gray-700">
                                                 {contraindications.map((item, index) => (
@@ -219,11 +322,11 @@ const DryCuppingPage = () => {
                                             </ul>
                                         </div>
                                     </div>
-                                    <p className="mt-6 text-sm text-gray-500 italic">Please disclose your full medical history during the consultation to ensure a safe and effective treatment.</p>
+                                    <p className="mt-6 text-sm text-teal-600 italic">Please disclose your full medical history during the consultation to ensure a safe and effective treatment.</p>
                                 </motion.div>
 
                                 {/* Process Section */}
-                                <motion.h3 variants={itemVariants} className="mt-12 text-3xl font-bold text-gray-900">The Treatment Process</motion.h3>
+                                <motion.h3 variants={itemVariants} className="mt-12 text-3xl font-bold text-teal-600">The Treatment Process</motion.h3>
                                 <div className="mt-6 space-y-8">
                                     {processSteps.map((step, index) => (
                                         <motion.div key={index} variants={itemVariants} className="flex items-start">
@@ -233,7 +336,7 @@ const DryCuppingPage = () => {
                                                 </div>
                                             </div>
                                             <div>
-                                                <h4 className="text-xl font-semibold text-gray-800">{step.title}</h4>
+                                                <h4 className="text-xl font-semibold text-teal-600">{step.title}</h4>
                                                 <p className="text-gray-600 mt-1">{step.description}</p>
                                             </div>
                                         </motion.div>
@@ -242,7 +345,7 @@ const DryCuppingPage = () => {
                             </motion.div>
                         </div>
 
-                        {/* Right Column (Sidebar) */}
+                        {/* Right Column (Sidebar) - Kept as provided */}
                         <aside className="lg:col-span-1">
                             <motion.div 
                                 initial={{ opacity: 0, y: 50 }}
@@ -250,7 +353,7 @@ const DryCuppingPage = () => {
                                 transition={{ duration: 0.7, ease: 'easeOut' }}
                                 className="sticky top-24 bg-gray-50 p-8 rounded-2xl shadow-lg"
                             >
-                                <h3 className="text-2xl font-bold text-gray-900">Book Your Session</h3>
+                                <h3 className="text-2xl font-bold text-teal-600">Book Your Session</h3>
                                 <p className="mt-2 text-gray-600">Find relief with Dry & Massage Cupping.</p>
                                 
                                 <div className="mt-6 space-y-2">
@@ -280,7 +383,7 @@ const DryCuppingPage = () => {
                                         <div>
                                             <img src="/ceo.webp" alt="Mr. Jameel ur Rehman" className="w-24 h-24 rounded-full mx-auto object-cover" />
                                             <p className="mt-2 font-bold">Mr. Jameel ur Rehman</p>
-                                            <p className="text-sm text-gray-600">Certified Hijama Therapist</p>
+                                            <p className="text-sm text-teal-600">Certified Hijama Therapist</p>
                                         </div>
                                         <div>
                                             {/* Assuming you have an image for the female specialist at /female-specialist.webp */}
@@ -296,8 +399,8 @@ const DryCuppingPage = () => {
 
                     {/* Preparation & After-care Section */}
                     <motion.div initial="hidden" animate="visible" variants={staggerContainer} className="mt-24">
-                        <motion.h2 variants={itemVariants} className="text-4xl font-extrabold text-gray-900 text-center">Preparation & After-care</motion.h2>
-                        <motion.p variants={itemVariants} className="mt-4 text-lg text-gray-600 text-center max-w-3xl mx-auto">
+                        <motion.h2 variants={itemVariants} className="text-4xl font-extrabold text-teal-600 text-center">Preparation & After-care</motion.h2>
+                        <motion.p variants={itemVariants} className="mt-4 text-lg text-teal-600 text-center max-w-3xl mx-auto">
                             To get the most out of your session, please follow these simple guidelines.
                         </motion.p>
 
@@ -306,7 +409,7 @@ const DryCuppingPage = () => {
                                 <motion.div key={index} variants={itemVariants} className="bg-gray-50 p-8 rounded-2xl">
                                     <div className="flex items-center">
                                         <item.icon className="w-10 h-10 text-teal-600 mr-4" />
-                                        <h3 className="text-2xl font-bold text-gray-800">{item.title}</h3>
+                                        <h3 className="text-2xl font-bold text-teal-600">{item.title}</h3>
                                     </div>
                                     <ul className="mt-6 space-y-3 text-gray-700">
                                         {item.points.map((point, i) => (
@@ -321,7 +424,7 @@ const DryCuppingPage = () => {
                         </div>
                     </motion.div>
 
-                     {/* --- FAQ Section --- */}
+                      {/* --- FAQ Section --- */}
                     <section className="mt-24">
                         <motion.div 
                             className="text-center mb-16"
@@ -329,7 +432,7 @@ const DryCuppingPage = () => {
                             animate="visible"
                             variants={staggerContainer}
                         >
-                            <motion.h2 variants={itemVariants} className="text-4xl md:text-5xl font-extrabold text-gray-800">
+                            <motion.h2 variants={itemVariants} className="text-4xl md:text-5xl font-extrabold text-teal-600">
                                 Frequently Asked Questions
                             </motion.h2>
                             <motion.p variants={itemVariants} className="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">

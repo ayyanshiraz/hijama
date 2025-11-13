@@ -181,12 +181,12 @@ const WetCuppingPage = () => {
                             <motion.div initial="hidden" animate="visible" variants={staggerContainer}>
                                 
                                 {/* -- NEW CONTENT START -- */}
-                                <motion.h2 variants={itemVariants} className="text-4xl font-extrabold text-gray-900">
+                                <motion.h2 variants={itemVariants} className="text-4xl font-extrabold text-teal-600">
                                     Blood Cupping (Hijama) Therapy Specialist in Lahore
                                 </motion.h2>
                                 <motion.p variants={itemVariants} className="mt-4 text-lg text-gray-600 leading-relaxed">
                                     If you are looking for experienced and certified Blood Cupping (Hijama) Therapy in Lahore, you have come to the right place. We, at Al Madina Hijama Center, are available 24/7, and our goal is to deliver this ancient and Islamic blood cupping sunnah with the highest standards of safety and professionalism. Hijama is the most effective method for purifying the body, stimulating the immune system, and improving circulation by removing stagnant blood. Our services, performed by expert male and female specialists, are also available as a 
-                                    <Link href="/booking" className="text-teal-600 hover:text-teal-800 hover:underline font-medium">
+                                    <Link href="/booking" className="text-blue-600 hover:text-teal-600 hover:underline font-medium">
                                         &nbsp;professional home service throughout Lahore
                                     </Link>.
                                 </motion.p>
@@ -196,7 +196,7 @@ const WetCuppingPage = () => {
 
                                 {/* Types of Cupping Section */}
                                 <motion.div variants={itemVariants} className="mt-8">
-                                    <h3 className="text-2xl font-bold text-gray-900">What is Blood Cupping (Hijama) and Its Types?</h3>
+                                    <h3 className="text-2xl font-bold text-teal-600">What is Blood Cupping (Hijama) and Its Types?</h3>
                                     <p className="mt-2 text-lg text-gray-600 leading-relaxed">
                                         Hijama is a therapeutic technique where localized suction is created on specific body points to draw out impurities and stagnant blood collected in the tissues. This is a powerful, time-tested Islamic method sought after by those searching for &quot;cup of my blood&quot; or &quot;blood in a cup&quot; remedies.
                                     </p>
@@ -212,7 +212,7 @@ const WetCuppingPage = () => {
                                         </div>
 
                                         <div className="bg-gray-50 p-6 rounded-xl border-l-4 border-[#FF6900]">
-                                            <h4 className="text-xl font-bold text-[#FF6900]">2. Dry Cupping</h4>
+                                            <h4 className="text-xl font-bold text-[#FF6900]"> 2. Dry Cupping</h4>
                                             <p className="mt-2 text-gray-700">
                                                 Dry Cupping does not involve incisions. It uses suction to lift tissues for a massaging effect. It is highly beneficial for improving blood circulation and relaxing stiff, rigid muscles. Dry Cupping is often used to prepare muscles before a Wet Cupping session. This therapy helps manage general fatigue and muscle stiffness. Dry Cupping services are also available through our professional Home service in Lahore.
                                             </p>
@@ -229,7 +229,7 @@ const WetCuppingPage = () => {
 </motion.div>
 
                                 {/* Benefits Section (Replaced content) */}
-                                <motion.h3 variants={itemVariants} className="mt-12 text-3xl font-bold text-gray-900">Key Benefits of Blood Cupping</motion.h3>
+                                <motion.h3 variants={itemVariants} className="mt-12 text-3xl font-bold text-teal-600">Key Benefits of Blood Cupping</motion.h3>
                                 <motion.p variants={itemVariants} className="mt-2 text-lg text-gray-600">
                                     Blood Cupping Benefits are far-reaching and provide deep, long-lasting results for your health. The key results include:
                                 </motion.p>
@@ -245,7 +245,7 @@ const WetCuppingPage = () => {
                                 {/* Tools and Hygiene Section (New) */}
                                 {/* Tools and Hygiene Section (New) */}
                                 <motion.div variants={itemVariants} className="mt-12">
-                                    <h3 className="text-3xl font-bold text-gray-900 mb-4">Tools and Hygiene Policy (Trust Factor)</h3>
+                                    <h3 className="text-3xl font-bold text-teal-600 mb-4">Tools and Hygiene Policy (Trust Factor)</h3>
                                     <p className="text-lg text-gray-600 mb-6">
                                         We perform Hijama to the highest medical safety standards. We ensure client safety by strictly using fresh and new tools for every single patient:
                                     </p>
@@ -253,21 +253,21 @@ const WetCuppingPage = () => {
                                         <table className="min-w-full border-collapse">
                                             <thead className="bg-gray-50">
                                                 <tr>
-                                                    <th className="px-6 py-3 text-left text-xs font-bold text-gray-500 uppercase tracking-wider border border-gray-300">Tool</th>
-                                                    <th className="px-6 py-3 text-left text-xs font-bold text-gray-500 uppercase tracking-wider border border-gray-300">Safety Standard</th>
+                                                    <th className="px-6 py-3 text-left text-xs font-bold text-teal-600 uppercase tracking-wider border border-gray-300">Tool</th>
+                                                    <th className="px-6 py-3 text-left text-xs font-bold text-teal-600 uppercase tracking-wider border border-gray-300">Safety Standard</th>
                                                 </tr>
                                             </thead>
                                             <tbody className="bg-white">
                                                 <tr>
-                                                    <td className="px-6 py-4 whitespace-nowrap font-medium text-gray-900 border border-gray-300">Cupping Cups</td>
+                                                    <td className="px-6 py-4 whitespace-nowrap font-medium text-teal-600 border border-gray-300">Cupping Cups</td>
                                                     <td className="px-6 py-4 text-gray-600 border border-gray-300">Disposable, Single-Use (Discarded after one patient use)</td>
                                                 </tr>
                                                 <tr>
-                                                    <td className="px-6 py-4 whitespace-nowrap font-medium text-gray-900 border border-gray-300">Surgical Blades</td>
+                                                    <td className="px-6 py-4 whitespace-nowrap font-medium text-teal-600 border border-gray-300">Surgical Blades</td>
                                                     <td className="px-6 py-4 text-gray-600 border border-gray-300">Sterile and Brand New for every patient (Zero risk of infection)</td>
                                                 </tr>
                                                 <tr>
-                                                    <td className="px-6 py-4 whitespace-nowrap font-medium text-gray-900 border border-gray-300">Wipes & Gloves</td>
+                                                    <td className="px-6 py-4 whitespace-nowrap font-medium text-teal-600 border border-gray-300">Wipes & Gloves</td>
                                                     <td className="px-6 py-4 text-gray-600 border border-gray-300">Medical Grade (Used by both Male and Female Specialists)</td>
                                                 </tr>
                                             </tbody>
@@ -276,7 +276,7 @@ const WetCuppingPage = () => {
                                 </motion.div>
                                 {/* Side Effects & Conclusion Section (New) */}
                                 <motion.div variants={itemVariants} className="mt-12">
-                                    <h3 className="text-2xl font-bold text-gray-900 text-red-600 flex items-center">
+                                    <h3 className="text-2xl font-bold text-gray-600 text-red-600 flex items-center">
                                         <AlertTriangle className="w-6 h-6 mr-2" />
                                         IMPORTANT: Side Effects of Non-Compliance
                                     </h3>
@@ -284,7 +284,7 @@ const WetCuppingPage = () => {
                                         To guarantee a safe and effective session, it is vital to strictly follow all instructions provided by your Hijama specialist. Ignoring pre- or post-care advice, including not following hydration protocols, recommencing exercise too soon, or disturbing the treated area, might cause some minor complications that can lead to prolonged marking for extended periods, increased discomfort, or slight local swelling. Your specialist’s guidance is crucial for proper healing.
                                     </p>
 
-                                    <h3 className="mt-8 text-2xl font-bold text-gray-900">Conclusion</h3>
+                                    <h3 className="mt-8 text-2xl font-bold text-teal-600">Conclusion</h3>
                                     <p className="mt-4 text-lg text-gray-600 leading-relaxed">
                                         Your comfort and well-being are our top priorities at Al Madina Hijama Center. We provide committed services, with a male specialist for men and a female specialist for women, who are available around the clock. We are available to you whether you require our expert home service anywhere in Lahore or are at our clinic in Bahria Town.
                                     </p>
@@ -293,7 +293,7 @@ const WetCuppingPage = () => {
 
                                 {/* Indications/Contraindications Section (Keeping structure, updated data) */}
                                 <motion.div variants={itemVariants} className="mt-16 pt-8 border-t border-gray-200">
-                                    <h3 className="text-3xl font-bold text-gray-900">Health Issues Where Blood Cupping Is Helpful</h3>
+                                    <h3 className="text-3xl font-bold text-teal-600">Health Issues Where Blood Cupping Is Helpful</h3>
                                     <p className="mt-2 text-gray-600">Based on your unique needs, our licensed professionals will create a treatment plan that addresses:</p>
                                     <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-8">
                                         <div>
@@ -318,7 +318,7 @@ const WetCuppingPage = () => {
 
 
                                 {/* Process Section */}
-                                <motion.h3 variants={itemVariants} className="mt-12 text-3xl font-bold text-gray-900">The Treatment Process</motion.h3>
+                                <motion.h3 variants={itemVariants} className="mt-12 text-3xl font-bold text-teal-600">The Treatment Process</motion.h3>
                                 <div className="mt-6 space-y-8">
                                     {processSteps.map((step, index) => (
                                         <motion.div key={index} variants={itemVariants} className="flex items-start">
@@ -345,7 +345,7 @@ const WetCuppingPage = () => {
                                 transition={{ duration: 0.7, ease: 'easeOut' }}
                                 className="sticky top-24 bg-gray-50 p-8 rounded-2xl shadow-lg"
                             >
-                                <h3 className="text-2xl font-bold text-gray-900">Book Your Session</h3>
+                                <h3 className="text-2xl font-bold text-teal-600">Book Your Session</h3>
                                 <p className="mt-2 text-gray-600">Experience the benefits of Blood Cupping.</p>
                                 
                                 <div className="mt-6 space-y-2">
@@ -391,7 +391,7 @@ const WetCuppingPage = () => {
 
                     {/* Preparation & After-care Section */}
                     <motion.div initial="hidden" animate="visible" variants={staggerContainer} className="mt-24">
-                        <motion.h2 variants={itemVariants} className="text-4xl font-extrabold text-gray-900 text-center">Preparation & After-care</motion.h2>
+                        <motion.h2 variants={itemVariants} className="text-4xl font-extrabold text-teal-600 text-center">Preparation & After-care</motion.h2>
                         <motion.p variants={itemVariants} className="mt-4 text-lg text-gray-600 text-center max-w-3xl mx-auto">
                             To maximize the benefits of your Hijama session, please follow these important guidelines before and after your treatment.
                         </motion.p>
