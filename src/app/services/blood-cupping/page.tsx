@@ -185,7 +185,10 @@ const WetCuppingPage = () => {
                                     Blood Cupping (Hijama) Therapy Specialist in Lahore
                                 </motion.h2>
                                 <motion.p variants={itemVariants} className="mt-4 text-lg text-gray-600 leading-relaxed">
-                                    If you are looking for experienced and certified Blood Cupping (Hijama) Therapy in Lahore, you have come to the right place. We, at Al Madina Hijama Center, are available 24/7, and our goal is to deliver this ancient and Islamic blood cupping sunnah with the highest standards of safety and professionalism. Hijama is the most effective method for purifying the body, stimulating the immune system, and improving circulation by removing stagnant blood. Our services, performed by expert male and female specialists, are also available as a professional home service throughout Lahore.
+                                    If you are looking for experienced and certified Blood Cupping (Hijama) Therapy in Lahore, you have come to the right place. We, at Al Madina Hijama Center, are available 24/7, and our goal is to deliver this ancient and Islamic blood cupping sunnah with the highest standards of safety and professionalism. Hijama is the most effective method for purifying the body, stimulating the immune system, and improving circulation by removing stagnant blood. Our services, performed by expert male and female specialists, are also available as a 
+                                    <Link href="/booking" className="text-teal-600 hover:text-teal-800 hover:underline font-medium">
+                                        &nbsp;professional home service throughout Lahore
+                                    </Link>.
                                 </motion.p>
                                 <motion.p variants={itemVariants} className="mt-4 text-lg text-gray-600 leading-relaxed">
                                     On this page, we will detail the types of blood cupping therapy, its most significant blood cupping benefits, and the essential safety guidelines you should follow.
@@ -240,37 +243,37 @@ const WetCuppingPage = () => {
                                 </motion.ul>
 
                                 {/* Tools and Hygiene Section (New) */}
+                                {/* Tools and Hygiene Section (New) */}
                                 <motion.div variants={itemVariants} className="mt-12">
                                     <h3 className="text-3xl font-bold text-gray-900 mb-4">Tools and Hygiene Policy (Trust Factor)</h3>
                                     <p className="text-lg text-gray-600 mb-6">
                                         We perform Hijama to the highest medical safety standards. We ensure client safety by strictly using fresh and new tools for every single patient:
                                     </p>
-                                    <div className="overflow-hidden rounded-lg border border-gray-200">
-                                        <table className="min-w-full divide-y divide-gray-200">
+                                    <div className="overflow-hidden rounded-lg border border-gray-300">
+                                        <table className="min-w-full border-collapse">
                                             <thead className="bg-gray-50">
                                                 <tr>
-                                                    <th className="px-6 py-3 text-left text-xs font-bold text-gray-500 uppercase tracking-wider">Tool</th>
-                                                    <th className="px-6 py-3 text-left text-xs font-bold text-gray-500 uppercase tracking-wider">Safety Standard</th>
+                                                    <th className="px-6 py-3 text-left text-xs font-bold text-gray-500 uppercase tracking-wider border border-gray-300">Tool</th>
+                                                    <th className="px-6 py-3 text-left text-xs font-bold text-gray-500 uppercase tracking-wider border border-gray-300">Safety Standard</th>
                                                 </tr>
                                             </thead>
-                                            <tbody className="bg-white divide-y divide-gray-200">
+                                            <tbody className="bg-white">
                                                 <tr>
-                                                    <td className="px-6 py-4 whitespace-nowrap font-medium text-gray-900">Cupping Cups</td>
-                                                    <td className="px-6 py-4 text-gray-600">Disposable, Single-Use (Discarded after one patient use)</td>
+                                                    <td className="px-6 py-4 whitespace-nowrap font-medium text-gray-900 border border-gray-300">Cupping Cups</td>
+                                                    <td className="px-6 py-4 text-gray-600 border border-gray-300">Disposable, Single-Use (Discarded after one patient use)</td>
                                                 </tr>
                                                 <tr>
-                                                    <td className="px-6 py-4 whitespace-nowrap font-medium text-gray-900">Surgical Blades</td>
-                                                    <td className="px-6 py-4 text-gray-600">Sterile and Brand New for every patient (Zero risk of infection)</td>
+                                                    <td className="px-6 py-4 whitespace-nowrap font-medium text-gray-900 border border-gray-300">Surgical Blades</td>
+                                                    <td className="px-6 py-4 text-gray-600 border border-gray-300">Sterile and Brand New for every patient (Zero risk of infection)</td>
                                                 </tr>
                                                 <tr>
-                                                    <td className="px-6 py-4 whitespace-nowrap font-medium text-gray-900">Wipes & Gloves</td>
-                                                    <td className="px-6 py-4 text-gray-600">Medical Grade (Used by both Male and Female Specialists)</td>
+                                                    <td className="px-6 py-4 whitespace-nowrap font-medium text-gray-900 border border-gray-300">Wipes & Gloves</td>
+                                                    <td className="px-6 py-4 text-gray-600 border border-gray-300">Medical Grade (Used by both Male and Female Specialists)</td>
                                                 </tr>
                                             </tbody>
                                         </table>
                                     </div>
                                 </motion.div>
-
                                 {/* Side Effects & Conclusion Section (New) */}
                                 <motion.div variants={itemVariants} className="mt-12">
                                     <h3 className="text-2xl font-bold text-gray-900 text-red-600 flex items-center">
