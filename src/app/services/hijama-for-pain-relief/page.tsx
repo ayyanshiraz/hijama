@@ -75,18 +75,18 @@ const schema = {
     "name": "Hijama for Pain Relief",
     "description": "A targeted, natural therapy using Blood or Dry cupping to effectively manage chronic pain, reduce inflammation, and restore mobility. It addresses the root causes of discomfort without medication.",
     "indication": [
-      { "@type": "MedicalCondition", "name": "Back Pain" },
-      { "@type": "MedicalCondition", "name": "Migraine" },
-      { "@type": "MedicalCondition", "name": "Arthritis" },
-      { "@type": "MedicalCondition", "name": "Sciatica" },
-      { "@type": "MedicalCondition", "name": "Muscle Pain" }
+        { "@type": "MedicalCondition", "name": "Back Pain" },
+        { "@type": "MedicalCondition", "name": "Migraine" },
+        { "@type": "MedicalCondition", "name": "Arthritis" },
+        { "@type": "MedicalCondition", "name": "Sciatica" },
+        { "@type": "MedicalCondition", "name": "Muscle Pain" }
     ],
     "bodyLocation": "Targeted application on specific pain points, commonly the back, neck, shoulders, and joints.",
     "provider": {
-      "@type": "MedicalBusiness",
-      "name": "Al Madina Hijama Center",
-      "url": "https://almadinahijamacenter.com",
-      "logo": "https://almadinahijamacenter.com/logo.png"
+        "@type": "MedicalBusiness",
+        "name": "Al Madina Hijama Center",
+        "url": "https://almadinahijamacenter.com",
+        "logo": "https://almadinahijamacenter.com/logo.png"
     }
 };
 
@@ -109,11 +109,11 @@ const PainReliefPage = () => {
     const staggerContainer: Variants = {
         hidden: { opacity: 0 },
         visible: {
-          opacity: 1,
-          transition: {
-            staggerChildren: 0.1,
-            delayChildren: 0.2,
-          },
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.1,
+                delayChildren: 0.2,
+            },
         },
     };
 
@@ -177,16 +177,119 @@ const PainReliefPage = () => {
                         {/* Left Column (Main Content) */}
                         <div className="lg:col-span-2">
                             <motion.div initial="hidden" animate="visible" variants={staggerContainer}>
-                                <motion.h2 variants={itemVariants} className="text-4xl font-extrabold text-gray-900">A Natural Approach to Pain Management</motion.h2>
+
+                                {/* --- START: REPLACED CONTENT --- */}
+                                
+                                {/* (H1) Page Heading */}
+                                <motion.h2 variants={itemVariants} className="text-4xl font-extrabold text-teal-500">Natural Pain Relief with Hijama & Cupping Therapy in Lahore</motion.h2>
+                                
+                                {/* (Introduction) */}
                                 <motion.p variants={itemVariants} className="mt-4 text-lg text-gray-600 leading-relaxed">
-                                    Hijama for Pain Relief is a specialized treatment designed to address the root causes of chronic pain. By applying cups to specific points along the bodys meridians and areas of tension, this therapy helps to release blockages, reduce inflammation, and stimulate the flow of oxygenated blood. It is a time-tested, safe, and effective alternative to long-term pain medication.
+                                    Are you tired of chronic pain dictating your life? Whether it's a persistent ache in your lower back, sharp sciatica pain, or debilitating neck stiffness, finding effective, natural relief can feel impossible. Many people rely on painkillers for a quick fix, but these only mask the symptoms; they don't solve the root cause.
                                 </motion.p>
                                 <motion.p variants={itemVariants} className="mt-4 text-lg text-gray-600 leading-relaxed">
-                                    Whether you suffer from back pain, migraines, or arthritis, our certified practitioners can tailor a session to your specific needs. We offer this specialized service for both men and women, with the option of a comfortable and convenient session at your home.
+                                    If you are in Lahore and searching for a natural, lasting solution to pain, Hijama for Pain Relief is your answer. Our dedicated hijama center in Bahria Town, Lahore, specializes in this time-tested, prophetic healing method to help you live pain-free.
                                 </motion.p>
 
+                                {/* (H2) Why Choose Hijama Over Conventional Painkillers? */}
+                                <motion.h2 variants={itemVariants} className="mt-12 text-3xl font-bold text-teal-500">Why Choose Hijama Over Conventional Painkillers?</motion.h2>
+                                <motion.p variants={itemVariants} className="mt-4 text-lg text-gray-600 leading-relaxed">
+                                    Painkillers work by blocking pain signals to the brain, giving you a temporary sense of relief while the underlying issue remains. In sharp contrast, cupping therapy for pain relief works with your body.
+                                </motion.p>
+                                <motion.p variants={itemVariants} className="mt-4 text-lg text-gray-600 leading-relaxed">
+                                    Hijama immediately promotes intense blood flow to the targeted area. The suction from the cups releases deep muscle knots, reduces inflammation, and helps flush out stagnant blood and toxins, powerfully activating your body's natural healing system. It’s not just a band-aid; it's a solution that targets the root of the problem.
+                                </motion.p>
+
+                                {/* (H2) Our Specialized Hijama Treatments for Pain: */}
+                                <motion.h2 variants={itemVariants} className="mt-12 text-3xl font-bold text-teal-500">Our Specialized Hijama Treatments for Pain:</motion.h2>
+                                <motion.p variants={itemVariants} className="mt-4 text-lg text-gray-600 leading-relaxed">
+                                    We don't believe in a one-size-fits-all approach. We design a specialized treatment plan based on your unique pain points. Our certified practitioners have extensive experience in treating:
+                                </motion.p>
+                                
+                                {/* (H3) Hijama for Back Pain and Lower Back Pain: */}
+                                <motion.h3 variants={itemVariants} className="mt-8 text-2xl font-bold text-teal-500">Hijama for Back Pain and Lower Back Pain:</motion.h3>
+                                <motion.p variants={itemVariants} className="mt-2 text-lg text-gray-600 leading-relaxed">
+                                    This is our most in-demand service. Chronic discomfort, especially hijama for lower back pain, is often caused by poor posture, long sitting hours, or old injuries. We precisely target the correct hijama points for back pain to instantly release deep-seated tension and alleviate pressure, often providing significant relief after just one session.
+                                </motion.p>
+
+                                {/* (H3) Hijama for Sciatica Pain Relief */}
+                                <motion.h3 variants={itemVariants} className="mt-8 text-2xl font-bold text-teal-500">Hijama for Sciatica Pain Relief</motion.h3>
+                                <motion.p variants={itemVariants} className="mt-2 text-lg text-gray-600 leading-relaxed">
+                                    The sharp, shooting pain of sciatica that travels down the leg can be agonizing. Cupping therapy for sciatica pain is highly effective because it decompresses the sciatic nerve and reduces surrounding inflammation. Our therapists are expertly trained to identify the proper hijama points for sciatica pain to help you find lasting freedom from this debilitating condition.
+                                </motion.p>
+                                
+                                {/* Image with Alt Text (UPDATE 'src' PATH) */}
+                                <img 
+                                    src="/services/hijama-sciatica-points.webp" 
+                                    alt="Difference between Wet Cupping (Hijama) and Dry Cupping"
+                                    className="w-full h-auto object-cover rounded-xl shadow-lg"
+                                    style={{ maxHeight: '400px' }} 
+                                />
+                                {/* (H3) Hijama for Neck and Shoulder Pain: */}
+                                <motion.h3 variants={itemVariants} className="mt-8 text-2xl font-bold text-teal-500">Hijama for Neck and Shoulder Pain:</motion.h3>
+                                <motion.p variants={itemVariants} className="mt-2 text-lg text-gray-600 leading-relaxed">
+                                    In today's digital world, "Tech Neck" from constant phone and laptop use is a common complaint. Hijama for neck pain is an excellent remedy for the severe stiffness and tension built up in these muscles. We also focus on hijama points for shoulder pain to restore your full range of motion.
+                                </motion.p>
+
+                                {/* (H3) Hijama for Knee Pain and Joint Pain: */}
+                                <motion.h3 variants={itemVariants} className="mt-8 text-2xl font-bold text-teal-500">Hijama for Knee Pain and Joint Pain:</motion.h3>
+                                <motion.p variants={itemVariants} className="mt-2 text-lg text-gray-600 leading-relaxed">
+                                    Don't let aching joints stop you. Whether due to age, injury, or conditions like arthritis, hijama for knee pain (and other joint pains) can make a world of difference. By boosting circulation and reducing inflammation, this therapy can significantly improve mobility and reduce discomfort.
+                                </motion.p>
+
+                                {/* (H2) Your Professional Hijama Center in Bahria Town, Lahore: */}
+                                <motion.h2 variants={itemVariants} className="mt-12 text-3xl font-bold text-teal-500">Your Professional Hijama Center in Bahria Town, Lahore:</motion.h2>
+                                <motion.p variants={itemVariants} className="mt-4 text-lg text-gray-600 leading-relaxed">
+                                    When you search for a "hijama center near me," you deserve a clinic that is hygienic, safe, and professional. Our hijama center in Bahria Town, Lahore, is committed to providing the highest standard of care. All our equipment is fully sterilized, and our therapists are certified and experienced.
+                                </motion.p>
+
+                                {/* Image with Alt Text (UPDATE 'src' PATH) */}
+                                <motion.div variants={itemVariants} className="mt-12">
+                                <img 
+                                    src="/services/clinic-room.webp" 
+                                    alt="Difference between Wet Cupping (Hijama) and Dry Cupping"
+                                    className="w-full h-auto object-cover rounded-xl shadow-lg"
+                                    style={{ maxHeight: '400px' }} 
+                                  />
+                                </motion.div>
+
+                                {/* (H2) Common Concerns About Hijama Therapy: */}
+                                <motion.h2 variants={itemVariants} className="mt-12 text-3xl font-bold text-teal-500">Common Concerns About Hijama Therapy:</motion.h2>
+                                <motion.p variants={itemVariants} className="mt-4 text-lg text-gray-600 leading-relaxed">
+                                    It's perfectly normal to have questions before your first session. Here are answers to some of the most common concerns.
+                                </motion.p>
+                                
+                                {/* (H3) Is Hijama painful? */}
+                                <motion.h3 variants={itemVariants} className="mt-8 text-2xl font-bold text-teal-500">Is Hijama painful?</motion.h3>
+                                <motion.p variants={itemVariants} className="mt-2 text-lg text-gray-600 leading-relaxed">
+                                    This is the most frequent question we hear. No, Hijama is not considered "painful." You will feel a strong pulling or tightening sensation as the cups create suction, which most clients describe as a "deep-tissue massage." If you opt for Wet Hijama, the tiny incisions are superficial and feel like light scratches.
+                                </motion.p>
+                                
+                                {/* (H3) Will I have pain after hijama? */}
+                                <motion.h3 variants={itemVariants} className="mt-8 text-2xl font-bold text-teal-500">Will I have pain after hijama?</motion.h3>
+                                <motion.p variants={itemVariants} className="mt-2 text-lg text-gray-600 leading-relaxed">
+                                    It is very rare to feel any significant pain after hijama. You might experience mild soreness, similar to how you'd feel after a workout, which is a positive sign that the muscles were treated. The circular marks are not bruises; they are a sign of blood flow to the area and will fade completely within 3-7 days.
+                                </motion.p>
+                                
+                                {/* (H3) How many sessions will I need for chronic pain? */}
+                                <motion.h3 variants={itemVariants} className="mt-8 text-2xl font-bold text-teal-500">How many sessions will I need for chronic pain?</motion.h3>
+                                <motion.p variants={itemVariants} className="mt-2 text-lg text-gray-600 leading-relaxed">
+                                    Everybody responds differently. For hijama therapy for chronic pain, a series of 3-5 sessions is often recommended for the best results. For more acute or recent pain, you may feel significant improvement after just one or two sessions. We will advise a personal treatment plan during your consultation.
+                                </motion.p>
+                                
+                                {/* (H2) Take the First Step Towards a Pain-Free Life */}
+                                <motion.h2 variants={itemVariants} className="mt-12 text-3xl font-bold text-teal-500">Take the First Step Towards a Pain-Free Life</motion.h2>
+                                <motion.p variants={itemVariants} className="mt-4 text-lg text-gray-600 leading-relaxed">
+                                    You don't have to live with pain. Take the first step towards natural, long-lasting relief today. Contact us to book your hijama for pain relief consultation at our clinic in Bahria Town, Lahore.
+                                </motion.p>
+                                
+                                {/* --- END: REPLACED CONTENT --- */}
+
+
+                                {/* --- START: ORIGINAL CONTENT (UNTOUCHED) --- */}
+
                                 {/* Benefits Section */}
-                                <motion.h3 variants={itemVariants} className="mt-12 text-3xl font-bold text-gray-900">Key Benefits of Hijama for Pain Relief</motion.h3>
+                                <motion.h3 variants={itemVariants} className="mt-12 text-3xl font-bold text-teal-500">Key Benefits of Hijama for Pain Relief</motion.h3>
                                 <motion.ul variants={staggerContainer} className="mt-6 space-y-4">
                                     {benefits.map((benefit, index) => (
                                         <motion.li key={index} variants={itemVariants} className="flex items-start">
@@ -198,7 +301,7 @@ const PainReliefPage = () => {
 
                                 {/* Indications/Contraindications Section */}
                                 <motion.div variants={itemVariants} className="mt-12">
-                                    <h3 className="text-3xl font-bold text-gray-900">Is This Treatment Right for Your Pain?</h3>
+                                    <h3 className="text-3xl font-bold text-teal-500">Is This Treatment Right for Your Pain?</h3>
                                     <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-8">
                                         <div>
                                             <h4 className="text-xl font-semibold text-gray-800 flex items-center"><CheckCircle className="h-6 w-6 text-green-600 mr-2" />Indications</h4>
@@ -223,7 +326,7 @@ const PainReliefPage = () => {
                                 </motion.div>
 
                                 {/* Process Section */}
-                                <motion.h3 variants={itemVariants} className="mt-12 text-3xl font-bold text-gray-900">The Pain Relief Process</motion.h3>
+                                <motion.h3 variants={itemVariants} className="mt-12 text-3xl font-bold text-teal-500">The Pain Relief Process</motion.h3>
                                 <div className="mt-6 space-y-8">
                                     {processSteps.map((step, index) => (
                                         <motion.div key={index} variants={itemVariants} className="flex items-start">
@@ -233,12 +336,14 @@ const PainReliefPage = () => {
                                                 </div>
                                             </div>
                                             <div>
-                                                <h4 className="text-xl font-semibold text-gray-800">{step.title}</h4>
+                                                <h4 className="text-xl font-semibold text-teal-500">{step.title}</h4>
                                                 <p className="text-gray-600 mt-1">{step.description}</p>
                                             </div>
                                         </motion.div>
                                     ))}
                                 </div>
+                                {/* --- END: ORIGINAL CONTENT (UNTOUCHED) --- */}
+
                             </motion.div>
                         </div>
 
@@ -250,7 +355,7 @@ const PainReliefPage = () => {
                                 transition={{ duration: 0.7, ease: 'easeOut' }}
                                 className="sticky top-24 bg-gray-50 p-8 rounded-2xl shadow-lg"
                             >
-                                <h3 className="text-2xl font-bold text-gray-900">Book Your Session</h3>
+                                <h3 className="text-2xl font-bold text-teal-500">Book Your Session</h3>
                                 <p className="mt-2 text-gray-600">Take the first step towards a pain-free life.</p>
                                 
                                 <div className="mt-6 space-y-2">
@@ -296,7 +401,7 @@ const PainReliefPage = () => {
 
                     {/* Preparation & After-care Section */}
                     <motion.div initial="hidden" animate="visible" variants={staggerContainer} className="mt-24">
-                        <motion.h2 variants={itemVariants} className="text-4xl font-extrabold text-gray-900 text-center">Preparation & After-care</motion.h2>
+                        <motion.h2 variants={itemVariants} className="text-4xl font-extrabold text-teal-500 text-center">Preparation & After-care</motion.h2>
                         <motion.p variants={itemVariants} className="mt-4 text-lg text-gray-600 text-center max-w-3xl mx-auto">
                             Following these guidelines is key to maximizing the pain-relieving effects of your treatment.
                         </motion.p>
@@ -306,7 +411,7 @@ const PainReliefPage = () => {
                                 <motion.div key={index} variants={itemVariants} className="bg-gray-50 p-8 rounded-2xl">
                                     <div className="flex items-center">
                                         <item.icon className="w-10 h-10 text-teal-600 mr-4" />
-                                        <h3 className="text-2xl font-bold text-gray-800">{item.title}</h3>
+                                        <h3 className="text-2xl font-bold text-teal-500">{item.title}</h3>
                                     </div>
                                     <ul className="mt-6 space-y-3 text-gray-700">
                                         {item.points.map((point, i) => (
@@ -321,7 +426,7 @@ const PainReliefPage = () => {
                         </div>
                     </motion.div>
 
-                     {/* --- FAQ Section --- */}
+                        {/* --- FAQ Section --- */}
                     <section className="mt-24">
                         <motion.div 
                             className="text-center mb-16"
@@ -329,7 +434,7 @@ const PainReliefPage = () => {
                             animate="visible"
                             variants={staggerContainer}
                         >
-                            <motion.h2 variants={itemVariants} className="text-4xl md:text-5xl font-extrabold text-gray-800">
+                            <motion.h2 variants={itemVariants} className="text-4xl md:text-5xl font-extrabold text-teal-500">
                                 Frequently Asked Questions
                             </motion.h2>
                             <motion.p variants={itemVariants} className="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">
