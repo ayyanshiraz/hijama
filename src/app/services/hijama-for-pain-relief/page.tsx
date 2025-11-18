@@ -3,7 +3,7 @@ import  PainReliefClient  from './PainReliefClient'; // YEH LINE FIX HO GAYI HAI
 
 // This is the metadata for the page
 export const metadata: Metadata = {
-  title: "Hijama for Pain Relief in Lahore | Al Madina Hijama Center",
+  title: "Hijama for Pain Relief in Lahore | Expert Cupping Therapy",
   description: "Find natural, lasting relief from back pain, sciatica, neck pain, and joint pain with expert Hijama cupping therapy at our Bahria Town, Lahore clinic.",
   alternates: {
     canonical: "/services/hijama-for-pain-relief", // This tells Google the main URL
