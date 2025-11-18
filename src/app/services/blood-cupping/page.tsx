@@ -219,14 +219,14 @@ const WetCuppingPage = () => {
                                         </div>
                                     </div>
                                 </motion.div>
-                               
+                                <motion.div variants={itemVariants} className="mt-12">
                                 <img 
                                     src="/services/dry-wet.webp" 
                                     alt="Difference between Wet Cupping (Hijama) and Dry Cupping"
                                     className="w-full h-auto object-cover rounded-xl shadow-lg"
                                     style={{ maxHeight: '400px' }} 
-                                />
-
+                                  />
+                                </motion.div>
 
                                 {/* Benefits Section (Replaced content) */}
                                 <motion.h3 variants={itemVariants} className="mt-12 text-3xl font-bold text-teal-600">Key Benefits of Blood Cupping</motion.h3>

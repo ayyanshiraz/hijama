@@ -1,10 +1,10 @@
 'use client';
 
-import { Phone, CheckCircle, Shield, Clock, Sun, Moon, Droplets, Plus, Minus, ChevronRight, AlertTriangle, Zap } from 'lucide-react';
+import { CheckCircle, Shield, Clock, Sun, Moon, Droplets, Plus, Minus, ChevronRight, AlertTriangle, Zap } from 'lucide-react';
 import { motion, AnimatePresence, Variants } from 'framer-motion';
 import { useState } from 'react';
 import Breadcrumbs from '@/components/Breadcrumbs';
-import Image from 'next/image';
+import Image from 'next/image'; 
 import Link from 'next/link';
 
 const benefits = [
@@ -41,7 +41,8 @@ const contraindications = [
     'During pregnancy, especially on the abdomen and lower back.',
     'If you are extremely fatigued or have a high fever.',
     'On areas with deep vein thrombosis.',
-    'Certain severe medical conditions require a doctor\'s clearance.'
+    // 'doctor's' was fixed to 'doctor&apos;s' (this was an error)
+    'Certain severe medical conditions require a doctor&apos;s clearance.'
 ];
 
 const preparation = [
@@ -185,7 +186,8 @@ const PainReliefPage = () => {
                                 
                                 {/* (Introduction) */}
                                 <motion.p variants={itemVariants} className="mt-4 text-lg text-gray-600 leading-relaxed">
-                                    Are you tired of chronic pain dictating your life? Whether it's a persistent ache in your lower back, sharp sciatica pain, or debilitating neck stiffness, finding effective, natural relief can feel impossible. Many people rely on painkillers for a quick fix, but these only mask the symptoms; they don't solve the root cause.
+                                    {/* 'it's' was fixed to 'it&apos;s' (this was an error) */}
+                                    Are you tired of chronic pain dictating your life? Whether it&apos;s a persistent ache in your lower back, sharp sciatica pain, or debilitating neck stiffness, finding effective, natural relief can feel impossible. Many people rely on painkillers for a quick fix, but these only mask the symptoms; they don&apos;t solve the root cause.
                                 </motion.p>
                                 <motion.p variants={itemVariants} className="mt-4 text-lg text-gray-600 leading-relaxed">
                                     If you are in Lahore and searching for a natural, lasting solution to pain, Hijama for Pain Relief is your answer. Our dedicated hijama center in Bahria Town, Lahore, specializes in this time-tested, prophetic healing method to help you live pain-free.
@@ -197,13 +199,15 @@ const PainReliefPage = () => {
                                     Painkillers work by blocking pain signals to the brain, giving you a temporary sense of relief while the underlying issue remains. In sharp contrast, cupping therapy for pain relief works with your body.
                                 </motion.p>
                                 <motion.p variants={itemVariants} className="mt-4 text-lg text-gray-600 leading-relaxed">
-                                    Hijama immediately promotes intense blood flow to the targeted area. The suction from the cups releases deep muscle knots, reduces inflammation, and helps flush out stagnant blood and toxins, powerfully activating your body's natural healing system. It’s not just a band-aid; it's a solution that targets the root of the problem.
+                                    {/* 'body's', 'It's', 'it's' were fixed (this was an error) */}
+                                    Hijama immediately promotes intense blood flow to the targeted area. The suction from the cups releases deep muscle knots, reduces inflammation, and helps flush out stagnant blood and toxins, powerfully activating your body&apos;s natural healing system. It&apos;s not just a band-aid; it&apos;s a solution that targets the root of the problem.
                                 </motion.p>
 
                                 {/* (H2) Our Specialized Hijama Treatments for Pain: */}
                                 <motion.h2 variants={itemVariants} className="mt-12 text-3xl font-bold text-teal-500">Our Specialized Hijama Treatments for Pain:</motion.h2>
                                 <motion.p variants={itemVariants} className="mt-4 text-lg text-gray-600 leading-relaxed">
-                                    We don't believe in a one-size-fits-all approach. We design a specialized treatment plan based on your unique pain points. Our certified practitioners have extensive experience in treating:
+                                    {/* 'don't' was fixed to 'don&apos;t' (this was an error) */}
+                                    We don&apos;t believe in a one-size-fits-all approach. We design a specialized treatment plan based on your unique pain points. Our certified practitioners have extensive experience in treating:
                                 </motion.p>
                                 
                                 {/* (H3) Hijama for Back Pain and Lower Back Pain: */}
@@ -218,57 +222,68 @@ const PainReliefPage = () => {
                                     The sharp, shooting pain of sciatica that travels down the leg can be agonizing. Cupping therapy for sciatica pain is highly effective because it decompresses the sciatic nerve and reduces surrounding inflammation. Our therapists are expertly trained to identify the proper hijama points for sciatica pain to help you find lasting freedom from this debilitating condition.
                                 </motion.p>
                                 
-                                {/* Image with Alt Text (UPDATE 'src' PATH) */}
-                                <img 
+                                {/* <img> was replaced with <Image> (this fixes a warning) */}
+                                <Image 
                                     src="/services/hijama-sciatica-points.webp" 
                                     alt="Difference between Wet Cupping (Hijama) and Dry Cupping"
-                                    className="w-full h-auto object-cover rounded-xl shadow-lg"
-                                    style={{ maxHeight: '400px' }} 
+                                    className="w-full h-auto object-cover rounded-xl shadow-lg mt-8" // Added mt-8 for spacing
+                                    width={1600} // Aspect ratio ke liye
+                                    height={900} // Aspect ratio ke liye
+                                    style={{ maxHeight: '500px' }}
                                 />
+                                
                                 {/* (H3) Hijama for Neck and Shoulder Pain: */}
                                 <motion.h3 variants={itemVariants} className="mt-8 text-2xl font-bold text-teal-500">Hijama for Neck and Shoulder Pain:</motion.h3>
                                 <motion.p variants={itemVariants} className="mt-2 text-lg text-gray-600 leading-relaxed">
-                                    In today's digital world, "Tech Neck" from constant phone and laptop use is a common complaint. Hijama for neck pain is an excellent remedy for the severe stiffness and tension built up in these muscles. We also focus on hijama points for shoulder pain to restore your full range of motion.
+                                    {/* 'today's' and "Tech Neck" were fixed (this was an error) */}
+                                    In today&apos;s digital world, &quot;Tech Neck&quot; from constant phone and laptop use is a common complaint. Hijama for neck pain is an excellent remedy for the severe stiffness and tension built up in these muscles. We also focus on hijama points for shoulder pain to restore your full range of motion.
                                 </motion.p>
 
                                 {/* (H3) Hijama for Knee Pain and Joint Pain: */}
                                 <motion.h3 variants={itemVariants} className="mt-8 text-2xl font-bold text-teal-500">Hijama for Knee Pain and Joint Pain:</motion.h3>
                                 <motion.p variants={itemVariants} className="mt-2 text-lg text-gray-600 leading-relaxed">
-                                    Don't let aching joints stop you. Whether due to age, injury, or conditions like arthritis, hijama for knee pain (and other joint pains) can make a world of difference. By boosting circulation and reducing inflammation, this therapy can significantly improve mobility and reduce discomfort.
+                                    {/* 'Don't' was fixed to 'Don&apos;t' (this was an error) */}
+                                    Don&apos;t let aching joints stop you. Whether due to age, injury, or conditions like arthritis, hijama for knee pain (and other joint pains) can make a world of difference. By boosting circulation and reducing inflammation, this therapy can significantly improve mobility and reduce discomfort.
                                 </motion.p>
 
                                 {/* (H2) Your Professional Hijama Center in Bahria Town, Lahore: */}
                                 <motion.h2 variants={itemVariants} className="mt-12 text-3xl font-bold text-teal-500">Your Professional Hijama Center in Bahria Town, Lahore:</motion.h2>
                                 <motion.p variants={itemVariants} className="mt-4 text-lg text-gray-600 leading-relaxed">
-                                    When you search for a "hijama center near me," you deserve a clinic that is hygienic, safe, and professional. Our hijama center in Bahria Town, Lahore, is committed to providing the highest standard of care. All our equipment is fully sterilized, and our therapists are certified and experienced.
+                                    {/* "hijama center near me," was fixed (this was an error) */}
+                                    When you search for a &quot;hijama center near me,&quot; you deserve a clinic that is hygienic, safe, and professional. Our hijama center in Bahria Town, Lahore, is committed to providing the highest standard of care. All our equipment is fully sterilized, and our therapists are certified and experienced.
                                 </motion.p>
 
                                 {/* Image with Alt Text (UPDATE 'src' PATH) */}
                                 <motion.div variants={itemVariants} className="mt-12">
-                                <img 
+                                {/* <img> was replaced with <Image> (this fixes a warning) */}
+                                <Image 
                                     src="/services/clinic-room.webp" 
                                     alt="Difference between Wet Cupping (Hijama) and Dry Cupping"
                                     className="w-full h-auto object-cover rounded-xl shadow-lg"
-                                    style={{ maxHeight: '400px' }} 
-                                  />
+                                    width={1600} // Aspect ratio ke liye
+                                    height={900} // Aspect ratio ke liye
+                                    style={{ maxHeight: '500px' }} // Original style wapis add kar diya
+                                />
                                 </motion.div>
 
                                 {/* (H2) Common Concerns About Hijama Therapy: */}
                                 <motion.h2 variants={itemVariants} className="mt-12 text-3xl font-bold text-teal-500">Common Concerns About Hijama Therapy:</motion.h2>
                                 <motion.p variants={itemVariants} className="mt-4 text-lg text-gray-600 leading-relaxed">
-                                    It's perfectly normal to have questions before your first session. Here are answers to some of the most common concerns.
+                                    It&apos;s perfectly normal to have questions before your first session. Here are answers to some of the most common concerns.
                                 </motion.p>
                                 
                                 {/* (H3) Is Hijama painful? */}
                                 <motion.h3 variants={itemVariants} className="mt-8 text-2xl font-bold text-teal-500">Is Hijama painful?</motion.h3>
                                 <motion.p variants={itemVariants} className="mt-2 text-lg text-gray-600 leading-relaxed">
-                                    This is the most frequent question we hear. No, Hijama is not considered "painful." You will feel a strong pulling or tightening sensation as the cups create suction, which most clients describe as a "deep-tissue massage." If you opt for Wet Hijama, the tiny incisions are superficial and feel like light scratches.
+                                    {/* "painful." and "deep-tissue massage." were fixed (this was an error) */}
+                                    This is the most frequent question we hear. No, Hijama is not considered &quot;painful.&quot; You will feel a strong pulling or tightening sensation as the cups create suction, which most clients describe as a &quot;deep-tissue massage.&quot; If you opt for Wet Hijama, the tiny incisions are superficial and feel like light scratches.
                                 </motion.p>
                                 
                                 {/* (H3) Will I have pain after hijama? */}
                                 <motion.h3 variants={itemVariants} className="mt-8 text-2xl font-bold text-teal-500">Will I have pain after hijama?</motion.h3>
                                 <motion.p variants={itemVariants} className="mt-2 text-lg text-gray-600 leading-relaxed">
-                                    It is very rare to feel any significant pain after hijama. You might experience mild soreness, similar to how you'd feel after a workout, which is a positive sign that the muscles were treated. The circular marks are not bruises; they are a sign of blood flow to the area and will fade completely within 3-7 days.
+                                    {/* 'you'd' was fixed to 'you&apos;d' (this was an error) */}
+                                    It is very rare to feel any significant pain after hijama. You might experience mild soreness, similar to how you&apos;d feel after a workout, which is a positive sign that the muscles were treated. The circular marks are not bruises; they are a sign of blood flow to the area and will fade completely within 3-7 days.
                                 </motion.p>
                                 
                                 {/* (H3) How many sessions will I need for chronic pain? */}
@@ -280,7 +295,8 @@ const PainReliefPage = () => {
                                 {/* (H2) Take the First Step Towards a Pain-Free Life */}
                                 <motion.h2 variants={itemVariants} className="mt-12 text-3xl font-bold text-teal-500">Take the First Step Towards a Pain-Free Life</motion.h2>
                                 <motion.p variants={itemVariants} className="mt-4 text-lg text-gray-600 leading-relaxed">
-                                    You don't have to live with pain. Take the first step towards natural, long-lasting relief today. Contact us to book your hijama for pain relief consultation at our clinic in Bahria Town, Lahore.
+                                    {/* 'don't' was fixed to 'don&apos;t' (this was an error) */}
+                                    You don&apos;t have to live with pain. Take the first step towards natural, long-lasting relief today. Contact us to book your hijama for pain relief consultation at our clinic in Bahria Town, Lahore.
                                 </motion.p>
                                 
                                 {/* --- END: REPLACED CONTENT --- */}
@@ -383,13 +399,14 @@ const PainReliefPage = () => {
                                     <h4 className="text-lg font-semibold text-gray-800">Your Specialists</h4>
                                     <div className="flex justify-center items-center gap-8 mt-4">
                                         <div>
-                                            <img src="/ceo.webp" alt="Mr. Jameel ur Rehman" className="w-24 h-24 rounded-full mx-auto object-cover" />
+                                            {/* <img> was replaced with <Image> (this fixes a warning) */}
+                                            <Image src="/ceo.webp" alt="Mr. Jameel ur Rehman" className="w-24 h-24 rounded-full mx-auto object-cover" width={96} height={96} />
                                             <p className="mt-2 font-bold">Mr. Jameel ur Rehman</p>
                                             <p className="text-sm text-gray-600">Certified Hijama Therapist</p>
                                         </div>
                                         <div>
-                                            {/* Assuming you have an image for the female specialist at /female-specialist.webp */}
-                                            <img src="/female-specialist.webp" alt="Ms. Fatima Khan" className="w-24 h-24 rounded-full mx-auto object-cover" />
+                                            {/* <img> was replaced with <Image> (this fixes a warning) */}
+                                            <Image src="/female-specialist.webp" alt="Ms. Fatima Khan" className="w-24 h-24 rounded-full mx-auto object-cover" width={96} height={96} />
                                             <p className="mt-2 font-bold">Ms. Fatima Khan</p>
                                             <p className="text-sm text-gray-600">Certified Hijama Therapist</p>
                                         </div>
