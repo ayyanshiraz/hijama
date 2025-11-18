@@ -1,9 +1,8 @@
 'use client';
 
-import { Phone, CheckCircle, Shield, Clock, Sun, Moon, Droplets, Plus, Minus, ChevronRight, AlertTriangle, Heart } from 'lucide-react';
+import { CheckCircle, Shield, Clock, Sun, Moon, Droplets, Plus, Minus, ChevronRight, AlertTriangle, Heart, Activity, Utensils, Zap, Filter } from 'lucide-react';
 import { motion, AnimatePresence, Variants } from 'framer-motion';
 import { useState } from 'react';
-// import Breadcrumbs from '@/components/Breadcrumbs'; // <-- REMOVED this import
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -34,32 +33,32 @@ const Breadcrumbs = ({ items }: { items: { name: string, href: string }[] }) => 
 );
 // +++ END of inlined Breadcrumbs component +++
 
-
+// BENEFITS ARRAY (Updated with new icons)
 const benefits = [
-    { icon: CheckCircle, text: 'Supports detoxification of the liver and kidneys' },
-    { icon: CheckCircle, text: 'Helps regulate digestive function and reduce bloating' },
-    { icon: CheckCircle, text: 'Aids in balancing hormones and managing related symptoms' },
-    { icon: CheckCircle, text: 'Improves circulation and helps manage blood pressure' },
-    { icon: CheckCircle, text: 'Calms the nervous system, reducing stress and anxiety' },
-    { icon: CheckCircle, text: 'Boosts overall energy levels and vitality' },
+    { icon: Activity, text: 'Helps regulate high blood pressure naturally' },
+    { icon: Filter, text: 'Detoxifies the liver and kidneys by removing stagnant blood' },
+    { icon: Utensils, text: 'Improves digestion and relieves stomach bloating' },
+    { icon: Heart, text: 'Supports healthy cholesterol levels and heart function' },
+    { icon: Zap, text: 'Boosts the immune system and metabolic health' },
+    { icon: CheckCircle, text: 'Improves circulation for diabetic care' },
 ];
 
 const processSteps = [
-    { icon: Droplets, title: 'Holistic Consultation', description: 'We discuss your internal health concerns, from digestion to stress, to create a targeted plan.' },
-    { icon: Shield, title: 'Sterilization', description: 'The specific points on the body related to organ function are carefully sterilized.' },
-    { icon: Heart, title: 'Strategic Cupping', description: 'Cups are placed on key points (often on the back) corresponding to different organs to stimulate their function.' },
-    { icon: Clock, title: 'Purification', description: 'Blood cupping is typically used to draw out metabolic waste and toxins, purifying the blood and supporting organ health.' },
-    { icon: Shield, title: 'After-care Plan', description: 'You receive dietary and lifestyle advice to support the long-term benefits of the therapy.' },
+    { icon: Activity, title: 'Vital Check', description: 'We check your blood pressure and discuss your history (sugar, BP, etc.) before starting.' },
+    { icon: Shield, title: 'Point Selection', description: 'Specific Sunnah points are selected on the back corresponding to organs like the liver, heart, or stomach.' },
+    { icon: Droplets, title: 'Sterilization', description: 'The area is thoroughly cleaned to ensure a safe and hygienic environment.' },
+    { icon: Clock, title: 'Cupping Therapy', description: 'Cups are applied to draw out toxins and stimulate organ function using controlled pressure.' },
+    { icon: Zap, title: 'Revitalization', description: 'The site is dressed, leaving you with a sense of internal lightness and improved flow.' },
 ];
 
 const indications = [
-    'Digestive problems like bloating, IBS, and constipation',
-    'High blood pressure and cholesterol levels',
-    'Hormonal imbalances such as PCOS and thyroid issues',
-    'Chronic fatigue, lethargy, and brain fog',
-    'Stress, anxiety, and sleep disturbances',
-    'Weak immune system and frequent illnesses',
-    'General detoxification and wellness maintenance'
+    'High Blood Pressure (Hypertension)',
+    'Stomach acidity, gas, and IBS',
+    'High Cholesterol levels',
+    'Fatty Liver and sluggish liver function',
+    'Diabetes support (improving circulation)',
+    'Weak immune system and frequent fatigue',
+    'Kidney detox and urinary health'
 ];
 
 const contraindications = [
@@ -205,16 +204,121 @@ const InternalHealthPage = () => {
                         {/* Left Column (Main Content) */}
                         <div className="lg:col-span-2">
                             <motion.div initial="hidden" animate="visible" variants={staggerContainer}>
-                                <motion.h2 variants={itemVariants} className="text-4xl font-extrabold text-gray-900">Restore Your Inner Balance</motion.h2>
+
+                                {/* --- START: NEW CONTENT --- */}
+
+                                {/* Introduction */}
+                                <motion.h2 variants={itemVariants} className="text-4xl font-extrabold text-teal-600">Hijama for Internal Health: More Than Just Pain Relief</motion.h2>
                                 <motion.p variants={itemVariants} className="mt-4 text-lg text-gray-600 leading-relaxed">
-                                    Hijama for Internal Health is a holistic treatment that focuses on optimizing the function of your bodys vital systems. By applying cups to specific points related to the organs and endocrine glands, this therapy helps to purify the bloodstream, support natural detoxification, and regulate bodily functions.
-                                </motion.p>
-                                <motion.p variants={itemVariants} className="mt-4 text-lg text-gray-600 leading-relaxed">
-                                    This is an ideal therapy for those dealing with systemic issues like digestive problems, hormonal imbalances, high blood pressure, or chronic fatigue. Our certified practitioners for men and women provide this service with expert care, also available through our convenient home service.
+                                    Do you feel constantly sluggish, or are you managing chronic conditions like hypertension or digestive discomfort? Often, we focus on external pain, but true wellness starts deep inside. At <strong>Al Madina Hijama Center</strong> in Bahria Town, Lahore, we specialize in internal healing. We don&apos;t just treat symptoms; we use targeted Cupping Therapy to optimize the function of your vital organs.
                                 </motion.p>
 
-                                {/* Benefits Section */}
-                                <motion.h3 variants={itemVariants} className="mt-12 text-3xl font-bold text-gray-900">Key Benefits for Your Internal Health</motion.h3>
+                                {/* Section 1: High BP */}
+                                <motion.h2 variants={itemVariants} className="mt-12 text-3xl font-bold text-teal-600">Managing High Blood Pressure Naturally</motion.h2>
+                                <motion.p variants={itemVariants} className="mt-4 text-lg text-gray-600 leading-relaxed">
+                                    Hypertension is a silent issue affecting many in Pakistan. If you are looking for a natural way to manage your levels, <strong>hijama for high blood pressure</strong> is a powerful, time-tested therapy.
+                                </motion.p>
+                                <motion.p variants={itemVariants} className="mt-4 text-lg text-gray-600 leading-relaxed">
+                                    High blood pressure often results from increased resistance in your blood vessels. Cupping therapy works by drawing stagnant blood out of the system and encouraging fresh, oxygenated blood to circulate freely. This process helps to dilate blood vessels and reduce the pressure on arterial walls.
+                                </motion.p>
+                                <motion.p variants={itemVariants} className="mt-4 text-lg text-gray-600 leading-relaxed">
+                                    Our therapists are trained to identify specific <strong>hijama points for high blood pressure</strong> located on the upper back and neck. By stimulating these points, we aim to lower stress levels and regulate circulation, providing a complementary approach to your heart health alongside your doctor&apos;s advice.
+                                </motion.p>
+
+                                {/* Image for BP */}
+                                <motion.div variants={itemVariants} className="mt-8">
+                                    <Image 
+                                        src="/services/bp-points.webp" 
+                                        alt="Therapist applying hijama cups on upper back for blood pressure regulation"
+                                        className="w-full h-auto object-cover rounded-xl shadow-lg"
+                                        width={1600}
+                                        height={900}
+                                        style={{ maxHeight: '500px' }}
+                                    />
+                                    <p className="mt-2 text-sm text-gray-500 italic text-center">Targeting specific Sunnah points to support healthy blood flow.</p>
+                                </motion.div>
+
+                                {/* Section 2: Stomach & Digestion */}
+                                <motion.h2 variants={itemVariants} className="mt-12 text-3xl font-bold text-teal-600">Digestive Relief: Hijama for Stomach Problems</motion.h2>
+                                <motion.p variants={itemVariants} className="mt-4 text-lg text-gray-600 leading-relaxed">
+                                    In Lahore, our rich diet often leads to digestive struggles. Whether you are dealing with chronic acidity, bloating, or constipation, <strong>hijama for stomach</strong> issues can provide surprising relief.
+                                </motion.p>
+                                <motion.p variants={itemVariants} className="mt-4 text-lg text-gray-600 leading-relaxed">
+                                    We utilize both dry and wet <strong>cupping on the stomach</strong> area (navel and abdomen) to stimulate the digestive organs. This therapy helps to:
+                                </motion.p>
+                                <ul className="mt-4 space-y-2 text-lg text-gray-600 list-disc pl-5">
+                                    <li>Relieve deep-seated muscle tension in the abdomen (check our <Link href="/services/hijama-for-pain-relief" className="text-blue-600 underline">pain relief service</Link> for more on muscle tension).</li>
+                                    <li>Reduce inflammation in the gut (Gastritis).</li>
+                                    <li>Improve metabolism and relieve constipation.</li>
+                                </ul>
+                                <motion.p variants={itemVariants} className="mt-4 text-lg text-gray-600 leading-relaxed">
+                                    Many of our clients report feeling lighter and less bloated immediately after a session targeting these digestive meridians.
+                                </motion.p>
+
+                                {/* Section 3: Cholesterol */}
+                                <motion.h2 variants={itemVariants} className="mt-12 text-3xl font-bold text-teal-600">Combating Cholesterol and Heart Health</motion.h2>
+                                <motion.p variants={itemVariants} className="mt-4 text-lg text-gray-600 leading-relaxed">
+                                    High cholesterol creates blockages that force your heart to work harder. Our specific protocol for <strong>hijama for cholesterol</strong> focuses on removing toxins and &quot;bad blood&quot; that contributes to sluggish circulation. By clearing these pathways, we support your body&apos;s natural ability to break down lipids, contributing to better heart health and reduced fatigue.
+                                </motion.p>
+
+                                {/* Section 4: Detox (Liver/Kidney) */}
+                                <motion.h2 variants={itemVariants} className="mt-12 text-3xl font-bold text-teal-600">The Ultimate Body Reset: Cupping for Detox</motion.h2>
+                                <motion.p variants={itemVariants} className="mt-4 text-lg text-gray-600 leading-relaxed">
+                                    Your liver and kidneys are your body’s filtration system. Over time, they can become overwhelmed by processed foods and environmental toxins. We offer a specialized <strong>cupping for detox</strong> session designed to support these organs.
+                                </motion.p>
+                                <ul className="mt-4 space-y-2 text-lg text-gray-600 list-disc pl-5">
+                                    <li><strong>Hijama for Liver:</strong> We target points on the right side of the back to stimulate liver function, helping to clear toxins and improve energy.</li>
+                                    <li><strong>Hijama for Kidney:</strong> Specific points on the lower back are treated to support kidney filtration and reduce urinary issues.</li>
+                                </ul>
+                                <motion.p variants={itemVariants} className="mt-4 text-lg text-gray-600 leading-relaxed">
+                                    This full-body approach ensures that your internal systems are running clean and efficient.
+                                </motion.p>
+
+                                 {/* Image for Detox */}
+                                 <motion.div variants={itemVariants} className="mt-8">
+                                    <Image 
+                                        src="/services/detox-points.webp" 
+                                        alt="Diagram showing hijama points for liver and kidney detox on the human back"
+                                        className="w-full h-auto object-cover rounded-xl shadow-lg"
+                                        width={1600}
+                                        height={900}
+                                        style={{ maxHeight: '500px' }}
+                                    />
+                                </motion.div>
+
+                                {/* Section 5: Diabetes Support */}
+                                <motion.h2 variants={itemVariants} className="mt-12 text-3xl font-bold text-teal-600">Support for Diabetes and Metabolic Health</motion.h2>
+                                <motion.p variants={itemVariants} className="mt-4 text-lg text-gray-600 leading-relaxed">
+                                    Living with diabetes requires constant care, and many of our patients in Lahore look for natural ways to support their lifestyle. While Hijama is not a replacement for insulin or medication, <strong>hijama for diabetes</strong> (sugar patients) is widely used to improve quality of life.
+                                </motion.p>
+                                <motion.p variants={itemVariants} className="mt-4 text-lg text-gray-600 leading-relaxed">
+                                    High blood sugar levels can damage blood vessels and nerves over time, leading to poor circulation, especially in the feet and hands. Our therapy focuses on:
+                                </motion.p>
+                                <ul className="mt-4 space-y-2 text-lg text-gray-600 list-disc pl-5">
+                                    <li><strong>Improving Circulation:</strong> By removing stagnant blood, we encourage fresh flow to the extremities, which is crucial for preventing diabetic neuropathy.</li>
+                                    <li><strong>Reducing Inflammation:</strong> Chronic inflammation is a key driver of metabolic issues. <strong>Hijama for sugar patients</strong> helps lower systemic inflammation, allowing the body&apos;s insulin response to function more efficiently.</li>
+                                    <li><strong>Stress Reduction:</strong> Stress spikes blood sugar levels. Our relaxing cupping sessions help lower cortisol, indirectly aiding in glucose management.</li>
+                                </ul>
+
+                                {/* Section 6: Immunity */}
+                                <motion.h2 variants={itemVariants} className="mt-12 text-3xl font-bold text-teal-600">Boosting Immunity and Internal Vitality</motion.h2>
+                                <motion.p variants={itemVariants} className="mt-4 text-lg text-gray-600 leading-relaxed">
+                                    Internal health isn&apos;t just about fixing organs; it&apos;s about defending them. If you find yourself falling sick often or feeling constantly drained, your immune system may need a &quot;kickstart.&quot;
+                                </motion.p>
+                                <motion.p variants={itemVariants} className="mt-4 text-lg text-gray-600 leading-relaxed">
+                                    By targeting specific points on the upper back, Hijama stimulates the lymphatic system and promotes the production of white blood cells—your body&apos;s defense soldiers. This natural immunity boost helps your body fight off seasonal flus, infections, and fatigue more effectively, keeping your internal systems strong and resilient.
+                                </motion.p>
+                                
+                                {/* CTA Section */}
+                                <motion.h2 variants={itemVariants} className="mt-12 text-3xl font-bold text-teal-600">Start Your Healing Journey Today</motion.h2>
+                                <motion.p variants={itemVariants} className="mt-4 text-lg text-gray-600 leading-relaxed">
+                                    Your body deserves to feel its best from the inside out. Whether you need support with blood pressure, digestion, or a complete detox, our team at Al Madina Hijama Center is here to guide you.
+                                </motion.p>
+                                <motion.p variants={itemVariants} className="mt-4 text-lg text-gray-600 leading-relaxed">
+                                    <Link href="/booking" className="text-blue-600 font-bold hover:underline">Book your internal health consultation</Link> today and experience the difference of professional, hygienic Cupping Therapy in Lahore.
+                                </motion.p>
+                                {/* --- BENEFITS SECTION (Restored) --- */}
+                                <motion.h3 variants={itemVariants} className="mt-12 text-3xl font-bold text-teal-600">Key Benefits for Your Internal Health</motion.h3>
                                 <motion.ul variants={staggerContainer} className="mt-6 space-y-4">
                                     {benefits.map((benefit, index) => (
                                         <motion.li key={index} variants={itemVariants} className="flex items-start">
@@ -223,17 +327,18 @@ const InternalHealthPage = () => {
                                         </motion.li>
                                     ))}
                                 </motion.ul>
+                                {/* --- END BENEFITS SECTION --- */}
 
                                 {/* Indications/Contraindications Section */}
                                 <motion.div variants={itemVariants} className="mt-12">
-                                    <h3 className="text-3xl font-bold text-gray-900">Is This Holistic Therapy for You?</h3>
+                                    <h3 className="text-3xl font-bold text-teal-600">Is This Holistic Therapy for You?</h3>
                                     <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-8">
                                         <div>
                                             <h4 className="text-xl font-semibold text-gray-800 flex items-center"><CheckCircle className="h-6 w-6 text-green-600 mr-2" />Indications</h4>
                                             <p className="mt-2 text-gray-600">This therapy can provide significant relief for:</p>
                                             <ul className="mt-4 space-y-2 text-gray-700">
                                                 {indications.map((item, index) => (
-                                                    <li key={index} className="flex items-start"><ChevronRight className="w-5 h-5 text-teal-500 mr-2 mt-1 flex-shrink-0" /><span>{item}</span></li>
+                                                    <li key={index} className="flex items-start"><ChevronRight className="w-5 h-5 text-teal-600 mr-2 mt-1 flex-shrink-0" /><span>{item}</span></li>
                                                 ))}
                                             </ul>
                                         </div>
@@ -242,7 +347,7 @@ const InternalHealthPage = () => {
                                             <p className="mt-2 text-gray-600">Please consult our specialist before booking if you have:</p>
                                             <ul className="mt-4 space-y-2 text-gray-700">
                                                 {contraindications.map((item, index) => (
-                                                    <li key={index} className="flex items-start"><ChevronRight className="w-5 h-5 text-teal-500 mr-2 mt-1 flex-shrink-0" /><span>{item}</span></li>
+                                                    <li key={index} className="flex items-start"><ChevronRight className="w-5 h-5 text-teal-600 mr-2 mt-1 flex-shrink-0" /><span>{item}</span></li>
                                                 ))}
                                             </ul>
                                         </div>
@@ -251,7 +356,7 @@ const InternalHealthPage = () => {
                                 </motion.div>
 
                                 {/* Process Section */}
-                                <motion.h3 variants={itemVariants} className="mt-12 text-3xl font-bold text-gray-900">The Internal Health Treatment Process</motion.h3>
+                                <motion.h3 variants={itemVariants} className="mt-12 text-3xl font-bold text-teal-600">The Internal Health Treatment Process</motion.h3>
                                 <div className="mt-6 space-y-8">
                                     {processSteps.map((step, index) => (
                                         <motion.div key={index} variants={itemVariants} className="flex items-start">
@@ -267,6 +372,9 @@ const InternalHealthPage = () => {
                                         </motion.div>
                                     ))}
                                 </div>
+
+                                {/* --- END: NEW CONTENT --- */}
+
                             </motion.div>
                         </div>
 
@@ -278,7 +386,7 @@ const InternalHealthPage = () => {
                                 transition={{ duration: 0.7, ease: 'easeOut' }}
                                 className="sticky top-24 bg-gray-50 p-8 rounded-2xl shadow-lg"
                             >
-                                <h3 className="text-2xl font-bold text-gray-900">Book Your Session</h3>
+                                <h3 className="text-2xl font-bold text-teal-600">Book Your Session</h3>
                                 <p className="mt-2 text-gray-600">Invest in your long-term health and well-being.</p>
                                 
                                 <div className="mt-6 space-y-2">
@@ -306,13 +414,13 @@ const InternalHealthPage = () => {
                                     <h4 className="text-lg font-semibold text-gray-800">Your Specialists</h4>
                                     <div className="flex justify-center items-center gap-8 mt-4">
                                         <div>
-                                            <img src="/ceo.webp" alt="Mr. Jameel ur Rehman" className="w-24 h-24 rounded-full mx-auto object-cover" />
+                                            <Image src="/ceo.webp" alt="Mr. Jameel ur Rehman" className="w-24 h-24 rounded-full mx-auto object-cover" width={96} height={96} />
                                             <p className="mt-2 font-bold">Mr. Jameel ur Rehman</p>
                                             <p className="text-sm text-gray-600">Certified Hijama Therapist</p>
                                         </div>
                                         <div>
                                             {/* Assuming you have an image for the female specialist at /female-specialist.webp */}
-                                            <img src="/female-specialist.webp" alt="Ms. Fatima Khan" className="w-24 h-24 rounded-full mx-auto object-cover" />
+                                            <Image src="/female-specialist.webp" alt="Ms. Fatima Khan" className="w-24 h-24 rounded-full mx-auto object-cover" width={96} height={96} />
                                             <p className="mt-2 font-bold">Ms. Fatima Khan</p>
                                             <p className="text-sm text-gray-600">Certified Hijama Therapist</p>
                                         </div>
@@ -324,7 +432,7 @@ const InternalHealthPage = () => {
 
                     {/* Preparation & After-care Section */}
                     <motion.div initial="hidden" animate="visible" variants={staggerContainer} className="mt-24">
-                        <motion.h2 variants={itemVariants} className="text-4xl font-extrabold text-gray-900 text-center">Preparation & After-care</motion.h2>
+                        <motion.h2 variants={itemVariants} className="text-4xl font-extrabold text-teal-600 text-center">Preparation & After-care</motion.h2>
                         <motion.p variants={itemVariants} className="mt-4 text-lg text-gray-600 text-center max-w-3xl mx-auto">
                             Proper preparation and after-care are vital for supporting your bodys detoxification and healing process.
                         </motion.p>
@@ -334,12 +442,12 @@ const InternalHealthPage = () => {
                                 <motion.div key={index} variants={itemVariants} className="bg-gray-50 p-8 rounded-2xl">
                                     <div className="flex items-center">
                                         <item.icon className="w-10 h-10 text-teal-600 mr-4" />
-                                        <h3 className="text-2xl font-bold text-gray-800">{item.title}</h3>
+                                        <h3 className="text-2xl font-bold text-teal-600">{item.title}</h3>
                                     </div>
                                     <ul className="mt-6 space-y-3 text-gray-700">
                                         {item.points.map((point, i) => (
                                             <li key={i} className="flex items-start">
-                                                <ChevronRight className="w-5 h-5 text-teal-500 mr-2 mt-1 flex-shrink-0" />
+                                                <ChevronRight className="w-5 h-5 text-teal-600 mr-2 mt-1 flex-shrink-0" />
                                                 <span>{point}</span>
                                             </li>
                                         ))}
@@ -357,7 +465,7 @@ const InternalHealthPage = () => {
                             animate="visible"
                             variants={staggerContainer}
                         >
-                            <motion.h2 variants={itemVariants} className="text-4xl md:text-5xl font-extrabold text-gray-800">
+                            <motion.h2 variants={itemVariants} className="text-4xl md:text-5xl font-extrabold text-teal-600">
                                 Frequently Asked Questions
                             </motion.h2>
                             <motion.p variants={itemVariants} className="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">
@@ -406,4 +514,3 @@ const InternalHealthPage = () => {
 };
 
 export default InternalHealthPage;
-
