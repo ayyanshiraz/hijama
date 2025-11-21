@@ -22,6 +22,98 @@ export const blogPageMetadata = {
 // Array containing all blog posts
 export const blogPosts: BlogPost[] = [
     {
+    id: 5,
+    slug: 'what-is-hijama-benefits-lahore',
+    title: 'What is Hijama? History, Benefits, and Best Cupping Therapy in Lahore',
+    excerpt: 'Feeling stressed or in pain? Hijama is an ancient Sunnah remedy making a comeback in Lahore. From detoxing your body to boosting fertility, discover why this therapy is the best of medicines.',
+    metaDescription: "Discover the healing power of Hijama (Cupping Therapy). Learn about its Sunnah history, benefits for pain and fertility, and how to book a safe session in Bahria Town, Lahore.",
+    imageUrl: '/blogs/b5.webp',
+    altText: 'Professional Hijama cupping therapy session in Lahore showing sterile cups on the back for pain relief and detox.',
+    category: 'Hijama Therapy & Education',
+    date: 'November 21, 2025',
+    focusKeyphrase: 'Hijama in Lahore / Cupping Therapy Benefits',
+    content: `
+        <p class="text-justify mb-4">Living in a busy city like Lahore, especially in fast-paced areas like Bahria Town, takes a toll on our health. We sit at desks all day, breathe in smog, and deal with constant stress. While modern medicine is great, many people are looking for something more natural—something that heals the whole body, not just the symptoms.</p>
+
+        <p class="text-justify mb-4">This is where Hijama comes in. You might know it as "Wet Cupping."</p>
+
+        <p class="text-justify mb-4">So, what exactly is it? The word comes from the Arabic word <em>hajm</em>, which means "sucking." It is a therapy that uses suction cups to gently draw out stagnant or "bad" blood from your body. It is not just a spa treatment; it is a deep detox for your system. At Al Madina Hijama Center, we combine this ancient wisdom with strict modern hygiene to help you feel your best.</p>
+
+        <h2 class="text-3xl font-bold mt-6 mb-4 text-teal-700">History & Sunnah: The Foundation</h2>
+        <p class="text-justify mb-4">Hijama is not a new fad. It has deep roots in history and religion.</p>
+
+        <h3 class="text-2xl font-bold mt-4 mb-4 text-teal-600">A Global History</h3>
+        <p class="text-justify mb-4">Thousands of years ago, the Egyptians described cupping in one of the oldest medical books in the world, the Ebers Papyrus (1550 BC). The Chinese have also used it for over 5,000 years to balance the energy (Qi) of the body.</p>
+
+        <h3 class="text-2xl font-bold mt-4 mb-4 text-teal-600">The Prophetic Tradition (Sunnah)</h3>
+        <p class="text-justify mb-4">For Muslims, Hijama is special because it is a Sunnah of Prophet Muhammad (PBUH). It is more than just medicine; it is an act of worship when done with the right intention.</p>
+
+        <ul class="list-disc list-inside mt-4 space-y-2 ml-4 mb-4">
+            <li><strong>The Night Journey:</strong> When the Prophet (PBUH) went on the Isra Wal Miraj (Night Journey), the angels told him: "Upon you is cupping (Hijama), O Muhammad."</li>
+            <li><strong>The Best Cure:</strong> The Prophet (PBUH) famously said: "Indeed in cupping (Hijama) there is a cure."</li>
+        </ul>
+
+        <p class="text-justify mb-4">He used it himself for headaches, poisoning, and even spiritual protection (magic). This makes Hijama a powerful way to heal both your physical body and your spiritual heart.</p>
+
+        <img src="/blogs/b5(1).webp" alt="Hijama cups placed on back for sunnah cupping therapy" class="rounded-lg my-8 shadow-md" />
+
+        <h2 class="text-3xl font-bold mt-6 mb-4 text-teal-700">How It Works: The Hijama Procedure</h2>
+        <p class="text-justify mb-4">If you have never had it done, the idea of "wet cupping" might sound scary. But do not worry—it is a gentle process. Here is what happens during a session at our clinic:</p>
+
+        <h3 class="text-2xl font-bold mt-4 mb-4 text-teal-600">1. Suction (The Vacuum)</h3>
+        <p class="text-justify mb-4">First, we place sterile plastic cups on specific points on your back or head. We use a pump to pull the air out. This creates a vacuum that pulls old, stagnant blood from deep inside your muscles up to the surface of your skin.</p>
+
+        <h3 class="text-2xl font-bold mt-4 mb-4 text-teal-600">2. The "Scratch" (Scarification)</h3>
+        <p class="text-justify mb-4">We remove the cup and make tiny, feather-light scratches on the skin. This is not a deep cut. It feels like a small scratch or a mosquito bite.</p>
+
+        <h3 class="text-2xl font-bold mt-4 mb-4 text-teal-600">3. Extraction</h3>
+        <p class="text-justify mb-4">The cup is put back on. The suction gently pulls out the toxic blood through those tiny scratches. This blood is often dark and thick because it is full of waste and toxins.</p>
+        <p class="text-justify mb-4">Unlike <a href="/services/dry-cupping" class="text-blue-600 hover:underline">"Dry Cupping"</a> which just massages the muscles, Hijama actually removes the toxins from your body.</p>
+
+        <h2 class="text-3xl font-bold mt-6 mb-4 text-teal-700">Key Benefits: Why Choose Hijama?</h2>
+        <p class="text-justify mb-4">Why do people in Lahore love Hijama? Because it works. Here are the top benefits:</p>
+
+        <ul class="list-none mt-4 space-y-4 ml-4">
+            <li>
+                <strong class="text-teal-800 text-lg">1. Detoxification</strong>
+                <p class="text-justify mt-1">Think of Hijama as an oil change for your body. It removes "metabolic waste"—the trash your cells produce—along with heavy metals that we breathe in from pollution.</p>
+            </li>
+            <li>
+                <strong class="text-teal-800 text-lg">2. Pain Relief (Back, Neck, and Migraines)</strong>
+                <p class="text-justify mt-1">This is the #1 reason people visit us. If you have lower back pain from sitting in an office chair, or stiff shoulders, Hijama improves blood flow to those areas and releases natural painkillers (endorphins). It is also excellent for Migraines, reducing the pressure and throbbing instantly.</p>
+            </li>
+            <li>
+                <strong class="text-teal-800 text-lg">3. Womens Health & Fertility</strong>
+                <p class="text-justify mt-1">Hijama is fantastic for women suffering from <strong><a href="/services/pcos" class="text-blue-600 hover:underline">PCOS</a></strong> (Polycystic Ovary Syndrome) or hormonal imbalances. By regulating hormones and improving blood flow to the reproductive organs, it can help boost fertility naturally. <br><em>Note: We have female specialists for our female clients to ensure complete privacy.</em></p>
+            </li>
+            <li>
+                <strong class="text-teal-800 text-lg">4. Hair Loss (Alopecia)</strong>
+                <p class="text-justify mt-1">Yes, it helps with hair! Hijama on the head opens up the pores and rushes fresh, oxygen-rich blood to the hair follicles. This can help flush out DHT (the hormone that kills hair) and encourage regrowth.</p>
+            </li>
+        </ul>
+
+        <h2 class="text-3xl font-bold mt-6 mb-4 text-teal-700">Safety & Certification in Lahore</h2>
+        <p class="text-justify mb-4">This is the most important part. Because Hijama involves blood, you must be careful about where you go. In Pakistan, Hepatitis C is a real risk if equipment is reused. At Al Madina Hijama Center, we have a zero-tolerance policy for unsafe practices.</p>
+
+        <ul class="list-disc list-inside mt-4 space-y-2 ml-4 mb-4">
+            <li><strong>100% Single-Use Equipment:</strong> We use a brand new cup, a brand new blade, and brand new gloves for every single patient. We open the sealed packet in front of you. Once used, they are destroyed.</li>
+            <li><strong>PHC Compliant:</strong> We follow the strict guidelines of the Punjab Healthcare Commission. We are not a street-side barber shop; we are a registered clinical center.</li>
+        </ul>
+
+        <h2 class="text-3xl font-bold mt-6 mb-4 text-teal-700">Conclusion</h2>
+        <p class="text-justify mb-4">Hijama is the perfect blend of spiritual reward and medical healing. Whether you are suffering from chronic pain, hair loss, or just want to revive a Sunnah, this therapy offers a safe, natural solution.</p>
+        <p class="text-justify font-bold mb-4">Do not gamble with your health. Choose a certified, sterile, and professional clinic right here in Bahria Town.</p>
+
+        <div class="bg-teal-50 p-6 rounded-lg border border-teal-200 mt-6">
+            <h3 class="text-2xl font-bold mb-4 text-teal-800">Book Your Consultation Today</h3>
+            <p class="mb-2"><strong>Al Madina Hijama Center (Shifa Homeo Clinic)</strong></p>
+            <p class="mb-2"><strong>Location:</strong> 1-J, Shop No. 2, F/F, Gulbahar Block, Near Talwar Chowk, Commercial Area, Sector C, Bahria Town, Lahore.</p>
+            <p class="mb-2"><strong>Phone:</strong> +92 300 7598000</p>
+            <p class="mb-2"><strong>Price:</strong> Affordable sessions starting from PKR 300/ per cup.</p>
+        </div>
+    `
+    },
+    {
     id: 4,
     slug: 'hijama-center-lahore-for-ladies',
     title: 'The Best Hijama Center in Lahore for Ladies You Can Trust',
