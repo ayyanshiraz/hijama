@@ -10,7 +10,11 @@ import FloatingWhatsApp from '@/components/FloatingWhatsApp'; // <-- 1. IMPORT I
 export const metadata: Metadata = {
     title: "Best Hijama Center in Lahore - Al Madina Cupping Therapy", // Title mein bhi Bahria Town add kiya
     description: "Experience holistic healing at Al Madina Hijama Center, Bahria Town, Lahore. Our certified specialist, Mr. Jameel Ur Rehman, offers expert cupping therapy for pain relief, detox, and wellness. Book your appointment today.", // Description mein Bahria Town add kiya
-};
+    
+    alternates: {
+    canonical: 'https://www.almadinahijamacenter.com',
+    },
+  };
 
 export default function RootLayout({
   children,
