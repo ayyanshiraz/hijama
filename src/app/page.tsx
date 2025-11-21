@@ -424,32 +424,93 @@ ${message}
 // SEO FIX 1: LOCAL BUSINESS SCHEMA
 // -----------------------------------------------------------------------------------------
 const jsonLdSchema = {
-    "@context": "https://schema.org",
-    "@type": "Medical Clinic",
-    "name": "Al Madina Hijama Center",
-    "alternateName": "Al Madina Cupping Therapy Lahore",
-    "description": "Expert Hijama and cupping therapy in Lahore for pain management, detoxification, and holistic wellness.",
-    "image": "https://www.almadinahijamacenter.com/why.webp",
-    "telephone": "+92 300 7598000",
-    "email": "info@almadinahijamacenter.com",
-    "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "MashaAllah Center, 213-A, opp. Car Parking Grand Mosque, Commercial Sector C Bahria Town",
-        "addressLocality": "Lahore",
-        "postalCode": "53720",
-        "addressCountry": "PK"
-    },
-    "url": "https://www.almadinahijamacenter.com/",
-    "openingHours": "Mo-Su 00:00-23:59", // ⬅️ CRITICAL: UPDATE THIS WITH ACTUAL HOURS!
-    "medicalSpecialty": "Alternative Medicine",
-    "availableService": {
-        "@type": "Medical Procedure",
-        "name": "Hijama Cupping Therapy"
-    },
-    "founder": {
-        "@type": "Person",
-        "name": "Mr. Jameel Ur Rehman"
-    }
+    "@context": "https://schema.org",
+    "@type": "MedicalClinic",
+    "name": "Al Madina Hijama Center",
+    "alternateName": [
+        "Al Madina Cupping Therapy Lahore",
+        "Best Hijama Center in Lahore",
+        "Hijama Home Service Lahore"
+    ],
+    // Updated Description with your key USPs
+    "description": "Certified Hijama center in Lahore offering Clinic and Home Visit services. We ensure 100% privacy with separate Female Staff for ladies and Male Staff for gents. Sterile, safe, and Sunnah-compliant cupping therapy.",
+    "image": "https://www.almadinahijamacenter.com/why.webp",
+    "telephone": "+92 300 7598000",
+    "email": "info@almadinahijamacenter.com",
+    "url": "https://www.almadinahijamacenter.com/",
+    
+    "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "MashaAllah Center, 213-A, opp. Car Parking Grand Mosque, Commercial Sector C Bahria Town",
+        "addressLocality": "Lahore",
+        "postalCode": "53720",
+        "addressCountry": "PK"
+    },
+
+    "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "31.3668", 
+        "longitude": "74.1838"
+    },
+
+    // Covering Whole Lahore for Home Service
+    "areaServed": [
+        { "@type": "City", "name": "Lahore" },
+        { "@type": "Place", "name": "Bahria Town Lahore" },
+        { "@type": "Place", "name": "DHA Defence" },
+        { "@type": "Place", "name": "Johar Town" },
+        { "@type": "Place", "name": "Gulberg" },
+        { "@type": "Place", "name": "Wapda Town" },
+        { "@type": "Place", "name": "Model Town" },
+        { "@type": "Place", "name": "Valencia Town" }
+    ],
+
+    "sameAs": [
+        "https://www.facebook.com/BestHijamaLahore/", 
+        "https://www.instagram.com/almadinahijmacenter/?igsh=enIxdWdxb2Vlejlj#"
+    ],
+
+    "openingHoursSpecification": [
+        {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+            "opens": "09:00",
+            "closes": "22:00"
+        }
+    ],
+
+    "medicalSpecialty": "Alternative Medicine",
+    "priceRange": "PKR 1500 - PKR 5000",
+    
+    // Specifically highlighting Home Service & Gender Staff
+    "availableService": [
+        {
+            "@type": "MedicalProcedure",
+            "name": "Hijama Home Service (Home Visit)"
+        },
+        {
+            "@type": "MedicalProcedure",
+            "name": "Ladies Hijama by Female Specialist (100% Privacy)"
+        },
+        {
+            "@type": "MedicalProcedure",
+            "name": "Gents Hijama by Male Specialist"
+        },
+        {
+            "@type": "MedicalProcedure",
+            "name": "Full Body Detox Hijama"
+        },
+        {
+            "@type": "MedicalProcedure",
+            "name": "Pain Relief Cupping Therapy"
+        }
+    ],
+    
+    "founder": {
+        "@type": "Person",
+        "name": "Mr. Jameel Ur Rehman",
+        "jobTitle": "Certified Hijama Practitioner"
+    }
 };
 
   return (
