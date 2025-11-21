@@ -41,11 +41,11 @@ const slideshowData = [
     altText: 'Traditional Hijama cups and tools laid out for treatment, emphasizing Sunnah healing',
     title: (
       <>
-      <h1>
+      
         Discover Natural Healing  
         <br />
         Through <span className="text-teal-400">Sunnah Hijama </span>
-        </h1>
+        
       </>
     ),
     subtitle: 'Embrace a holistic approach to wellness with our traditional and effective Hijama cupping therapies.',
