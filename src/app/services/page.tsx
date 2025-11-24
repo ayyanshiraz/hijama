@@ -11,20 +11,20 @@ import {
   Minus,
   Phone,
   ChevronRight,
-  Flame,      // <-- Added
-  Sparkles,   // <-- Added
-  Leaf,       // <-- Added
-  Sunrise,    // <-- Added
-  ShieldAlert,// <-- Added
-  Smile,      // <-- Added
-  Activity, // <-- Added for Breast Gilti
-  Target    // <-- Added for PCOS
+  Flame,
+  Sparkles,
+  Leaf,
+  Sunrise,
+  ShieldAlert,
+  Smile,
+  Activity,
+  Target
 } from 'lucide-react';
 import { useState } from 'react';
 import { motion, AnimatePresence, Variants } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import Link from 'next/link';
-import Image from 'next/image'; // <-- Make sure Image is imported
+import Image from 'next/image';
 
 // Data for the services offered
 const servicesList = [
@@ -77,31 +77,27 @@ const servicesList = [
     image: '/services/s7.webp',
     learnMoreLink: '/services/fire-cupping'
   },
-  // ===== SEPARATED SERVICES =====
   {
-    icon: Smile, // Changed icon
-    title: 'Female Face Hijama (Jonk)', // Specific title
+    icon: Smile,
+    title: 'Female Face Hijama (Jonk)',
     description: 'A specialized Leech Therapy (Jonk) treatment for women, focusing on facial rejuvenation, reducing fine lines, and promoting a natural glow.',
-    image: '/services/s8.webp', // Kept original image
-    learnMoreLink: '/services/female-face-hijama' // New link
+    image: '/services/s8.webp',
+    learnMoreLink: '/services/female-face-hijama'
   },
   {
-    icon: Sparkles, // Kept icon
-    title: 'Beauty Hijama', // General title
+    icon: Sparkles,
+    title: 'Beauty Hijama',
     description: 'Gentle cupping techniques for men and women to enhance skin tone, reduce puffiness, stimulate collagen, and achieve a radiant complexion.',
-    image: '/services/s9.webp', // New image needed
-    learnMoreLink: '/services/beauty-hijama' // New link
+    image: '/services/s9.webp',
+    learnMoreLink: '/services/beauty-hijama'
   },
-  // =============================
-  // ===== REPLACED Leech Therapy with Breast Gilti =====
   {
-    icon: Activity, // Using Activity icon
+    icon: Activity,
     title: 'Hijama for Breast Cysts',
     description: 'A focused, non-invasive therapy to help manage and reduce breast cysts (Gilti) by improving local circulation, reducing inflammation, and promoting lymphatic drainage.',
-    image: '/services/s10.webp', // New image path
-    learnMoreLink: '/services/breast-cysts' // New link
+    image: '/services/s10.webp',
+    learnMoreLink: '/services/breast-cysts'
   },
-  // ================================================
   {
     icon: Sunrise,
     title: 'Hijama for Baldness',
@@ -116,18 +112,15 @@ const servicesList = [
     image: '/services/s12.webp',
     learnMoreLink: '/services/hijama-for-fistula'
   },
-// ===== ADDED PCOS Service =====
   {
-    icon: Target, // Using Target icon
+    icon: Target,
     title: 'Hijama for PCOS',
     description: 'Targeted Hijama therapy to help regulate menstrual cycles, balance hormones, reduce symptoms like cysts and insulin resistance associated with PCOS.',
-    image: '/services/s13.webp', // New image path
-    learnMoreLink: '/services/pcos' // New link
+    image: '/services/s13.webp',
+    learnMoreLink: '/services/pcos'
   }
-  // ============================
 ];
 
-// Data for the FAQ section
 const faqs = [
   {
     question: "What is the difference between Blood and Dry Hijama?",
@@ -147,7 +140,19 @@ const faqs = [
   }
 ];
 
-// Main Services Page Component
+// --- SEO Schema ---
+const jsonLdSchema = {
+  "@context": "https://schema.org",
+  "@type": "MedicalWebPage",
+  "name": "Hijama & Cupping Services",
+  "description": "Explore our full range of Hijama and Cupping therapy services in Lahore, including Blood Cupping, Dry Cupping, Fire Cupping, and specialized treatments for pain and detox.",
+  "provider": {
+    "@type": "MedicalClinic",
+    "name": "Al Madina Hijama Center",
+    "image": "https://www.almadinahijamacenter.com/services/s1.webp"
+  }
+};
+
 const ServicesPage = () => {
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
 
@@ -174,11 +179,16 @@ const ServicesPage = () => {
 
   return (
     <main className="bg-white text-gray-800">
+      <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdSchema) }}
+      />
+
       {/* --- Hero Section --- */}
       <section className="relative bg-gray-800 text-white py-32 sm:py-48 flex items-center justify-center">
         <div
           className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: "url('/services/1.avif')" }} // This is likely a background, keep as style
+          style={{ backgroundImage: "url('/services/1.avif')" }}
         ></div>
         <div className="absolute inset-0 bg-black opacity-60"></div>
         <div className="relative container mx-auto px-6 text-center z-10">
@@ -225,23 +235,22 @@ const ServicesPage = () => {
               <motion.div
                 key={index}
                 variants={itemVariants}
-                className="h-full" // Ensure motion.div takes full height for Link
+                className="h-full"
               >
-                {/* --- FIX: Updated Link Component --- */}
+                {/* --- SEO FIX: Main Wrapper is a Link --- */}
                 <Link 
                   href={service.learnMoreLink} 
-                  className="h-full" // Moved className from <a> to <Link>
+                  className="block h-full"
                 >
-                  {/* The <a> tag is removed */}
                   <div className="bg-[#1E4137] rounded-2xl shadow-lg overflow-hidden flex flex-col group transform transition-transform duration-300 hover:-translate-y-2 cursor-pointer h-full">
                     {/* Image Container */}
                     <div className="relative w-full h-48">
                       <Image
                         src={service.image}
                         alt={service.title}
-                        fill={true} // Use fill prop
-                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" // Add sizes
-                        className="object-cover" // Removed w-full h-full as fill handles it
+                        fill={true}
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        className="object-cover"
                       />
                     </div>
                     {/* Text Content Container */}
@@ -258,17 +267,13 @@ const ServicesPage = () => {
                         {service.description}
                       </p>
                       <div className="mt-auto">
-                        <button
-                          onClick={(e) => {
-                            e.preventDefault(); // Prevent the Link's navigation
-                            e.stopPropagation(); // Stop the event from bubbling to the parent Link
-                            window.location.href = '/booking'; // Navigate manually to booking
-                          }}
+                        {/* --- SEO FIX: Changed Button to Span (Inside Link) --- */}
+                        <span
                           className="inline-flex items-center justify-center text-center px-5 py-3 bg-[#FF6900] text-white font-semibold rounded-lg hover:brightness-90 transition-all duration-300 w-full"
                         >
                           Book Now
                           <ChevronRight className="ml-2 h-5 w-5" />
-                        </button>
+                        </span>
                       </div>
                     </div>
                   </div>
@@ -296,74 +301,6 @@ const ServicesPage = () => {
                 Your questions, answered. Here is some information to help you feel prepared for your healing journey.
               </motion.p>
             </motion.div>
-
-            {/* --- NEW PRICING CHART --- */}
-            <motion.div
-              className="max-w-4xl mx-auto mb-16"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.6, ease: 'easeOut' }}
-            >
-              <h3 className="text-3xl font-bold text-gray-800 text-center mb-8">
-                Session Pricing
-              </h3>
-              <div className="bg-white rounded-lg shadow-lg overflow-hidden border border-gray-200">
-                <table className="w-full divide-y divide-gray-200">
-                  {/* --- THIS IS THE UPDATED BLOCK --- */}
-                  <thead className="bg-[#1E4137]">
-                    <tr>
-                      <th scope="col" className="px-6 py-4 text-left text-xs font-medium text-gray-100 uppercase tracking-wider">
-                        Service
-                      </th>
-                      <th scope="col" className="px-6 py-4 text-left text-xs font-medium text-gray-100 uppercase tracking-wider">
-                        Details
-                      </th>
-                      <th scope="col" className="px-6 py-4 text-right text-xs font-medium text-gray-100 uppercase tracking-wider">
-                        Price
-                      </th>
-                    </tr>
-                  </thead>
-                  {/* --- END OF UPDATE --- */}
-                  <tbody className="bg-white divide-y divide-gray-200">
-                    <tr>
-                      <td className="px-6 py-4 whitespace-nowrap">
-                        <div className="text-sm font-semibold text-gray-900">Per Cup</div>
-                      </td>
-                      <td className="px-6 py-4">
-                        <div className="text-sm text-gray-700">Select the exact number of cups you need.</div>
-                      </td>
-                      <td className="px-6 py-4 text-right whitespace-nowrap">
-                        <div className="text-sm font-semibold text-teal-600">Rs. 300 / cup</div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td className="px-6 py-4 whitespace-nowrap">
-                        <div className="text-sm font-semibold text-gray-900">According to Sunnah</div>
-                      </td>
-                      <td className="px-6 py-4">
-                        <div className="text-sm text-gray-700">Fixed 11-cup session as per Sunnah.</div>
-                      </td>
-                      <td className="px-6 py-4 text-right whitespace-nowrap">
-                        <div className="text-sm font-semibold text-teal-600">Rs. 3300 (Fixed)</div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td className="px-6 py-4 whitespace-nowrap">
-                        <div className="text-sm font-semibold text-gray-900">General Session</div>
-                      </td>
-                      <td className="px-6 py-4">
-                        <div className="text-sm text-gray-700">Fixed 15-cup session for general detox.</div>
-                      </td>
-                      <td className="px-6 py-4 text-right whitespace-nowrap">
-                        <div className="text-sm font-semibold text-teal-600">Rs. 4500 (Fixed)</div>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </motion.div>
-            {/* --- END OF PRICING CHART --- */}
 
             <div className="max-w-4xl mx-auto flex flex-col gap-y-4">
               {faqs.map((faq, index) => {
@@ -411,6 +348,7 @@ const ServicesPage = () => {
             Book a free on-call consultation with our specialist to discuss your needs and find the perfect therapy for you.
           </p>
           <div className="mt-10">
+            {/* --- SEO FIX: Changed to standard <a> tag for Telephone link --- */}
             <a
               href="tel:+923007598000"
               className="inline-flex items-center px-8 py-4 bg-[#FF6900] text-white font-bold text-lg rounded-full shadow-lg hover:brightness-90 transition-all duration-300 transform hover:scale-105"
