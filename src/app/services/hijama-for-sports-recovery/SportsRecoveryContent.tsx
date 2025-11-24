@@ -1,11 +1,11 @@
 'use client';
 
-import { Phone, CheckCircle, Shield, Clock, Sun, Moon, Droplets, Plus, Minus, ChevronRight, AlertTriangle, Zap, ShieldCheck } from 'lucide-react';
+import { CheckCircle, Shield, Clock, Sun, Moon, Droplets, Plus, Minus, ChevronRight, AlertTriangle, Zap, ShieldCheck } from 'lucide-react';
 import { motion, AnimatePresence, Variants } from 'framer-motion';
 import { useState } from 'react';
 import Breadcrumbs from '@/components/Breadcrumbs';
-import Image from 'next/image';
 import Link from 'next/link';
+import Image from 'next/image'; // --- IMPORT RESTORED ---
 
 const benefits = [
     { icon: CheckCircle, text: 'Accelerates muscle repair and reduces recovery time' },
@@ -187,7 +187,7 @@ const SportsRecoveryPage = () => {
                                 </motion.p>
 
                                 <motion.p variants={itemVariants} className="mt-4 text-lg text-gray-600 leading-relaxed">
-                                    If you have been searching for <Link href="/contact" className="text-blue-600 font-semibold hover:underline">"Hijama near me"</Link> or "Cupping therapy for sports", you are likely dealing with stiff muscles, lingering pain, or just general fatigue. At <Link href="/" className="text-blue-600 font-semibold hover:underline">Al Madina Hijama Center</Link>, we specialize in Hijama for sports recovery, helping athletes get back in the game faster, stronger, and naturally.
+                                    If you have been searching for <Link href="/contact" className="text-blue-500 font-semibold hover:underline">&quot;Hijama near me&quot;</Link> or &quot;Cupping therapy for sports&quot;, you are likely dealing with stiff muscles, lingering pain, or just general fatigue. At <Link href="/" className="text-blue-500 font-semibold hover:underline">Al Madina Hijama Center</Link>, we specialize in Hijama for sports recovery, helping athletes get back in the game faster, stronger, and naturally.
                                 </motion.p>
 
                                 <motion.h3 variants={itemVariants} className="mt-10 text-2xl font-bold text-teal-500">
@@ -242,21 +242,13 @@ const SportsRecoveryPage = () => {
                                     <li><strong className="text-teal-500">For Bodybuilders:</strong> We target the traps, lats, and quads to relieve tension from heavy lifting and improve muscle definition (vascularity).</li>
                                     <li><strong className="text-teal-500">For Runners & Footballers:</strong> We treat the calves, shins (for shin splints), and plantar fascia (feet) to manage the impact stress.</li>
                                 </motion.ul>
-                                <Image 
-                                                                    src="/services/sports-recovery-cricket.webp" 
-                                                                    alt="Sports cupping therapy treatment for athletes including a cricketer, bodybuilder, and runner recovering from injuries"
-                                                                    className="w-full h-auto object-cover rounded-xl shadow-lg mt-8" // Added mt-8 for spacing
-                                                                    width={1600} // Aspect ratio ke liye
-                                                                    height={900} // Aspect ratio ke liye
-                                                                    style={{ maxHeight: '500px' }}
-                                />
 
                                 <motion.h3 variants={itemVariants} className="mt-10 text-2xl font-bold text-teal-500">
                                     Is Hijama Safe for Athletes?
                                 </motion.h3>
 
                                 <motion.p variants={itemVariants} className="mt-4 text-lg text-gray-600 leading-relaxed">
-                                    Absolutely. At <strong className="text-gray-900">Al Madina Hijama Center</strong>, we adhere to the highest hygiene standards.
+                                    Absolutely. At <strong className="text-teal-500">Al Madina Hijama Center</strong>, we adhere to the highest hygiene standards.
                                 </motion.p>
 
                                 <motion.ul variants={itemVariants} className="mt-4 space-y-3 text-lg text-gray-600 list-disc pl-6">
@@ -264,6 +256,14 @@ const SportsRecoveryPage = () => {
                                     <li><strong className="text-teal-500">Sunnah Compliant:</strong> We perform Hijama according to Sunnah dates and methods, ensuring you get both spiritual and physical healing.</li>
                                     <li><strong className="text-teal-500">The &quot;Marks&quot;:</strong> The circular marks you see on athletes (like Karim Benzema or Michael Phelps) are not bruises. They are a sign that the Hijama has successfully pulled stagnation to the surface. These marks are painless and typically fade within 3 to 7 days.</li>
                                 </motion.ul>
+                                <Image 
+                                    src="/services/sports-recovery-cricket.webp" 
+                                    alt="Sports cupping therapy treatment for athletes including a cricketer, bodybuilder, and runner recovering from injuries"
+                                    className="w-full h-auto object-cover rounded-xl shadow-lg mt-8" // Added mt-8 for spacing
+                                    width={1600} // Aspect ratio ke liye
+                                    height={900} // Aspect ratio ke liye
+                                    style={{ maxHeight: '500px' }}
+                                />
                                 {/* --- NEW CONTENT END --- */}
 
                                 {/* Benefits Section (Original Visual List) */}
