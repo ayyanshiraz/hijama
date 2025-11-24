@@ -22,6 +22,65 @@ export const blogPageMetadata = {
 // Array containing all blog posts
 export const blogPosts: BlogPost[] = [
     {
+    id: 6,
+    slug: 'hijama-center-lahore-for-ladies-female-staff',
+    title: '',
+    excerpt: 'Finding a female Hijama specialist in Lahore can be difficult. Al Madina Hijama Center offers a fully private environment with certified lady doctors for Cupping Therapy. We treat PCOS, migraines, and back pain with complete Parda compliance.',
+    metaDescription: "Looking for a Hijama Center in Lahore for Ladies? We provide certified female staff, 100% privacy, and 24/7 home service in Bahria Town & Lahore. Book now for PCOS & pain relief.",
+    imageUrl: '/blogs/b6.webp',
+    altText: 'Female Hijama Specialist consulting a lady patient in Lahore',
+    category: 'Womens Health & Hijama',
+    date: 'November 24, 2025',
+    focusKeyphrase: 'Hijama Center in Lahore for Ladies',
+    content: `
+        <p class="text-justify mb-4">Finding a reliable and private place for medical treatments is a major concern for women in Pakistan. When it comes to Sunnah treatments like Cupping Therapy, privacy becomes even more important. If you are searching for a <strong>Hijama Center in Lahore for Ladies</strong> that guarantees a safe environment, certified female practitioners, and strict hygiene standards, Al Madina Hijama Center is your ultimate destination.</p>
+
+        <p class="text-justify mb-4">Located in the heart of Bahria Town Lahore, we understand the unique needs of our female patients. Whether you are struggling with hormonal issues like PCOS, chronic back pain, or simply want a detox, our team is here to help you heal naturally.</p>
+
+        <h2 class="text-3xl font-bold mt-6 mb-4 text-teal-700">Why Women Need a Specialized Hijama Center</h2>
+        <p class="text-justify mb-4">Hijama (Cupping Therapy) is a highly effective Sunnah treatment, but it requires exposure of certain body parts like the back, shoulders, or legs. For many women, visiting a general clinic with male staff is not an option due to Parda and modesty reasons.</p>
+        <p class="text-justify mb-4">At Al Madina Hijama Center, we have solved this problem. We are proud to be one of the few centers providing <strong>100% female staff for ladies</strong>. From your initial consultation to the final therapy session, you will be attended to by a certified lady therapist. This ensures you can relax and focus on your healing without any hesitation or discomfort.</p>
+
+        <h2 class="text-3xl font-bold mt-6 mb-4 text-teal-700">Our Services for Women Health</h2>
+        <p class="text-justify mb-4">Our female specialists are trained to treat conditions that specifically affect women. We do not just perform cupping; we provide a complete healing plan.</p>
+
+        <h3 class="text-2xl font-bold mt-4 mb-4 text-teal-600">1. Hijama for PCOS and Hormonal Imbalance</h3>
+        <p class="text-justify mb-4">Polycystic Ovary Syndrome (PCOS) has become very common among young girls and women in Lahore. It leads to weight gain, irregular periods, and fertility issues. Our targeted <strong><a href="/services/pcos" class="text-blue-600 hover:underline">Hijama for PCOS</a></strong> helps regulate blood flow to the reproductive organs, balances hormones, and reduces insulin resistance naturally.</p>
+
+        <h3 class="text-2xl font-bold mt-4 mb-4 text-teal-600">2. Relief from Chronic Pain and Migraines</h3>
+        <p class="text-justify mb-4">Women often suffer from lower back pain, especially after childbirth, or chronic headaches and migraines. Medications often provide only temporary relief. Our <strong>Hijama for Pain Relief</strong> targets specific pressure points to release muscle tension and stagnant blood, providing long-term relief.</p>
+
+        <h3 class="text-2xl font-bold mt-4 mb-4 text-teal-600">3. Face Hijama for Glowing Skin</h3>
+        <p class="text-justify mb-4">Beauty and wellness go hand in hand. We offer specialized Face Hijama and Leech Therapy (Jonk Therapy) for facial rejuvenation. This treatment boosts collagen production, reduces acne marks, and gives your skin a natural, healthy glow.</p>
+
+        <img src="/blogs/b6(1).webp" alt="Wet Cupping Therapy points for PCOS and hormonal balance" class="rounded-lg my-8 shadow-md" />
+
+        <h2 class="text-3xl font-bold mt-6 mb-4 text-teal-700">Hygiene and Safety Standards</h2>
+        <p class="text-justify mb-4">We take hygiene very seriously. In a procedure that involves blood, safety is the top priority.</p>
+        <ul class="list-disc list-inside mt-4 space-y-2 ml-4 mb-4">
+            <li><strong>Disposable Equipment:</strong> We use new cups and blades for every single patient. Nothing is reused.</li>
+            <li><strong>Sterile Environment:</strong> Our clinic in Bahria Town is cleaned and sanitized regularly.</li>
+            <li><strong>Certified Staff:</strong> Our therapists are not just technicians; they are certified professionals who know the exact Sunnah points for every disease.</li>
+        </ul>
+
+        <h2 class="text-3xl font-bold mt-6 mb-4 text-teal-700">24/7 Home Service Hijama in Lahore</h2>
+        <p class="text-justify mb-4">We know that many ladies cannot visit the center due to busy schedules, transport issues, or health conditions. To make healing accessible to everyone, we offer <strong>24/7 Home Service Hijama in Lahore</strong>.</p>
+        <p class="text-justify mb-4">Whether you live in DHA, Gulberg, Model Town, or Johar Town, our female team will come to your home with all the necessary equipment. You can get the same professional treatment in the comfort and privacy of your own bedroom.</p>
+
+        <h2 class="text-3xl font-bold mt-6 mb-4 text-teal-700">Visit Al Madina Hijama Center Today</h2>
+        <p class="text-justify mb-4">If you are looking for the <strong>Best Hijama Center in Lahore for Ladies</strong>, look no further. We combine the spiritual benefits of Sunnah with modern medical hygiene standards.</p>
+        <p class="text-justify font-bold mb-4">Do not delay your healing journey. Health is a blessing, and treating it with the Sunnah method is the best way to preserve it.</p>
+
+        <div class="bg-teal-50 p-6 rounded-lg border border-teal-200 mt-6">
+            <h3 class="text-2xl font-bold mb-4 text-teal-800">Book Your Consultation Today</h3>
+            <p class="mb-2"><strong>Al Madina Hijama Center</strong></p>
+            <p class="mb-2"><strong>Location:</strong> MashaAllah Center, 213-A, Opposite Car Parking Grand Mosque, Commercial Sector C, Bahria Town, Lahore.</p>
+            <p class="mb-2"><strong>Phone:</strong> +92 300 7598000</p>
+            <p class="mb-2"><strong>Note:</strong> Dedicated female staff available upon request.</p>
+        </div>
+    `
+    },
+    {
     id: 5,
     slug: 'what-is-hijama-benefits-lahore',
     title: 'What is Hijama? History, Benefits, and Best Cupping Therapy in Lahore',
