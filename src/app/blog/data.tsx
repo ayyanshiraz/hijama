@@ -24,7 +24,7 @@ export const blogPosts: BlogPost[] = [
     {
     id: 6,
     slug: 'hijama-center-lahore-for-ladies-female-staff',
-    title: '',
+    title: 'Best Hijama Center in Lahore for Ladies – Female Staff & Home Visit',
     excerpt: 'Finding a female Hijama specialist in Lahore can be difficult. Al Madina Hijama Center offers a fully private environment with certified lady doctors for Cupping Therapy. We treat PCOS, migraines, and back pain with complete Parda compliance.',
     metaDescription: "Looking for a Hijama Center in Lahore for Ladies? We provide certified female staff, 100% privacy, and 24/7 home service in Bahria Town & Lahore. Book now for PCOS & pain relief.",
     imageUrl: '/blogs/b6.webp',
