@@ -286,7 +286,7 @@ const WetCuppingPage = () => {
 
                                     <h3 className="mt-8 text-2xl font-bold text-teal-600">Conclusion</h3>
                                     <p className="mt-4 text-lg text-gray-600 leading-relaxed">
-                                        Your comfort and well-being are our top priorities at Al Madina Hijama Center. We provide committed services, with a male specialist for men and a female specialist for women, who are available around the clock. We are available to you whether you require our expert home service anywhere in Lahore or are at our clinic in Bahria Town.
+                                        Your comfort and well-being are our top priorities at <a href='/' className='text-blue-500'>Al Madina Hijama Center</a>. We provide committed services, with a male specialist for men and a female specialist for women, who are available around the clock. We are available to you whether you require our expert home service anywhere in Lahore or are at our clinic in Bahria Town.
                                     </p>
                                 </motion.div>
                                 {/* -- NEW CONTENT END -- */}
@@ -415,6 +415,23 @@ const WetCuppingPage = () => {
                             ))}
                         </div>
                     </motion.div>
+                    <motion.div 
+                                            variants={itemVariants} 
+                                            className="mt-16 p-10 bg-teal-50 rounded-3xl border-t-4 border-teal-500 text-center mx-auto max-w-4xl shadow-sm"
+                                        >
+                                            <h3 className="text-3xl font-extrabold text-teal-500">Book Your Cupping Session Today</h3>
+                                            <p className="mt-4 text-xl text-gray-700 mb-8 leading-relaxed">
+                                                Do not wait for illness to strike. Take a proactive step towards better health.
+                                                Visit Al Madina Hijama Center to flush out toxins and revitalize your body naturally.
+                                            </p>
+                                            
+                                            <Link
+                                                href="/contact"
+                                                className="inline-flex items-center justify-center px-10 py-4 bg-[#FF6900] text-white font-bold text-xl rounded-xl shadow-lg hover:brightness-90 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-xl"
+                                            >
+                                                Book Your Consultation Today
+                                            </Link>
+                                        </motion.div>
 
                     {/* --- FAQ Section --- */}
                     <section className="mt-24">
