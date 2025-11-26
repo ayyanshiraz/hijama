@@ -138,7 +138,7 @@ const FireCuppingPage = () => {
     const renderNewContent = () => (
         <>
             {/* Title corresponding to "Fire Cupping Specialist in Lahore: The Deepest Natural Pain Relief" */}
-            <motion.h2 variants={itemVariants} className="text-4xl font-extrabold text-gray-900">
+            <motion.h2 variants={itemVariants} className="text-4xl font-extrabold text-teal-500">
                 Fire Cupping Specialist in Lahore: The Deepest Natural Pain Relief
             </motion.h2>
 
@@ -162,7 +162,7 @@ const FireCuppingPage = () => {
     // Function to render the "Exclusive Ladies Home Service" content (Plain coded)
     const renderLadiesServiceContent = () => (
         <motion.div variants={itemVariants} className="mt-12 p-8 bg-teal-50 rounded-xl border-l-4 border-teal-600">
-            <h3 className="text-3xl font-bold text-gray-900 flex items-center">
+            <h3 className="text-3xl font-bold text-teal-500 flex items-center">
                 <Shield className="h-7 w-7 text-teal-600 mr-3" /> Exclusive Ladies Home Service with Complete Parda
             </h3>
             <p className="mt-4 text-lg text-gray-700 leading-relaxed">
@@ -191,7 +191,7 @@ const FireCuppingPage = () => {
     // Function to render the "Islamic Way of Healing" content
     const renderIslamicHealingContent = () => (
         <motion.div variants={itemVariants} className="mt-12">
-            <h3 className="text-3xl font-bold text-gray-900">The Islamic Way of Healing and Our Benefit Guarantee</h3>
+            <h3 className="text-3xl font-bold text-teal-500">The Islamic Way of Healing and Our Benefit Guarantee</h3>
             <p className="mt-4 text-lg text-gray-600 leading-relaxed">
                 Our center views cupping, including Fire Cupping, not just as a medical treatment but as a method rooted in traditional and Islamic healing principles. While Wet Hijama (Blood Cupping) is directly linked to the Sunnah, Fire Cupping shares the foundational goal of stimulating the body and removing harmful stagnation. We perform your treatment in the light of the Sunnah, emphasizing hygiene, ethical practice, and sincerity in the intention of healing.
             </p>
@@ -282,7 +282,7 @@ const FireCuppingPage = () => {
                                 {renderLadiesServiceContent()}
 
                                 {/* 3. Benefits Section - Title updated, list items are now more specific */}
-                                <motion.h3 variants={itemVariants} className="mt-12 text-3xl font-bold text-gray-900">
+                                <motion.h3 variants={itemVariants} className="mt-12 text-3xl font-bold text-teal-500">
                                     Key Fire Cupping Benefits for Your Health
                                 </motion.h3>
                                 <motion.p variants={itemVariants} className="mt-4 text-lg text-gray-600 leading-relaxed">
@@ -302,7 +302,7 @@ const FireCuppingPage = () => {
 
                                 {/* 5. Indications/Contraindications Section - Keeping structure but ensuring indications match new copy */}
                                 <motion.div variants={itemVariants} className="mt-12">
-                                    <h3 className="text-3xl font-bold text-gray-900">Is Fire Cupping Right for You?</h3>
+                                    <h3 className="text-3xl font-bold text-teal-500">Is Fire Cupping Right for You?</h3>
                                     <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-8">
                                         <div>
                                             <h4 className="text-xl font-semibold text-gray-800 flex items-center"><CheckCircle className="h-6 w-6 text-green-600 mr-2" />Indications</h4>
@@ -328,7 +328,7 @@ const FireCuppingPage = () => {
 
 
                                 {/* 6. Process Section - Title updated, steps updated */}
-                                <motion.h3 variants={itemVariants} className="mt-12 text-3xl font-bold text-gray-900">Fire Cupping Procedure: How the Magic Happens</motion.h3>
+                                <motion.h3 variants={itemVariants} className="mt-12 text-3xl font-bold text-teal-500">Fire Cupping Procedure: How the Magic Happens</motion.h3>
                                 <p className="mt-4 text-lg text-gray-600 leading-relaxed">
                                     The Fire Cupping Therapy process is quick, safe, and highly effective:
                                 </p>
@@ -358,7 +358,7 @@ const FireCuppingPage = () => {
                                 transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
                                 className="sticky top-24 bg-gray-50 p-8 rounded-2xl shadow-lg"
                             >
-                                <h3 className="text-2xl font-bold text-gray-900">Book Your Session</h3>
+                                <h3 className="text-2xl font-bold text-teal-500">Book Your Session</h3>
                                 <p className="mt-2 text-gray-600">Experience the traditional benefits of Fire Cupping.</p>
                                 
                                 <div className="mt-6 space-y-2">
@@ -403,7 +403,7 @@ const FireCuppingPage = () => {
                     </div>
                     {/* Preparation & After-care Section - No changes requested here */}
                     <motion.div initial="hidden" animate="visible" variants={staggerContainer} className="mt-24">
-                        <motion.h2 variants={itemVariants} className="text-4xl font-extrabold text-gray-900 text-center">Preparation & After-care</motion.h2>
+                        <motion.h2 variants={itemVariants} className="text-4xl font-extrabold text-teal-500 text-center">Preparation & After-care</motion.h2>
                         <motion.p variants={itemVariants} className="mt-4 text-lg text-gray-600 text-center max-w-3xl mx-auto">
                             To maximize the benefits, please follow these important guidelines before and after your treatment.
                         </motion.p>
