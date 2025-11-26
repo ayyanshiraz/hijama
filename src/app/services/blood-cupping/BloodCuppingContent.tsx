@@ -286,7 +286,7 @@ const WetCuppingPage = () => {
 
                                     <h3 className="mt-8 text-2xl font-bold text-teal-600">Conclusion</h3>
                                     <p className="mt-4 text-lg text-gray-600 leading-relaxed">
-                                        Your comfort and well-being are our top priorities at <a href='/' className='text-blue-500'>Al Madina Hijama Center</a>. We provide committed services, with a male specialist for men and a female specialist for women, who are available around the clock. We are available to you whether you require our expert home service anywhere in Lahore or are at our clinic in Bahria Town.
+                                        Your comfort and well-being are our top priorities at <a href="/" className='text-blue-500'>Al Madina Hijama Center</a>. We provide committed services, with a male specialist for men and a female specialist for women, who are available around the clock. We are available to you whether you require our expert home service anywhere in Lahore or are at our clinic in Bahria Town.
                                     </p>
                                 </motion.div>
                                 {/* -- NEW CONTENT END -- */}

@@ -205,9 +205,13 @@ const FireCuppingPage = () => {
     const renderCallToAction = () => (
         <motion.div variants={itemVariants} className="mt-12 p-6 bg-green-50 rounded-lg text-center">
             <h3 className="text-3xl font-bold text-teal-600">Book Now: End Your Pain Today</h3>
-            <p className="mt-3 text-lg text-gray-700">
-                Don't search for Chinese fire cupping near me and settle for uncertified practitioners. Contact <a href='/' className='text-blue-500'>Al Madina Hijama Center</a> today to book your session. Our certified experts, high standards of sterilization, and commitment to your privacy guarantee you the best healing experience in Lahore.
-            </p>
+           <p className="mt-3 text-lg text-gray-700">
+    Don&apos;t search for Chinese fire cupping near me and settle for uncertified practitioners. Contact 
+    <Link href="/" className="text-blue-500">
+        Al Madina Hijama Center
+    </Link> 
+    today to book your session. Our certified experts, high standards of sterilization, and commitment to your privacy guarantee you the best healing experience in Lahore.
+</p>
             <p className="mt-2 text-md text-gray-600">
                 Reach out to us 24/7 to take the powerful step towards natural pain relief.
             </p><br></br>
