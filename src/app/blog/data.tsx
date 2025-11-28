@@ -22,6 +22,64 @@ export const blogPageMetadata = {
 // Array containing all blog posts
 export const blogPosts: BlogPost[] = [
     {
+    id: 7,
+    slug: 'hijama-detox-wellness-lahore-guide',
+    title: 'Hijama Benefits: Deep Detox & Wellness Treatment in Lahore',
+    excerpt: 'Hijama therapy is a drug-free, non-invasive method that removes acidic blood cells and toxins, making it essential for wellness seekers in polluted cities like Lahore.',
+    metaDescription: "Discover the powerful benefits of Hijama (Cupping Therapy) for deep detoxification and stress relief in Lahore. Safe, professional wellness services since 2009.",
+    imageUrl: '/blogs/b7.webp',
+    altText: 'Professional cupping treatment for deep detoxification and wellness in Lahore',
+    category: 'Deep Detox & Wellness',
+    date: 'November 28, 2025',
+    focusKeyphrase: 'Hijama Deep Detox Lahore',
+    content: `
+        <p class="text-justify mb-4">Most detox methods cleanse the stomach and gut. However, toxins are often hidden beneath our blood and skin. This is where <strong>Hijama</strong> differs. It’s not just about digestion; it’s a profound method of internal cleansing that works on blood clotting and deep tissue purification.</p>
+
+        <p class="text-justify mb-4">Living in a busy city like <strong>Lahore</strong> can be detrimental to our health. We face daily traffic fumes, factory pollution, and dust. Furthermore, the food we eat often contains oils and chemicals. Over time, these substances build up inside our bodies. When these toxins remain, we feel tired, lazy, and sick. This guide is for all the wellness enthusiasts of Lahore who want to know how Hijama can provide deep cleansing (detox) and restore vitality.</p>
+
+        <h2 class="text-3xl font-bold mt-6 mb-4 text-teal-700">What is Deep Detox with Hijama: The Cleansing Science</h2>
+        <p class="text-justify mb-4">In Hijama, specialized plastic cups are placed on specific areas of the body, usually the back. The therapist creates a vacuum inside the cups using a suction pump. This suction draws old or stagnant blood or fluids to the surface of the skin. After a few minutes, small, safe cuts are made on the skin. The cups are reinserted, and the vacuum sucks out toxic blood. This removes acidic dead blood cells, heavy metals, and chemical waste that the body can't remove on its own. It's like changing the car's oil, but for your body.</p>
+
+        <img src="/blogs/b7(1).webp" alt="A side-by-side view of Dry Cupping (plastic cups only) and Wet Cupping (Hijama) on a patients back, showing the comparison." class="rounded-lg my-8 shadow-md w-full h-auto max-h-[630px] object-cover" />
+        <h2 class="text-3xl font-bold mt-6 mb-4 text-teal-700">Key Hijama Benefits for Wellness and Anti-Pollution</h2>
+        <p class="text-justify mb-4">Hijama, or wet cupping therapy, offers multiple direct benefits to combat the effects of a busy, polluted urban lifestyle like that of Lahore.</p>
+
+        <h3 class="text-2xl font-bold mt-4 mb-4 text-teal-600">1. Removal of Acidic Waste: Rebalancing the Body</h3>
+        <p class="text-justify mb-4">Our modern diet includes too much sugar and processed foods, which often makes our blood acidic. Acidic blood causes a lot of pain and inflammation in the body. Hijama helps to remove this acidic waste, allowing the body's pH level to become balanced again. This leads to a significant reduction in body aches and joint pain.</p>
+
+        <h3 class="text-2xl font-bold mt-4 mb-4 text-teal-600">2. Boosting the Immune System and Circulation</h3>
+        <p class="text-justify mb-4">When you remove bad blood, the body immediately starts creating new and fresh blood vessels. This triggers the immune system and increases the production of white blood cells. Furthermore, the suction of cupping clears blockages caused by stagnant blood, allowing fresh, oxygenated blood to flow freely. This makes you feel light, refreshed, and stronger against seasonal flu and infections.</p>
+
+        <h3 class="text-2xl font-bold mt-4 mb-4 text-teal-600">3. Mental Clarity and Stress Relief</h3>
+        <p class="text-justify mb-4">Detox isn't just physical, it's mental as well. Poor circulation often causes headaches, migraines, or brain fog. After a hijama detox, many people report feeling more sharp and focused. It also deeply relaxes muscles, which helps reduce stress and anxiety.</p>
+
+        <h2 class="text-3xl font-bold mt-6 mb-4 text-teal-700">Why Deep Detox is Essential for Lahore Residents</h2>
+        <p class="text-justify mb-4">The atmosphere of Lahore presents special challenges. The smog season is very harmful to our lungs and skin. The fine particles present in smog enter our bloodstream and cause long-term damage.</p>
+        
+        <p class="text-justify mb-4">Hijama is very beneficial for Lahore residents as it helps cleanse the lungs and improve respiratory health. Sunnah points on the back specifically target the lungs and heart, helping the body recover from the ill effects of air pollution. It acts as a shield against toxins that enter the air daily.</p>
+
+        <h2 class="text-3xl font-bold mt-6 mb-4 text-teal-700">Safety Standards at Al Madina Hijama Center</h2>
+        <ul class="list-disc list-inside mt-4 space-y-2 ml-4 mb-4">
+            <li><strong>Procedure Safety:</strong> Hijama is very safe when done by a professional. Cuts are very minor and small, like paper scratches, which heal quickly.</li>
+            <li><strong>Hygiene Commitment:</strong> <strong><a href="/" class="text-blue-500">Al Madina Hijama Center in Lahore</a></strong> follows strict hygiene rules. We use single-use disposable cups and blades for every patient.</li>
+            <li><strong>Certified Staff:</strong> Our therapists are certified professionals. When you choose a reputable center, there's no risk of any infection.</li>
+        </ul>
+
+        <h2 class="text-3xl font-bold mt-6 mb-4 text-teal-700">Conclusion: Invest in Preventative Wellness Today</h2>
+        <p class="text-justify mb-4">If you're a wellness enthusiast, don't wait for an illness to start taking care of yourself. A deep detox through Hijama is a preventative measure. It cleanses your system, improves vitality, and helps you live a more active life.</p>
+        
+        <p class="text-justify font-bold mb-4">Make Hijama a part of your wellness routine. It's a natural, safe, and effective way to combat city pollution and mental stress.</p>
+
+        <div class="bg-teal-50 p-6 rounded-lg border border-teal-200 mt-6">
+            <h3 class="text-2xl font-bold mb-4 text-teal-800">Book Your Deep Detox Session</h3>
+            <p class="mb-2"><strong>Al Madina Hijama Center</strong></p>
+            <p class="mb-2"><strong>Location:</strong> MashaAllah Center, 213-A, Opposite Car Parking Grand Mosque, Commercial Sector C, Bahria Town, Lahore.</p>
+            <p class="mb-2"><strong>Phone:</strong> +92 300 7598000</p>
+            <p class="mb-2"><strong>Note:</strong> Dedicated female staff available upon request.</p>
+        </div>
+    `
+},
+    {
     id: 6,
     slug: 'hijama-center-lahore-for-ladies-female-staff',
     title: 'Best Hijama Center in Lahore for Ladies – Female Staff & Home Visit',
