@@ -22,6 +22,96 @@ export const blogPageMetadata = {
 // Array containing all blog posts
 export const blogPosts: BlogPost[] = [
     {
+    id: 8,
+    slug: 'dry-cupping-vs-wet-cupping-hijama-lahore',
+    title: 'Dry Cupping vs Wet Cupping (Hijama): Which is Better?',
+    excerpt: 'Cupping therapy involves two main methods: Dry Cupping and Wet Cupping (Hijama). This guide explains the differences in techniques, benefits, and which is the superior choice for wellness.',
+    metaDescription: 'What is the difference between Dry Cupping (muscle relaxation) and Wet Cupping (Hijama, deep detox)? Choose the right method for pain or cleansing in Lahore.',
+    imageUrl: '/blogs/b8.webp', // Assuming the next sequential image path
+    altText: 'A side-by-side view of Dry Cupping and Wet Cupping (Hijama) cups on a patient back, showing the comparison.',
+    category: 'Cupping Therapy Comparison',
+    date: 'November 28, 2025',
+    focusKeyphrase: 'Dry vs Wet Cupping Lahore',
+    content: `
+        <p class="text-justify ">Cupping therapy is a very old and traditional body healing method. It has been used for thousands of years in areas like China, Egypt, and the Middle East. Recently, many famous athletes and celebrities have also started using it. If you are new to this, you might be wondering about the two important types of cupping: <strong>Dry Cupping</strong> and <strong>Wet Cupping</strong>. People often ask which one to choose. This simple guide will explain the differences between the two in simple terms so you can make the right decision for your health in <strong>Lahore</strong>.</p>
+
+        <h2 class="text-3xl font-bold text-teal-700">What is Dry Cupping: Focused on Muscle Relaxation</h2>
+        <p class="text-justify ">Dry cupping is the most basic form of this therapy. It is very popular in Western countries and is often used by physiotherapists and masseurs.</p>
+
+        <h3 class="text-2xl font-bold mt-4  text-teal-600">How Dry Cupping Works</h3>
+        <p class="text-justify ">In this method, the therapist applies special cups (made of glass, plastic, or silicone) to your skin. A suction pump or heat is used to remove air from within the cups, creating a vacuum. This vacuum pulls your skin and muscles upward.</p>
+        <p class="text-justify ">Dry Cupping does not involve any cuts or needles. Cups are left on the skin for 5 to 10 minutes. Sometimes, oil is applied, and the cups are moved up and down—this is called <strong>Movement Cupping</strong> or <strong>Massage Cupping</strong>.</p>
+
+        <h3 class="text-2xl font-bold mt-4  text-teal-600">What is Dry Cupping Best For?</h3>
+        <p class="text-justify "><a href="/services/dry-cupping" class="text-blue-500">Dry cupping</a> is excellent for muscle pain and relaxation. It works like a deep tissue massage. This upward pulling loosens tight knots and improves blood circulation to the area. It is highly effective for back pain, stiff necks, and general fatigue. (You can also explore our <strong><a href="/services/fire-cupping" class="text-blue-500">Fire Cupping services</a></strong>, a specialised form of Dry Cupping).</p>
+
+        <h2 class="text-3xl font-bold text-teal-700">What is Wet Cupping (Hijama): Deep Detoxification and Healing</h2>
+        <p class="text-justify ">Wet Cupping, traditionally known as <strong>Hijama</strong> in Islamic medicine, is a more intense method than dry cupping as it involves the body deep detoxification.</p>
+
+        <h3 class="text-2xl font-bold text-teal-600">How Wet Cupping (Hijama) Works</h3>
+        <ul class="list-disc list-inside ml-4 ">
+            <li><strong>Initial Suction:</strong> The process begins like dry cupping: suction is applied to specific points, drawing stagnant blood and toxins to the surface.</li>
+            <li><strong>Micro-Incision:</strong> After the cup is removed, the therapist makes very fine and shallow scratches on the skin with a sterile, single-use blade.</li>
+            <li><strong>Detoxification:</strong> The cup is applied again to the same spot. The suction draws out a small amount of dark, thick blood containing toxins, dead cells, and acidic waste.</li>
+        </ul>
+
+        <h3 class="text-2xl font-bold  text-teal-600">What is Wet Cupping Best For?</h3>
+        <p class="text-justify ">Wet Cupping is not just for muscles; it is beneficial for overall body health. It removes harmful toxins. It is widely used for chronic conditions like migraine, high blood pressure, skin issues, joint pain, and hormonal imbalances. It significantly boosts the immune system, making the body more powerful against diseases.</p>
+
+        <h2 class="text-3xl font-bold font-bold   text-teal-700">Dry Cupping vs Wet Cupping: The Core Differences</h2>
+        <p class="text-justify ">Here is a simple breakdown of the comparison:</p>
+
+        <div class="relative overflow-x-auto shadow-lg rounded-lg mb-6">
+    <table class="w-full text-sm text-left rtl:text-right text-gray-700 dark:text-gray-400 border border-gray-400">
+        <thead class="text-xs text-gray-800 uppercase bg-gray-200 dark:bg-gray-700 dark:text-gray-400">
+            <tr>
+                <th scope="col" class="px-6 py-3 border-r border-gray-400 font-extrabold">Core Difference</th>
+                <th scope="col" class="px-6 py-3 border-r border-gray-400 font-extrabold">Dry Cupping</th>
+                <th scope="col" class="px-6 py-3 font-extrabold">Wet Cupping (Hijama)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="bg-white border-b border-gray-300 dark:bg-gray-800 dark:border-gray-700">
+                <td class="px-6 py-4 font-semibold text-gray-900 whitespace-nowrap dark:text-white border-r border-gray-300">Technique</td>
+                <td class="px-6 py-4 border-r border-gray-300">Suction only (No skin breakage)</td>
+                <td class="px-6 py-4">Suction + Tiny, shallow cuts</td>
+            </tr>
+            <tr class="bg-white border-b border-gray-300 dark:bg-gray-800 dark:border-gray-700">
+                <td class="px-6 py-4 font-semibold text-gray-900 whitespace-nowrap dark:text-white border-r border-gray-300">Primary Goal</td>
+                <td class="px-6 py-4 border-r border-gray-300">Muscle relaxation and localised blood flow</td>
+                <td class="px-6 py-4">Systemic detoxification and chronic illness treatment</td>
+            </tr>
+            <tr class="bg-white dark:bg-gray-800">
+                <td class="px-6 py-4 font-semibold text-gray-900 whitespace-nowrap dark:text-white border-r border-gray-300">Aftercare</td>
+                <td class="px-6 py-4 border-r border-gray-300">Immediate return to normal life</td>
+                <td class="px-6 py-4">Avoid showering for 24 hours, keep cuts clean</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+        <img src="/blogs/b8(1).webp" alt="A side-by-side view of Dry Cupping and Wet Cupping (Hijama) cups on a patient back, showing the comparison." class="rounded-lg  shadow-md w-full h-auto max-h-[630px] object-cover" />
+
+        <h2 class="text-3xl font-bold  text-teal-700">Does Cupping Hurt? (Addressing Safety Concerns)</h2>
+        <p class="text-justify ">Many people are fearful of Wet Cupping due to the cuts and bleeding. However, the cuts are extremely shallow, similar to paper scratches. A certified professional performs this procedure gently. You may feel a slight pinch, but it is generally described as very relieving and bearable.</p>
+        <p class="text-justify ">Dry Cupping is not painful at all. Only the pulling sensation of the cups is felt. Both methods leave circular marks on the skin that fade within 3 to 7 days. These are not bruises but indicators that blood has rushed to the surface, aiding healing.</p>
+
+        <h2 class="text-3xl font-bold text-teal-700">Conclusion: Making the Right Choice in Lahore</h2>
+        <p class="text-justify ">Both Dry Cupping and Wet Cupping are valuable therapies that heal your body without the need for medication.</p>
+        <ul class="list-disc list-inside  space-y-2 ml-4 ">
+            <li><strong>For Beginners:</strong> If you are just starting, you may try Dry Cupping first to experience the sensation.</li>
+            <li><strong>For Optimal Health:</strong> If you want the full health benefits and a deep cleanse, <strong>Wet Cupping (Hijama)</strong> is the superior choice.</li>
+        </ul>
+        <p class="text-justify font-bold ">Always ensure you visit a certified professional who uses sterile, single-use equipment.</p>
+        
+         <div class="bg-teal-50 p-6 rounded-lg border border-teal-200 mt-6">
+            <h3 class="text-2xl font-bold  text-teal-800">Book Your Consultation</h3>
+            <p class="mb-2"><strong><a href="/" class="text-blue-500">Al Madina Hijama Center</a></strong></p>
+            <p class="mb-2"><strong>Phone:</strong> +92 300 7598000</p>
+        </div>
+    `
+    },
+    {
     id: 7,
     slug: 'hijama-detox-wellness-lahore-guide',
     title: 'Hijama Benefits: Deep Detox & Wellness Treatment in Lahore',
