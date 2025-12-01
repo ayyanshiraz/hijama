@@ -185,10 +185,10 @@ const FemaleFaceHijamaPage = () => {
                                     Many women seeking beauty solutions are tired of using harsh chemical creams or painful laser procedures. They are looking for something natural and safe. This is where Female Face Hijama, or Facial Cupping, comes in. This ancient treatment is experiencing a major comeback because of its ability to tighten and brighten the skin. It is often called a natural facelift.
                                 </motion.p>
                                 <motion.p variants={itemVariants} className="mt-4 text-lg text-gray-600 leading-relaxed">
-                                    At <a href='/' className='text-blue-500'>Al Madinah Hijama</a> Center in Bahria Town, Lahore, we bring you this therapy backed by 15 years of experience. This treatment revitalizes the skin using gentle suction to purify the blood and dramatically improve circulation. When blood flow improves, your skin receives more oxygen and nutrients, resulting in a lasting, healthy, rosy glow.
+                                    At <Link href='/' className='text-blue-500 hover:underline'>Al Madinah Hijama </Link>Center in Bahria Town, Lahore, we bring you this therapy backed by 15 years of experience. This treatment revitalizes the skin using gentle suction to purify the blood and dramatically improve circulation. When blood flow improves, your skin receives more oxygen and nutrients, resulting in a lasting, healthy, rosy glow.
                                 </motion.p>
                                 <motion.p variants={itemVariants} className="mt-4 text-lg text-gray-600 leading-relaxed font-semibold text-teal-700">
-                                    We ensure that certified female practitioners for our female clients perform this service exclusively. We strictly maintain privacy and hygiene and provide a complete parda guarantee so you can relax entirely.
+                                    We ensure that certified female practitioners for our female clients perform this service exclusively. We strictly maintain privacy and hygiene and provide a complete privacy guarantee so you can relax entirely.
                                 </motion.p>
 
                                 {/* Benefits Section */}
@@ -289,7 +289,7 @@ const FemaleFaceHijamaPage = () => {
                                     <h4 className="text-lg font-semibold text-gray-800">Your Specialist</h4>
                                     <div className="flex justify-center items-center gap-8 mt-4">
                                         <div>
-                                            {/* Assuming you have an image for the female specialist at /female-specialist.webp */}
+                                            {/* English comment for code: Consider replacing with <Image> for Next.js optimization */}
                                             <img src="/female-specialist.webp" alt="Ms. Fatima Khan" className="w-24 h-24 rounded-full mx-auto object-cover" />
                                             <p className="mt-2 font-bold">Ms. Fatima Khan</p>
                                             <p className="text-sm text-gray-600">Certified Hijama Therapist</p>
@@ -327,7 +327,7 @@ const FemaleFaceHijamaPage = () => {
                         </div>
                     </motion.div>
                     
-                    {/* --- NEW SECTION: Book Your Natural Face Lift Today (CTA) --- */}
+                    {/* --- FIXED CTA SECTION (Below Preparation, Above FAQ) --- */}
                     <section className="mt-24 bg-teal-50 p-12 rounded-2xl shadow-xl border-t-4 border-teal-600">
                         <motion.div 
                             initial={{ opacity: 0, y: 30 }}
@@ -339,21 +339,20 @@ const FemaleFaceHijamaPage = () => {
                                 Book Your Natural Face Lift Today
                             </h2>
                             <p className="mt-4 text-xl text-gray-700 max-w-4xl mx-auto">
-                                Your face deserves better natural care. <a href='/services/beauty-hijama' className='text-blue-500'>Female Hijama</a> (Facial Cupping) is a safe and powerful method to restore your beauty naturally. It cleanses, detoxifies, and rejuvenates without harsh side effects.
+                                Your face deserves better natural care. Female Hijama (Facial Cupping) is a safe and powerful method to restore your beauty naturally. It cleanses, detoxifies, and rejuvenates without harsh side effects.
                             </p>
                             <p className="mt-2 text-xl text-gray-700 max-w-4xl mx-auto font-semibold">
                                 Visit Al Madinah Hijama Center in Bahria Town, Lahore, today and experience this natural miracle. Our female staff is dedicated to helping you achieve the clear, glowing skin you have always dreamed of, ensuring complete privacy and comfort throughout your session.
                             </p>
 
                             <div className="mt-10 flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6">
-                                {/* 1. Booking Button */}
+                                {/* Only the single primary button remains */}
                                 <Link
                                     href="/booking"
                                     className="inline-flex items-center justify-center px-8 py-4 bg-[#FF6900] text-white font-bold text-lg rounded-lg shadow-md hover:brightness-90 transition-all duration-300 transform hover:scale-105"
                                 >
                                     Book Your Consultation
                                 </Link>
-                            
                             </div>
                         </motion.div>
                     </section>
