@@ -1,4 +1,4 @@
-export default function ServiceSchema() {
+export default function ServiceMarkup() {
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'MedicalWebPage',

@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import ServicesContent from '../../components/ServicesContent';
-import ServiceSchema from '../../components/ServiceSchema';
+import ServiceSchema from '../../components/SchemaMarkup';
 
 export const metadata: Metadata = {
   title: 'Hijama Services in Lahore | 24/7 Home Service | Al Madina Center',
