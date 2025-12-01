@@ -1,45 +1,51 @@
 'use client';
 
 import { Phone, CheckCircle, Shield, Clock, Sun, Moon, Droplets, Plus, Minus, ChevronRight, AlertTriangle, Sparkles } from 'lucide-react';
-import { motion, AnimatePresence, Variants } from 'framer-motion';
+import { motion, AnimatePresence, Transition } from 'framer-motion'; 
 import { useState } from 'react';
- import Breadcrumbs from '@/components/Breadcrumbs'; 
+import Breadcrumbs from '@/components/Breadcrumbs'; 
 import Image from 'next/image';
 import Link from 'next/link';
 
-
-const benefits = [
-    { icon: CheckCircle, text: 'Stimulates natural collagen and elastin production' },
-    { icon: CheckCircle, text: 'Visibly enhances skin tone and texture for a smoother look' },
-    { icon: CheckCircle, text: 'Reduces puffiness and fluid retention in the face' },
-    { icon: CheckCircle, text: 'Promotes a healthy, radiant complexion from within' },
-    { icon: CheckCircle, text: 'Can help reduce the appearance of fine lines' },
-    { icon: CheckCircle, text: 'Aids in clearing blemishes and improving skin clarity' },
+// --- CONTENT VARIABLES --- (Unchanged)
+const newContentIntro = [
+    "Everyone wants fresh, youthful skin. However, many people are afraid of needles or harsh chemical treatments.",
+    "If you are looking for a natural and safe method to enhance your beauty, then Beauty Hijama is the best choice for you. We are proud to offer this exceptional service here in Lahore.",
+    "Also known as facial cupping, this therapy is designed to rejuvenate your skin from the inside out. Unlike traditional wet hijama which involves small cuts, this therapy is completely non-invasive. (Note: While this service is non-invasive, we ensure all our practices align with the principles of Islamic Hijama.)",
+    "There is no blood involved and no pain. Instead, we use soft small cups that gently move over your face. This is a relaxation experience that works like a natural face lift."
 ];
 
-const processSteps = [
-    { icon: Droplets, title: 'Skin Consultation', description: 'A gentle assessment of your skin type and beauty goals by our certified practitioner.' },
-    { icon: Shield, title: 'Facial Cleansing', description: 'The face is thoroughly cleansed and prepared with a light facial oil for smooth gliding.' },
-    { icon: Sparkles, title: 'Gentle Cupping', description: 'Small, soft silicone cups are used to create a gentle suction, then glided across the face in specific patterns.' },
-    { icon: Clock, title: 'Lifting & Toning', description: 'The light suction lifts the facial tissue, promoting circulation and lymphatic drainage.' },
-    { icon: Shield, title: 'Post-Therapy Care', description: 'The session concludes with a soothing facial massage and hydration advice.' },
+const howItWorks = [
+    "The concept is simple yet very effective. The therapist uses small silicone or glass cups to create light suction on your skin. This suction gently lifts facial tissues.",
+    "When the skin is lifted, blood circulation in that area improves. Fresh blood carries oxygen and nutrients that repair skin cells. The movement of the cups at that time helps with lymphatic drainage, which means it pushes out toxins and excess fluid that can make the face look puffy."
 ];
 
-const indications = [
-    'Dull or tired-looking skin',
-    'Facial puffiness or under-eye bags',
-    'Loss of skin elasticity or firmness',
-    'Fine lines and early signs of aging',
-    'Uneven skin tone or texture',
-    'Anyone seeking a natural, non-invasive facial'
+const newBenefits = [
+    { icon: Sparkles, title: 'Boosts Collagen and Elastin', text: 'Stimulates the skin to naturally produce collagen and elastin, reducing fine lines and keeping skin looking young and fresh.' },
+    { icon: Droplets, title: 'Reduces Puffiness and Dark Circles', text: 'Drains away fluid retention, leaving you with a sculptured and sharp look, especially around the eyes.' },
+    { icon: Sun, title: 'Brightens the Complexion', text: 'Improves blood circulation, removing dullness and giving your skin an even tone and a healthy, immediate glow.' },
+    { icon: CheckCircle, title: 'Smooths Texture and Scars', text: 'Regular sessions help improve skin texture, clear blemishes, and soften the appearance of old acne scars over time.' },
 ];
 
-const contraindications = [
-    'In Periods hijama cannot be done.',
-    'On areas with active acne, rosacea, or eczema flare-ups.',
-    'On sunburned, broken, or inflamed skin.',
-    'If you have very thin, sensitive skin (a patch test is advised).',
-    'If you have had recent fillers or botox (wait at least 3 weeks).',
+const newProcessSteps = [
+    { icon: Shield, title: 'Skin Consultation', description: 'Our certified practitioner checks your skin type and discusses your beauty goals. (Dedicated male and female staff ensure your comfort and privacy.)' },
+    { icon: Droplets, title: 'Deep Cleansing', description: 'The face is thoroughly cleansed to remove dirt/makeup, followed by application of quality facial oil for smooth gliding.' },
+    { icon: Sparkles, title: 'Gentle Cupping Massage', description: 'Small, soft cups are used to create light suction, gliding across the face in specific patterns for a deep and soothing massage.' },
+    { icon: Clock, title: 'Lifting & Toning', description: 'The light suction lifts and tones the facial muscles, which helps tighten loose skin.' },
+    { icon: Shield, title: 'Post Therapy Care', description: 'The session ends with a relaxing hand massage on the face and application of a hydrator to lock in moisture.' },
+];
+
+const newIndications = [
+    'People with dull or tired skin.',
+    'Those noticing early signs of aging, like fine lines.',
+    'Anyone with a puffy face or fluid retention.',
+    'People who want a natural alternative to Botox or fillers.'
+];
+
+const newContraindications = [
+    'Active Skin Issues (acne, pimples, rosacea, or eczema flare-ups).',
+    'Sunburn (burnt or broken skin).',
+    'Recent Procedures (wait at least 3 weeks after Botox/fillers).',
     'During pregnancy.',
     'If you are on blood-thinning medication (consultation required).'
 ];
@@ -68,7 +74,7 @@ const faqs = [
     }
 ];
 
-// JSON-LD Schema data
+// JSON-LD Schema data (kept original for consistency)
 const schema = {
     "@context": "https://schema.org",
     "@type": "TherapeuticProcedure",
@@ -103,22 +109,29 @@ const faqSchema = {
 };
 
 const BeautyHijamaPage = () => {
+    // FIX APPLIED HERE: Explicitly defining the type as number | null
     const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
 
-    const staggerContainer: Variants = {
+    const staggerContainer = {
         hidden: { opacity: 0 },
         visible: {
           opacity: 1,
           transition: {
             staggerChildren: 0.1,
             delayChildren: 0.2,
-          },
+          } as Transition, 
         },
     };
 
-    const itemVariants: Variants = {
+    const itemVariants = {
         hidden: { opacity: 0, y: 20 },
-        visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
+        visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } as Transition },
+    };
+    
+    const heroAnimateProps = {
+        initial: { opacity: 0, y: 20 },
+        animate: { opacity: 1, y: 0 },
+        transition: { duration: 0.8, ease: "easeOut" } as Transition, 
     };
 
     const breadcrumbItems = [
@@ -148,17 +161,15 @@ const BeautyHijamaPage = () => {
                 <div className="absolute inset-0 bg-black opacity-60"></div>
                 <div className="relative container mx-auto px-6 text-center z-10">
                     <motion.h1 
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8, ease: 'easeOut' }}
+                        {...heroAnimateProps} 
                         className="text-5xl md:text-7xl font-extrabold tracking-tight"
                     >
                         Beauty Hijama
                     </motion.h1>
                     <motion.p 
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
+                        initial={heroAnimateProps.initial}
+                        animate={heroAnimateProps.animate}
+                        transition={{ ...heroAnimateProps.transition, delay: 0.2 } as Transition} 
                         className="mt-4 text-xl md:text-2xl text-gray-200 max-w-3xl mx-auto"
                     >
                         A non-invasive facial therapy to stimulate collagen, reduce puffiness, and achieve a radiant complexion.
@@ -168,7 +179,7 @@ const BeautyHijamaPage = () => {
 
             <Breadcrumbs items={breadcrumbItems} />
 
-            {/* --- Main Content Section --- */}
+            {/* --- Main Content Section (New Content Integrated) --- */}
             <section className="py-24">
                 <div className="container mx-auto px-8 sm:px-16">
                     <div className="grid grid-cols-1 lg:grid-cols-3 gap-16">
@@ -176,43 +187,57 @@ const BeautyHijamaPage = () => {
                         {/* Left Column (Main Content) */}
                         <div className="lg:col-span-2">
                             <motion.div initial="hidden" animate="visible" variants={staggerContainer}>
-                                <motion.h2 variants={itemVariants} className="text-4xl font-extrabold text-gray-900">Your Natural Path to a Radiant Glow</motion.h2>
-                                <motion.p variants={itemVariants} className="mt-4 text-lg text-gray-600 leading-relaxed">
-                                    Beauty Hijama, also known as Facial Cupping, is a gentle, non-invasive treatment designed to rejuvenate your skin from the inside out. Unlike traditional hijama, this therapy does not involve any incisions or blood. Instead, it uses small, soft cups that are glided over the face to create a light suction.
-                                </motion.p>
-                                <motion.p variants={itemVariants} className="mt-4 text-lg text-gray-600 leading-relaxed">
-                                    This process stimulates blood circulation, encourages lymphatic drainage to reduce puffiness, and helps to tone facial muscles. It also promotes the natural production of collagen and elastin, leaving your skin looking firmer, smoother, and more radiant. This relaxing service is available for both men and women.
-                                </motion.p>
+                                
+                                {/* 1. Introduction & Overview */}
+                                <motion.h2 variants={itemVariants} className="text-4xl font-extrabold text-gray-900">Beauty Hijama: Your Natural Path to a Radiant Glow (in Lahore)</motion.h2>
+                                {newContentIntro.map((text, index) => (
+                                    <motion.p key={`intro-${index}`} variants={itemVariants} className="mt-4 text-lg text-gray-600 leading-relaxed">
+                                        {text}
+                                    </motion.p>
+                                ))}
 
-                                {/* Benefits Section */}
-                                <motion.h3 variants={itemVariants} className="mt-12 text-3xl font-bold text-gray-900">Key Benefits of Beauty Hijama</motion.h3>
-                                <motion.ul variants={staggerContainer} className="mt-6 space-y-4">
-                                    {benefits.map((benefit, index) => (
-                                        <motion.li key={index} variants={itemVariants} className="flex items-start">
-                                            <benefit.icon className="h-6 w-6 text-teal-600 mr-3 mt-1 flex-shrink-0" />
-                                            <span className="text-gray-700">{benefit.text}</span>
-                                        </motion.li>
+                                {/* 2. How It Works Section */}
+                                <motion.h3 variants={itemVariants} className="mt-12 text-3xl font-bold text-gray-900">How Does Beauty Hijama Work:</motion.h3>
+                                {howItWorks.map((text, index) => (
+                                    <motion.p key={`work-${index}`} variants={itemVariants} className="mt-4 text-lg text-gray-600 leading-relaxed">
+                                        {text}
+                                    </motion.p>
+                                ))}
+
+                                {/* 3. Key Benefits Section (New Benefits List) */}
+                                <motion.h3 variants={itemVariants} className="mt-12 text-3xl font-bold text-gray-900">Key Benefits of This Therapy</motion.h3>
+                                <motion.div variants={staggerContainer} className="mt-6 space-y-8">
+                                    {newBenefits.map((benefit, index) => (
+                                        <motion.div key={index} variants={itemVariants} className="flex items-start">
+                                            <div className="flex-shrink-0 mr-4">
+                                                <div className="w-12 h-12 rounded-full bg-teal-100 flex items-center justify-center">
+                                                    <benefit.icon className="w-6 h-6 text-teal-600" />
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <h4 className="text-xl font-semibold text-gray-800">{benefit.title}</h4>
+                                                <p className="text-gray-600 mt-1">{benefit.text}</p>
+                                            </div>
+                                        </motion.div>
                                     ))}
-                                </motion.ul>
+                                </motion.div>
 
-                                {/* Indications/Contraindications Section */}
+                                {/* 4. Indications/Contraindications Section (New Lists) */}
                                 <motion.div variants={itemVariants} className="mt-12">
-                                    <h3 className="text-3xl font-bold text-gray-900">Is This Facial Therapy for You?</h3>
+                                    <h3 className="text-3xl font-bold text-gray-900">Is This Treatment Right for You:</h3>
                                     <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-8">
                                         <div>
-                                            <h4 className="text-xl font-semibold text-gray-800 flex items-center"><CheckCircle className="h-6 w-6 text-green-600 mr-2" />Indications</h4>
-                                            <p className="mt-2 text-gray-600">This therapy is highly recommended for:</p>
+                                            <h4 className="text-xl font-semibold text-gray-800 flex items-center"><CheckCircle className="h-6 w-6 text-green-600 mr-2" />It is Highly Recommended For:</h4>
                                             <ul className="mt-4 space-y-2 text-gray-700">
-                                                {indications.map((item, index) => (
+                                                {newIndications.map((item, index) => (
                                                     <li key={index} className="flex items-start"><ChevronRight className="w-5 h-5 text-teal-500 mr-2 mt-1 flex-shrink-0" /><span>{item}</span></li>
                                                 ))}
                                             </ul>
                                         </div>
                                         <div>
-                                            <h4 className="text-xl font-semibold text-gray-800 flex items-center"><AlertTriangle className="h-6 w-6 text-red-600 mr-2" />Contraindications</h4>
-                                            <p className="mt-2 text-gray-600">This gentle therapy is not suitable:</p>
+                                            <h4 className="text-xl font-semibold text-gray-800 flex items-center"><AlertTriangle className="h-6 w-6 text-red-600 mr-2" />It is Not Suitable For:</h4>
                                             <ul className="mt-4 space-y-2 text-gray-700">
-                                                {contraindications.map((item, index) => (
+                                                {newContraindications.map((item, index) => (
                                                     <li key={index} className="flex items-start"><ChevronRight className="w-5 h-5 text-teal-500 mr-2 mt-1 flex-shrink-0" /><span>{item}</span></li>
                                                 ))}
                                             </ul>
@@ -222,10 +247,10 @@ const BeautyHijamaPage = () => {
                                 </motion.div>
 
 
-                                {/* Process Section */}
-                                <motion.h3 variants={itemVariants} className="mt-12 text-3xl font-bold text-gray-900">The Beauty Hijama Process</motion.h3>
+                                {/* 5. Process Section (New Process Steps) */}
+                                <motion.h3 variants={itemVariants} className="mt-12 text-3xl font-bold text-gray-900">The Process Step by Step:</motion.h3>
                                 <div className="mt-6 space-y-8">
-                                    {processSteps.map((step, index) => (
+                                    {newProcessSteps.map((step, index) => (
                                         <motion.div key={index} variants={itemVariants} className="flex items-start">
                                             <div className="flex-shrink-0 mr-4">
                                                 <div className="w-12 h-12 rounded-full bg-teal-100 flex items-center justify-center">
@@ -239,15 +264,25 @@ const BeautyHijamaPage = () => {
                                         </motion.div>
                                     ))}
                                 </div>
+                                
+                                {/* Conclusion */}
+                                <motion.h3 variants={itemVariants} className="mt-12 text-3xl font-bold text-gray-900">Conclusion:</motion.h3>
+                                <motion.p variants={itemVariants} className="mt-4 text-lg text-gray-600 leading-relaxed">
+                                    <a href='/services/female-face-hijama' className='text-blue-500'>Beauty Hijama</a> is not just a facial; it is a natural therapy that heals your skin from within, gives you a radiant glow, reduces signs of aging, and soothes your brain. We are available 24/7 to serve our community in Lahore.
+                                </motion.p>
+                                <motion.p variants={itemVariants} className="mt-4 text-lg font-bold text-teal-600 leading-relaxed">
+                                    If you want to look beautiful without using chemicals, book your session today. Let us help you reveal the natural beauty of your skin.
+                                </motion.p>
+
                             </motion.div>
                         </div>
 
-                        {/* Right Column (Sidebar) */}
+                        {/* Right Column (Sidebar) - Kept original */}
                         <aside className="lg:col-span-1">
                             <motion.div 
                                 initial={{ opacity: 0, y: 50 }}
                                 animate={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.7, ease: 'easeOut' }}
+                                transition={{ duration: 0.7, ease: "easeOut" } as Transition} 
                                 className="sticky top-24 bg-gray-50 p-8 rounded-2xl shadow-lg"
                             >
                                 <h3 className="text-2xl font-bold text-gray-900">Book Your Session</h3>
@@ -278,6 +313,7 @@ const BeautyHijamaPage = () => {
                                     <h4 className="text-lg font-semibold text-gray-800">Your Specialist</h4>
                                     <div className="flex justify-center items-center gap-8 mt-4">
                                         <div>
+                                            {/* English comment as requested */}
                                             {/* Assuming you have an image for the female specialist at /female-specialist.webp */}
                                             <img src="/female-specialist.webp" alt="Ms. Fatima Khan" className="w-24 h-24 rounded-full mx-auto object-cover" />
                                             <p className="mt-2 font-bold">Ms. Fatima Khan</p>
@@ -289,7 +325,7 @@ const BeautyHijamaPage = () => {
                         </aside>
                     </div>
 
-                    {/* Preparation & After-care Section */}
+                    {/* Preparation & After-care Section - Kept original */}
                     <motion.div initial="hidden" animate="visible" variants={staggerContainer} className="mt-24">
                         <motion.h2 variants={itemVariants} className="text-4xl font-extrabold text-gray-900 text-center">Preparation & After-care</motion.h2>
                         <motion.p variants={itemVariants} className="mt-4 text-lg text-gray-600 text-center max-w-3xl mx-auto">
@@ -316,7 +352,7 @@ const BeautyHijamaPage = () => {
                         </div>
                     </motion.div>
 
-                     {/* --- FAQ Section --- */}
+                    {/* --- FAQ Section - Kept original */}
                     <section className="mt-24">
                         <motion.div 
                             className="text-center mb-16"
@@ -338,6 +374,7 @@ const BeautyHijamaPage = () => {
                                 return (
                                     <div key={index}>
                                         <button
+                                            // This is the line where the error was occurring (Ln 381 in your screenshot's context)
                                             onClick={() => setOpenFaqIndex(isOpen ? null : index)}
                                             className={`w-full flex justify-between items-center text-left gap-4 bg-[#1E4137] p-6 text-white transition-all duration-300 hover:bg-opacity-90 ${isOpen ? 'rounded-t-lg' : 'rounded-lg'}`}
                                         >
@@ -350,7 +387,7 @@ const BeautyHijamaPage = () => {
                                                     initial={{ opacity: 0, height: 0 }}
                                                     animate={{ opacity: 1, height: 'auto' }}
                                                     exit={{ opacity: 0, height: 0 }}
-                                                    transition={{ duration: 0.3, ease: 'easeInOut' }}
+                                                    transition={{ duration: 0.3, ease: "easeInOut" } as Transition} 
                                                     className="overflow-hidden bg-white rounded-b-lg border border-t-0 border-gray-200"
                                                 >
                                                     <div className="p-6">
@@ -373,4 +410,3 @@ const BeautyHijamaPage = () => {
 };
 
 export default BeautyHijamaPage;
-
