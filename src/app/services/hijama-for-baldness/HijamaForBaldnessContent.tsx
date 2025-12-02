@@ -177,7 +177,7 @@ const HijamaForBaldnessContent = () => {
                                 {/* 1. Introduction & Overview (PK Integration) */}
                                 <motion.h2 variants={itemVariants} className="text-4xl font-extrabold text-gray-900">Scalp Hijama Therapy in Lahore: The Natural Solution for Hair Fall & Baldness</motion.h2>
                                 <motion.p variants={itemVariants} className="mt-4 text-lg text-gray-600 leading-relaxed">
-                                    Hair loss isn't just a cosmetic concern; it has deep impacts on confidence and self-image. While many modern treatments rely on harsh chemicals or invasive surgeries, Scalp Hijama Therapy offers a powerful and natural alternative.
+                                    Hair loss isn&apos;t just a cosmetic concern; it has deep impacts on confidence and self-image. While many modern treatments rely on harsh chemicals or invasive surgeries, Scalp Hijama Therapy offers a powerful and natural alternative.
                                 </motion.p>
                                 <motion.p variants={itemVariants} className="mt-4 text-lg text-gray-600 leading-relaxed">
                                     At <Link href="/" className="text-blue-600 hover:text-teal-700 font-semibold underline">Al Madina Islamic Hijama Center in Lahore</Link>, we utilize this time-honored Sunnah technique to focus on the biological root of the problem: improving the internal environment of the scalp. By utilizing controlled suction and vacuum pressure, this therapy helps revitalize the scalp ecosystem. It&apos;s not just a surface treatment, but it&apos;s crucial to ensuring that hair roots receive the essential life and support they need for strong hair growth.
