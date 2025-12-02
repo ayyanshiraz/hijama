@@ -394,7 +394,7 @@ const DetoxWellnessContent = () => { // Renamed from DetoxWellnessPage
                                             <p className="text-sm text-gray-600">Certified Hijama Therapist</p>
                                         </div>
                                         <div>
-                                            {/* Assuming you have an image for the female specialist at /female-specialist.webp */}
+                                            {/* Assuming you an image for the female specialist at /female-specialist.webp */}
                                             <img src="/female-specialist.webp" alt="Ms. Fatima Khan" className="w-24 h-24 rounded-full mx-auto object-cover" />
                                             <p className="mt-2 font-bold">Ms. Fatima Khan</p>
                                             <p className="text-sm text-gray-600">Certified Hijama Therapist</p>
