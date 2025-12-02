@@ -52,12 +52,12 @@ const preparation = [
 const faqs = [
     {
         question: "How will I feel after a detox session?",
-        // FIX: Replaced 'Its' with 'It&apos;s'
+        // FIX APPLIED: Replaced 'Its' with 'It&apos;s'
         answer: "Most clients report feeling significantly lighter, more energetic, and mentally clearer after a detox session. It&apos;s a feeling of having reset your system. You might notice the cup marks, which are temporary and will fade."
     },
     {
         question: "Is this different from other types of detoxes, like juice cleanses?",
-        // FIX: Replaced 'Its' with 'It&apos;s'
+        // FIX APPLIED: Replaced 'Its' with 'It&apos;s'
         answer: "Yes, it is very different. While dietary cleanses focus on the digestive system, Hijama works by physically removing toxins and metabolic waste directly from your bloodstream and tissues. It&apos;s a powerful method for deep, systemic detoxification that complements a healthy diet."
     },
     {
@@ -103,7 +103,7 @@ const faqSchema = {
     }))
 };
 
-const DetoxWellnessContent = () => { // Renamed from DetoxWellnessPage
+const DetoxWellnessContent = () => { // Renamed DetoxWellnessPage
     const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
 
     const staggerContainer: Variants = {
@@ -394,7 +394,7 @@ const DetoxWellnessContent = () => { // Renamed from DetoxWellnessPage
                                             <p className="text-sm text-gray-600">Certified Hijama Therapist</p>
                                         </div>
                                         <div>
-                                            {/* Assuming you an image for the female specialist at /female-specialist.webp */}
+                                            {/* Assuming you have an image for the female specialist at /female-specialist.webp */}
                                             <img src="/female-specialist.webp" alt="Ms. Fatima Khan" className="w-24 h-24 rounded-full mx-auto object-cover" />
                                             <p className="mt-2 font-bold">Ms. Fatima Khan</p>
                                             <p className="text-sm text-gray-600">Certified Hijama Therapist</p>
