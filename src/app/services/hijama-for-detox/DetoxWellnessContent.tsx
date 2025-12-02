@@ -52,11 +52,13 @@ const preparation = [
 const faqs = [
     {
         question: "How will I feel after a detox session?",
-        answer: "Most clients report feeling significantly lighter, more energetic, and mentally clearer after a detox session. Its a feeling of having reset your system. You might notice the cup marks, which are temporary and will fade."
+        // FIX: Replaced 'Its' with 'It&apos;s'
+        answer: "Most clients report feeling significantly lighter, more energetic, and mentally clearer after a detox session. It&apos;s a feeling of having reset your system. You might notice the cup marks, which are temporary and will fade."
     },
     {
         question: "Is this different from other types of detoxes, like juice cleanses?",
-        answer: "Yes, it is very different. While dietary cleanses focus on the digestive system, Hijama works by physically removing toxins and metabolic waste directly from your bloodstream and tissues. Its a powerful method for deep, systemic detoxification that complements a healthy diet."
+        // FIX: Replaced 'Its' with 'It&apos;s'
+        answer: "Yes, it is very different. While dietary cleanses focus on the digestive system, Hijama works by physically removing toxins and metabolic waste directly from your bloodstream and tissues. It&apos;s a powerful method for deep, systemic detoxification that complements a healthy diet."
     },
     {
         question: "How often should I do a Hijama detox for general wellness?",
@@ -279,7 +281,7 @@ const DetoxWellnessContent = () => { // Renamed from DetoxWellnessPage
                                         <div className="bg-gray-50 p-5 rounded-xl border border-gray-100">
                                             <h4 className="font-bold text-teal-500 flex items-center"><Leaf className="w-5 h-5 mr-2 text-teal-600"/> Seasonal Detox</h4>
                                             <p className="text-gray-600 mt-2 text-sm">
-                                                In Lahore, we recommend a Seasonal Detox (every 3-4 months), especially during Smog season (Winter) and Summer heat, to clear accumulated pollutants.
+                                                In Lahore, we recommend a **Seasonal Detox** (every 3-4 months), especially during Smog season (Winter) and Summer heat, to clear accumulated pollutants.
                                             </p>
                                         </div>
                                     </div>
