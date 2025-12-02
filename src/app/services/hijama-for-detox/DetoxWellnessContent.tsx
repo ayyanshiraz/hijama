@@ -275,7 +275,7 @@ const DetoxWellnessContent = () => { // Renamed DetoxWellnessPage
                                         <div className="bg-gray-50 p-5 rounded-xl border border-gray-100">
                                             <h4 className="font-bold text-teal-500 flex items-center"><Moon className="w-5 h-5 mr-2 text-teal-600"/> The Sunnah Days</h4>
                                             <p className="text-gray-600 mt-2 text-sm">
-                                                According to the Sunnah, the best days are the 17th, 19th, and 21st of the lunar month. The moon's gravitational pull helps draw out toxins from the surface.
+                                                According to the Sunnah, the best days are the 17th, 19th, and 21st of the lunar month. The moon&apos;s gravitational pull helps draw out toxins from the surface.
                                             </p>
                                         </div>
                                         <div className="bg-gray-50 p-5 rounded-xl border border-gray-100">
