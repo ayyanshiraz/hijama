@@ -1,11 +1,23 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Add this images block:
   images: {
     unoptimized: true,
   },
-  // output: 'export', // You likely already have this line if you got the error
-  // ... any other configurations you might have
+  
+  async redirects() {
+    return [
+      {
+        source: '/blog/benefits-of-blood-cupping',
+        destination: '/services/blood-cupping',
+        permanent: true,
+      },
+      {
+        source: '/blog/the-sunnah-of-hijama',
+        destination: '/blog/hijama-sunnah-benefits-wellness-path',
+        permanent: true,
+      },
+    ];
+  },
 };
 
 module.exports = nextConfig;
