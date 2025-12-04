@@ -14,13 +14,87 @@ export interface BlogPost {
 
 // Blog Listing Page Metadata (for SEO)
 export const blogPageMetadata = {
-    title: "Al Madina Hijama Center Blog ",
+    title: "Best Hijama Specialist Lahore | Al Madina Hijama Center  ",
     description: "Explore the profound benefits of Hijama (cupping therapy), its Sunnah basis, and our expert approach to pain relief and detoxification.",
     canonicalPath: "/blog"
 };
 
 // Array containing all blog posts
 export const blogPosts: BlogPost[] = [
+    {
+  id: 11,
+  slug: 'ladies-hijama-center-lahore',
+  title: 'Best Ladies HIjama Center Lahore : Complete Privacy ',
+  excerpt: 'Discover the great health benefits of Hijama for women in Lahore, including hormonal balance and pain relief. We ensure privacy with an all-female staff.',
+  metaDescription: 'Looking for a reliable Ladies Hijama Center in Lahore? We offer 24/7 certified therapy with only female staff and guaranteed privacy at the Bahria Town Clinic.',
+  imageUrl: '/blogs/b11.webp', // Assuming the next sequential image file
+  altText: 'Photo of a welcoming, clean treatment room in a Ladies Hijama Center in Lahore with a certified female therapist.',
+  category: 'Womens Health', // Suggested category based on content
+  date: 'December 4, 2025', // Updated date
+  focusKeyphrase: 'Ladies Hijama Center Lahore',
+  content: `
+    <h1 class="text-4xl font-extrabold text-teal-800 mb-6">Finally, A Ladies Hijama Center in Lahore You Can Trust</h1>
+    <p class="text-justify mb-4">Hijama (Cupping Therapy) is a wonderful, age-old Sunnah treatment that really works. However, for women in Lahore, finding the right place is more than just the treatment. It is about trust, comfort, and knowing that your privacy is fully protected.</p>
+    <p class="text-justify mb-6"><a href="/" class="text-blue-500">At Al Madina Hijama</a> Center (Bahria Town Clinic), we have made sure our clinic feels safe and welcoming. We focus entirely on making your experience easy, comfortable, and effective.</p>
+
+    <h2 class="text-3xl font-bold text-teal-700 mt-6 mb-4">I. Why You Will Love Our Ladies Hijama Center</h2>
+    <p class="text-justify mb-4">Peace of mind is the first step to health. That is why we have built our service around your comfort and dignity.</p>
+
+    <h3 class="text-2xl font-bold text-teal-600 mt-5 mb-3">A. Only Ladies Here: Our Staff Policy</h3>
+    <p class="text-justify mb-3">The biggest concern for many women is the staff. At our center:</p>
+    <ul class="list-disc list-inside ml-4 mb-4">
+        <li class="mb-2"><strong>100% Female Team:</strong> From the moment you call to the end of your session, you will only interact with women. Our Certified &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Lady Therapists and assistants are here just for you.</li>
+        <li class="mb-2"><strong>No Awkwardness:</strong> This means you can talk openly about your health problems and prepare for the treatment without any &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;hesitation or awkwardness.</li>
+    </ul>
+
+    <h3 class="text-2xl font-bold text-teal-600 mt-5 mb-3">B. Your Privacy is Our Promise</h3>
+    <p class="text-justify mb-3">Your personal matters stay personal. We take your privacy very seriously:</p>
+    <ul class="list-disc list-inside ml-4 mb-6">
+        <li class="mb-2"><strong>Private Rooms:</strong> Your Hijama session will happen inside a dedicated, private room. No interruptions, no outside noise.</li>
+        <li class="mb-2"><strong>Safe Records:</strong> We keep all your health information completely secure and confidential. You can relax knowing your details are &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;safe with us.</li>
+    </ul>
+
+    <h2 class="text-3xl font-bold text-teal-700 mt-6 mb-4">II. Hijama Magic: How It Helps Women Feel Better</h2>
+    <p class="text-justify mb-4">Hijama does amazing things for a woman's body. It is a powerful way to bring positive changes to your health:</p>
+
+    <h3 class="text-2xl font-bold text-teal-600 mt-5 mb-3">A. Feeling Better, Inside Out</h3>
+    <p class="text-justify mb-3">You will notice these positive changes after your session:</p>
+    <ul class="list-disc list-inside ml-4 mb-4">
+        <li class="mb-2"><strong>More Energy:</strong> Tired all the time? Hijama helps flush out the toxins that make you feel sluggish, giving you a real boost in daily &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;energy and vitality.</li>
+        <li class="mb-2"><strong>Clearer Skin:</strong> By making your blood circulation better, you help clear up your skin, giving you a healthy, natural glow.</li>
+        <li class="mb-2"><strong>Calmer Mind:</strong> It is great for the nervous system, which helps reduce stress, tension, and that anxious feeling, leading to better &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sleep and a happier mood.</li>
+        <li class="mb-2"><strong>Stronger Body:</strong> It strengthens your body from the inside, helping you fight off colds and minor illnesses more easily.</li>
+    </ul>
+
+    <h3 class="text-2xl font-bold text-teal-600 mt-5 mb-3">B. Protecting Your Health: Relief for Specific Female Issues</h3>
+    <p class="text-justify mb-3">Hijama is highly recommended for women facing these common issues:</p>
+    <ul class="list-disc list-inside ml-4 mb-6">
+        <li class="mb-2"><strong>Hormones and Cycle Issues:</strong> It is known to help balance hormones, making it beneficial for managing conditions like <a href="/services/pcos" class="text-blue-500">PCOS</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;and making menstrual cycles more regular and less painful.</li>
+        <li class="mb-2"><strong>Chronic Pain Relief:</strong> It targets inflammation and tightness, offering excellent relief from those nagging migraines, tension &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;headaches, and persistent lower back pain that often trouble women.</li>
+        <li class="mb-2"><strong>Tension Spots:</strong> It is often applied to the lower back (lumbar area) for period pain, shoulders and neck for headaches, and &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;specific areas for improving fertility and digestion.</li>
+    </ul>
+
+    <h2 class="text-3xl font-bold text-teal-700 mt-6 mb-4">III. Easy to Visit: Our 24/7 Bahria Town Location</h2>
+    <p class="text-justify mb-4">Health emergencies do not wait for office hours.</p>
+    <ul class="list-disc list-inside ml-4 mb-6">
+        <li class="mb-2"><strong>Open 24/7:</strong> Our Ladies Hijama Center in Bahria Town, Lahore is open all day and all night, 24 hours a day, 7 days a week.</li>
+        <li class="mb-2"><strong>Easy Access:</strong> Whether you need an early morning session before work or a late-night appointment, we are here for you. Our &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;location is easy to reach from all parts of Lahore, including DHA and Johar Town.</li>
+    </ul>
+
+    <h2 class="text-3xl font-bold text-teal-700 mt-6 mb-4">Final Word:</h2>
+    <p class="text-justify mb-4">Do not settle for a mixed clinic when you need specialized care. When you choose Al Madina Hijama Center, you are choosing a place in Lahore built just for women, where your health and privacy are always the top priority.</p>
+    
+    <div class="bg-teal-50 p-6 rounded-lg border border-teal-200 mt-6">
+        <p class="font-bold text-xl text-teal-800">Do not Wait to Experience Safe, Private Hijama</p>
+        <p class="mt-2">Call us now to book your private, comfortable session!</p>
+        <p class="mt-4 text-center">
+            <a href="/booking" class="inline-block bg-orange-600 hover:bg-pink-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300 shadow-md">
+                📞 Call Us & Book Consultation Today
+            </a>
+        </p>
+    </div>
+  `
+    },
     {
     id: 10,
     slug: 'hijama-for-high-blood-pressure-natural-therapy-lahore',
