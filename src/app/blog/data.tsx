@@ -65,6 +65,8 @@ export const blogPosts: BlogPost[] = [
         <li class="mb-2"><strong>Calmer Mind:</strong> It is great for the nervous system, which helps reduce stress, tension, and that anxious feeling, leading to better &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sleep and a happier mood.</li>
         <li class="mb-2"><strong>Stronger Body:</strong> It strengthens your body from the inside, helping you fight off colds and minor illnesses more easily.</li>
     </ul>
+    <img src="/blogs/b11(1).webp" alt="Best hijama center for ladies in lahore ladies hijama center near me " class="rounded-lg  shadow-md w-full h-auto max-h-[500px] object-cover mt-3" />
+
 
     <h3 class="text-2xl font-bold text-teal-600 mt-5 mb-3">B. Protecting Your Health: Relief for Specific Female Issues</h3>
     <p class="text-justify mb-3">Hijama is highly recommended for women facing these common issues:</p>
