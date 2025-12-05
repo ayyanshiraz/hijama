@@ -8,7 +8,9 @@ import CookieBanner from "@/components/CookieBanner";
 import FloatingWhatsApp from '@/components/FloatingWhatsApp';
 import Script from 'next/script';
 
-const GA_TRACKING_ID = 'AW-17679136193';
+// --- UPDATED IDs ---
+const GA4_MEASUREMENT_ID = 'G-CV880G5R1G'; // Naya Analytics ID
+const GOOGLE_ADS_ID = 'AW-17679136193';    // Purana Ads ID
 const CONTACT_CONVERSION_ID = 'AW-17679136193/M2glCPjItMUbEMHriO5B';
 const PURCHASE_EVENT_NAME = 'ads_conversion_Purchase_1';
 
@@ -101,22 +103,29 @@ export default function RootLayout({
 
   return (
     <html lang="en">
+      {/* --- Main Google Tag Manager Script (Loads GA4) --- */}
       <Script
         async
-        src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
+        src={`https://www.googletagmanager.com/gtag/js?id=${GA4_MEASUREMENT_ID}`}
         strategy="afterInteractive"
       />
 
+      {/* --- Combined Config for Analytics & Ads --- */}
       <Script
-        id="google-ads-config-and-events"
+        id="google-analytics-ads-config"
         dangerouslySetInnerHTML={{
           __html: `
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
 
-            gtag('config', '${GA_TRACKING_ID}');
+            // Config for GA4
+            gtag('config', '${GA4_MEASUREMENT_ID}');
             
+            // Config for Google Ads
+            gtag('config', '${GOOGLE_ADS_ID}');
+            
+            // Conversion Tracking Function
             function gtag_report_conversion(url) {
               var callback = function () {
                 if (typeof(url) != 'undefined') {
@@ -130,6 +139,7 @@ export default function RootLayout({
               return false;
             }
             
+            // Ads Purchase Event Function
             function gtagSendEvent(url) {
               var callback = function () {
                 if (typeof url === 'string') {
@@ -159,7 +169,7 @@ export default function RootLayout({
       >
         <noscript>
           <iframe 
-            src={`https://www.googletagmanager.com/ns.html?id=${GA_TRACKING_ID}`}
+            src={`https://www.googletagmanager.com/ns.html?id=${GA4_MEASUREMENT_ID}`}
             height="0" 
             width="0" 
             style={{ display: 'none', visibility: 'hidden' }}
