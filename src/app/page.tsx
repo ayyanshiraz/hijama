@@ -14,14 +14,14 @@ const slideshowData = [
     image: '/hero.webp',
     title: (
       <>
-        One Of The Most <span className="text-teal-400">Credible</span>
+        The <span className="text-teal-400">Best Hijama Center Lahore</span>
         <br />
-        Hijama Centers In Lahore
+        For Authentic Sunnah Healing
       </>
     ),
     subtitle: (
       <>
-        With 15 years of Experience in Hijama and Alternative medicine, we are one of the most credible Hijama centers in Lahore.
+        With 15 years of experience, we provide expert Wet Cupping and Dry Cupping therapy. Separate female staff available for ladies.
         <blockquote className="mt-3 text-sm italic border-l-4 border-gray-400 pl-3 text-gray-300 max-w-xl mx-auto">
           The Prophet (ﷺ) said: I did not pass by any group of angels on the night of Isra (Night Journey) except that they said to me, O Muhammad, tell your Ummah to do Hijama (cupping).
         </blockquote>
@@ -37,10 +37,10 @@ const slideshowData = [
       <>
         Discover <span className="text-teal-400">Natural Healing</span>
         <br />
-        Through Sunnah
+        At Al Madina Hijama Center
       </>
     ),
-    subtitle: 'Embrace a holistic approach to wellness with our traditional and effective Hijama cupping therapies.',
+    subtitle: 'Embrace a holistic approach to wellness with our traditional and effective Hijama cupping therapies in Lahore.',
     buttonText: 'Learn More',
     buttonLink: '/about',
     hasIcon: false,
@@ -51,11 +51,11 @@ const slideshowData = [
       <>
         Safe & Hygienic
         <br />
-        <span className="text-teal-400">Expert Care</span>
+        <span className="text-teal-400">Hijama Specialist In Lahore</span>
       </>
     ),
-    subtitle: 'Your health is our priority. Our certified practitioners ensure a sterile, safe, and comfortable experience.',
-    buttonText: 'Book A Session',
+    subtitle: 'Your health is our priority. Our certified practitioners ensure a sterile, safe, and comfortable experience for Home Service or Clinic visits.',
+    buttonText: 'Book Appointment Online',
     buttonLink: '/services',
     hasIcon: false,
   },
@@ -68,7 +68,7 @@ const slideshowData = [
         <span className="text-teal-400">Book A Session</span>
       </>
     ),
-    subtitle: 'Take the first step towards better health. Schedule your personal consultation and therapy session today.',
+    subtitle: 'Take the first step towards better health at the best Hijama center Lahore. Schedule your personal consultation today.',
     buttonText: 'Call +92 300 7598000',
     buttonLink: 'tel:+92 300 7598000',
     hasIcon: true,
@@ -236,12 +236,10 @@ const HomePage = () => {
   const [direction, setDirection] = useState(0);
   const [numVisibleTestimonials, setNumVisibleTestimonials] = useState(1);
 
-  // --- ADDED --- State for the contact form
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
   const [subject, setSubject] = useState('');
   const [message, setMessage] = useState('');
-  // -------------
 
   const [hijamaRef, hijamaInView] = useInView({
     triggerOnce: true,
@@ -355,11 +353,10 @@ const HomePage = () => {
     return visibleTestimonials;
   };
 
-  // --- ADDED --- Form submit handler
   const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    const whatsappNumber = "923007598000"; // Your number without '+' or spaces
+    const whatsappNumber = "923007598000"; 
     const formattedMessage = `
 *New Inquiry from Website:*
 ---------------------------
@@ -374,22 +371,17 @@ ${message}
     const encodedMessage = encodeURIComponent(formattedMessage);
     const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
 
-    // Open WhatsApp in a new tab
     window.open(whatsappUrl, '_blank');
 
-    // Optional: Clear the form after submission
     setName('');
     setPhone('');
     setSubject('');
     setMessage('');
   };
-  // ------------------
-
 
   return (
     <main className="font-sans bg-[#F0FDF4] border-0 overflow-x-hidden">
 
-      {/* Hero Slideshow Section */}
       <section className="relative min-h-screen h-screen flex items-center justify-center overflow-hidden text-white">
         {slideshowData.map((slide, index) => (
           <div
@@ -409,7 +401,6 @@ ${message}
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight text-shadow-lg">
               {currentSlide.title}
             </h1>
-            {/* Display subtitle which can now contain JSX */}
             <div className="mt-4 sm:mt-6 text-base sm:text-lg text-gray-200 max-w-xs sm:max-w-2xl mx-auto text-shadow">
               {currentSlide.subtitle}
             </div>
@@ -438,7 +429,6 @@ ${message}
         </div>
       </section>
 
-      {/* --- FEATURES SECTION --- */}
       <section id="features" className="relative py-16 sm:py-24">
         <div className="absolute top-0 left-0 w-full overflow-hidden leading-none">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none" className="relative block w-full h-[50px] md:h-[100px]">
@@ -446,7 +436,7 @@ ${message}
             </svg>
         </div>
         <div className="container mx-auto px-4 sm:px-8 lg:px-16 text-center">
-          <h3 className="text-base sm:text-lg font-semibold uppercase text-teal-600">Holistic Hijama Therapy in Lahore</h3>
+          <h3 className="text-base sm:text-lg font-semibold uppercase text-teal-600">Services at Best Hijama Center Lahore</h3>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-800 mt-2">Restore Your Mind, Body & Soul</h2>
           <div className="mt-12 sm:mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {features.map((feature, index) => (
@@ -469,7 +459,6 @@ ${message}
         </div>
       </section>
 
-      {/* --- What is Hijama Section --- */}
       <motion.section
         id="about"
         className="py-16 sm:py-24 bg-white"
@@ -484,7 +473,7 @@ ${message}
               className="text-3xl sm:text-4xl md:text-5xl font-black text-black tracking-tight"
               variants={itemVariants}
             >
-              But What Is Hijama?
+              How Choose The Best Hijama Center Lahore?
             </motion.h2>
             <motion.p
               className="mt-2 sm:mt-4 text-base sm:text-lg text-black"
@@ -514,8 +503,7 @@ ${message}
                 variants={itemVariants}
               >
                 Hijama cupping therapy includes the elimination of toxic
-                substances from the blood. Hijama cupping therapy has a
-                wide range of benefits all the way from head to toe.
+                substances from the blood. As a leading <strong>Hijama Specialist in Lahore</strong>, we ensure that our Wet Cupping and Dry Cupping therapies have a wide range of benefits all the way from head to toe.
               </motion.p>
 
               <motion.div
@@ -549,7 +537,6 @@ ${message}
         </div>
       </motion.section>
 
-      {/* --- Benefits Of Hijama Section --- */}
       <motion.section
         id="benefits"
         className="py-16 sm:py-24 bg-[#F0FDF4]"
@@ -605,7 +592,6 @@ ${message}
         </div>
       </motion.section>
 
-      {/* --- Meet The Therapist Section --- */}
       <motion.section
         id="therapist"
         className="py-16 sm:py-24 bg-white"
@@ -616,7 +602,6 @@ ${message}
       >
         <div className="container mx-auto px-4 sm:px-12 md:px-20 lg:px-32">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-            {/* Text Column: order-2 lg:order-1 */}
             <motion.div
               variants={itemVariants}
               className="text-center lg:text-left order-2 lg:order-1"
@@ -625,20 +610,18 @@ ${message}
                 Mr. Jameel Ur Rehman
               </h2>
               <p className="mt-2 sm:mt-3 text-base sm:text-lg text-teal-700 font-medium">
-                Your Therapist at our Hijama center
+                Your Therapist at the Best Hijama Center Lahore
               </p>
               <p className="mt-4 sm:mt-6 text-sm sm:text-base text-gray-600 leading-relaxed text-justify">
                 Meet Mr. Jameel ur Rehman, a certified Hijama Specialist from Oman and a Tibbenabvi Hakeem in Pakistan. With 15 years of dedicated experience, his expertise is rooted in the authentic, Sunnah-based traditions of cupping therapy. Mr. Rehman is proficient in treating a wide array of health conditions, believing in a holistic approach to wellness. He effectively addresses issues ranging from brain and nervous system disorders like migraines and stress, to heart, liver, and digestive problems. His gentle approach and deep understanding of prophetic medicine have helped countless individuals find natural healing and restore balance to their lives.
               </p>
 
-              {/* Stats container */}
               <div className="mt-8 sm:mt-10 flex flex-col items-center space-y-4 md:flex-row md:justify-center lg:justify-start md:items-center md:space-y-0 md:space-x-12">
                 {therapistInView && <AnimatedStat to={10} suffix="K+" text="Satisfied Clients" />}
                 <div className="h-16 w-px bg-gray-300 hidden md:block"></div>
                 {therapistInView && <AnimatedStat to={15} text="Years of Experience" />}
               </div>
 
-                {/* Button container */}
               <div className="mt-8 sm:mt-10 text-center lg:text-left">
                 <a
                   href="tel:+92 300 7598000"
@@ -650,7 +633,6 @@ ${message}
               </div>
             </motion.div>
 
-            {/* Image Column: order-1 lg:order-2 */}
             <motion.div
               className="flex justify-center lg:justify-end order-1 lg:order-2"
               variants={imageVariants}
@@ -662,7 +644,6 @@ ${message}
                 transition={{ duration: 0.3, ease: "easeInOut" }}
                 className="rounded-2xl shadow-2xl overflow-hidden w-full max-w-xs sm:max-w-sm md:max-w-md"
               >
-                {/* --- THIS IS WHERE THE 'a' or 's' ERROR WAS --- */}
                 <img
                   src="/ceo.webp"
                   alt="Mr Jameel ur Rehman, expert Hijama therapist in Lahore"
@@ -676,8 +657,6 @@ ${message}
         </div>
       </motion.section>
 
-      {/* --- TESTIMONIALS SECTION --- */}
-      {/* --- THIS IS WHERE THE 'section' ERROR WAS --- */}
       <motion.section
         id="testimonials"
         className="py-16 sm:py-24 bg-[#F0FDF4]"
@@ -708,7 +687,6 @@ ${message}
 
               <div className="flex-1 w-full max-w-5xl mx-1 sm:mx-2 overflow-hidden relative min-h-[250px]">
                 <AnimatePresence initial={false} custom={direction}>
-                  {/* --- THIS IS WHERE THE '}' and 'token' ERRORS WERE --- */}
                   <motion.div
                     key={currentTestimonialIndex}
                     custom={direction}
@@ -757,7 +735,6 @@ ${message}
 
             <div className="flex justify-center mt-4 sm:mt-6 space-x-2 sm:space-x-3">
               {testimonials.map((_, index) => (
-                // --- THIS IS WHERE THE 's' ERROR WAS ---
                 <button
                   key={index}
                   onClick={() => goToTestimonial(index)}
@@ -787,7 +764,6 @@ ${message}
         </div>
       </motion.section>
 
-      {/* --- CTA Section --- */}
       <section className="bg-[#1E4137] py-16 sm:py-24">
         <div className="container mx-auto px-4 sm:px-8 text-center">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white">
@@ -808,7 +784,6 @@ ${message}
         </div>
       </section>
 
-      {/* --- Contact Us Section --- */}
       <section id="contact" className="bg-white py-16 sm:py-24">
         <div className="container mx-auto px-4 sm:px-8 lg:px-16">
           <div className="text-center">
@@ -823,7 +798,6 @@ ${message}
           <div className="mt-12 sm:mt-16 max-w-4xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
 
-              {/* Left Column: Contact Details */}
               <div className="space-y-6 sm:space-y-8">
                 <div className="flex items-start gap-3 sm:gap-5">
                   <div className="bg-green-100 p-2 sm:p-3 rounded-full">
@@ -857,7 +831,6 @@ ${message}
                 </div>
               </div>
 
-              {/* Right Column: Contact Form (Fixed in previous step) */}
               <div>
                 <form onSubmit={handleFormSubmit} className="space-y-4 sm:space-y-6">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
@@ -923,7 +896,6 @@ ${message}
         </div>
       </section>
 
-      {/* Style tag for animations */}
       <style jsx global>{`
         @keyframes fadeInUp {
           from {
