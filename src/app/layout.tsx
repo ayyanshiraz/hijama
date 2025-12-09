@@ -16,13 +16,13 @@ const PURCHASE_EVENT_NAME = 'ads_conversion_Purchase_1';
 
 export const metadata: Metadata = {
   title: "Best Hijama Center Lahore | 24/7 Home Service & Lady Staff",
-  description: "Best Hijama Center Lahore offering 24/7 Home Service. Expert Male & Female staff. Treatments for pain relief, hair fall, fertility, beauty & detox. Bahria Town & Online Booking.",
+  description: "Looking for the Best Hijama Center in Lahore? Get 24/7 Home Service by certified Male & Female staff. Safe cupping for pain & detox. Book Appointment!",
   alternates: {
     canonical: 'https://www.almadinahijamacenter.com',
   },
   openGraph: {
     title: "Best Hijama Center Lahore | 24/7 Home Service & Lady Staff",
-    description: "Best Hijama Center Lahore offering 24/7 Home Service. Expert Male & Female staff. Treatments for pain relief, hair fall, fertility, beauty & detox.",
+    description: "Looking for the Best Hijama Center in Lahore? Get 24/7 Home Service by certified Male & Female staff. Safe cupping for pain & detox. Book Appointment!",
     images: [
       {
         url: 'https://www.almadinahijamacenter.com/ceo.webp',
