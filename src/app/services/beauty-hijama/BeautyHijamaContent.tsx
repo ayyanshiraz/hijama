@@ -1,23 +1,24 @@
 'use client';
 
-import { Phone, CheckCircle, Shield, Clock, Sun, Moon, Droplets, Plus, Minus, ChevronRight, AlertTriangle, Sparkles } from 'lucide-react';
+import { Phone, CheckCircle, Shield, Clock, Sun, Moon, Droplets, Plus, Minus, ChevronRight, AlertTriangle, Sparkles, Facebook, Instagram, Youtube, Video } from 'lucide-react';
 import { motion, AnimatePresence, Variants, Transition } from 'framer-motion'; 
 import { useState } from 'react';
 import Breadcrumbs from '@/components/Breadcrumbs'; 
 import Image from 'next/image';
 import Link from 'next/link';
+import { FaFacebook, FaInstagram, FaTiktok, FaYoutube } from 'react-icons/fa';
 
-// --- CONTENT VARIABLES --- (Unchanged)
+// --- CONTENT VARIABLES (OPTIMIZED FOR SEO) ---
 const newContentIntro = [
-    "Everyone wants fresh, youthful skin. However, many people are afraid of needles or harsh chemical treatments.",
-    "If you are looking for a natural and safe method to enhance your beauty, then Beauty Hijama is the best choice for you. We are proud to offer this exceptional service here in Lahore.",
-    "Also known as facial cupping, this therapy is designed to rejuvenate your skin from the inside out. Unlike traditional wet hijama which involves small cuts, this therapy is completely non-invasive. (Note: While this service is non-invasive, we ensure all our practices align with the principles of Islamic Hijama.)",
-    "There is no blood involved and no pain. Instead, we use soft small cups that gently move over your face. This is a relaxation experience that works like a natural face lift."
+    <span key="1">Everyone wants fresh, youthful skin. However, many people are afraid of needles or harsh chemical treatments.</span>,
+    <span key="2">If you are looking for a natural and safe method to enhance your beauty, then visiting the <Link href="/" className="text-teal-600 font-bold hover:underline">Best Hijama Center in Lahore</Link> is the right choice. We are proud to offer this exceptional service here in Bahria Town.</span>,
+    <span key="3">Also known as <Link href="/blog/female-face-hijama-benefits-clear-skin-lahore" className="text-teal-600 font-semibold hover:underline">Female Face Hijama</Link>, this therapy is designed to rejuvenate your skin from the inside out. Unlike traditional wet hijama which involves small cuts, this therapy is completely non-invasive. (Note: While this service is non-invasive, we ensure all our practices align with the principles of Islamic Hijama.)</span>,
+    <span key="4">There is no blood involved and no pain. Instead, we use soft small cups that gently move over your face. This is a relaxation experience that works like a natural face lift.</span>
 ];
 
 const howItWorks = [
-    "The concept is simple yet very effective. The therapist uses small silicone or glass cups to create light suction on your skin. This suction gently lifts facial tissues.",
-    "When the skin is lifted, blood circulation in that area improves. Fresh blood carries oxygen and nutrients that repair skin cells. The movement of the cups at that time helps with lymphatic drainage, which means it pushes out toxins and excess fluid that can make the face look puffy."
+    <span key="1">The concept is simple yet very effective. The therapist uses small silicone or glass cups to create light suction on your skin. This suction gently lifts facial tissues.</span>,
+    <span key="2">When the skin is lifted, blood circulation in that area improves. Fresh blood carries oxygen and nutrients that repair skin cells. The movement of the cups at that time helps with lymphatic drainage, which means it pushes out toxins and excess fluid that can make the face look puffy.</span>
 ];
 
 const newBenefits = [
@@ -28,7 +29,7 @@ const newBenefits = [
 ];
 
 const newProcessSteps = [
-    { icon: Shield, title: 'Skin Consultation', description: 'Our certified practitioner checks your skin type and discusses your beauty goals. (Dedicated male and female staff ensure your comfort and privacy.)' },
+    { icon: Shield, title: 'Skin Consultation', description: <span>Our certified practitioner checks your skin type and discusses your beauty goals. (<Link href="/blog/ladies-hijama-center-lahore" className="text-teal-600 hover:underline">Dedicated female staff</Link> ensures your comfort and privacy.)</span> },
     { icon: Droplets, title: 'Deep Cleansing', description: 'The face is thoroughly cleansed to remove dirt/makeup, followed by application of quality facial oil for smooth gliding.' },
     { icon: Sparkles, title: 'Gentle Cupping Massage', description: 'Small, soft cups are used to create light suction, gliding across the face in specific patterns for a deep and soothing massage.' },
     { icon: Clock, title: 'Lifting & Toning', description: 'The light suction lifts and tones the facial muscles, which helps tighten loose skin.' },
@@ -74,11 +75,11 @@ const faqs = [
     }
 ];
 
-// JSON-LD Schema data (kept original for consistency)
+// JSON-LD Schema data
 const schema = {
     "@context": "https://schema.org",
     "@type": "TherapeuticProcedure",
-    "name": "Beauty Hijama (Facial Cupping)",
+    "name": "Beauty Hijama (Facial Cupping) in Lahore",
     "description": "Gentle, non-invasive facial cupping techniques for men and women to enhance skin tone, reduce puffiness, stimulate collagen, and achieve a radiant complexion.",
     "indication": [
         { "@type": "MedicalCondition", "name": "Skin Rejuvenation" },
@@ -90,8 +91,14 @@ const schema = {
     "provider": {
         "@type": "MedicalBusiness",
         "name": "Al Madina Hijama Center",
-        "url": "https://almadinahijamacenter.com",
-        "logo": "https://almadinahijamacenter.com/logo.png"
+        "url": "https://www.almadinahijamacenter.com",
+        "logo": "https://www.almadinahijamacenter.com/logo.png",
+        "sameAs": [
+            "https://www.facebook.com/BestHijamaLahore/",
+            "https://www.instagram.com/almadinahijmacenter",
+            "https://www.tiktok.com/@jameel.ur.rehman81",
+            "https://www.youtube.com/@almadinahijamacenter4985"
+        ]
     }
 };
 
@@ -108,9 +115,7 @@ const faqSchema = {
     }))
 };
 
-// Component name changed to BeautyHijamaContent to match the page.tsx import
 const BeautyHijamaContent = () => {
-    // FIX APPLIED HERE: Explicitly defining the type as number | null
     const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
 
     const staggerContainer = {
@@ -180,7 +185,7 @@ const BeautyHijamaContent = () => {
 
             <Breadcrumbs items={breadcrumbItems} />
 
-            {/* --- Main Content Section (New Content Integrated) --- */}
+            {/* --- Main Content Section --- */}
             <section className="py-24">
                 <div className="container mx-auto px-8 sm:px-16">
                     <div className="grid grid-cols-1 lg:grid-cols-3 gap-16">
@@ -191,21 +196,21 @@ const BeautyHijamaContent = () => {
                                 
                                 {/* 1. Introduction & Overview */}
                                 <motion.h2 variants={itemVariants} className="text-4xl font-extrabold text-gray-900">Beauty Hijama: Your Natural Path to a Radiant Glow (in Lahore)</motion.h2>
-                                {newContentIntro.map((text, index) => (
+                                {newContentIntro.map((item, index) => (
                                     <motion.p key={`intro-${index}`} variants={itemVariants} className="mt-4 text-lg text-gray-600 leading-relaxed">
-                                        {text}
+                                        {item}
                                     </motion.p>
                                 ))}
 
                                 {/* 2. How It Works Section */}
                                 <motion.h3 variants={itemVariants} className="mt-12 text-3xl font-bold text-gray-900">How Does Beauty Hijama Work:</motion.h3>
-                                {howItWorks.map((text, index) => (
+                                {howItWorks.map((item, index) => (
                                     <motion.p key={`work-${index}`} variants={itemVariants} className="mt-4 text-lg text-gray-600 leading-relaxed">
-                                        {text}
+                                        {item}
                                     </motion.p>
                                 ))}
 
-                                {/* 3. Key Benefits Section (New Benefits List) */}
+                                {/* 3. Key Benefits Section */}
                                 <motion.h3 variants={itemVariants} className="mt-12 text-3xl font-bold text-gray-900">Key Benefits of This Therapy</motion.h3>
                                 <motion.div variants={staggerContainer} className="mt-6 space-y-8">
                                     {newBenefits.map((benefit, index) => (
@@ -223,7 +228,7 @@ const BeautyHijamaContent = () => {
                                     ))}
                                 </motion.div>
 
-                                {/* 4. Indications/Contraindications Section (New Lists) */}
+                                {/* 4. Indications/Contraindications Section */}
                                 <motion.div variants={itemVariants} className="mt-12">
                                     <h3 className="text-3xl font-bold text-gray-900">Is This Treatment Right for You:</h3>
                                     <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -248,7 +253,7 @@ const BeautyHijamaContent = () => {
                                 </motion.div>
 
 
-                                {/* 5. Process Section (New Process Steps) */}
+                                {/* 5. Process Section */}
                                 <motion.h3 variants={itemVariants} className="mt-12 text-3xl font-bold text-gray-900">The Process Step by Step:</motion.h3>
                                 <div className="mt-6 space-y-8">
                                     {newProcessSteps.map((step, index) => (
@@ -269,7 +274,7 @@ const BeautyHijamaContent = () => {
                                 {/* Conclusion */}
                                 <motion.h3 variants={itemVariants} className="mt-12 text-3xl font-bold text-gray-900">Conclusion:</motion.h3>
                                 <motion.p variants={itemVariants} className="mt-4 text-lg text-gray-600 leading-relaxed">
-                                    <a href='/services/female-face-hijama' className='text-blue-500'>Beauty Hijama</a> is not just a facial; it is a natural therapy that heals your skin from within, gives you a radiant glow, reduces signs of aging, and soothes your brain. We are available 24/7 to serve our community in Lahore.
+                                    <Link href='/services/female-face-hijama' className='text-teal-500 hover:underline'>Beauty Hijama</Link> is not just a facial; it is a natural therapy that heals your skin from within, gives you a radiant glow, reduces signs of aging, and soothes your brain. We are available 24/7 to serve our community in Lahore.
                                 </motion.p>
                                 <motion.p variants={itemVariants} className="mt-4 text-lg font-bold text-teal-600 leading-relaxed">
                                     If you want to look beautiful without using chemicals, book your session today. Let us help you reveal the natural beauty of your skin.
@@ -278,7 +283,7 @@ const BeautyHijamaContent = () => {
                             </motion.div>
                         </div>
 
-                        {/* Right Column (Sidebar) - Kept original */}
+                        {/* Right Column (Sidebar) */}
                         <aside className="lg:col-span-1">
                             <motion.div 
                                 initial={{ opacity: 0, y: 50 }}
@@ -305,28 +310,44 @@ const BeautyHijamaContent = () => {
                                     href="/booking"
                                     className="mt-6 inline-flex w-full items-center justify-center px-6 py-4 bg-[#FF6900] text-white font-bold text-lg rounded-lg shadow-md hover:brightness-90 transition-all duration-300 transform hover:scale-105"
                                 >
-                                    
                                     Book Now
                                 </Link>
-
 
                                 <div className="mt-8 text-center">
                                     <h4 className="text-lg font-semibold text-gray-800">Your Specialist</h4>
                                     <div className="flex justify-center items-center gap-8 mt-4">
                                         <div>
-                                            {/* English comment as requested */}
-                                            {/* Assuming you have an image for the female specialist at /female-specialist.webp */}
                                             <img src="/female-specialist.webp" alt="Ms. Fatima Khan" className="w-24 h-24 rounded-full mx-auto object-cover" />
                                             <p className="mt-2 font-bold">Ms. Fatima Khan</p>
                                             <p className="text-sm text-gray-600">Certified Hijama Therapist</p>
                                         </div>
                                     </div>
                                 </div>
+
+                                {/* Social Media Links Integration */}
+                                <div className="mt-8 pt-6 border-t border-gray-200">
+                                    <h4 className="text-lg font-semibold text-gray-800 text-center mb-4">Connect With Us</h4>
+                                    <div className="flex justify-center gap-4">
+                                        <a href="https://www.facebook.com/BestHijamaLahore/" target="_blank" rel="noopener noreferrer" className="p-2 bg-[#1877F2] text-white rounded-full text-white rounded-full hover:opacity-80 transition-opacity" aria-label="Facebook">
+                                            <FaFacebook className="w-5 h-5" />
+                                        </a>
+                                        <a href="https://www.instagram.com/almadinahijmacenter" target="_blank" rel="noopener noreferrer" className="p-2 bg-gradient-to-tr from-[#f9ce34] via-[#ee2a7b] to-[#6228d7] text-white rounded-full hover:opacity-80 transition-opacity" aria-label="Instagram">
+                                            <FaInstagram className="w-5 h-5" />
+                                        </a>
+                                        <a href="https://www.tiktok.com/@jameel.ur.rehman81" target="_blank" rel="noopener noreferrer" className="p-2 bg-black text-white rounded-full hover:opacity-80 transition-opacity" aria-label="TikTok">
+                                            <FaTiktok className="w-5 h-5" />
+                                        </a>
+                                        <a href="https://www.youtube.com/@almadinahijamacenter4985" target="_blank" rel="noopener noreferrer" className="p-2 bg-red-600 text-white rounded-full hover:opacity-80 transition-opacity" aria-label="YouTube">
+                                            <FaYoutube className="w-5 h-5" />
+                                        </a>
+                                    </div>
+                                </div>
+
                             </motion.div>
                         </aside>
                     </div>
 
-                    {/* Preparation & After-care Section - Kept original */}
+                    {/* Preparation & After-care Section */}
                     <motion.div initial="hidden" animate="visible" variants={staggerContainer} className="mt-24">
                         <motion.h2 variants={itemVariants} className="text-4xl font-extrabold text-gray-900 text-center">Preparation & After-care</motion.h2>
                         <motion.p variants={itemVariants} className="mt-4 text-lg text-gray-600 text-center max-w-3xl mx-auto">
@@ -353,7 +374,7 @@ const BeautyHijamaContent = () => {
                         </div>
                     </motion.div>
 
-                    {/* --- FAQ Section - Kept original */}
+                    {/* --- FAQ Section --- */}
                     <section className="mt-24">
                         <motion.div 
                             className="text-center mb-16"
@@ -375,7 +396,6 @@ const BeautyHijamaContent = () => {
                                 return (
                                     <div key={index}>
                                         <button
-                                            // Ensure the click handler uses the state setter correctly
                                             onClick={() => setOpenFaqIndex(isOpen ? null : index)}
                                             className={`w-full flex justify-between items-center text-left gap-4 bg-[#1E4137] p-6 text-white transition-all duration-300 hover:bg-opacity-90 ${isOpen ? 'rounded-t-lg' : 'rounded-lg'}`}
                                         >
@@ -410,4 +430,4 @@ const BeautyHijamaContent = () => {
     );
 };
 
-export default BeautyHijamaContent; // Component name changed and exported
+export default BeautyHijamaContent;
