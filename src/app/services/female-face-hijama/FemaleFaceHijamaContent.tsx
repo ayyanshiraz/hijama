@@ -1,19 +1,20 @@
 'use client';
 
-import { Phone, CheckCircle, Shield, Clock, Sun, Moon, Droplets, Plus, Minus, ChevronRight, AlertTriangle, Smile, Zap, Heart, RefreshCw } from 'lucide-react';
-import { motion, AnimatePresence, Variants } from 'framer-motion';
+import { Phone, CheckCircle, Shield, Clock, Sun, Moon, Droplets, Plus, Minus, ChevronRight, AlertTriangle, Smile, Zap, Heart, RefreshCw, Facebook, Instagram, Youtube, Video } from 'lucide-react';
+import { motion, AnimatePresence, Variants, Transition } from 'framer-motion';
 import { useState } from 'react';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import Image from 'next/image';
 import Link from 'next/link';
+import { FaFacebook, FaInstagram, FaTiktok, FaYoutube } from 'react-icons/fa6';
 
-// --- UPDATED DATA ARRAYS BASED ON NEW CONTENT ---
+// --- UPDATED DATA ARRAYS WITH HTML FORMATTING ---
 
 const benefits = [
-    { icon: Zap, text: 'Natural Anti-Aging and Wrinkle Reduction: Stimulates collagen and elastin for firmer, more youthful skin.' },
-    { icon: Droplets, text: 'Clears Acne and Scars: Detoxifies the skin and aids in the removal of stagnant blood, fading old marks faster.' },
-    { icon: Minus, text: 'Reduces Facial Puffiness: Encourages lymphatic drainage to remove excess fluids and achieve a contoured look.' },
-    { icon: RefreshCw, text: 'Radiant and Detoxified Complexion: Instantly brightens dull skin and gives a lasting, healthy, rosy glow.' },
+    { icon: Zap, text: '<strong>Natural Anti-Aging and Wrinkle Reduction</strong>: Stimulates collagen and elastin for firmer, more youthful skin.' },
+    { icon: Droplets, text: '<strong>Clears Acne and Scars</strong>: Detoxifies the skin and aids in the removal of stagnant blood, fading old marks faster.' },
+    { icon: Minus, text: '<strong>Reduces Facial Puffiness</strong>: Encourages lymphatic drainage to remove excess fluids and achieve a contoured look.' },
+    { icon: RefreshCw, text: '<strong>Radiant and Detoxified Complexion</strong>: Instantly brightens dull skin and gives a lasting, healthy, rosy glow.' },
 ];
 
 const processSteps = [
@@ -64,7 +65,7 @@ const faqs = [
     }
 ];
 
-// JSON-LD Schema data (UPDATED with location and new service name)
+// JSON-LD Schema data
 const schema = {
     "@context": "https://schema.org",
     "@type": "TherapeuticProcedure",
@@ -81,7 +82,13 @@ const schema = {
         "@type": "MedicalBusiness",
         "name": "Al Madinah Hijama Center",
         "url": "https://almadinahijamacenter.com",
-        "logo": "https://almadinahijamacenter.com/logo.png"
+        "logo": "https://almadinahijamacenter.com/logo.png",
+        "sameAs": [
+            "https://www.facebook.com/BestHijamaLahore/",
+            "https://www.instagram.com/almadinahijmacenter",
+            "https://www.tiktok.com/@jameel.ur.rehman81",
+            "https://www.youtube.com/@almadinahijamacenter4985"
+        ]
     },
     "areaServed": {
         "@type": "City",
@@ -102,11 +109,9 @@ const faqSchema = {
     }))
 };
 
-const FemaleFaceHijamaContent = () => { // Component name changed to match the export in page.tsx
-    // English comment for code: State management for FAQ section
+const FemaleFaceHijamaContent = () => {
     const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
 
-    // English comment for code: Framer Motion variants for staggered animation
     const staggerContainer: Variants = {
         hidden: { opacity: 0 },
         visible: {
@@ -114,17 +119,15 @@ const FemaleFaceHijamaContent = () => { // Component name changed to match the e
             transition: {
                 staggerChildren: 0.1,
                 delayChildren: 0.2,
-            },
+            } as Transition,
         },
     };
 
-    // English comment for code: Framer Motion variants for individual items
     const itemVariants: Variants = {
         hidden: { opacity: 0, y: 20 },
-        visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
+        visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } as Transition },
     };
 
-    // English comment for code: Breadcrumbs navigation items
     const breadcrumbItems = [
         { name: 'Home', href: '/' },
         { name: 'Services', href: '/services' },
@@ -133,7 +136,7 @@ const FemaleFaceHijamaContent = () => { // Component name changed to match the e
     
     return (
         <main className="bg-white text-gray-800">
-            {/* English comment for code: Injecting JSON-LD Schemas for SEO */}
+            {/* Injecting JSON-LD Schemas */}
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
@@ -152,17 +155,13 @@ const FemaleFaceHijamaContent = () => { // Component name changed to match the e
                 <div className="absolute inset-0 bg-black opacity-60"></div>
                 <div className="relative container mx-auto px-6 text-center z-10">
                     <motion.h1 
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8, ease: 'easeOut' }}
+                        {...{ initial: { opacity: 0, y: 20 }, animate: { opacity: 1, y: 0 }, transition: { duration: 0.8, ease: "easeOut" } as Transition }}
                         className="text-5xl md:text-7xl font-extrabold tracking-tight"
                     >
                         Female Face Hijama (Facial Cupping) in Bahria Town, Lahore
                     </motion.h1>
                     <motion.p 
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
+                        {...{ initial: { opacity: 0, y: 20 }, animate: { opacity: 1, y: 0 }, transition: { duration: 0.8, delay: 0.2, ease: "easeOut" } as Transition }}
                         className="mt-4 text-xl md:text-2xl text-gray-200 max-w-3xl mx-auto"
                     >
                         A Natural Path to Youthful Skin: The Al Madinah Hijama Center Difference
@@ -180,35 +179,35 @@ const FemaleFaceHijamaContent = () => { // Component name changed to match the e
                         {/* Left Column (Main Content) */}
                         <div className="lg:col-span-2">
                             <motion.div initial="hidden" animate="visible" variants={staggerContainer}>
-                                <motion.h2 variants={itemVariants} className="text-4xl font-extrabold text-gray-900">A Natural Path to Youthful Skin: The Al Madinah Hijama Center Difference</motion.h2>
+                                <motion.h2 variants={itemVariants} className="text-4xl font-extrabold text-teal-600">A Natural Path to Youthful Skin: The Al Madinah Hijama Center Difference</motion.h2>
                                 <motion.p variants={itemVariants} className="mt-4 text-lg text-gray-600 leading-relaxed">
-                                    Many women seeking beauty solutions are tired of using harsh chemical creams or painful laser procedures. They are looking for something natural and safe. This is where Female Face Hijama, or Facial Cupping, comes in. This ancient treatment is experiencing a major comeback because of its ability to tighten and brighten the skin. It is often called a natural facelift.
+                                    Many women seeking beauty solutions are tired of using harsh chemical creams or painful laser procedures. They are looking for something natural and safe. This is where <strong>Female Face Hijama</strong>, or Facial Cupping, comes in. This ancient treatment is experiencing a major comeback because of its ability to tighten and brighten the skin. It is often called a natural facelift.
                                 </motion.p>
                                 <motion.p variants={itemVariants} className="mt-4 text-lg text-gray-600 leading-relaxed">
-                                    At <Link href='/' className='text-blue-500 hover:underline'>Al Madinah Hijama </Link>Center in Bahria Town, Lahore, we bring you this therapy backed by 15 years of experience. This treatment revitalizes the skin using gentle suction to purify the blood and dramatically improve circulation. When blood flow improves, your skin receives more oxygen and nutrients, resulting in a lasting, healthy, rosy glow.
+                                    If you are looking for the <Link href="/" className="text-teal-600 font-bold hover:underline">Best Hijama Center in Lahore</Link> for skincare, look no further. At Al Madinah Hijama Center in Bahria Town, we bring you this therapy backed by 15 years of experience. This treatment revitalizes the skin using gentle suction to purify the blood and dramatically improve circulation. When blood flow improves, your skin receives more oxygen and nutrients, resulting in a lasting, healthy, rosy glow.
                                 </motion.p>
-                                <motion.p variants={itemVariants} className="mt-4 text-lg text-gray-600 leading-relaxed font-semibold text-teal-700">
-                                    We ensure that certified female practitioners for our female clients perform this service exclusively. We strictly maintain privacy and hygiene and provide a complete privacy guarantee so you can relax entirely.
+                                <motion.p variants={itemVariants} className="mt-4 text-lg text-gray-600 leading-relaxed  ">
+                                    We ensure that <Link href="/blog/hijama-center-lahore-for-ladies-female-staff" className="text-teal-600 hover:underline">certified female practitioners</Link> for our female clients perform this service exclusively. We strictly maintain privacy and hygiene and provide a complete privacy guarantee so you can relax entirely.
                                 </motion.p>
 
                                 {/* Benefits Section */}
-                                <motion.h2 variants={itemVariants} className="mt-12 text-3xl font-bold text-gray-900">✨ Unlocking Youthful Skin: The Proven Benefits of Facial Cupping</motion.h2>
+                                <motion.h2 variants={itemVariants} className="mt-12 text-3xl font-bold text-teal-600">✨ Unlocking Youthful Skin: The Proven Benefits of Facial Cupping</motion.h2>
                                 <motion.p variants={itemVariants} className="mt-4 text-lg text-gray-600 leading-relaxed">
                                     This treatment is not just about looking good; it is about the long-term health of your skin. Here are the main benefits you will notice:
                                 </motion.p>
 
-                                {/* Individual Benefits (Includes H3 context from source material) */}
                                 <motion.ul variants={staggerContainer} className="mt-6 space-y-4">
                                     {benefits.map((benefit, index) => (
                                         <motion.li key={index} variants={itemVariants} className="flex items-start bg-gray-100 p-4 rounded-lg">
                                             <benefit.icon className="h-6 w-6 text-teal-600 mr-3 mt-1 flex-shrink-0" />
-                                            <span className="text-gray-700 font-medium">{benefit.text}</span>
+                                            {/* HTML Rendering for Bold Text */}
+                                            <span className="text-gray-700 font-medium" dangerouslySetInnerHTML={{ __html: benefit.text }} />
                                         </motion.li>
                                     ))}
                                 </motion.ul>
 
                                 {/* Process Section - New H2 */}
-                                <motion.h2 variants={itemVariants} className="mt-12 text-3xl font-bold text-gray-900">🩺 The Al Madinah Female Face Hijama Protocol</motion.h2>
+                                <motion.h2 variants={itemVariants} className="mt-12 text-3xl font-bold text-teal-600">🩺 The Al Madinah Female Face Hijama Protocol</motion.h2>
                                 <motion.p variants={itemVariants} className="mt-4 text-lg text-gray-600 leading-relaxed">
                                     We follow a specialized, step-by-step protocol to ensure the best, safest results, prioritizing sterility and your absolute privacy. Our certified female practitioners guide you through this gentle therapy.
                                 </motion.p>
@@ -221,7 +220,7 @@ const FemaleFaceHijamaContent = () => { // Component name changed to match the e
                                                 </div>
                                             </div>
                                             <div>
-                                                <h4 className="text-xl font-semibold text-gray-800">{step.title}</h4>
+                                                <h4 className="text-xl font-semibold text-teal-600">{step.title}</h4>
                                                 <p className="text-gray-600 mt-1">{step.description}</p>
                                             </div>
                                         </motion.div>
@@ -231,11 +230,11 @@ const FemaleFaceHijamaContent = () => { // Component name changed to match the e
 
                                 {/* Indications/Contraindications Section - New H2 */}
                                 <motion.div variants={itemVariants} className="mt-12">
-                                    <h2 className="text-3xl font-bold text-gray-900">✅ Consultation and Safety: Is Female Face Hijama Right for You?</h2>
+                                    <h2 className="text-3xl font-bold text-teal-600">✅ Consultation and Safety: Is Female Face Hijama Right for You?</h2>
                                     <p className="mt-4 text-lg text-gray-600">Always prioritize your safety and comfort. A brief consultation ensures this rejuvenating treatment is perfect for your current health profile.</p>
                                     <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-8">
                                         <div>
-                                            <h4 className="text-xl font-semibold text-gray-800 flex items-center"><CheckCircle className="h-6 w-6 text-green-600 mr-2" />You Should Consider This Treatment If:</h4>
+                                            <h4 className="text-xl font-semibold text-teal-600 flex items-center"><CheckCircle className="h-6 w-6 text-green-600 mr-2" />You Should Consider This Treatment If:</h4>
                                             <ul className="mt-4 space-y-2 text-gray-700">
                                                 {indications.map((item, index) => (
                                                     <li key={index} className="flex items-start"><ChevronRight className="w-5 h-5 text-teal-500 mr-2 mt-1 flex-shrink-0" /><span>{item}</span></li>
@@ -243,7 +242,7 @@ const FemaleFaceHijamaContent = () => { // Component name changed to match the e
                                             </ul>
                                         </div>
                                         <div>
-                                            <h4 className="text-xl font-semibold text-gray-800 flex items-center"><AlertTriangle className="h-6 w-6 text-red-600 mr-2" />You Must Avoid This Treatment If:</h4>
+                                            <h4 className="text-xl font-semibold text-teal-600 flex items-center"><AlertTriangle className="h-6 w-6 text-red-600 mr-2" />You Must Avoid This Treatment If:</h4>
                                             <ul className="mt-4 space-y-2 text-gray-700">
                                                 {contraindications.map((item, index) => (
                                                     <li key={index} className="flex items-start"><ChevronRight className="w-5 h-5 text-teal-500 mr-2 mt-1 flex-shrink-0" /><span>{item}</span></li>
@@ -251,7 +250,7 @@ const FemaleFaceHijamaContent = () => { // Component name changed to match the e
                                             </ul>
                                         </div>
                                     </div>
-                                    <p className="mt-6 text-sm text-gray-500 italic">Your safety is our priority. A full skin and medical history consultation is conducted by our female specialist before treatment.</p>
+                                    <p className="mt-6 text-sm text-teal-600 italic">Your safety is our priority. A full skin and medical history consultation is conducted by our female specialist before treatment.</p>
                                 </motion.div>
                             </motion.div>
                         </div>
@@ -264,7 +263,7 @@ const FemaleFaceHijamaContent = () => { // Component name changed to match the e
                                 transition={{ duration: 0.7, ease: 'easeOut' }}
                                 className="sticky top-24 bg-gray-50 p-8 rounded-2xl shadow-lg"
                             >
-                                <h3 className="text-2xl font-bold text-gray-900">📞 Book Your Natural Face Lift Today</h3>
+                                <h3 className="text-2xl font-bold text-teal-600">📞 Book Your Natural Face Lift Today</h3>
                                 <p className="mt-2 text-gray-600">Your face deserves better natural care. Female Face Hijama is a safe and powerful method to restore your beauty naturally.</p>
                                 
                                 <div className="mt-6 space-y-2">
@@ -289,21 +288,40 @@ const FemaleFaceHijamaContent = () => { // Component name changed to match the e
                                     <h4 className="text-lg font-semibold text-gray-800">Your Specialist</h4>
                                     <div className="flex justify-center items-center gap-8 mt-4">
                                         <div>
-                                            {/* English comment for code: Consider replacing with <Image> for Next.js optimization */}
-                                            <img src="/female-specialist.webp" alt="Ms. Fatima Khan" className="w-24 h-24 rounded-full mx-auto object-cover" />
+                                            <Image src="/female-specialist.webp" alt="Ms. Fatima Khan" width={96} height={96} className="w-24 h-24 rounded-full mx-auto object-cover" />
                                             <p className="mt-2 font-bold">Ms. Fatima Khan</p>
                                             <p className="text-sm text-gray-600">Certified Hijama Therapist</p>
                                         </div>
                                     </div>
                                 </div>
+
+                                {/* Social Media Links Integration (Optimized Colors) */}
+                                <div className="mt-8 pt-6 border-t border-gray-200">
+                                    <h4 className="text-lg font-semibold text-gray-800 text-center mb-4">Connect With Us</h4>
+                                    <div className="flex justify-center gap-4">
+                                        <a href="https://www.facebook.com/BestHijamaLahore/" target="_blank" rel="noopener noreferrer" className="p-2 bg-[#1877F2] text-white rounded-full hover:opacity-80 transition-opacity" aria-label="Facebook">
+                                            <FaFacebook className="w-5 h-5" />
+                                        </a>
+                                        <a href="https://www.instagram.com/almadinahijmacenter" target="_blank" rel="noopener noreferrer" className="p-2 bg-gradient-to-tr from-[#f9ce34] via-[#ee2a7b] to-[#6228d7] text-white rounded-full hover:opacity-80 transition-opacity" aria-label="Instagram">
+                                            <FaInstagram className="w-5 h-5" />
+                                        </a>
+                                        <a href="https://www.tiktok.com/@jameel.ur.rehman81" target="_blank" rel="noopener noreferrer" className="p-2 bg-[#000000] text-white rounded-full hover:opacity-80 transition-opacity" aria-label="TikTok">
+                                            <FaTiktok className="w-5 h-5" />
+                                        </a>
+                                        <a href="https://www.youtube.com/@almadinahijamacenter4985" target="_blank" rel="noopener noreferrer" className="p-2 bg-[#FF0000] text-white rounded-full hover:opacity-80 transition-opacity" aria-label="YouTube">
+                                            <FaYoutube className="w-5 h-5" />
+                                        </a>
+                                    </div>
+                                </div>
+
                             </motion.div>
                         </aside>
                     </div>
 
                     {/* Preparation & After-care Section */}
                     <motion.div initial="hidden" animate="visible" variants={staggerContainer} className="mt-24">
-                        <motion.h2 variants={itemVariants} className="text-4xl font-extrabold text-gray-900 text-center">Preparation & After-care</motion.h2>
-                        <motion.p variants={itemVariants} className="mt-4 text-lg text-gray-600 text-center max-w-3xl mx-auto">
+                        <motion.h2 variants={itemVariants} className="text-4xl font-extrabold text-teal-600 text-center">Preparation & After-care</motion.h2>
+                        <motion.p variants={itemVariants} className="mt-4 text-lg text-teal-600 text-center max-w-3xl mx-auto">
                             To ensure the best results for your facial therapy, please follow these delicate care instructions.
                         </motion.p>
 
@@ -312,7 +330,7 @@ const FemaleFaceHijamaContent = () => { // Component name changed to match the e
                                 <motion.div key={index} variants={itemVariants} className="bg-gray-50 p-8 rounded-2xl">
                                     <div className="flex items-center">
                                         <item.icon className="w-10 h-10 text-teal-600 mr-4" />
-                                        <h3 className="text-2xl font-bold text-gray-800">{item.title}</h3>
+                                        <h3 className="text-2xl font-bold text-teal-600">{item.title}</h3>
                                     </div>
                                     <ul className="mt-6 space-y-3 text-gray-700">
                                         {item.points.map((point, i) => (
@@ -364,7 +382,7 @@ const FemaleFaceHijamaContent = () => { // Component name changed to match the e
                             animate="visible"
                             variants={staggerContainer}
                         >
-                            <motion.h2 variants={itemVariants} className="text-4xl md:text-5xl font-extrabold text-gray-800">
+                            <motion.h2 variants={itemVariants} className="text-4xl md:text-5xl font-extrabold text-teal-600">
                                 Frequently Asked Questions
                             </motion.h2>
                             <motion.p variants={itemVariants} className="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">
