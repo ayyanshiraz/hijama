@@ -1,27 +1,28 @@
 'use client';
 
-import { Phone, CheckCircle, Shield, Clock, Sun, Moon, Droplets, Plus, Minus, ChevronRight, AlertTriangle, Activity } from 'lucide-react';
-import { motion, AnimatePresence, Variants } from 'framer-motion';
+import { Phone, CheckCircle, Shield, Clock, Sun, Moon, Droplets, Plus, Minus, ChevronRight, AlertTriangle, Activity, Facebook, Instagram, Youtube, Video } from 'lucide-react';
+import { motion, AnimatePresence, Variants, Transition } from 'framer-motion';
 import { useState } from 'react';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import Image from 'next/image';
 import Link from 'next/link';
+import { FaFacebook, FaInstagram, FaTiktok, FaYoutube } from 'react-icons/fa6';
 
-// UPDATED DATA ARRAYS BASED ON NEW CONTENT
+// UPDATED DATA ARRAYS
 const benefits = [
-    { icon: CheckCircle, text: 'Relieves pressure in the chest area, significantly reducing discomfort (especially before the monthly cycle)' },
-    { icon: CheckCircle, text: 'Draws out heat and inflammation from the tissues, helping the breast tissue feel softer' },
-    { icon: CheckCircle, text: 'Promotes Lymphatic Drainage by clearing blockages in the lymph vessels' },
-    { icon: CheckCircle, text: 'Supports the body in naturally shrinking the size of the cysts over time' },
-    { icon: CheckCircle, text: 'A non-invasive, natural, holistic approach to healing, unlike surgery' },
-    { icon: CheckCircle, text: 'Improves blood circulation and brings fresh oxygen to the cells' },
+    { icon: CheckCircle, text: 'Relieves pressure in the chest area, significantly reducing discomfort.' },
+    { icon: CheckCircle, text: 'Draws out heat and inflammation from the tissues.' },
+    { icon: CheckCircle, text: 'Promotes Lymphatic Drainage by clearing blockages.' },
+    { icon: CheckCircle, text: 'Supports the body in naturally shrinking the size of benign cysts.' },
+    { icon: CheckCircle, text: 'A non-invasive, natural, holistic approach to healing.' },
+    { icon: CheckCircle, text: 'Improves blood circulation and brings fresh oxygen to the cells.' },
 ];
 
 const processSteps = [
     { icon: Droplets, title: 'Sensitive Consultation', description: 'A private and respectful consultation with our female specialist to discuss your concerns.' },
     { icon: Shield, title: 'Gentle Preparation', description: 'The area is assessed and gently sterilized, ensuring complete comfort and hygiene.' },
     { icon: Activity, title: 'Targeted Application', description: 'Small cups are carefully placed on specific points around the breast tissue (not directly on the cyst) to promote circulation.' },
-    { icon: Clock, title: 'Therapeutic Session', description: 'A combination of gentle Dry and Blood cupping is used to draw out stagnation and inflammation from the surrounding area.' },
+    { icon: Clock, title: 'Therapeutic Session', description: 'A combination of gentle Dry and Wet cupping is used to draw out stagnation and inflammation from the surrounding area.' },
     { icon: Shield, title: 'Post-Therapy Care', description: 'The area is cleaned, and you receive guidance on after-care and breast health.' },
 ];
 
@@ -81,16 +82,12 @@ const schema = {
         "name": "Al Madina Hijama Center",
         "url": "https://www.almadinahijamacenter.com",
         "logo": "https://www.almadinahijamacenter.com/logo.png",
-        "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "Lahore",
-            "addressRegion": "Punjab",
-            "streetAddress": "Bahria Town, Lahore"
-        },
-        "areaServed": {
-            "@type": "City",
-            "name": "Lahore"
-        }
+        "sameAs": [
+            "https://www.facebook.com/BestHijamaLahore/",
+            "https://www.instagram.com/almadinahijmacenter",
+            "https://www.tiktok.com/@jameel.ur.rehman81",
+            "https://www.youtube.com/@almadinahijamacenter4985"
+        ]
     }
 };
 
@@ -117,13 +114,19 @@ const BreastCystsContent = () => {
           transition: {
             staggerChildren: 0.1,
             delayChildren: 0.2,
-          },
+          } as Transition, 
         },
     };
 
     const itemVariants: Variants = {
         hidden: { opacity: 0, y: 20 },
-        visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
+        visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } as Transition },
+    };
+
+    const heroAnimateProps = {
+        initial: { opacity: 0, y: 20 },
+        animate: { opacity: 1, y: 0 },
+        transition: { duration: 0.8, ease: "easeOut" } as Transition, 
     };
 
     const breadcrumbItems = [
@@ -144,7 +147,7 @@ const BreastCystsContent = () => {
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
             />
 
-            {/* --- Hero Section (SEO Title: Hijama for Females Lahore: Breast Cysts Treatment | 24/7 Bahria Town) --- */}
+            {/* --- Hero Section --- */}
             <section className="relative bg-gray-800 text-white py-32 sm:py-48 flex items-center justify-center">
                 <div 
                     className="absolute inset-0 bg-cover bg-center"
@@ -153,17 +156,15 @@ const BreastCystsContent = () => {
                 <div className="absolute inset-0 bg-black opacity-60"></div>
                 <div className="relative container mx-auto px-6 text-center z-10">
                     <motion.h1 
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8, ease: 'easeOut' }}
+                        {...heroAnimateProps}
                         className="text-5xl md:text-7xl font-extrabold tracking-tight"
                     >
                         Hijama for Breast Cysts in Lahore
                     </motion.h1>
                     <motion.p 
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
+                        initial={heroAnimateProps.initial}
+                        animate={heroAnimateProps.animate}
+                        transition={{ ...heroAnimateProps.transition, delay: 0.2 } as Transition} 
                         className="mt-4 text-xl md:text-2xl text-gray-200 max-w-3xl mx-auto"
                     >
                         A focused, non-invasive therapy to help manage breast cysts (Gilti) and promote lymphatic drainage.
@@ -178,42 +179,38 @@ const BreastCystsContent = () => {
                 <div className="container mx-auto px-8 sm:px-16">
                     <div className="grid grid-cols-1 lg:grid-cols-3 gap-16">
                         
-                        {/* Left Column (Main Content) - UPDATED CONTENT HERE */}
+                        {/* Left Column (Main Content) */}
                         <div className="lg:col-span-2">
                             <motion.div initial="hidden" animate="visible" variants={staggerContainer}>
                                 
-                                {/* H1: A Gentle Natural Approach to Breast Health with Breast Cysts Hijama for Females in Lahore */}
-                                <motion.h2 variants={itemVariants} className="text-4xl font-extrabold text-gray-900">A Gentle, Natural Approach to Breast Health with Hijama for Females</motion.h2>
+                                {/* Intro Section with SEO Links */}
+                                <motion.h2 variants={itemVariants} className="text-4xl font-extrabold text-teal-600">A Gentle, Natural Approach to Breast Health with Hijama</motion.h2>
                                 
                                 <motion.p variants={itemVariants} className="mt-4 text-lg text-gray-600 leading-relaxed">
-                                    Breast health is a sensitive topic for women. Feeling lumps or pain in the breast can be very distressing. While medical treatment is vital, many women seek natural, supportive therapies to manage benign conditions.
+                                    Breast health is a sensitive topic for women. Feeling lumps or pain in the breast can be very distressing. While medical treatment is vital, many women seek natural, supportive therapies to manage benign conditions. If you are looking for trusted care, the <Link href="/" className="text-teal-600 font-bold hover:underline">Best Hijama Center in Lahore</Link> is here to support you.
                                 </motion.p>
                                 
                                 <motion.p variants={itemVariants} className="mt-4 text-lg text-gray-600 leading-relaxed">
-                                    At our specialized <Link href="/services" className="text-blue-600 hover:text-teal-700 font-semibold underline">Islamic Hijama Center for Females</Link>, Al Madina Hijama Center in Bahria Town Lahore, we offer a specialized service called Breast Cysts Hijama.
+                                    At Al Madina Hijama Center in Bahria Town Lahore, we offer a specialized service called <strong>Breast Cysts Hijama</strong>. This therapy is strictly for benign or non-cancerous lumps, known locally as Gilti. It is a safe and non-invasive way to reduce discomfort and improve the overall health of the breast tissue.
                                 </motion.p>
                                 
                                 <motion.p variants={itemVariants} className="mt-4 text-lg text-gray-600 leading-relaxed">
-                                    This female hijama therapy is strictly for benign or non-cancerous lumps, which are locally known as Gilti. It is a safe and non-invasive way to reduce discomfort and improve the overall health of the breast tissue.
-                                </motion.p>
-                                
-                                <motion.p variants={itemVariants} className="mt-4 text-lg text-gray-600 leading-relaxed">
-                                    We understand the need for privacy. Therefore, this service is performed exclusively by our certified female hijama practitioners in a completely private room, ensuring the highest level of confidentiality with a complete privacy guarantee.
+                                    We understand the need for privacy. Therefore, this service is performed exclusively by our certified <Link href="/blog/hijama-center-lahore-for-ladies-female-staff" className="text-teal-600 font-semibold hover:underline">female hijama practitioners</Link> in a completely private room, ensuring the highest level of confidentiality.
                                 </motion.p>
 
-                                {/* H2: Is Hijama Suitable for Females? How Does It Work: */}
+                                {/* How it Works */}
                                 <motion.h3 variants={itemVariants} className="mt-12 text-3xl font-bold text-gray-900">Is Hijama Suitable for Females? How Does It Work:</motion.h3>
                                 
                                 <motion.p variants={itemVariants} className="mt-4 text-lg text-gray-600 leading-relaxed">
-                                    Many ask, &quot;Is hijama suitable for females?&quot; The answer is yes. Hijama for females works by focusing on blood flow and the lymphatic system. Cysts or lumps often form when fluids or toxins become trapped in tissues, and this stagnation causes swelling or pain.
+                                    Many ask, "Is hijama suitable for females?" The answer is yes. Hijama for females works by focusing on blood flow and the lymphatic system. Cysts or lumps often form when fluids or toxins become trapped in tissues, and this stagnation causes swelling or pain.
                                 </motion.p>
                                 
                                 <motion.p variants={itemVariants} className="mt-4 text-lg text-gray-600 leading-relaxed">
-                                    Our therapy targets specific hijama points for females around the breast. We do not place the cups directly on the cysts but rather around them using precise female hijama points. The gentle suction helps to pull the stagnant fluid away from the breast and towards the lymph nodes, where the body can naturally flush it out. This process improves circulation and brings fresh oxygen to the cells, helping to soften the tissue.
+                                    Our therapy targets specific hijama points for females around the breast. We do not place the cups directly on the cysts but rather around them. The gentle suction helps to pull the stagnant fluid away from the breast and towards the lymph nodes, promoting <Link href="/blog/hijama-detoxification-benefits" className="text-teal-600 font-semibold hover:underline">natural lymphatic drainage</Link>. This process improves circulation and brings fresh oxygen to the cells, helping to soften the tissue.
                                 </motion.p>
 
-                                {/* H3: Key Benefits of This Therapy for Women's Health: */}
-                                <motion.h3 variants={itemVariants} className="mt-12 text-3xl font-bold text-gray-900">Key Benefits of This Therapy for Womens Health</motion.h3>
+                                {/* Benefits Section */}
+                                <motion.h3 variants={itemVariants} className="mt-12 text-3xl font-bold text-teal-600">Key Benefits of This Therapy for Womens Health</motion.h3>
                                 <motion.ul variants={staggerContainer} className="mt-6 space-y-4">
                                     {benefits.map((benefit, index) => (
                                         <motion.li key={index} variants={itemVariants} className="flex items-start">
@@ -223,23 +220,22 @@ const BreastCystsContent = () => {
                                     ))}
                                 </motion.ul>
                                 
-                                {/* Other Important Women's Health Services: */}
+                                {/* Other Services */}
                                 <motion.h3 variants={itemVariants} className="mt-12 text-3xl font-bold text-gray-900">Other Important Womens Health Services</motion.h3>
                                 <motion.p variants={itemVariants} className="mt-4 text-lg text-gray-600 leading-relaxed">
-                                    While our primary focus here is breast cysts, our Islamic Hijama Center offers comprehensive care. We clarify that this treatment is for health and not hijama for breast enlargement. We also treat conditions such as skin issues with <Link href="/services/beauty-hijama" className="text-blue-600 hover:text-teal-700 font-semibold underline">hijama for female pimples</Link> and offer support for conception using hijama points for female infertility. This therapy is suitable for adult women of all ages, provided they meet the health criteria.
+                                    While our primary focus here is breast cysts, our Islamic Hijama Center offers comprehensive care. We also treat conditions such as skin issues with <Link href="/services/beauty-hijama" className="text-teal-600 font-semibold hover:underline">Hijama for Face (Beauty)</Link> and offer support for conception using hijama points for female infertility. This therapy is suitable for adult women of all ages, provided they meet the health criteria.
                                 </motion.p>
 
-                                {/* H3: Staff, Privacy, and Availability: Why Choose Our Center in Bahria Town? */}
-                                <motion.h3 variants={itemVariants} className="mt-12 text-3xl font-bold text-gray-900">Staff, Privacy, and Availability: Why Choose Our Center in Bahria Town?</motion.h3>
-                                <motion.p variants={itemVariants} className="mt-4 text-lg text-gray-600 leading-relaxed">
+                                {/* Why Choose Us */}
+                                <motion.h3 variants={itemVariants} className="mt-12 text-3xl font-bold text-gray-900">Why Choose Our Center in Bahria Town?</motion.h3>
+                                <motion.div variants={itemVariants} className="mt-4 text-lg text-gray-600 leading-relaxed">
                                     Because this is a sensitive medical issue, we adhere to strict safety guidelines and client-focused service standards:
                                     <ul className="mt-4 space-y-2 list-disc list-inside">
-                                        <li><strong>Gender-Specific Staff:</strong> Only certified female staff are available for female clients, and male staff are available for male clients.</li>
+                                        <li><strong>Gender-Specific Staff:</strong> Only certified female staff are available for female clients.</li>
                                         <li><strong>Privacy Guaranteed:</strong> We ensure your complete comfort, dignity, and privacy at every step.</li>
                                         <li><strong>24/7 Service:</strong> We offer 24/7 Hijama Service. You can <Link href="/booking" className="text-teal-600 hover:text-teal-700 font-semibold underline">call to book your appointment</Link> at your convenience.</li>
                                     </ul>
-                                </motion.p>
-                                
+                                </motion.div>
                                 
                                 {/* Indications/Contraindications Section */}
                                 <motion.div variants={itemVariants} className="mt-12">
@@ -267,7 +263,7 @@ const BreastCystsContent = () => {
 
 
                                 {/* Process Section */}
-                                <motion.h3 variants={itemVariants} className="mt-12 text-3xl font-bold text-gray-900">The Treatment Process</motion.h3>
+                                <motion.h3 variants={itemVariants} className="mt-12 text-3xl font-bold text-teal-600">The Treatment Process</motion.h3>
                                 <div className="mt-6 space-y-8">
                                     {processSteps.map((step, index) => (
                                         <motion.div key={index} variants={itemVariants} className="flex items-start">
@@ -284,17 +280,14 @@ const BreastCystsContent = () => {
                                     ))}
                                 </div>
 
-                                {/* Conclusion: Book Your Appointment Now */}
+                                {/* Conclusion */}
                                 <motion.div variants={itemVariants} className="mt-16 p-8 bg-teal-50 rounded-lg shadow-inner">
                                     <h3 className="text-2xl font-bold text-teal-800">Conclusion: Book Your Appointment Now</h3>
                                     <p className="mt-4 text-lg text-gray-700 leading-relaxed">
                                         You do not have to live with the discomfort of benign breast cysts. Our natural and Islamic cupping approach helps your body heal itself by improving flow and reducing inflammation.
                                     </p>
                                     <p className="mt-2 text-lg text-gray-700 leading-relaxed">
-                                        If you have a diagnosis of benign cysts and are seeking Hijama for Females in Bahria Town, Lahore, or a 24/7 Female Hijama Center near you, visit Al Madina Hijama Center. Trust our expert female staff to care for your health with the utmost respect and a complete privacy guarantee.
-                                    </p>
-                                    <p className="mt-4 text-lg text-gray-700 font-semibold">
-                                        To book your Hijama Appointment, you can call us anytime! Our 24/7 Hijama Service is always available.
+                                        If you have a diagnosis of benign cysts and are seeking Hijama for Females in Bahria Town, Lahore, visit <Link href="/" className="text-teal-600 font-bold hover:underline">Al Madina Hijama Center</Link>. Trust our expert female staff to care for your health with the utmost respect and a complete privacy guarantee.
                                     </p>
                                     <Link
                                         href="/booking"
@@ -304,11 +297,10 @@ const BreastCystsContent = () => {
                                     </Link>
                                 </motion.div>
 
-
                             </motion.div>
                         </div>
 
-                        {/* Right Column (Sidebar) - UNCHANGED */}
+                        {/* Right Column (Sidebar) */}
                         <aside className="lg:col-span-1">
                             <motion.div 
                                 initial={{ opacity: 0, y: 50 }}
@@ -316,7 +308,7 @@ const BreastCystsContent = () => {
                                 transition={{ duration: 0.7, ease: 'easeOut' }}
                                 className="sticky top-24 bg-gray-50 p-8 rounded-2xl shadow-lg"
                             >
-                                <h3 className="text-2xl font-bold text-gray-900">Book Your Session</h3>
+                                <h3 className="text-2xl font-bold text-teal-600">Book Your Session</h3>
                                 <p className="mt-2 text-gray-600">A confidential, specialized service for women by our female practitioners.</p>
                                 
                                 <div className="mt-6 space-y-2">
@@ -335,29 +327,46 @@ const BreastCystsContent = () => {
                                     href="/booking"
                                     className="mt-6 inline-flex w-full items-center justify-center px-6 py-4 bg-[#FF6900] text-white font-bold text-lg rounded-lg shadow-md hover:brightness-90 transition-all duration-300 transform hover:scale-105"
                                 >
-                                    
                                     Book Now
                                 </Link>
-
 
                                 <div className="mt-8 text-center">
                                     <h4 className="text-lg font-semibold text-gray-800">Your Specialist</h4>
                                     <div className="flex justify-center items-center gap-8 mt-4">
                                         <div>
-                                            {/* Assuming you have an image for the female specialist at /female-specialist.webp */}
                                             <img src="/female-specialist.webp" alt="Ms. Fatima Khan" className="w-24 h-24 rounded-full mx-auto object-cover" />
                                             <p className="mt-2 font-bold">Ms. Fatima Khan</p>
                                             <p className="text-sm text-gray-600">Certified Hijama Therapist</p>
                                         </div>
                                     </div>
                                 </div>
+
+                                {/* Social Media Links Integration (Optimized Colors) */}
+                                <div className="mt-8 pt-6 border-t border-gray-200">
+                                    <h4 className="text-lg font-semibold text-gray-800 text-center mb-4">Connect With Us</h4>
+                                    <div className="flex justify-center gap-4">
+                                        <a href="https://www.facebook.com/BestHijamaLahore/" target="_blank" rel="noopener noreferrer" className="p-2 bg-[#1877F2] text-white rounded-full hover:opacity-80 transition-opacity" aria-label="Facebook">
+                                            <FaFacebook className="w-5 h-5" />
+                                        </a>
+                                        <a href="https://www.instagram.com/almadinahijmacenter" target="_blank" rel="noopener noreferrer" className="p-2 bg-gradient-to-tr from-[#f9ce34] via-[#ee2a7b] to-[#6228d7] text-white rounded-full hover:opacity-80 transition-opacity" aria-label="Instagram">
+                                            <FaInstagram className="w-5 h-5" />
+                                        </a>
+                                        <a href="https://www.tiktok.com/@jameel.ur.rehman81" target="_blank" rel="noopener noreferrer" className="p-2 bg-[#000000] text-white rounded-full hover:opacity-80 transition-opacity" aria-label="TikTok">
+                                            <FaTiktok className="w-5 h-5" />
+                                        </a>
+                                        <a href="https://www.youtube.com/@almadinahijamacenter4985" target="_blank" rel="noopener noreferrer" className="p-2 bg-[#FF0000] text-white rounded-full hover:opacity-80 transition-opacity" aria-label="YouTube">
+                                            <FaYoutube className="w-5 h-5" />
+                                        </a>
+                                    </div>
+                                </div>
+
                             </motion.div>
                         </aside>
                     </div>
 
-                    {/* Preparation & After-care Section - UNCHANGED */}
+                    {/* Preparation & After-care Section */}
                     <motion.div initial="hidden" animate="visible" variants={staggerContainer} className="mt-24">
-                        <motion.h2 variants={itemVariants} className="text-4xl font-extrabold text-gray-900 text-center">Preparation & After-care</motion.h2>
+                        <motion.h2 variants={itemVariants} className="text-4xl font-extrabold text-teal-600 text-center">Preparation & After-care</motion.h2>
                         <motion.p variants={itemVariants} className="mt-4 text-lg text-gray-600 text-center max-w-3xl mx-auto">
                             Please follow these guidelines for this sensitive therapy.
                         </motion.p>
@@ -382,7 +391,7 @@ const BreastCystsContent = () => {
                         </div>
                     </motion.div>
 
-                      {/* --- FAQ Section - UNCHANGED --- */}
+                    {/* --- FAQ Section --- */}
                     <section className="mt-24">
                         <motion.div 
                             className="text-center mb-16"
