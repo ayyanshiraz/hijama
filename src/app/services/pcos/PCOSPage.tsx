@@ -1,85 +1,94 @@
 'use client';
 
-import { Phone, CheckCircle, Shield, Clock, Sun, Moon, Droplets, Plus, Minus, ChevronRight, AlertTriangle, Target } from 'lucide-react';
-import { motion, AnimatePresence, Variants } from 'framer-motion';
+import { Phone, CheckCircle, Shield, Clock, Sun, Moon, Droplets, Plus, Minus, ChevronRight, AlertTriangle, ShieldAlert, Facebook, Instagram, Youtube, Video } from 'lucide-react';
+import { motion, AnimatePresence, Variants, Transition } from 'framer-motion';
 import { useState } from 'react';
 import Breadcrumbs from '@/components/Breadcrumbs'; 
 import Image from 'next/image';
 import Link from 'next/link';
+import { FaFacebook, FaTiktok, FaYoutube } from 'react-icons/fa6';
 
+// --- DATA ARRAYS WITH BOLD FORMATTING ---
 const benefits = [
-    { icon: CheckCircle, text: 'Helps in regulating irregular menstrual cycles' },
-    { icon: CheckCircle, text: 'Supports the bodys natural hormonal balance' },
-    { icon: CheckCircle, text: 'Improves blood flow to the reproductive organs' },
-    { icon: CheckCircle, text: 'Aids in detoxification of excess hormones' },
-    { icon: CheckCircle, text: 'Can help reduce symptoms like insulin resistance' },
-    { icon: CheckCircle, text: 'A natural, holistic therapy to support fertility and wellness' },
+    { icon: CheckCircle, text: '<strong>Reduces Localized Inflammation</strong>: Helps calm swelling and irritation in the surrounding tissues.' },
+    { icon: CheckCircle, text: '<strong>Promotes Fresh Blood Flow</strong>: Increases circulation to the pelvic area, aiding the body’s natural repair mechanisms.' },
+    { icon: CheckCircle, text: '<strong>Detoxifies the Area</strong>: Aids in drawing out deep-seated toxins and inflammatory byproducts.' },
+    { icon: CheckCircle, text: '<strong>Accelerates Healing</strong>: Supports the tissue repair process, potentially speeding up recovery alongside medical treatment.' },
+    { icon: CheckCircle, text: '<strong>Non-Invasive Management</strong>: A safe, supportive therapy to manage symptoms without additional surgery.' },
+    { icon: CheckCircle, text: '<strong>Alleviates Discomfort</strong>: Can help reduce pain, itching, and general pelvic discomfort.' },
 ];
 
 const processSteps = [
-    { icon: Droplets, title: 'Holistic Consultation', description: 'Every session begins with a private consultation with our female specialist to tailor the treatment to your specific PCOS symptoms, cycle history, and health goals.' },
-    { icon: Shield, title: 'Sterile Preparation', description: 'Hygiene is paramount. We gently sterilize specific points on the back, abdomen, and lower body to prepare the skin for the procedure.' },
-    { icon: Target, title: 'Targeted Cupping Application', description: 'We apply blood cupping to key meridian points that correspond to the endocrine glands and the reproductive system. This targeted approach ensures the therapy reaches the areas that need it most.' },
-    { icon: Clock, title: 'Hormonal Rebalancing', description: 'The suction helps purify the blood and stimulate the nervous system. This dual action encourages the body to regulate its own hormonal output naturally.' },
-    { icon: Shield, title: 'Wellness Guidance', description: 'The treatment does not end when you leave. You receive a wellness plan that includes after-care advice, along with dietary and lifestyle tips specifically designed to manage PCOS.' },
+    { icon: Droplets, title: 'Mandatory Diagnosis & Consultation', description: 'Before we begin, we require a clear, confirmed medical diagnosis. Your session starts with a private consultation to discuss your history and symptoms.' },
+    { icon: Shield, title: 'Sterile Preparation', description: 'The therapist meticulously cleans and sterilizes the treatment area on the lower back and buttocks, away from the fistula opening.' },
+    { icon: ShieldAlert, title: 'Targeted Cupping Therapy', description: <span>We use a combination of <Link href="/services/dry-and-massage-cupping" className="text-teal-600 hover:underline font-medium">dry cupping</Link> and <Link href="/services/wet-cupping" className="text-teal-600 hover:underline font-medium">wet cupping (Hijama)</Link> applied to specific points on the lower back, sacrum, and glutes to improve circulation to the entire region.</span> },
+    { icon: Clock, title: 'Detoxification & Relief', description: 'This process helps to pull deep inflammation and inflammatory byproducts away from the affected tract, promoting comfort and healing from within.' },
+    { icon: Shield, title: 'Post-Therapy Care', description: 'The area is cleaned, and you receive crucial after-care guidance on hygiene, diet, and activity to ensure sustained results.' },
 ];
 
 const indications = [
-    'Those diagnosed with Polycystic Ovary Syndrome (PCOS).',
-    'Women experiencing irregular or absent periods (Amenorrhea).',
-    'Individuals suffering from general hormonal imbalances.',
-    'Managing associated symptoms like acne or hirsutism.',
-    'Support fertility challenges and insulin resistance.'
+    'Managing symptoms of anal fistula (after clear medical diagnosis)',
+    'Reducing recurrent inflammation or infection in the area',
+    'Alleviating pain, swelling, or discharge',
+    'As a supportive, non-invasive therapy alongside conventional medical treatment',
+    'Promoting healing of the surrounding tissue for sustained recovery'
 ];
 
 const contraindications = [
-    'You are currently on your period (Hijama cannot be done).',
-    'You are pregnant or actively trying to conceive post-ovulation.',
-    'You have severe anemia or very low blood pressure.',
-    'You are on blood-thinning medication or have a bleeding disorder.',
-    'You are taking specific hormonal medications (consultation required).',
+    'For women: During the menstrual cycle (Periods hijama cannot be done).',
+    'A medical diagnosis is ESSENTIAL. We do not treat undiagnosed anal pain or bleeding.',
+    'Directly on the fistula opening, an active abscess, or broken skin.',
+    'During pregnancy.',
+    'If you have a severe active infection or fever.',
+    'Individuals with bleeding disorders or on blood-thinning medication.',
+    'History of rectal or colon cancer (requires doctor clearance).'
 ];
 
 const preparation = [
-    { icon: Sun, title: 'Before You Arrive', points: ['Discuss your cycle and any current medications with our specialist beforehand.', 'Hydration is key, so drink plenty of water.', 'Have a light, nutritious meal 2 to 3 hours before your session and wear loose, comfortable clothing.'] },
-    { icon: Moon, title: 'After the Session', points: ['Rest and avoid strenuous activity for 24 to 48 hours.', 'Continue to drink plenty of water to aid the detoxification process.', 'We advise following a clean, low-glycemic diet to support hormonal balance.', 'Keep the treated areas warm and covered to prevent cold or wind exposure.'] },
+    { icon: Sun, title: 'Before the Session', points: ['You must have a clear medical diagnosis from a proctologist or surgeon.', 'Ensure the area is thoroughly cleaned before your appointment.', 'Inform your specialist of all your symptoms and medical history.', 'Have a light meal 2-3 hours prior.'] },
+    { icon: Moon, title: 'After the Session', points: ['Follow the specific hygiene instructions provided by your therapist rigorously.', 'Avoid strenuous activity and prolonged sitting for 24-48 hours to reduce pelvic pressure.', 'Drink plenty of water to help flush released toxins (Hydration is key).', 'Eat a high-fiber, clean diet to prevent constipation, which can aggravate the condition.'] },
 ];
 
 const faqs = [
     {
-        question: "How does Hijama help with PCOS?",
-        answer: "Hijama is a holistic therapy that helps by improving blood flow to the ovaries, reducing inflammation, and aiding the body in detoxifying excess hormones that contribute to PCOS symptoms. By stimulating key points, it helps to regulate the endocrine system, which can lead to more regular menstrual cycles."
+        question: "Is Hijama for fistula safe?",
+        answer: "Yes, when performed by an experienced practitioner, it is very safe. We never apply cups directly to the fistula itself, abscess, or broken skin. Instead, we cup specific surrounding points on the lower back and glutes to improve systemic blood flow, reduce inflammation, and promote healing in the entire pelvic region."
     },
     {
-        question: "Can Hijama cure PCOS?",
-        answer: "PCOS is a complex metabolic and hormonal condition. While Hijama is not a cure it is a highly effective natural therapy for managing the symptoms. When combined with diet, exercise, and a healthy lifestyle, many women experience significant improvements in their cycles and overall well-being."
+        question: "Can Hijama cure my fistula?",
+        answer: "Hijama is a powerful supportive therapy that can significantly help manage chronic symptoms, reduce inflammation, and aid the healing process. However, complex fistulas often require surgical intervention. This therapy is an excellent way to manage the condition non-invasively or support recovery post-surgery, but it is not a guaranteed cure on its own and should be combined with medical oversight."
     },
     {
-        question: "When is the best time in my cycle to get Hijama for PCOS?",
-        answer: "It is best to have Hijama done *after* your period has finished. It should not be performed while you are menstruating. Our specialist can advise on the optimal timing for your specific cycle."
+        question: "How does cupping the back help a fistula?",
+        answer: "The cupping points on the lower back and sacrum are connected via the nervous system and deep blood vessels to the pelvic and rectal area. By stimulating these points, we increase clean, oxygenated blood flow to the deeper tissues, helping to fight infection and clear inflammation from the source, leading to sustained comfort."
     },
     {
-        question: "How many sessions will I need?",
-        answer: "Regulating hormones takes time. This is not a one-time fix. Our specialist will recommend a personalized treatment plan, which usually involves a series of sessions over several months to achieve the best results."
+        question: "Is this treatment painful?",
+        answer: "The cupping is applied to the lower back and buttocks, not the immediate, sensitive anal area, so the discomfort from the procedure itself is minimal. Our certified practitioners are trained to be extremely gentle and prioritize your comfort and privacy throughout the session."
     }
 ];
 
+// JSON-LD Schema data
 const schema = {
     "@context": "https://schema.org",
     "@type": "TherapeuticProcedure",
-    "name": "Hijama for PCOS in Lahore (24/7) | Female Specialist & Home Service",
-    "description": "Manage PCOS holistically with specialized Hijama therapy in Lahore. We offer 24/7 service, confidential care by dedicated female staff, and convenient home service in Bahria Town and across Lahore.",
+    "name": "Hijama for Anal Fistula Supportive Care in Lahore",
+    "description": "The Top Islamic Hijama Center in Lahore offers 24/7 care for Anal Fistula. Get sustained recovery and faster comfort with our specialized, non-invasive Hijama approach. Home Service available.",
     "indication": [
-        { "@type": "MedicalCondition", "name": "Polycystic Ovary Syndrome (PCOS)" },
-        { "@type": "MedicalCondition", "name": "Irregular Menstrual Cycle" },
-        { "@type": "MedicalCondition", "name": "Hormonal Imbalance" }
+        { "@type": "MedicalCondition", "name": "Anal Fistula" }
     ],
-    "bodyLocation": "Back, Abdomen, and other points related to the endocrine system",
+    "bodyLocation": "Lower back, sacrum, and gluteal region (surrounding the affected area)",
     "provider": {
         "@type": "MedicalBusiness",
         "name": "Al Madina Islamic Hijama Center (Best Hijama Center in Lahore)",
-        "url": "https://almadinahijamacenter.com",
-        "logo": "https://almadinahijamacenter.com/logo.png"
+        "url": "https://www.almadinahijamacenter.com",
+        "logo": "https://www.almadinahijamacenter.com/logo.png",
+        "sameAs": [
+            "https://www.facebook.com/BestHijamaLahore/",
+            "https://www.instagram.com/almadinahijmacenter",
+            "https://www.tiktok.com/@jameel.ur.rehman81",
+            "https://www.youtube.com/@almadinahijamacenter4985"
+        ]
     }
 };
 
@@ -96,7 +105,7 @@ const faqSchema = {
     }))
 };
 
-const PCOSPage = () => {
+const HijamaForFistulaPage = () => {
     const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
 
     const staggerContainer: Variants = {
@@ -106,25 +115,30 @@ const PCOSPage = () => {
             transition: {
                 staggerChildren: 0.1,
                 delayChildren: 0.2,
-            },
+            } as Transition,
         },
     };
 
     const itemVariants: Variants = {
         hidden: { opacity: 0, y: 20 },
-        visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
+        visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } as Transition },
+    };
+
+    const heroAnimateProps = {
+        initial: { opacity: 0, y: 20 },
+        animate: { opacity: 1, y: 0 },
+        transition: { duration: 0.8, ease: "easeOut" } as Transition, 
     };
 
     const breadcrumbItems = [
         { name: 'Home', href: '/' },
         { name: 'Services', href: '/services' },
-        { name: 'Hijama for PCOS', href: '/services/pcos' },
+        { name: 'Hijama for Fistula', href: '/services/hijama-for-fistula' },
     ];
-    
-    const fireCuppingUrl = "https://www.almadinahijamacenter.com/services/fire-cupping";
     
     return (
         <main className="bg-white text-gray-800">
+            {/* Injecting JSON-LD Schemas */}
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
@@ -134,69 +148,82 @@ const PCOSPage = () => {
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
             />
 
+            {/* --- Hero Section --- */}
             <section className="relative bg-gray-800 text-white py-32 sm:py-48 flex items-center justify-center">
                 <div 
                     className="absolute inset-0 bg-cover bg-center"
-                    style={{ backgroundImage: "url('/services/s13.webp')" }}
+                    style={{ backgroundImage: "url('/services/s12.webp')" }}
                 ></div>
                 <div className="absolute inset-0 bg-black opacity-60"></div>
                 <div className="relative container mx-auto px-6 text-center z-10">
                     <motion.h1 
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8, ease: 'easeOut' }}
+                        {...heroAnimateProps}
                         className="text-5xl md:text-7xl font-extrabold tracking-tight"
                     >
-                        Hijama for PCOS in Lahore (24/7) | Female Specialist & Home Service
+                        Hijama for Anal Fistula in Lahore
                     </motion.h1>
                     <motion.p 
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
+                        initial={heroAnimateProps.initial}
+                        animate={heroAnimateProps.animate}
+                        transition={{ ...heroAnimateProps.transition, delay: 0.2 } as Transition}
                         className="mt-4 text-xl md:text-2xl text-gray-200 max-w-4xl mx-auto"
                     >
-                        Manage PCOS holistically with specialized Hijama therapy in Lahore. We offer 24/7 service, confidential care by dedicated female staff, and convenient home service in Bahria Town and across Lahore.
+                        A specialized, supportive therapy to manage chronic inflammation and promote natural healing for sustained comfort.
                     </motion.p>
                 </div>
             </section>
 
             <Breadcrumbs items={breadcrumbItems} />
 
+            {/* --- Main Content Section --- */}
             <section className="py-24">
                 <div className="container mx-auto px-8 sm:px-16">
                     <div className="grid grid-cols-1 lg:grid-cols-3 gap-16">
                         
+                        {/* Left Column (Main Content) */}
                         <div className="lg:col-span-2">
                             <motion.div initial="hidden" animate="visible" variants={staggerContainer}>
-                                <motion.h2 variants={itemVariants} className="text-4xl font-extrabold text-gray-900">Restoring Rhythm and Balance with Hijama for PCOS</motion.h2>
+                                
+                                {/* 1. Introduction & Overview */}
+                                <motion.h2 variants={itemVariants} className="text-4xl font-extrabold text-teal-600">A Humanized Approach to Anal Fistula Management</motion.h2>
                                 <motion.p variants={itemVariants} className="mt-4 text-lg text-gray-600 leading-relaxed">
-                                    Polycystic Ovary Syndrome, commonly known as PCOS, is a complex condition that disrupts the bodys delicate hormonal rhythm. It is frequently characterized by inflammation, poor circulation, and stubborn hormonal imbalances. While conventional medicine often focuses on symptom masking, our specialized Hijama therapy for PCOS offers a holistic alternative. We focus on the root causes by targeting the endocrine system directly to support the bodys natural regulatory processes.
+                                    Living with an anal fistula can be a physically painful and emotionally exhausting experience. The constant discomfort, swelling, and risk of infection often disrupt daily life. While medical intervention from a surgeon is typically the primary route to a cure, many individuals seek complementary therapies to help <Link href="/services/hijama-for-pain-relief" className="text-teal-600 hover:underline">manage challenging symptoms</Link> and support the body&apos;s recovery capabilities.
                                 </motion.p>
                                 <motion.p variants={itemVariants} className="mt-4 text-lg text-gray-600 leading-relaxed">
-                                    This therapy is not just about physical relief; it is about restoring internal harmony. As the <Link href={'/'} className='text-blue-500'>Best Hijama Center </Link> in Lahore, we ensure complete privacy with a dedicated ladies staff for female clients, whether you visit our Bahria Town clinic or choose our discreet home service option. We aim to revitalize the system from within.
+                                    Our specialized Hijama therapy offers a non-invasive, supportive approach. It is designed not to replace conventional medical treatment but to work alongside it. By focusing on <Link href="/services/hijama-for-detox" className="text-teal-600 hover:underline">systemic detoxification</Link> and localized circulation, we aim to reduce the burden of inflammation on the pelvic region and promote a healthier internal environment for tissue repair.
                                 </motion.p>
+                                <motion.blockquote variants={itemVariants} className="mt-6 p-4 border-l-4 border-teal-600 bg-teal-50 italic text-gray-700">
+                                    🌟 <b>Why Choose Al-Madina Islamic Hijama Center?</b>
+                                    <br></br> We are recognized as the <Link href='/' className='text-teal-600 font-bold hover:underline'>Best Hijama Center in Lahore</Link>, offering 24/7 service from our clinic located in Bahria Town, Lahore. We prioritize privacy and comfort with <Link href="/blog/hijama-center-lahore-for-ladies-female-staff" className="text-blue-600 hover:underline font-semibold">dedicated female staff</Link> for ladies and male staff for male clients. Home service is also readily available across Lahore.
+                                </motion.blockquote>
 
-                                <motion.h3 variants={itemVariants} className="mt-12 text-3xl font-bold text-gray-900">How It Supports Hormonal Health</motion.h3>
+                                {/* 2. Understanding the Method */}
+                                <motion.h3 variants={itemVariants} className="mt-12 text-3xl font-bold text-teal-600">Understanding the Strategic, Non-Invasive Method</motion.h3>
                                 <motion.p variants={itemVariants} className="mt-4 text-lg text-gray-600 leading-relaxed">
-                                    The science behind this therapy lies in its ability to manipulate blood flow and detoxification. Pelvic congestion can lead to poor ovarian function. <Link href={fireCuppingUrl} className="text-teal-600 hover:text-teal-800 font-semibold underline">Hijama aids</Link> in removing this stagnant blood and reducing systemic inflammation. Crucially, this process helps in the detoxification of excess hormones that may be causing chaos in your cycle. The therapy improves fresh blood flow to the reproductive organs, ensuring they receive the oxygen and nutrients needed for optimal function. Our 24/7 Hijama service ensures you can schedule your treatment when it best suits your cycle and needs.
+                                    Safety is our absolute priority when dealing with such a sensitive condition. All patients must understand that we never apply cups directly to the fistula opening, abscess, or any broken skin. Direct application would be unsafe and painful. Instead, our certified practitioners utilize a strategic, indirect method. We apply cupping therapy to specific meridian points located on the lower back, sacrum, and gluteal muscles. 
+                                </motion.p>
+                                <motion.p variants={itemVariants} className="mt-4 text-lg text-gray-600 leading-relaxed">
+                                    This targeted placement serves a dual purpose: it helps to draw deep-seated inflammation and toxins away from the affected tract, and it encourages fresh circulation to deeper pelvic tissues. This influx of oxygenated blood is crucial for enhancing the body&apos;s immune response and facilitating the natural healing of surrounding tissue. Learn more about the comprehensive benefits of Cupping Therapy by viewing our <Link href="/services/fire-cupping" className="text-teal-600 hover:text-teal-800 font-semibold underline">Fire Cupping service</Link>.
                                 </motion.p>
                                 
-                                <motion.h3 variants={itemVariants} className="mt-12 text-3xl font-bold text-gray-900">Key Benefits for PCOS Management</motion.h3>
+                                {/* 3. Key Benefits Section */}
+                                <motion.h3 variants={itemVariants} className="mt-12 text-3xl font-bold text-teal-600">Key Benefits of This Supportive Therapy</motion.h3>
                                 <motion.ul variants={staggerContainer} className="mt-6 space-y-4">
                                     {benefits.map((benefit, index) => (
                                         <motion.li key={index} variants={itemVariants} className="flex items-start">
                                             <benefit.icon className="h-6 w-6 text-teal-600 mr-3 mt-1 flex-shrink-0" />
-                                            <span className="text-gray-700">{benefit.text}</span>
+                                            <span className="text-gray-700" dangerouslySetInnerHTML={{ __html: benefit.text }} />
                                         </motion.li>
                                     ))}
                                 </motion.ul>
 
+                                {/* 4. Indications/Contraindications Section */}
                                 <motion.div variants={itemVariants} className="mt-12">
-                                    <h3 className="text-3xl font-bold text-gray-900">Is This Therapy Right for You?</h3>
+                                    <h3 className="text-3xl font-bold text-teal-600">Who Can Benefit from This Supportive Therapy?</h3>
                                     <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-8">
                                         <div>
                                             <h4 className="text-xl font-semibold text-gray-800 flex items-center"><CheckCircle className="h-6 w-6 text-green-600 mr-2" />Indications</h4>
-                                            <p className="mt-2 text-gray-600">This therapy is highly recommended for:</p>
+                                            <p className="mt-2 text-gray-600">This supportive care is highly recommended for:</p>
                                             <ul className="mt-4 space-y-2 text-gray-700">
                                                 {indications.map((item, index) => (
                                                     <li key={index} className="flex items-start"><ChevronRight className="w-5 h-5 text-teal-500 mr-2 mt-1 flex-shrink-0" /><span>{item}</span></li>
@@ -213,14 +240,11 @@ const PCOSPage = () => {
                                             </ul>
                                         </div>
                                     </div>
-                                    <p className="mt-6 text-sm text-gray-500 italic">A full consultation is conducted by our female specialist to ensure this treatment is appropriate for you.</p>
+                                    <p className="mt-6 text-sm text-gray-500 italic">A prior, clear diagnosis from a proctologist or general surgeon is required before this therapy can be administered.</p>
                                 </motion.div>
 
-
-                                <motion.h3 variants={itemVariants} className="mt-12 text-3xl font-bold text-gray-900">Your Treatment Journey</motion.h3>
-                                <motion.p variants={itemVariants} className="mt-4 text-lg text-gray-600 leading-relaxed">
-                                    We ensure a comfortable, private, and professional environment for all our clients. We have male staff for male clients seeking other services and the dedicated ladies staff for female clients seeking this specialized Hijama for PCOS treatment.
-                                </motion.p>
+                                {/* 5. Process Section */}
+                                <motion.h3 variants={itemVariants} className="mt-12 text-3xl font-bold text-teal-600">The Treatment Protocol at the Hijama Center Lahore</motion.h3>
                                 <div className="mt-6 space-y-8">
                                     {processSteps.map((step, index) => (
                                         <motion.div key={index} variants={itemVariants} className="flex items-start">
@@ -230,16 +254,28 @@ const PCOSPage = () => {
                                                 </div>
                                             </div>
                                             <div>
-                                                <h4 className="text-xl font-semibold text-gray-800">{step.title}</h4>
+                                                <h4 className="text-xl font-semibold text-teal-600">{step.title}</h4>
                                                 <p className="text-gray-600 mt-1">{step.description}</p>
                                             </div>
                                         </motion.div>
                                     ))}
                                 </div>
+
+                                <motion.div variants={itemVariants} className="mt-12 p-6 bg-yellow-50 rounded-lg shadow-inner">
+                                    <h3 className="text-2xl font-bold text-gray-900 flex items-center">
+                                        <ShieldAlert className="w-6 h-6 text-yellow-600 mr-2"/> More Assurance of Natural Healing
+                                    </h3>
+                                    <p className="mt-3 text-lg text-gray-700 leading-relaxed text-justify">
+                                        <b>Why Choose a Natural Approach for Anal Fistula? </b>
+                                        <br></br>
+                                        While modern medicine often involves complex procedures, many individuals seek Hijama therapy because of its focus on natural self-healing. Our clients frequently report that this supportive care, when combined with necessary medical oversight, provides faster comfort and a sense of holistic recovery that goes beyond conventional methods alone. We believe in providing your body with the optimum environment—through enhanced circulation and detoxification—to activate its guaranteed internal healing power, helping you achieve a better and more sustained outcome.
+                                    </p>
+                                </motion.div>
                                 
                             </motion.div>
                         </div>
 
+                        {/* Right Column (Sidebar) */}
                         <aside className="lg:col-span-1">
                             <motion.div 
                                 initial={{ opacity: 0, y: 50 }}
@@ -247,13 +283,17 @@ const PCOSPage = () => {
                                 transition={{ duration: 0.7, ease: 'easeOut' }}
                                 className="sticky top-24 bg-gray-50 p-8 rounded-2xl shadow-lg"
                             >
-                                <h3 className="text-2xl font-bold text-gray-900">Book Your Session</h3>
-                                <p className="mt-2 text-gray-600">A specialized, confidential service for women by our female practitioners.</p>
+                                <h3 className="text-2xl font-bold text-teal-600">Book Your Session</h3>
+                                <p className="mt-2 text-gray-600">Confidential, professional care for a sensitive condition. 24/7 service available.</p>
                                 
                                 <div className="mt-6 space-y-2">
                                     <div>
                                         <p className="text-4xl font-extrabold text-teal-600">Rs. 300</p>
                                         <p className="text-sm text-gray-500">per cup</p>
+                                    </div>
+                                    <div>
+                                        <p className="text-lg font-bold text-gray-800">Clinic Location</p>
+                                        <p className="text-gray-600">Bahria Town, Lahore (Home Service available)</p>
                                     </div>
                                     <div>
                                         <p className="text-lg font-bold text-gray-800">Session Duration</p>
@@ -269,26 +309,56 @@ const PCOSPage = () => {
                                     Book Now
                                 </Link>
 
-
                                 <div className="mt-8 text-center">
-                                    <h4 className="text-lg font-semibold text-gray-800">Your Specialist (Female Staff)</h4>
+                                    <h4 className="text-lg font-semibold text-gray-800">Your Specialists</h4>
                                     <div className="flex justify-center items-center gap-8 mt-4">
                                         <div>
-                                            {/* Female specialist image is relevant as this service is specialized for women */}
-                                            <img src="/female-specialist.webp" alt="Ms. Fatima Khan" className="w-24 h-24 rounded-full mx-auto object-cover" />
+                                            <Image src="/ceo.webp" alt="Mr. Jameel ur Rehman" width={96} height={96} className="w-24 h-24 rounded-full mx-auto object-cover" />
+                                            <p className="mt-2 font-bold">Mr. Jameel ur Rehman</p>
+                                            <p className="text-sm text-gray-600">Certified Hijama Therapist</p>
+                                        </div>
+                                        <div>
+                                            <Image src="/female-specialist.webp" alt="Ms. Fatima Khan" width={96} height={96} className="w-24 h-24 rounded-full mx-auto object-cover" />
                                             <p className="mt-2 font-bold">Ms. Fatima Khan</p>
                                             <p className="text-sm text-gray-600">Certified Hijama Therapist</p>
                                         </div>
                                     </div>
+                                    <Link 
+                                        href="/contact"
+                                        className="mt-4 text-sm font-semibold text-teal-600 hover:text-teal-800 inline-flex items-center"
+                                    >
+                                        <Phone className="w-4 h-4 mr-1"/> Contact for Home Service
+                                    </Link>
                                 </div>
+
+                                {/* Social Media Links Integration (Optimized Colors) */}
+                                <div className="mt-8 pt-6 border-t border-gray-200">
+                                    <h4 className="text-lg font-semibold text-gray-800 text-center mb-4">Connect With Us</h4>
+                                    <div className="flex justify-center gap-4">
+                                        <a href="https://www.facebook.com/BestHijamaLahore/" target="_blank" rel="noopener noreferrer" className="p-2 bg-[#1877F2] text-white rounded-full hover:opacity-80 transition-opacity" aria-label="Facebook">
+                                            <FaFacebook className="w-5 h-5" />
+                                        </a>
+                                        <a href="https://www.instagram.com/almadinahijmacenter" target="_blank" rel="noopener noreferrer" className="p-2 bg-gradient-to-tr from-[#f9ce34] via-[#ee2a7b] to-[#6228d7] text-white rounded-full hover:opacity-80 transition-opacity" aria-label="Instagram">
+                                            <Instagram className="w-5 h-5" />
+                                        </a>
+                                        <a href="https://www.tiktok.com/@jameel.ur.rehman81" target="_blank" rel="noopener noreferrer" className="p-2 bg-[#000000] text-white rounded-full hover:opacity-80 transition-opacity" aria-label="TikTok">
+                                            <FaTiktok className="w-5 h-5" />
+                                        </a>
+                                        <a href="https://www.youtube.com/@almadinahijamacenter4985" target="_blank" rel="noopener noreferrer" className="p-2 bg-[#FF0000] text-white rounded-full hover:opacity-80 transition-opacity" aria-label="YouTube">
+                                            <FaYoutube className="w-5 h-5" />
+                                        </a>
+                                    </div>
+                                </div>
+
                             </motion.div>
                         </aside>
                     </div>
 
+                    {/* Preparation & After-care Section */}
                     <motion.div initial="hidden" animate="visible" variants={staggerContainer} className="mt-24">
-                        <motion.h2 variants={itemVariants} className="text-4xl font-extrabold text-gray-900 text-center">Optimizing Your Results</motion.h2>
+                        <motion.h2 variants={itemVariants} className="text-4xl font-extrabold text-teal-600 text-center">Preparation & After-care</motion.h2>
                         <motion.p variants={itemVariants} className="mt-4 text-lg text-gray-600 text-center max-w-3xl mx-auto">
-                            Preparation and after-care are vital for the success of the treatment and sustaining hormonal balance.
+                            To achieve the best results, please follow these simple but important guidelines before and after your session.
                         </motion.p>
 
                         <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-12">
@@ -311,6 +381,7 @@ const PCOSPage = () => {
                         </div>
                     </motion.div>
                     
+                    {/* CTA Section */}
                     <motion.section 
                         className="mt-20 bg-teal-600 text-white py-10 rounded-3xl shadow-2xl" 
                             initial="hidden" 
@@ -325,10 +396,11 @@ const PCOSPage = () => {
                                      <p className="mt-3 text-lg font-light max-w-3xl mx-auto">
                                         Ready to find a supportive path to recovery? We provide confidential, professional care.
                                      </p>
+        
                         <div className="mt-6 space-y-3 md:space-y-0 md:flex md:justify-center md:gap-6 text-base font-semibold">
                             <p>✅ Clinic Location: Bahria Town, Lahore.</p>
                             <p>⏰ Availability: 24/7 service.</p>
-                            <p>👩 Staff: Dedicated Ladies Staff for Female clients.</p>
+                            <p>👨‍👩‍👧‍👦 Staff: Separate male and female staff available.</p>
                         </div>
 
                              <Link
@@ -338,9 +410,10 @@ const PCOSPage = () => {
                                 <Phone className="w-5 h-5 mr-2"/>
                                 Call Us Today to Book 
                                 </Link>
-                              </div>
+                             </div>
                     </motion.section>
 
+                    {/* --- FAQ Section --- */}
                     <section className="mt-24">
                         <motion.div 
                             className="text-center mb-16"
@@ -348,11 +421,11 @@ const PCOSPage = () => {
                             animate="visible"
                             variants={staggerContainer}
                         >
-                            <motion.h2 variants={itemVariants} className="text-4xl md:text-5xl font-extrabold text-gray-800">
+                            <motion.h2 variants={itemVariants} className="text-4xl md:text-5xl font-extrabold text-teal-600">
                                 Frequently Asked Questions
                             </motion.h2>
                             <motion.p variants={itemVariants} className="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">
-                                Answering your questions on using Hijama to manage PCOS.
+                                We have compiled answers to common questions about Hijama for this condition.
                             </motion.p>
                         </motion.div>
                         
@@ -396,4 +469,4 @@ const PCOSPage = () => {
     );
 };
 
-export default PCOSPage;
+export default HijamaForFistulaPage;

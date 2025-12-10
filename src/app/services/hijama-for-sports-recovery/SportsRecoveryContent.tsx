@@ -472,5 +472,4 @@ const SportsRecoveryPage = () => {
         </main>
     );
 };
-
 export default SportsRecoveryPage;
