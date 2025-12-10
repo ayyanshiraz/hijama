@@ -8,7 +8,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { FaFacebook, FaInstagram, FaTiktok, FaYoutube } from 'react-icons/fa6';
 
-// --- DATA ARRAYS WITH BOLD FORMATTING ---
+// --- DATA ARRAYS ---
 const benefits = [
     { icon: CheckCircle, text: '<strong>Reduces Localized Inflammation</strong>: Helps calm swelling and irritation in the surrounding tissues.' },
     { icon: CheckCircle, text: '<strong>Promotes Fresh Blood Flow</strong>: Increases circulation to the pelvic area, aiding the body’s natural repair mechanisms.' },
@@ -203,7 +203,7 @@ const HijamaForFistulaPage = () => {
                                     Safety is our absolute priority when dealing with such a sensitive condition. All patients must understand that we never apply cups directly to the fistula opening, abscess, or broken skin. Direct application would be unsafe and painful. Instead, our certified practitioners utilize a strategic, indirect method. We apply cupping therapy to specific meridian points located on the lower back, sacrum, and gluteal muscles. 
                                 </motion.p>
                                 <motion.p variants={itemVariants} className="mt-4 text-lg text-gray-600 leading-relaxed">
-                                    This targeted placement serves a dual purpose: it helps to draw deep-seated inflammation and toxins away from the affected tract, and it encourages fresh circulation to deeper pelvic tissues. This influx of oxygenated blood is crucial for enhancing the body's immune response and facilitating the natural healing of surrounding tissue. Learn more about the comprehensive benefits of Cupping Therapy by viewing our <Link href="/services/fire-cupping" className="text-teal-600 hover:text-teal-800 font-semibold underline">Fire Cupping service</Link>.
+                                    This targeted placement serves a dual purpose: it helps to draw deep-seated inflammation and toxins away from the affected tract, and it encourages fresh circulation to deeper pelvic tissues. This influx of oxygenated blood is crucial for enhancing the body&apos;s immune response and facilitating the natural healing of surrounding tissue. Learn more about the comprehensive benefits of Cupping Therapy by viewing our <Link href="/services/fire-cupping" className="text-teal-600 hover:text-teal-800 font-semibold underline">Fire Cupping service</Link>.
                                 </motion.p>
                                 
                                 {/* 3. Key Benefits Section */}
