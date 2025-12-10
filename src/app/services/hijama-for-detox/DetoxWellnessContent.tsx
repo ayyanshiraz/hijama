@@ -1,25 +1,28 @@
 'use client';
 
-import { Phone, CheckCircle, Shield, Clock, Sun, Moon, Droplets, Zap, RefreshCw, Plus, Minus, ChevronRight, AlertTriangle, Sparkles, Leaf } from 'lucide-react';
-import { motion, AnimatePresence, Variants } from 'framer-motion';
+import { Phone, CheckCircle, Shield, Clock, Sun, Moon, Droplets, Zap, RefreshCw, Plus, Minus, ChevronRight, AlertTriangle, Sparkles, Leaf, Facebook, Instagram, Youtube, Video } from 'lucide-react';
+import { motion, AnimatePresence, Variants, Transition } from 'framer-motion';
 import { useState } from 'react';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import Image from 'next/image';
 import Link from 'next/link';
+import { FaFacebook, FaInstagram, FaTiktok, FaYoutube } from 'react-icons/fa6';
 
-// --- UPDATED DATA ARRAYS BASED ON NEW CONTENT ---
+// --- UPDATED DATA ARRAYS WITH HTML FORMATTING ---
 
 const benefits = [
-    { icon: Zap, text: 'Natural Anti-Aging and Wrinkle Reduction: Stimulates collagen and elastin for firmer, more youthful skin.' },
-    { icon: Droplets, text: 'Clears Acne and Scars: Detoxifies the skin and aids in the removal of stagnant blood, fading old marks faster.' },
-    { icon: Minus, text: 'Reduces Facial Puffiness: Encourages lymphatic drainage to remove excess fluids and achieve a contoured look.' },
-    { icon: RefreshCw, text: 'Radiant and Detoxified Complexion: Instantly brightens dull skin and gives a lasting, healthy, rosy glow.' },
+    { icon: Sparkles, text: '<strong>Deep Blood Purification</strong>: Removes acidic waste, heavy metals, and toxins directly from the bloodstream.' },
+    { icon: Zap, text: '<strong>Boosts Energy Levels</strong>: Eliminates the sluggishness caused by toxic overload, leaving you feeling lighter and active.' },
+    { icon: Shield, text: '<strong>Strengthens Immunity</strong>: Clears the lymphatic system, allowing white blood cells to fight infections more effectively.' },
+    { icon: RefreshCw, text: '<strong>Improves Organ Function</strong>: Reduces the load on the liver and kidneys by filtering waste externally.' },
+    { icon: Droplets, text: '<strong>Clearer Skin</strong>: Internal detox often reflects externally, reducing acne and dullness for a healthy glow.' },
+    { icon: Moon, text: '<strong>Mental Clarity & Focus</strong>: Removes "brain fog" caused by poor circulation and toxins.' },
 ];
 
 const processSteps = [
     { icon: Droplets, title: 'Wellness Consultation', description: 'A discussion about your lifestyle and wellness goals to tailor the detox session.' },
     { icon: Shield, title: 'Area Sterilization', description: 'Key points on the back and shoulders, known for toxin accumulation, are sterilized.' },
-    { icon: Sparkles, title: 'Purification Cupping', description: 'Blood cupping is applied to specific Sunnah points to draw out toxins and impurities from the body.' },
+    { icon: Sparkles, title: 'Purification Cupping', description: 'Wet Cupping (Hijama) is applied to specific Sunnah points to draw out toxins and impurities from the body.' },
     { icon: Clock, title: 'Revitalization', description: 'The removal of stagnant blood stimulates fresh, oxygenated blood flow, revitalizing the entire body.' },
     { icon: Leaf, title: 'Post-Detox Guidance', description: 'You receive advice on diet and hydration to enhance and prolong the detoxifying effects.' },
 ];
@@ -52,13 +55,11 @@ const preparation = [
 const faqs = [
     {
         question: "How will I feel after a detox session?",
-        // FIX APPLIED: Replaced 'Its' with 'It&apos;s'
-        answer: "Most clients report feeling significantly lighter, more energetic, and mentally clearer after a detox session. It&apos;s a feeling of having reset your system. You might notice the cup marks, which are temporary and will fade."
+        answer: "Most clients report feeling significantly lighter, more energetic, and mentally clearer after a detox session. It's a feeling of having reset your system. You might notice the cup marks, which are temporary and will fade."
     },
     {
         question: "Is this different from other types of detoxes, like juice cleanses?",
-        // FIX APPLIED: Replaced 'Its' with 'It&apos;s'
-        answer: "Yes, it is very different. While dietary cleanses focus on the digestive system, Hijama works by physically removing toxins and metabolic waste directly from your bloodstream and tissues. It&apos;s a powerful method for deep, systemic detoxification that complements a healthy diet."
+        answer: "Yes, it is very different. While dietary cleanses focus on the digestive system, Hijama works by physically removing toxins and metabolic waste directly from your bloodstream and tissues. It's a powerful method for deep, systemic detoxification that complements a healthy diet."
     },
     {
         question: "How often should I do a Hijama detox for general wellness?",
@@ -74,7 +75,7 @@ const faqs = [
 const schema = {
     "@context": "https://schema.org",
     "@type": "TherapeuticProcedure",
-    "name": "Hijama for Detox & Wellness",
+    "name": "Hijama for Detox & Wellness in Lahore",
     "description": "A comprehensive Hijama therapy focused on purifying the body, removing toxins, and boosting overall vitality. This treatment is ideal for general health maintenance, enhancing energy levels, and promoting a feeling of rejuvenation.",
     "indication": [
         { "@type": "MedicalCondition", "name": "Fatigue" },
@@ -85,8 +86,14 @@ const schema = {
     "provider": {
         "@type": "MedicalBusiness",
         "name": "Al Madina Hijama Center",
-        "url": "https://almadinahijamacenter.com",
-        "logo": "https://almadinahijamacenter.com/logo.png"
+        "url": "https://www.almadinahijamacenter.com",
+        "logo": "https://www.almadinahijamacenter.com/logo.png",
+        "sameAs": [
+            "https://www.facebook.com/BestHijamaLahore/",
+            "https://www.instagram.com/almadinahijmacenter",
+            "https://www.tiktok.com/@jameel.ur.rehman81",
+            "https://www.youtube.com/@almadinahijamacenter4985"
+        ]
     }
 };
 
@@ -103,7 +110,7 @@ const faqSchema = {
     }))
 };
 
-const DetoxWellnessContent = () => { // Renamed DetoxWellnessPage
+const DetoxWellnessContent = () => {
     const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
 
     const staggerContainer: Variants = {
@@ -113,13 +120,19 @@ const DetoxWellnessContent = () => { // Renamed DetoxWellnessPage
             transition: {
                 staggerChildren: 0.1,
                 delayChildren: 0.2,
-            },
+            } as Transition,
         },
     };
 
     const itemVariants: Variants = {
         hidden: { opacity: 0, y: 20 },
-        visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
+        visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } as Transition },
+    };
+
+    const heroAnimateProps = {
+        initial: { opacity: 0, y: 20 },
+        animate: { opacity: 1, y: 0 },
+        transition: { duration: 0.8, ease: "easeOut" } as Transition, 
     };
 
     const breadcrumbItems = [
@@ -149,17 +162,15 @@ const DetoxWellnessContent = () => { // Renamed DetoxWellnessPage
                 <div className="absolute inset-0 bg-black opacity-60"></div>
                 <div className="relative container mx-auto px-6 text-center z-10">
                     <motion.h1 
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8, ease: 'easeOut' }}
+                        {...heroAnimateProps}
                         className="text-5xl md:text-7xl font-extrabold tracking-tight"
                     >
                         Hijama for Detox & Wellness
                     </motion.h1>
                     <motion.p 
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
+                        initial={heroAnimateProps.initial}
+                        animate={heroAnimateProps.animate}
+                        transition={{ ...heroAnimateProps.transition, delay: 0.2 } as Transition}
                         className="mt-4 text-xl md:text-2xl text-gray-200 max-w-3xl mx-auto"
                     >
                         Cleanse your body from the inside out to restore energy, vitality, and a profound sense of well-being.
@@ -178,134 +189,55 @@ const DetoxWellnessContent = () => { // Renamed DetoxWellnessPage
                         <div className="lg:col-span-2">
                             <motion.div initial="hidden" animate="visible" variants={staggerContainer}>
                                 
-                                {/* --- UPDATED CONTENT START --- */}
-                                <motion.h2 variants={itemVariants} className="text-4xl font-extrabold text-teal-500">
-                                    Hijama for Detox: Purify Your Body and Restore Your Energy
+                                {/* 1. Introduction & Overview */}
+                                <motion.h2 variants={itemVariants} className="text-4xl font-extrabold text-teal-600">
+                                    Full Body Detox Hijama in Lahore
                                 </motion.h2>
 
                                 <motion.div variants={itemVariants} className="mt-4 text-lg text-gray-600 leading-relaxed space-y-4">
                                     <p>
-                                        Living in a busy city like Lahore, our bodies deal with a lot every day. From environmental pollution and smog to processed and oily foods, we constantly absorb substances that are not good for us. Over time, these toxins build up in the blood.
+                                        Living in a busy city like Lahore, our bodies deal with environmental pollution, smog, and processed foods daily. Over time, these toxins build up in the blood, leading to unexplained fatigue, skin issues, and a general feeling of heaviness.
                                     </p>
                                     <p>
-                                        This buildup often leads to unexplained fatigue, skin issues, and a general feeling of heaviness. If you feel your health is slowing down, your body might be asking for a reset.
-                                    </p>
-                                    <p>
-                                        At Al Madina Hijama Center, we provide specialized Hijama for Detox services. This is a natural, Sunnah-compliant method to filter out stagnant blood and harmful waste, allowing your body to heal itself from the inside out.
+                                        If you are looking for the <Link href="/" className="text-teal-600 hover:underline font-bold">Best Hijama Center in Lahore</Link> for a complete body reset, Al Madina Hijama Center is your destination. We provide specialized <strong>Hijama for Detox</strong> services, a natural, Sunnah-compliant method to filter out stagnant blood and harmful waste.
                                     </p>
                                 </motion.div>
 
                                 <motion.div variants={itemVariants} className="mt-10">
                                     <h3 className="text-2xl font-bold text-teal-500">What is Detox Hijama?</h3>
                                     <p className="mt-4 text-lg text-gray-600 leading-relaxed">
-                                        The human body has its own cleaning system, primarily the liver and kidneys. However, when the toxic load becomes too high, these organs become overwhelmed. Hijama (Wet Cupping) acts as a helping hand for your internal system.
-                                    </p>
-                                    <p className="mt-4 text-lg text-gray-600 leading-relaxed">
-                                        Unlike regular massage, which only works on muscles, Detox Hijama targets the circulatory system. By applying vacuum cups to specific Sunnah Points on the back, we draw out stagnant blood, dead cells, and heavy metals that settle in the body tissues. Once these blockages are removed, fresh, oxygen-rich blood rushes to the area, nourishing your organs and tissues.
+                                        Unlike regular massage, which only works on muscles, Detox Hijama (which is a form of <Link href="/services/wet-cupping" className="text-teal-600 hover:underline">Wet Cupping</Link>) targets the circulatory system. By applying vacuum cups to specific Sunnah Points on the back, we draw out stagnant blood, dead cells, and heavy metals. Once these blockages are removed, fresh, oxygen-rich blood rushes to the area, nourishing your organs and tissues.
                                     </p>
                                 </motion.div>
 
-                                <motion.div variants={itemVariants} className="mt-10">
-                                    <h3 className="text-2xl font-bold text-teal-500">Signs You Need a Body Detox</h3>
-                                    <p className="mt-2 text-gray-600">
-                                        Many people in Pakistan ignore early signs of toxicity until they become sick. You should consider a Hijama detox session if you experience:
-                                    </p>
-                                    <ul className="mt-4 space-y-3">
-                                        {[
-                                            "Chronic Fatigue: Waking up tired even after a full night of sleep.",
-                                            "Skin Problems: Recurring acne, dull skin, or rashes that do not go away with creams.",
-                                            "Digestive Issues: Constant bloating, acidity, or constipation (often caused by our local diet).",
-                                            "Brain Fog: Difficulty focusing or remembering small things.",
-                                            "Muscle Aches: Random pains in the neck, shoulders, or back without any injury."
-                                        ].map((item, i) => (
-                                            <li key={i} className="flex items-start text-gray-700">
-                                                <CheckCircle className="h-6 w-6 text-teal-600 mr-3 mt-1 flex-shrink-0" />
-                                                <span>{item}</span>
-                                            </li>
-                                        ))}
-                                    </ul>
-                                    <p className="mt-4 text-gray-600 italic">
-                                        Cleaning your blood through Hijama can address the root cause of these issues rather than just treating the symptoms.
-                                    </p>
-                                </motion.div>
-
-                                <motion.div variants={itemVariants} className="mt-10">
-                                    <h3 className="text-2xl font-bold text-teal-500">Benefits of Hijama for Detoxification</h3>
-                                    <p className="mt-2 text-gray-600">
-                                        When you choose Al Madina Hijama Center for your detox session, you are investing in long-term health. Here is how it helps:
-                                    </p>
-                                    <div className="mt-6 space-y-6">
-                                        {[
-                                            { title: "1. Blood Purification", text: "This is the primary benefit. The suction removes acidic blood and toxins that slow your circulation. Cleaner blood means better oxygen delivery to your brain and muscles." },
-                                            { title: "2. Strengthened Immunity", text: "A body loaded with toxins has a weak defense system. By removing this waste, your white blood cells become more active, making you stronger against seasonal flu and viral infections common in Lahore." },
-                                            { title: "3. Improved Skin Health", text: "They say your skin reflects your internal health. By removing impurities from the blood, Hijama often clears acne and gives the skin a healthy, natural glow." },
-                                            { title: "4. Stress Relief and Mental Clarity", text: "Hijama has a calming effect on the nervous system. Many of our clients report feeling a sense of 'lightness' and mental relief immediately after the session." }
-                                        ].map((benefit, i) => (
-                                            <div key={i} className="bg-gray-50 p-4 rounded-lg">
-                                                <h4 className="font-bold text-teal-500">{benefit.title}</h4>
-                                                <p className="text-gray-700 mt-1">{benefit.text}</p>
-                                            </div>
-                                        ))}
-                                    </div>
-                                    <div className="mt-4 p-4 bg-teal-50 rounded-lg border-l-4 border-teal-500">
-                                        <p className="text-teal-800">
-                                            If you are suffering from specific joint or muscle pain, please check our specialized <Link href="/services/hijama-for-pain-relief" className="underline font-semibold text-blue-500">Hijama for Pain Relief</Link> service.
-                                        </p>
-                                    </div>
-                                </motion.div>
-
-                                <motion.div variants={itemVariants} className="mt-10">
-                                    <h3 className="text-2xl font-bold text-teal-500">Why Choose Al Madina Hijama Center in Lahore?</h3>
-                                    <p className="mt-2 text-gray-600">
-                                        We understand that trust is the most important factor when it comes to blood therapy. We follow strict medical and hygiene standards.
-                                    </p>
-                                    <ul className="mt-4 space-y-3 text-gray-700">
-                                        <li className="flex items-start"><Shield className="h-5 w-5 text-teal-600 mr-2 mt-1" /> <span><strong>100% Sterile Equipment:</strong> We use single-use, disposable cups and blades for every patient. No equipment is ever reused.</span></li>
-                                        <li className="flex items-start"><CheckCircle className="h-5 w-5 text-teal-600 mr-2 mt-1" /> <span><strong>Expert Therapists:</strong> Our staff is trained to identify the correct points for detoxification based on your specific condition.</span></li>
-                                        <li className="flex items-start"><Sun className="h-5 w-5 text-teal-600 mr-2 mt-1" /> <span><strong>Comfortable Environment:</strong> We provide a private and clean setting where you can relax during your treatment.</span></li>
-                                    </ul>
-                                </motion.div>
-
-                                <motion.div variants={itemVariants} className="mt-10">
-                                    <h3 className="text-2xl font-bold text-teal-500">When is the Best Time for a Detox?</h3>
-                                    <p className="mt-2 text-gray-600">
-                                        While Hijama can be performed at any time for medical relief, timing plays a crucial role when the goal is specifically detoxification and cleansing.
-                                    </p>
-                                    <div className="mt-6 grid gap-6 md:grid-cols-2">
-                                        <div className="bg-gray-50 p-5 rounded-xl border border-gray-100">
-                                            <h4 className="font-bold text-teal-500 flex items-center"><Moon className="w-5 h-5 mr-2 text-teal-600"/> The Sunnah Days</h4>
-                                            <p className="text-gray-600 mt-2 text-sm">
-                                                According to the Sunnah, the best days are the 17th, 19th, and 21st of the lunar month. The moon&apos;s gravitational pull helps draw out toxins from the surface.
-                                            </p>
-                                        </div>
-                                        <div className="bg-gray-50 p-5 rounded-xl border border-gray-100">
-                                            <h4 className="font-bold text-teal-500 flex items-center"><Leaf className="w-5 h-5 mr-2 text-teal-600"/> Seasonal Detox</h4>
-                                            <p className="text-gray-600 mt-2 text-sm">
-                                                In Lahore, we recommend a **Seasonal Detox** (every 3-4 months), especially during Smog season (Winter) and Summer heat, to clear accumulated pollutants.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </motion.div>
-
-                                <motion.div variants={itemVariants} className="mt-10">
-                                    <h3 className="text-2xl font-bold text-teal-500">How Many Sessions Do You Need?</h3>
-                                    <p className="mt-2 text-lg text-gray-600">
-                                        For a healthy individual looking to maintain energy and prevent disease, a quarterly session (once every 3 months) is ideal. However, if you are suffering from chronic fatigue or high toxicity, our therapists might suggest a course of 3 sessions (once a month) to fully reset your system.
-                                    </p>
-                                </motion.div>
-                                
-                                {/* --- END OF NEW CONTENT BLOCK --- */}
-
-                                {/* Benefits Section (Existing) */}
+                                {/* Benefits Section */}
                                 <motion.h3 variants={itemVariants} className="mt-12 text-3xl font-bold text-teal-500">Key Benefits of a Hijama Detox</motion.h3>
                                 <motion.ul variants={staggerContainer} className="mt-6 space-y-4">
                                     {benefits.map((benefit, index) => (
                                         <motion.li key={index} variants={itemVariants} className="flex items-start">
                                             <benefit.icon className="h-6 w-6 text-teal-600 mr-3 mt-1 flex-shrink-0" />
-                                            <span className="text-gray-700">{benefit.text}</span>
+                                            <span className="text-gray-700" dangerouslySetInnerHTML={{ __html: benefit.text }} />
                                         </motion.li>
                                     ))}
                                 </motion.ul>
+
+                                {/* Process Section */}
+                                <motion.h3 variants={itemVariants} className="mt-12 text-3xl font-bold text-teal-500">The Detox & Wellness Process</motion.h3>
+                                <div className="mt-6 space-y-8">
+                                    {processSteps.map((step, index) => (
+                                        <motion.div key={index} variants={itemVariants} className="flex items-start">
+                                            <div className="flex-shrink-0 mr-4">
+                                                <div className="w-12 h-12 rounded-full bg-teal-100 flex items-center justify-center">
+                                                    <step.icon className="w-6 h-6 text-teal-600" />
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <h4 className="text-xl font-semibold text-teal-500">{step.title}</h4>
+                                                <p className="text-gray-600 mt-1">{step.description}</p>
+                                            </div>
+                                        </motion.div>
+                                    ))}
+                                </div>
 
                                 {/* Indications/Contraindications Section */}
                                 <motion.div variants={itemVariants} className="mt-12">
@@ -333,23 +265,6 @@ const DetoxWellnessContent = () => { // Renamed DetoxWellnessPage
                                     <p className="mt-6 text-sm text-gray-500 italic">A brief consultation is always conducted to ensure the treatment is perfectly suited to your current state of health.</p>
                                 </motion.div>
 
-                                {/* Process Section */}
-                                <motion.h3 variants={itemVariants} className="mt-12 text-3xl font-bold text-teal-500">The Detox & Wellness Process</motion.h3>
-                                <div className="mt-6 space-y-8">
-                                    {processSteps.map((step, index) => (
-                                        <motion.div key={index} variants={itemVariants} className="flex items-start">
-                                            <div className="flex-shrink-0 mr-4">
-                                                <div className="w-12 h-12 rounded-full bg-teal-100 flex items-center justify-center">
-                                                    <step.icon className="w-6 h-6 text-teal-600" />
-                                                </div>
-                                            </div>
-                                            <div>
-                                                <h4 className="text-xl font-semibold text-teal-500">{step.title}</h4>
-                                                <p className="text-gray-600 mt-1">{step.description}</p>
-                                            </div>
-                                        </motion.div>
-                                    ))}
-                                </div>
                             </motion.div>
                         </div>
 
@@ -380,31 +295,49 @@ const DetoxWellnessContent = () => { // Renamed DetoxWellnessPage
                                     href="/booking"
                                     className="mt-6 inline-flex w-full items-center justify-center px-6 py-4 bg-[#FF6900] text-white font-bold text-lg rounded-lg shadow-md hover:brightness-90 transition-all duration-300 transform hover:scale-105"
                                 >
-                                    
                                     Book Now
                                 </Link>
-
 
                                 <div className="mt-8 text-center">
                                     <h4 className="text-lg font-semibold text-gray-800">Your Specialists</h4>
                                     <div className="flex justify-center items-center gap-8 mt-4">
                                         <div>
-                                            <img src="/ceo.webp" alt="Mr. Jameel ur Rehman" className="w-24 h-24 rounded-full mx-auto object-cover" />
+                                            <Image src="/ceo.webp" alt="Mr. Jameel ur Rehman" width={96} height={96} className="w-24 h-24 rounded-full mx-auto object-cover" />
                                             <p className="mt-2 font-bold">Mr. Jameel ur Rehman</p>
                                             <p className="text-sm text-gray-600">Certified Hijama Therapist</p>
                                         </div>
                                         <div>
-                                            {/* Assuming you have an image for the female specialist at /female-specialist.webp */}
-                                            <img src="/female-specialist.webp" alt="Ms. Fatima Khan" className="w-24 h-24 rounded-full mx-auto object-cover" />
+                                            <Image src="/female-specialist.webp" alt="Ms. Fatima Khan" width={96} height={96} className="w-24 h-24 rounded-full mx-auto object-cover" />
                                             <p className="mt-2 font-bold">Ms. Fatima Khan</p>
                                             <p className="text-sm text-gray-600">Certified Hijama Therapist</p>
                                         </div>
                                     </div>
                                 </div>
+
+                                {/* Social Media Links Integration (Optimized Colors) */}
+                                <div className="mt-8 pt-6 border-t border-gray-200">
+                                    <h4 className="text-lg font-semibold text-gray-800 text-center mb-4">Connect With Us</h4>
+                                    <div className="flex justify-center gap-4">
+                                        <a href="https://www.facebook.com/BestHijamaLahore/" target="_blank" rel="noopener noreferrer" className="p-2 bg-[#1877F2] text-white rounded-full hover:opacity-80 transition-opacity" aria-label="Facebook">
+                                            <FaFacebook className="w-5 h-5" />
+                                        </a>
+                                        <a href="https://www.instagram.com/almadinahijmacenter" target="_blank" rel="noopener noreferrer" className="p-2 bg-gradient-to-tr from-[#f9ce34] via-[#ee2a7b] to-[#6228d7] text-white rounded-full hover:opacity-80 transition-opacity" aria-label="Instagram">
+                                            <FaInstagram className="w-5 h-5" />
+                                        </a>
+                                        <a href="https://www.tiktok.com/@jameel.ur.rehman81" target="_blank" rel="noopener noreferrer" className="p-2 bg-[#000000] text-white rounded-full hover:opacity-80 transition-opacity" aria-label="TikTok">
+                                            <FaTiktok className="w-5 h-5" />
+                                        </a>
+                                        <a href="https://www.youtube.com/@almadinahijamacenter4985" target="_blank" rel="noopener noreferrer" className="p-2 bg-[#FF0000] text-white rounded-full hover:opacity-80 transition-opacity" aria-label="YouTube">
+                                            <FaYoutube className="w-5 h-5" />
+                                        </a>
+                                    </div>
+                                </div>
+
                             </motion.div>
                         </aside>
                     </div>
-                    {/* Preparation & After-care Section */}
+
+                    {/* Preparation & After-care Section (Outside Grid) */}
                     <motion.div initial="hidden" animate="visible" variants={staggerContainer} className="mt-24">
                         <motion.h2 variants={itemVariants} className="text-4xl font-extrabold text-teal-500 text-center">Preparation & After-care</motion.h2>
                         <motion.p variants={itemVariants} className="mt-4 text-lg text-gray-600 text-center max-w-3xl mx-auto">
@@ -430,7 +363,8 @@ const DetoxWellnessContent = () => { // Renamed DetoxWellnessPage
                             ))}
                         </div>
                     </motion.div>
-                    {/* --- CTA Section (Re-located from above the FAQ) --- */}
+                    
+                    {/* CTA Section (Outside Grid) */}
                     <motion.div 
                         variants={itemVariants} 
                         className="mt-16 p-10 bg-teal-50 rounded-3xl border-t-4 border-teal-500 text-center mx-auto max-w-4xl shadow-sm"
@@ -442,14 +376,14 @@ const DetoxWellnessContent = () => { // Renamed DetoxWellnessPage
                         </p>
                         
                         <Link
-                            href="/contact"
+                            href="/booking"
                             className="inline-flex items-center justify-center px-10 py-4 bg-[#FF6900] text-white font-bold text-xl rounded-xl shadow-lg hover:brightness-90 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-xl"
                         >
                             Book Your Consultation Today
                         </Link>
                     </motion.div>
 
-                    {/* --- FAQ Section --- */}
+                    {/* --- FAQ Section (Outside Grid) --- */}
                     <section className="mt-24">
                         <motion.div 
                             className="text-center mb-16"
@@ -461,7 +395,7 @@ const DetoxWellnessContent = () => { // Renamed DetoxWellnessPage
                                 Frequently Asked Questions
                             </motion.h2>
                             <motion.p variants={itemVariants} className="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">
-                                Everything you need to know about our Detox & Wellness therapy.
+                                We have compiled answers to common questions about Hijama Detox to help you feel informed and confident.
                             </motion.p>
                         </motion.div>
                         
