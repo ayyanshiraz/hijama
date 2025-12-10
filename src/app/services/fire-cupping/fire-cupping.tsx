@@ -1,22 +1,22 @@
 'use client';
 
-// Import Variants type for correct typing
-import { Phone, CheckCircle, Shield, Clock, Sun, Moon, Droplets, Plus, Minus, ChevronRight, AlertTriangle, Flame } from 'lucide-react';
-import { motion, AnimatePresence, Variants } from 'framer-motion';
+import { Phone, CheckCircle, Shield, Clock, Sun, Moon, Droplets, Plus, Minus, ChevronRight, AlertTriangle, Flame, Facebook, Instagram, Youtube, Video } from 'lucide-react';
+import { motion, AnimatePresence, Variants, Transition } from 'framer-motion';
 import { useState } from 'react';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import Image from 'next/image';
 import Link from 'next/link';
+import { FaFacebook, FaInstagram, FaTiktok, FaYoutube } from 'react-icons/fa6';
 
-// --- START: DATA STRUCTURES (Retained from previous update) ---
+// --- UPDATED DATA STRUCTURES ---
 
 const benefits = [
-    { icon: CheckCircle, text: 'Profound Pain and Stiffness Relief, unwinding chronic muscular knots' },
-    { icon: CheckCircle, text: 'Improved Blood Circulation to clear stagnation and oxygenate tissues' },
-    { icon: CheckCircle, text: 'Expulsion of Coldness and Dampness, effective for joint pain and stiffness' },
-    { icon: CheckCircle, text: 'Targeted Detoxification, drawing metabolic waste and toxins to the surface' },
-    { icon: CheckCircle, text: 'High-Intensity Sports Recovery and alleviation of post-exercise soreness' },
-    { icon: CheckCircle, text: 'Stress and Anxiety Reduction, contributing to mental relaxation and better sleep' },
+    { icon: CheckCircle, text: '<strong>Profound Pain and Stiffness Relief</strong>: Unwinds chronic muscular knots and tension deep within the tissue.' },
+    { icon: CheckCircle, text: '<strong>Improved Blood Circulation</strong>: Clears stagnation and oxygenates tissues for faster healing.' },
+    { icon: CheckCircle, text: '<strong>Expulsion of Coldness and Dampness</strong>: Highly effective for treating joint pain, arthritis, and stiffness caused by cold weather.' },
+    { icon: CheckCircle, text: '<strong>Targeted Detoxification</strong>: Draws metabolic waste and toxins to the surface for elimination.' },
+    { icon: CheckCircle, text: '<strong>High-Intensity Sports Recovery</strong>: Alleviates post-exercise soreness and improves muscle recovery time.' },
+    { icon: CheckCircle, text: '<strong>Stress and Anxiety Reduction</strong>: Contributes to mental relaxation and better sleep quality.' },
 ];
 
 const processSteps = [
@@ -85,8 +85,14 @@ const schema = {
     "provider": {
         "@type": "MedicalBusiness",
         "name": "Al Madina Hijama Center",
-        "url": "https://almadinahijamacenter.com",
-        "logo": "https://almadinahijamacenter.com/logo.png"
+        "url": "https://www.almadinahijamacenter.com",
+        "logo": "https://www.almadinahijamacenter.com/logo.png",
+        "sameAs": [
+            "https://www.facebook.com/BestHijamaLahore/",
+            "https://www.instagram.com/almadinahijmacenter",
+            "https://www.tiktok.com/@jameel.ur.rehman81",
+            "https://www.youtube.com/@almadinahijamacenter4985"
+        ]
     }
 };
 
@@ -103,14 +109,9 @@ const faqSchema = {
     }))
 };
 
-// --- END: DATA STRUCTURES ---
-
-
 const FireCuppingPage = () => {
-    // FIX 1: Explicitly set the type for useState to 'number | null'
     const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
 
-    // FIX 2: Corrected Framer Motion Variants definition for easing strings.
     const staggerContainer: Variants = {
         hidden: { opacity: 0 },
         visible: {
@@ -118,14 +119,19 @@ const FireCuppingPage = () => {
           transition: {
             staggerChildren: 0.1,
             delayChildren: 0.2,
-          },
+          } as Transition, 
         },
     };
 
     const itemVariants: Variants = {
         hidden: { opacity: 0, y: 20 },
-        // Using a cubic-bezier array instead of the string "easeOut" to resolve TypeScript error 2322
-        visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.25, 0.1, 0.25, 1] } }, 
+        visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } as Transition },
+    };
+
+    const heroAnimateProps = {
+        initial: { opacity: 0, y: 20 },
+        animate: { opacity: 1, y: 0 },
+        transition: { duration: 0.8, ease: "easeOut" } as Transition, 
     };
 
     const breadcrumbItems = [
@@ -137,63 +143,55 @@ const FireCuppingPage = () => {
     // Function to render the main descriptive content
     const renderNewContent = () => (
         <>
-            {/* Title corresponding to "Fire Cupping Specialist in Lahore: The Deepest Natural Pain Relief" */}
-            <motion.h2 variants={itemVariants} className="text-4xl font-extrabold text-teal-500">
+            <motion.h2 variants={itemVariants} className="text-4xl font-extrabold text-teal-600">
                 Fire Cupping Specialist in Lahore: The Deepest Natural Pain Relief
             </motion.h2>
 
-            {/* Paragraph 1 */}
             <motion.p variants={itemVariants} className="mt-4 text-lg text-gray-600 leading-relaxed">
-                If you are in Lahore and suffering from deep muscle pain, chronic stiffness, muscle knots, or general body coldness and fatigue, Al Madina Hijama Center offers certified and safe Fire Cupping Therapy services tailored for you.
+                If you are in Lahore and suffering from deep muscle pain, chronic stiffness, muscle knots, or general body coldness and fatigue, <Link href="/" className="text-teal-600 font-bold hover:underline">Al Madina Hijama Center</Link> offers certified and safe Fire Cupping Therapy services tailored for you.
             </motion.p>
 
-            {/* Paragraph 2 - Description of Fire Cupping */}
             <motion.p variants={itemVariants} className="mt-4 text-lg text-gray-600 leading-relaxed">
-                Fire Cupping, also widely known as Chinese Fire Cupping or Hot Cupping, is an advanced form of <a href='/services/dry-cupping' className='text-blue-500'>Dry Cupping</a>. This technique utilizes a flame (fire) to rapidly heat and remove oxygen from the cup, which creates a strong, deep suction when applied to the skin. This powerful suction penetrates deeper into the muscles and tissues than conventional massage or standard Dry Cupping, effectively releasing old tension, eliminating coldness, and promoting deep, immediate relief.
+                Fire Cupping, also widely known as Chinese Fire Cupping or Hot Cupping, is an advanced form of <Link href='/services/dry-cupping' className='text-teal-600 font-semibold hover:underline'>Dry Cupping</Link>. This technique utilizes a flame (fire) to rapidly heat and remove oxygen from the cup, which creates a strong, deep suction when applied to the skin. This powerful suction penetrates deeper into the muscles and tissues than conventional massage or standard Dry Cupping, effectively releasing old tension, eliminating coldness, and promoting deep, immediate relief.
             </motion.p>
             
-            {/* Paragraph 3 - Expertise and Safety */}
             <motion.p variants={itemVariants} className="mt-4 text-lg text-gray-600 leading-relaxed">
                 Our certified specialists are highly experienced, adhering to strict international and Islamic standards to ensure your health and comfort are the top priority throughout the session.
             </motion.p>
         </>
     );
 
-    // Function to render the "Exclusive Ladies Home Service" content (Plain coded)
+    // Function to render the "Exclusive Ladies Home Service" content
     const renderLadiesServiceContent = () => (
         <motion.div variants={itemVariants} className="mt-12 p-8 bg-teal-50 rounded-xl border-l-4 border-teal-600">
-            <h3 className="text-3xl font-bold text-teal-500 flex items-center">
+            <h3 className="text-3xl font-bold text-teal-600 flex items-center">
                 <Shield className="h-7 w-7 text-teal-600 mr-3" /> Exclusive Ladies Home Service with Complete Parda
             </h3>
             <p className="mt-4 text-lg text-gray-700 leading-relaxed">
                 Understanding the need for privacy and safety among the ladies in Lahore, we have customized our service delivery to ensure maximum comfort and adherence to your needs:
             </p>
             <ul className="mt-4 space-y-3 text-gray-800 font-medium">
-                {/* Certified Female Specialist: formatted without extra markdown */}
                 <li className="flex items-start">
                     <CheckCircle className="h-5 w-5 text-teal-600 mr-2 mt-1 flex-shrink-0" /> 
-                    <span className="font-bold">Certified Female Specialist:</span> Services for women are exclusively performed by our expert and certified female specialist, ensuring comfort and appropriate care.
+                    <span><span className="font-bold">Certified Female Specialist:</span> Services for women are exclusively performed by our expert and certified female specialist, ensuring comfort and appropriate care.</span>
                 </li>
-                {/* 24/7 Home Service: formatted without extra markdown */}
                 <li className="flex items-start">
                     <CheckCircle className="h-5 w-5 text-teal-600 mr-2 mt-1 flex-shrink-0" /> 
-                    <span className="font-bold">24/7 Home Service:</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Whether you need a session early in the morning or late at night, our 24/7 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;home service is available at your convenience across all areas of Lahore.
+                    <span><span className="font-bold">24/7 Home Service:</span> Whether you need a session early in the morning or late at night, our 24/7 home service is available at your convenience across all areas of Lahore.</span>
                 </li>
-                {/* Parda and Privacy Guarantee: formatted without extra markdown */}
                 <li className="flex items-start">
                     <CheckCircle className="h-5 w-5 text-teal-600 mr-2 mt-1 flex-shrink-0" /> 
-                    <span className="font-bold">Parda and Privacy Guarantee:</span> We ensure complete privacy and Parda throughout the treatment session, treating your personal space and modesty with the utmost respect.
+                    <span><span className="font-bold">Parda and Privacy Guarantee:</span> We ensure complete privacy and Parda throughout the treatment session, treating your personal space and modesty with the utmost respect.</span>
                 </li>
             </ul>
         </motion.div>
     );
 
-    // Function to render the "Islamic Way of Healing" content
     const renderIslamicHealingContent = () => (
         <motion.div variants={itemVariants} className="mt-12">
-            <h3 className="text-3xl font-bold text-teal-500">The Islamic Way of Healing and Our Benefit Guarantee</h3>
+            <h3 className="text-3xl font-bold text-teal-600">The Islamic Way of Healing and Our Benefit Guarantee</h3>
             <p className="mt-4 text-lg text-gray-600 leading-relaxed">
-                Our center views cupping, including Fire Cupping, not just as a medical treatment but as a method rooted in traditional and Islamic healing principles. While Wet Hijama (Blood Cupping) is directly linked to the Sunnah, Fire Cupping shares the foundational goal of stimulating the body and removing harmful stagnation. We perform your treatment in the light of the Sunnah, emphasizing hygiene, ethical practice, and sincerity in the intention of healing.
+                Our center views cupping, including Fire Cupping, not just as a medical treatment but as a method rooted in traditional and Islamic healing principles. While <Link href="/services/wet-cupping" className="text-teal-600 hover:underline">Wet Hijama (Blood Cupping)</Link> is directly linked to the Sunnah, Fire Cupping shares the foundational goal of stimulating the body and removing harmful stagnation. We perform your treatment in the light of the Sunnah, emphasizing hygiene, ethical practice, and sincerity in the intention of healing.
             </p>
             <div className="mt-4 p-4 bg-yellow-50 border-l-4 border-yellow-500 text-gray-700">
                 <p className="font-bold">Benefit Guarantee:</p> We stand by the efficacy of our treatment. We assure you that you will experience tangible relief and improvement after your session. Our goal is not just temporary relief but complete client healing (shifa).
@@ -201,22 +199,19 @@ const FireCuppingPage = () => {
         </motion.div>
     );
 
-    // Function to render the final call to action content
     const renderCallToAction = () => (
         <motion.div variants={itemVariants} className="mt-12 p-6 bg-green-50 rounded-lg text-center">
             <h3 className="text-3xl font-bold text-teal-600">Book Now: End Your Pain Today</h3>
-           <p className="mt-3 text-lg text-gray-700">
-    Don&apos;t search for Chinese fire cupping near me and settle for uncertified practitioners. Contact 
-    <Link href="/" className="text-blue-500">
-        Al Madina Hijama Center
-    </Link> 
-    today to book your session. Our certified experts, high standards of sterilization, and commitment to your privacy guarantee you the best healing experience in Lahore.
-</p>
+            <p className="mt-3 text-lg text-gray-700">
+                Don&apos;t search for Chinese fire cupping near me and settle for uncertified practitioners. Contact 
+                <Link href="/" className="text-blue-600 font-bold hover:underline"> Al Madina Hijama Center </Link> 
+                today to book your session. Our certified experts, high standards of sterilization, and commitment to your privacy guarantee you the best healing experience in Lahore.
+            </p>
             <p className="mt-2 text-md text-gray-600">
                 Reach out to us 24/7 to take the powerful step towards natural pain relief.
             </p><br></br>
             <Link
-                href="/contact"
+                href="/booking"
                 className="inline-flex items-center justify-center px-10 py-4 bg-[#FF6900] text-white font-bold text-xl rounded-xl shadow-lg hover:brightness-90 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-xl"
             >
                 Book Your Consultation Today
@@ -246,17 +241,15 @@ const FireCuppingPage = () => {
                 <div className="absolute inset-0 bg-black opacity-60"></div>
                 <div className="relative container mx-auto px-6 text-center z-10">
                     <motion.h1 
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
+                        {...heroAnimateProps}
                         className="text-5xl md:text-7xl font-extrabold tracking-tight"
                     >
                         Fire Cupping Therapy
                     </motion.h1>
                     <motion.p 
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
+                        initial={heroAnimateProps.initial}
+                        animate={heroAnimateProps.animate}
+                        transition={{ ...heroAnimateProps.transition, delay: 0.2 } as Transition} 
                         className="mt-4 text-xl md:text-2xl text-gray-200 max-w-3xl mx-auto"
                     >
                         Find certified Fire Cupping (Chinese Cupping) specialists in Lahore for deep pain relief. Female staff, 24/7 home service, complete privacy/parda, and healing guaranteed via the Islamic way.
@@ -281,8 +274,8 @@ const FireCuppingPage = () => {
                                 {/* 2. Exclusive Ladies Home Service Content */}
                                 {renderLadiesServiceContent()}
 
-                                {/* 3. Benefits Section - Title updated, list items are now more specific */}
-                                <motion.h3 variants={itemVariants} className="mt-12 text-3xl font-bold text-teal-500">
+                                {/* 3. Benefits Section */}
+                                <motion.h3 variants={itemVariants} className="mt-12 text-3xl font-bold text-teal-600">
                                     Key Fire Cupping Benefits for Your Health
                                 </motion.h3>
                                 <motion.p variants={itemVariants} className="mt-4 text-lg text-gray-600 leading-relaxed">
@@ -292,7 +285,7 @@ const FireCuppingPage = () => {
                                     {benefits.map((benefit, index) => (
                                         <motion.li key={index} variants={itemVariants} className="flex items-start">
                                             <benefit.icon className="h-6 w-6 text-teal-600 mr-3 mt-1 flex-shrink-0" />
-                                            <span className="text-gray-700">{benefit.text}</span>
+                                            <span className="text-gray-700" dangerouslySetInnerHTML={{ __html: benefit.text }} />
                                         </motion.li>
                                     ))}
                                 </motion.ul>
@@ -300,21 +293,22 @@ const FireCuppingPage = () => {
                                 {/* 4. Islamic Healing Content */}
                                 {renderIslamicHealingContent()}
 
-                                {/* 5. Indications/Contraindications Section - Keeping structure but ensuring indications match new copy */}
+                                {/* 5. Indications/Contraindications Section */}
                                 <motion.div variants={itemVariants} className="mt-12">
-                                    <h3 className="text-3xl font-bold text-teal-500">Is Fire Cupping Right for You?</h3>
+                                    <h3 className="text-3xl font-bold text-teal-600">Is Fire Cupping Right for You?</h3>
                                     <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-8">
                                         <div>
-                                            <h4 className="text-xl font-semibold text-gray-800 flex items-center"><CheckCircle className="h-6 w-6 text-green-600 mr-2" />Indications</h4>
+                                            <h4 className="text-xl font-semibold text-teal-600 flex items-center"><CheckCircle className="h-6 w-6 text-green-600 mr-2" />Indications</h4>
                                             <p className="mt-2 text-gray-600">This therapy is highly recommended for:</p>
                                             <ul className="mt-4 space-y-2 text-gray-700">
                                                 {indications.map((item, index) => (
                                                     <li key={index} className="flex items-start"><ChevronRight className="w-5 h-5 text-teal-500 mr-2 mt-1 flex-shrink-0" /><span>{item}</span></li>
                                                 ))}
+                                                <li className="flex items-start"><ChevronRight className="w-5 h-5 text-teal-500 mr-2 mt-1 flex-shrink-0" /><span>High-Intensity <Link href="/blog/hijama-for-sports-recovery" className="text-teal-600 hover:underline">Sports Recovery</Link></span></li>
                                             </ul>
                                         </div>
                                         <div>
-                                            <h4 className="text-xl font-semibold text-gray-800 flex items-center"><AlertTriangle className="h-6 w-6 text-red-600 mr-2" />Contraindications</h4>
+                                            <h4 className="text-xl font-semibold text-teal-600 flex items-center"><AlertTriangle className="h-6 w-6 text-red-600 mr-2" />Contraindications</h4>
                                             <p className="mt-2 text-gray-600">Please consult our specialist before booking if you have:</p>
                                             <ul className="mt-4 space-y-2 text-gray-700">
                                                 {contraindications.map((item, index) => (
@@ -327,8 +321,8 @@ const FireCuppingPage = () => {
                                 </motion.div>
 
 
-                                {/* 6. Process Section - Title updated, steps updated */}
-                                <motion.h3 variants={itemVariants} className="mt-12 text-3xl font-bold text-teal-500">Fire Cupping Procedure: How the Magic Happens</motion.h3>
+                                {/* 6. Process Section */}
+                                <motion.h3 variants={itemVariants} className="mt-12 text-3xl font-bold text-teal-600">Fire Cupping Procedure: How the Magic Happens</motion.h3>
                                 <p className="mt-4 text-lg text-gray-600 leading-relaxed">
                                     The Fire Cupping Therapy process is quick, safe, and highly effective:
                                 </p>
@@ -350,15 +344,15 @@ const FireCuppingPage = () => {
                             </motion.div>
                         </div>
 
-                        {/* Right Column (Sidebar) - No changes requested here */}
+                        {/* Right Column (Sidebar) */}
                         <aside className="lg:col-span-1">
                             <motion.div 
                                 initial={{ opacity: 0, y: 50 }}
                                 animate={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
+                                transition={{ duration: 0.7, ease: "easeOut" } as Transition} 
                                 className="sticky top-24 bg-gray-50 p-8 rounded-2xl shadow-lg"
                             >
-                                <h3 className="text-2xl font-bold text-teal-500">Book Your Session</h3>
+                                <h3 className="text-2xl font-bold text-teal-600">Book Your Session</h3>
                                 <p className="mt-2 text-gray-600">Experience the traditional benefits of Fire Cupping.</p>
                                 
                                 <div className="mt-6 space-y-2">
@@ -377,33 +371,50 @@ const FireCuppingPage = () => {
                                     href="/booking"
                                     className="mt-6 inline-flex w-full items-center justify-center px-6 py-4 bg-[#FF6900] text-white font-bold text-lg rounded-lg shadow-md hover:brightness-90 transition-all duration-300 transform hover:scale-105"
                                 >
-                                    
                                     Book Now
                                 </Link>
-
 
                                 <div className="mt-8 text-center">
                                     <h4 className="text-lg font-semibold text-gray-800">Your Specialists</h4>
                                     <div className="flex justify-center items-center gap-8 mt-4">
                                         <div>
-                                            <img src="/ceo.webp" alt="Mr. Jameel ur Rehman" className="w-24 h-24 rounded-full mx-auto object-cover" />
+                                            <Image src="/ceo.webp" alt="Mr. Jameel ur Rehman" width={96} height={96} className="w-24 h-24 rounded-full mx-auto object-cover" />
                                             <p className="mt-2 font-bold">Mr. Jameel ur Rehman</p>
                                             <p className="text-sm text-gray-600">Certified Hijama Therapist</p>
                                         </div>
                                         <div>
-                                            {/* Alt Text for this image: Certified specialist performing professional Fire Cupping Therapy in Lahore for deep muscle pain relief. */}
-                                            <img src="/female-specialist.webp" alt="Ms. Fatima Khan" className="w-24 h-24 rounded-full mx-auto object-cover" />
+                                            <Image src="/female-specialist.webp" alt="Ms. Fatima Khan" width={96} height={96} className="w-24 h-24 rounded-full mx-auto object-cover" />
                                             <p className="mt-2 font-bold">Ms. Fatima Khan</p>
                                             <p className="text-sm text-gray-600">Certified Hijama Therapist</p>
                                         </div>
                                     </div>
                                 </div>
+
+                                {/* Social Media Links Integration (Optimized Colors) */}
+                                <div className="mt-8 pt-6 border-t border-gray-200">
+                                    <h4 className="text-lg font-semibold text-gray-800 text-center mb-4">Connect With Us</h4>
+                                    <div className="flex justify-center gap-4">
+                                        <a href="https://www.facebook.com/BestHijamaLahore/" target="_blank" rel="noopener noreferrer" className="p-2 bg-[#1877F2] text-white rounded-full hover:opacity-80 transition-opacity" aria-label="Facebook">
+                                            <FaFacebook className="w-5 h-5" />
+                                        </a>
+                                        <a href="https://www.instagram.com/almadinahijmacenter" target="_blank" rel="noopener noreferrer" className="p-2 bg-gradient-to-tr from-[#f9ce34] via-[#ee2a7b] to-[#6228d7] text-white rounded-full hover:opacity-80 transition-opacity" aria-label="Instagram">
+                                            <FaInstagram className="w-5 h-5" />
+                                        </a>
+                                        <a href="https://www.tiktok.com/@jameel.ur.rehman81" target="_blank" rel="noopener noreferrer" className="p-2 bg-[#000000] text-white rounded-full hover:opacity-80 transition-opacity" aria-label="TikTok">
+                                            <FaTiktok className="w-5 h-5" />
+                                        </a>
+                                        <a href="https://www.youtube.com/@almadinahijamacenter4985" target="_blank" rel="noopener noreferrer" className="p-2 bg-[#FF0000] text-white rounded-full hover:opacity-80 transition-opacity" aria-label="YouTube">
+                                            <FaYoutube className="w-5 h-5" />
+                                        </a>
+                                    </div>
+                                </div>
+
                             </motion.div>
                         </aside>
                     </div>
-                    {/* Preparation & After-care Section - No changes requested here */}
+                    {/* Preparation & After-care Section */}
                     <motion.div initial="hidden" animate="visible" variants={staggerContainer} className="mt-24">
-                        <motion.h2 variants={itemVariants} className="text-4xl font-extrabold text-teal-500 text-center">Preparation & After-care</motion.h2>
+                        <motion.h2 variants={itemVariants} className="text-4xl font-extrabold text-teal-600 text-center">Preparation & After-care</motion.h2>
                         <motion.p variants={itemVariants} className="mt-4 text-lg text-gray-600 text-center max-w-3xl mx-auto">
                             To maximize the benefits, please follow these important guidelines before and after your treatment.
                         </motion.p>
@@ -451,8 +462,7 @@ const FireCuppingPage = () => {
                                 return (
                                     <div key={index}>
                                         <button
-                                            // FIX 3: Removed explicit type casting in the setter, letting TypeScript infer the correct type (number | null)
-                                            onClick={() => setOpenFaqIndex(isOpen ? null : index)} 
+                                            onClick={() => setOpenFaqIndex(isOpen ? null : index)}
                                             className={`w-full flex justify-between items-center text-left gap-4 bg-[#1E4137] p-6 text-white transition-all duration-300 hover:bg-opacity-90 ${isOpen ? 'rounded-t-lg' : 'rounded-lg'}`}
                                         >
                                             <span className="text-lg font-semibold">{faq.question}</span>
@@ -486,5 +496,4 @@ const FireCuppingPage = () => {
     );
 };
 
-// Export the component for use in page.tsx
 export default FireCuppingPage;
