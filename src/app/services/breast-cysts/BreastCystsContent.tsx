@@ -202,7 +202,7 @@ const BreastCystsContent = () => {
                                 <motion.h3 variants={itemVariants} className="mt-12 text-3xl font-bold text-gray-900">Is Hijama Suitable for Females? How Does It Work:</motion.h3>
                                 
                                 <motion.p variants={itemVariants} className="mt-4 text-lg text-gray-600 leading-relaxed">
-                                    Many ask, "Is hijama suitable for females?" The answer is yes. Hijama for females works by focusing on blood flow and the lymphatic system. Cysts or lumps often form when fluids or toxins become trapped in tissues, and this stagnation causes swelling or pain.
+                                    Many ask, &quot;Is hijama suitable for females?&quot; The answer is yes. Hijama for females works by focusing on blood flow and the lymphatic system. Cysts or lumps often form when fluids or toxins become trapped in tissues, and this stagnation causes swelling or pain.
                                 </motion.p>
                                 
                                 <motion.p variants={itemVariants} className="mt-4 text-lg text-gray-600 leading-relaxed">
@@ -334,7 +334,7 @@ const BreastCystsContent = () => {
                                     <h4 className="text-lg font-semibold text-gray-800">Your Specialist</h4>
                                     <div className="flex justify-center items-center gap-8 mt-4">
                                         <div>
-                                            <img src="/female-specialist.webp" alt="Ms. Fatima Khan" className="w-24 h-24 rounded-full mx-auto object-cover" />
+                                            <Image src="/female-specialist.webp" alt="Ms. Fatima Khan" width={96} height={96} className="w-24 h-24 rounded-full mx-auto object-cover" />
                                             <p className="mt-2 font-bold">Ms. Fatima Khan</p>
                                             <p className="text-sm text-gray-600">Certified Hijama Therapist</p>
                                         </div>
