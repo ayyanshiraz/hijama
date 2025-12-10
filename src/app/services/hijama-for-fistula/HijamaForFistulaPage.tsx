@@ -1,6 +1,6 @@
 'use client';
 
-import { Phone, CheckCircle, Shield, Clock, Sun, Moon, Droplets, Plus, Minus, ChevronRight, AlertTriangle, ShieldAlert, Facebook, Instagram, Youtube, Video } from 'lucide-react';
+import { Phone, CheckCircle, Shield, Clock, Sun, Moon, Droplets, Plus, Minus, ChevronRight, AlertTriangle, ShieldAlert } from 'lucide-react';
 import { motion, AnimatePresence, Variants, Transition } from 'framer-motion';
 import { useState } from 'react';
 import Breadcrumbs from '@/components/Breadcrumbs'; 
@@ -187,7 +187,7 @@ const HijamaForFistulaPage = () => {
                                 {/* 1. Introduction & Overview */}
                                 <motion.h2 variants={itemVariants} className="text-4xl font-extrabold text-teal-600">A Humanized Approach to Anal Fistula Management</motion.h2>
                                 <motion.p variants={itemVariants} className="mt-4 text-lg text-gray-600 leading-relaxed">
-                                    Living with an anal fistula can be a physically painful and emotionally exhausting experience. The constant discomfort, swelling, and risk of infection often disrupt daily life. While medical intervention from a surgeon is typically the primary route to a cure, many individuals seek complementary therapies to help manage challenging symptoms and support the body's recovery capabilities.
+                                    Living with an anal fistula can be a physically painful and emotionally exhausting experience. The constant discomfort, swelling, and risk of infection often disrupt daily life. While medical intervention from a surgeon is typically the primary route to a cure, many individuals seek complementary therapies to help manage challenging symptoms and support the body&apos;s recovery capabilities.
                                 </motion.p>
                                 <motion.p variants={itemVariants} className="mt-4 text-lg text-gray-600 leading-relaxed">
                                     Our specialized Hijama therapy offers a non-invasive, supportive approach. It is designed not to replace conventional medical treatment but to work alongside it. By focusing on systemic detoxification and localized circulation, we aim to reduce the burden of inflammation on the pelvic region and promote a healthier internal environment for tissue repair.
@@ -200,7 +200,7 @@ const HijamaForFistulaPage = () => {
                                 {/* 2. Understanding the Method */}
                                 <motion.h3 variants={itemVariants} className="mt-12 text-3xl font-bold text-teal-600">Understanding the Strategic, Non-Invasive Method</motion.h3>
                                 <motion.p variants={itemVariants} className="mt-4 text-lg text-gray-600 leading-relaxed">
-                                    Safety is our absolute priority when dealing with such a sensitive condition. All patients must understand that we never apply cups directly to the fistula opening, abscess, or any broken skin. Direct application would be unsafe and painful. Instead, our certified practitioners utilize a strategic, indirect method. We apply cupping therapy to specific meridian points located on the lower back, sacrum, and gluteal muscles. 
+                                    Safety is our absolute priority when dealing with such a sensitive condition. All patients must understand that we never apply cups directly to the fistula opening, abscess, or broken skin. Direct application would be unsafe and painful. Instead, our certified practitioners utilize a strategic, indirect method. We apply cupping therapy to specific meridian points located on the lower back, sacrum, and gluteal muscles. 
                                 </motion.p>
                                 <motion.p variants={itemVariants} className="mt-4 text-lg text-gray-600 leading-relaxed">
                                     This targeted placement serves a dual purpose: it helps to draw deep-seated inflammation and toxins away from the affected tract, and it encourages fresh circulation to deeper pelvic tissues. This influx of oxygenated blood is crucial for enhancing the body's immune response and facilitating the natural healing of surrounding tissue. Learn more about the comprehensive benefits of Cupping Therapy by viewing our <Link href="/services/fire-cupping" className="text-teal-600 hover:text-teal-800 font-semibold underline">Fire Cupping service</Link>.
@@ -394,7 +394,7 @@ const HijamaForFistulaPage = () => {
                                 📞 Book Your Appointment at the Best Hijama Center in Lahore
                             </h2>
                                      <p className="mt-3 text-lg font-light max-w-3xl mx-auto">
-                                        Ready to find a supportive path to recovery? We provide confidential, professional care.
+                                         Ready to find a supportive path to recovery? We provide confidential, professional care.
                                      </p>
         
                         <div className="mt-6 space-y-3 md:space-y-0 md:flex md:justify-center md:gap-6 text-base font-semibold">
