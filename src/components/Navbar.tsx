@@ -12,7 +12,7 @@ const serviceLinks = [
   { name: 'Dry & Massage Cupping', href: '/services/dry-cupping' },
   { name: 'Hijama for Pain Relief', href: '/services/hijama-for-pain-relief' },
   { name: 'Hijama for Internal Health', href: '/services/hijama-for-internal-health' },
-  { name: 'Hijama for Sports Recovery', href: '/services/hijama-for-sports-recovery' }, // Corrected href
+  { name: 'Hijama for Sports Recovery', href: '/services/hijama-for-sports-recovery' },
   { name: 'Hijama for Detox & Wellness', href: '/services/hijama-for-detox' },
   { name: 'Fire Cupping', href: '/services/fire-cupping' },
   { name: 'Female Face Hijama (Jonk)', href: '/services/female-face-hijama' },
@@ -28,8 +28,8 @@ const navLinks = [
   { name: 'Home', href: '/' },
   { name: 'About Us', href: '/about' },
   { name: 'Services', href: '/services', subLinks: serviceLinks },
+  { name: 'Blogs', href: '/blog' }, // Added Blogs Section here
   { name: 'Contact', href: '/contact' },
-  // { name: 'Blog', href: '/blog' }, // Example if Blog link is needed
 ];
 
 const Navbar = () => {

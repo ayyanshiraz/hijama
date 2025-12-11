@@ -2,7 +2,6 @@ import HijamaForBaldnessContent from './HijamaForBaldnessContent';
 import { Metadata } from 'next';
 
 // --- SEO METADATA ---
-// Your provided SEO Title and Description are used here.
 export const metadata: Metadata = {
     title: "Hijama for Hair Fall & Baldness in Lahore | Scalp Cupping 24/7",
     description: "Get certified Scalp Hijama (Cupping) therapy in Lahore for hair fall, baldness, and root strengthening. Natural, pain-free treatment by male/lady staff 24/7.",
