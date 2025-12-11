@@ -9,8 +9,9 @@ import FloatingWhatsApp from '@/components/FloatingWhatsApp';
 import Script from 'next/script';
 
 // --- UPDATED IDs ---
-const GA4_MEASUREMENT_ID = 'G-CV880G5R1G'; // Naya Analytics ID
-const GOOGLE_ADS_ID = 'AW-17679136193';    // Purana Ads ID
+const GA4_MEASUREMENT_ID = 'G-CV880G5R1G'; // Old ID (Yours/Original)
+const CLIENT_GA4_ID = 'G-Y0CHQLBF3P';      // New Client ID (Added)
+const GOOGLE_ADS_ID = 'AW-17679136193';    
 const CONTACT_CONVERSION_ID = 'AW-17679136193/M2glCPjItMUbEMHriO5B';
 const PURCHASE_EVENT_NAME = 'ads_conversion_Purchase_1';
 
@@ -119,10 +120,13 @@ export default function RootLayout({
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
 
-            // Config for GA4
+            // 1. Config for Your Original GA4
             gtag('config', '${GA4_MEASUREMENT_ID}');
+
+            // 2. Config for Client NEW GA4 (Added here)
+            gtag('config', '${CLIENT_GA4_ID}');
             
-            // Config for Google Ads
+            // 3. Config for Google Ads
             gtag('config', '${GOOGLE_ADS_ID}');
             
             // Conversion Tracking Function
