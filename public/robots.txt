@@ -2,10 +2,10 @@
 User-agent: *
 Allow: /
 
-# Disallow specific paths if you need to block crawlers (optional examples)
+# Disallow specific paths (optional)
 # Disallow: /admin/
 # Disallow: /temp/
-# Disallow: /api/ # You might want to disallow API routes if they aren't meant for public indexing
+# Disallow: /api/
 
 # Point crawlers to your sitemap
-Sitemap: https://almadinahijamacenter.com/sitemap.xml
+Sitemap: https://www.almadinahijamacenter.com/sitemap.xml
