@@ -17,7 +17,7 @@ const servicesList = [
     title: 'Blood Cupping (Hijama)',
     description: 'The traditional Prophetic method...',
     image: '/services/s1.webp',
-    learnMoreLink: '/services/blood-cupping'
+    learnMoreLink: '/services/wet-cupping'
   },
   {
     icon: Wind,

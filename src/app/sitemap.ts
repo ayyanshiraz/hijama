@@ -5,7 +5,7 @@ export const dynamic = 'force-dynamic';
 const BASE_URL = 'https://almadinahijamacenter.com';
 
 const serviceSlugs = [
-  'blood-cupping',
+  'wet-cupping',
   'dry-cupping',
   'hijama-for-pain-relief',
   'hijama-for-internal-health',

@@ -14,7 +14,7 @@ const footerNavLinks = [
 ];
 
 const serviceLinks = [
-  { name: 'Blood Cupping (Hijama)', href: '/services/blood-cupping' },
+  { name: 'Wet Cupping (Hijama)', href: '/services/wet-cupping' },
   { name: 'Dry & Massage Cupping', href: '/services/dry-cupping' },
   { name: 'Pain Relief', href: '/services/hijama-for-pain-relief' },
   { name: 'Internal Health', href: '/services/hijama-for-internal-health' },
