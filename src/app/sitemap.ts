@@ -2,7 +2,9 @@ import { MetadataRoute } from 'next';
 import { blogPosts } from './blog/data'; 
 
 export const dynamic = 'force-dynamic'; 
-const BASE_URL = 'https://almadinahijamacenter.com';
+
+// 👇 UPDATED THIS LINE: Added 'www' to the URL
+const BASE_URL = 'https://www.almadinahijamacenter.com';
 
 const serviceSlugs = [
   'wet-cupping',
