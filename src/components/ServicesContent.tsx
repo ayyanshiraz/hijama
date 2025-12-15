@@ -16,7 +16,7 @@ const servicesList = [
     title: 'Wet Cupping (Hijama)',
     description: 'The traditional Prophetic method involving light scratches and suction to remove stagnant blood and toxins, boosting immunity and promoting overall healing.',
     image: '/services/s1.webp',
-    learnMoreLink: '/services/Wet-cupping'
+    learnMoreLink: '/services/wet-cupping'
   },
   {
     icon: Wind,
