@@ -277,7 +277,7 @@ const AboutPage = () => {
                 className="rounded-2xl shadow-2xl overflow-hidden max-w-xs sm:max-w-sm md:max-w-md w-full"
               >
                 <Image
-                  src="/hakeem.jpg" // Your placeholder image
+                  src="/hakeem.webp" // Your placeholder image
                   alt="Hakeem Muhammad Atif Ali Aqasha"
                   width={400}
                   height={450}
