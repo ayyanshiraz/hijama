@@ -8,10 +8,9 @@ import CookieBanner from "@/components/CookieBanner";
 import FloatingWhatsApp from '@/components/FloatingWhatsApp';
 import Script from 'next/script';
 
-// --- UPDATED IDs ---
-const GA4_MEASUREMENT_ID = 'G-CV880G5R1G'; // Old ID (Yours/Original)
-const CLIENT_GA4_ID = 'G-Y0CHQLBF3P';      // New Client ID (Added)
-const GOOGLE_ADS_ID = 'AW-17679136193';    
+const GA4_MEASUREMENT_ID = 'G-CV880G5R1G';
+const CLIENT_GA4_ID = 'G-Y0CHQLBF3P';
+const GOOGLE_ADS_ID = 'AW-17679136193';
 const CONTACT_CONVERSION_ID = 'AW-17679136193/M2glCPjItMUbEMHriO5B';
 const PURCHASE_EVENT_NAME = 'ads_conversion_Purchase_1';
 
@@ -20,6 +19,9 @@ export const metadata: Metadata = {
   description: "Looking for the Best Hijama Center in Lahore? Get 24/7 Home Service by certified Male & Female staff. Safe cupping for pain & detox. Book Appointment!",
   alternates: {
     canonical: 'https://www.almadinahijamacenter.com',
+  },
+  verification: {
+    google: 'l7_HgOjYrV0g16QKEpV7oTW4pam3hJL5R08NeeZqemg',
   },
   openGraph: {
     title: "Best Hijama Center Lahore | 24/7 Home Service & Lady Staff",
@@ -104,14 +106,12 @@ export default function RootLayout({
 
   return (
     <html lang="en">
-      {/* --- Main Google Tag Manager Script (Loads GA4) --- */}
       <Script
         async
         src={`https://www.googletagmanager.com/gtag/js?id=${GA4_MEASUREMENT_ID}`}
         strategy="afterInteractive"
       />
 
-      {/* --- Combined Config for Analytics & Ads --- */}
       <Script
         id="google-analytics-ads-config"
         dangerouslySetInnerHTML={{
@@ -119,17 +119,10 @@ export default function RootLayout({
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-
-            // 1. Config for Your Original GA4
             gtag('config', '${GA4_MEASUREMENT_ID}');
-
-            // 2. Config for Client NEW GA4 (Added here)
             gtag('config', '${CLIENT_GA4_ID}');
-            
-            // 3. Config for Google Ads
             gtag('config', '${GOOGLE_ADS_ID}');
             
-            // Conversion Tracking Function
             function gtag_report_conversion(url) {
               var callback = function () {
                 if (typeof(url) != 'undefined') {
@@ -143,7 +136,6 @@ export default function RootLayout({
               return false;
             }
             
-            // Ads Purchase Event Function
             function gtagSendEvent(url) {
               var callback = function () {
                 if (typeof url === 'string') {
