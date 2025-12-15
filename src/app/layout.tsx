@@ -8,6 +8,8 @@ import CookieBanner from "@/components/CookieBanner";
 import FloatingWhatsApp from '@/components/FloatingWhatsApp';
 import Script from 'next/script';
 
+// --- IDs ---
+const GTM_ID = 'GTM-MP4L5KDH';       // NEW GTM ID
 const GA4_MEASUREMENT_ID = 'G-CV880G5R1G';
 const CLIENT_GA4_ID = 'G-Y0CHQLBF3P';
 const GOOGLE_ADS_ID = 'AW-17679136193';
@@ -106,6 +108,18 @@ export default function RootLayout({
 
   return (
     <html lang="en">
+      {/* --- Google Tag Manager Script (Head Part) --- */}
+      <Script id="google-tag-manager" strategy="afterInteractive">
+        {`
+          (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+          new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+          j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+          'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+          })(window,document,'script','dataLayer','${GTM_ID}');
+        `}
+      </Script>
+
+      {/* --- Existing Analytics & Ads Scripts --- */}
       <Script
         async
         src={`https://www.googletagmanager.com/gtag/js?id=${GA4_MEASUREMENT_ID}`}
@@ -163,9 +177,10 @@ export default function RootLayout({
       <body
         className={`${GeistSans.variable} ${GeistMono.variable} antialiased border-0`}
       >
+        {/* --- Google Tag Manager (NoScript Body Part) --- */}
         <noscript>
           <iframe 
-            src={`https://www.googletagmanager.com/ns.html?id=${GA4_MEASUREMENT_ID}`}
+            src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
             height="0" 
             width="0" 
             style={{ display: 'none', visibility: 'hidden' }}
