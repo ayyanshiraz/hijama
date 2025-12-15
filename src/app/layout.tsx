@@ -18,7 +18,7 @@ const PURCHASE_EVENT_NAME = 'ads_conversion_Purchase_1';
 export const metadata: Metadata = {
 metadataBase: new URL('https://www.almadinahijamacenter.com'),
 title: "Best Hijama Center Lahore | 24/7 Home Service & Lady Staff",
-description: "Looking for the Best Hijama Center in Lahore? Get 24/7 Home Service by certified Male & Female staff. Safe cupping for pain & detox. Book Appointment!",
+description: "Looking for the Best Hijama Center in Lahore? Get 24/7 Home Service by certified Male & Female staff. Safe cupping for pain & detox.",
 alternates: {
 canonical: './',
 },
