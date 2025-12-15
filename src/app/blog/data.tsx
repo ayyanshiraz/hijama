@@ -46,7 +46,7 @@ export const blogPosts: BlogPost[] = [
         <li class="mb-2"><strong>Detoxification:</strong> It helps remove harmful toxins and improves the flow of fresh, oxygen-rich blood.</li>
         <li class="mb-2"><strong>Pain relief:</strong> It is said to be effective for chronic back pain, stiff necks, and joint problems, which are common among office &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;workers.</li>
         <li class="mb-2"><strong>Stress reduction:</strong> This therapy relaxes muscles and helps reduce anxiety, which can lead to better sleep.</li>
-        <li class="mb-2"><strong>Sunnah-following:</strong> Many people in Lahore find it spiritually beneficial because it revives a <a href="/blog/importance-of-hijama-in-islam/" class="text-teal-500">Sunnah of the Prophet Muhammad</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(peace be upon him).</li>
+        <li class="mb-2"><strong>Sunnah-following:</strong> Many people in Lahore find it spiritually beneficial because it revives a <a href="/blog/importance-of-hijama-in-islam" class="text-teal-500">Sunnah of the Prophet Muhammad</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(peace be upon him).</li>
     </ul>
 
     <h2 class="text-3xl font-bold text-teal-700 mt-6 mb-4">II. Structural Differences: Professional Clinic vs. Home Service</h2>
@@ -609,7 +609,7 @@ export const blogPosts: BlogPost[] = [
     </ul>
 
     <h3 class="text-2xl font-bold text-teal-600 mt-5 mb-3">F. Services That Support Hair Growth</h3>
-    <p class="text-justify mb-3">Our services are perfectly suited to the needs of hijama for hair growth. We specialize in hijama on the head for <a href="services/hijama-for-baldness" class="text-blue-500">hair growth</a> to increase hair density. Our experts explain to each client how hijama helps in hair growth. We are a well-known and trusted center for Hair regrowth through regrow hair by hijama cupping therapy in Lahore.</p>
+    <p class="text-justify mb-3">Our services are perfectly suited to the needs of hijama for hair growth. We specialize in hijama on the head for <a href="/services/hijama-for-baldness" class="text-blue-500">hair growth</a> to increase hair density. Our experts explain to each client how hijama helps in hair growth. We are a well-known and trusted center for Hair regrowth through regrow hair by hijama cupping therapy in Lahore.</p>
     <ul class="list-disc list-inside ml-4 mb-6">
         <li class="mb-2"><strong>Head Hijama Therapy:</strong> Head-focused Hijama on the head for hair growth.</li>
         <li class="mb-2"><strong>Full Body Detoxification:</strong> Enhances hijama results for hair growth.</li>
