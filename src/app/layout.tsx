@@ -83,7 +83,7 @@ export default function RootLayout({
       "@type": "OfferCatalog",
       "name": "Hijama Services",
       "itemListElement": [
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Blood Cupping (Hijama)" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Wet Cupping (Hijama)" } },
         { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Dry & Massage Cupping" } },
         { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Fire Cupping Therapy" } },
         { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Female Face Hijama (Jonk Therapy)" } },

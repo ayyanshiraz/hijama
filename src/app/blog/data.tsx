@@ -46,7 +46,7 @@ export const blogPosts: BlogPost[] = [
         <li class="mb-2"><strong>Detoxification:</strong> It helps remove harmful toxins and improves the flow of fresh, oxygen-rich blood.</li>
         <li class="mb-2"><strong>Pain relief:</strong> It is said to be effective for chronic back pain, stiff necks, and joint problems, which are common among office &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;workers.</li>
         <li class="mb-2"><strong>Stress reduction:</strong> This therapy relaxes muscles and helps reduce anxiety, which can lead to better sleep.</li>
-        <li class="mb-2"><strong>Sunnah-following:</strong> Many people in Lahore find it spiritually beneficial because it revives a <a href="blog/importance-of-hijama-in-islam" class="text-teal-500">Sunnah of the Prophet Muhammad</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(peace be upon him).</li>
+        <li class="mb-2"><strong>Sunnah-following:</strong> Many people in Lahore find it spiritually beneficial because it revives a <a href="/blog/importance-of-hijama-in-islam/" class="text-teal-500">Sunnah of the Prophet Muhammad</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(peace be upon him).</li>
     </ul>
 
     <h2 class="text-3xl font-bold text-teal-700 mt-6 mb-4">II. Structural Differences: Professional Clinic vs. Home Service</h2>
