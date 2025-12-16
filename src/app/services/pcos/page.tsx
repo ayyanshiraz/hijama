@@ -3,7 +3,7 @@ import PCOSPage from './PCOSPage';
 
 export const metadata: Metadata = {
   title: "PCOS Management with Hijama | Female Specialist Lahore (24/7)",
-  description: "Manage PCOS holistically with specialized Hijama therapy in Lahore. We offer 24/7 service, confidential care by dedicated female staff, and convenient home service in Bahria Town and across Lahore.",
+  description: "Manage PCOS holistically with specialized Hijama therapy in Bahria Town Lahore. We offer 24/7 confidential care by female staff & home service. Book today!.",
   keywords: [
     "Hijama for PCOS",
     "PCOS Treatment Lahore",
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "PCOS Management with Hijama | Female Specialist Lahore (24/7)",
-    description: "Manage PCOS holistically with specialized Hijama therapy in Lahore. We offer 24/7 service, confidential care by dedicated female staff, and convenient home service in Bahria Town and across Lahore.",
+    description: "Manage PCOS holistically with specialized Hijama therapy in Bahria Town Lahore. We offer 24/7 confidential care by female staff & home service. Book today!.",
     url: "https://almadinahijamacenter.com/services/pcos",
     type: "website",
     images: [

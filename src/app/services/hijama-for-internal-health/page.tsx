@@ -3,7 +3,7 @@ import InternalHealthClient from './InternalHealthClient'; // No curly braces {}
 
 export const metadata: Metadata = {
   title: "Hijama for Internal Health: BP, Stomach & Detox Therapy in Lahore",
-  description: "Struggling with high blood pressure, stomach acidity, or cholesterol? Our specialized Hijama for internal health detoxifies your liver and kidneys. Book in Bahria Town, Lahore.",
+  description: "Control High blood pressure (BP), Acidity & Cholesterol naturally. Get Hijama for Internal Health in Bahria Town Lahore to clean the liver & kidneys.",
   alternates: {
     canonical: "/services/hijama-for-internal-health",
   },

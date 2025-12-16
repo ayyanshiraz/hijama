@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: "Dry Cupping & Massage Hijama in Lahore | Muscle Relief Therapy",
   
   
-  description: "Relieve muscle tension with expert Dry Cupping & Massage Cupping in Lahore. Non-invasive therapy for back pain, stiffness & relaxation. 24/7 Home Service available.",
+  description: "Relieve muscle tension with expert Dry Cupping & Massage Cupping in Lahore. Non-invasive therapy for back pain, stiffness & relaxation. 24/7 available.",
   
   alternates: {
     canonical: 'https://www.almadinahijamacenter.com/services/dry-cupping',
