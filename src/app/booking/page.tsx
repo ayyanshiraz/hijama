@@ -1,8 +1,17 @@
-// src/app/booking/page.tsx
 import { Suspense } from 'react';
-import BookingClient from './BookingClient'; // <-- Import your renamed component
+import type { Metadata } from 'next';
+import BookingClient from './BookingClient';
 
-// This is a simple loading component
+// 👇 1. Ye raha SEO Metadata (Google Ranking ke liye)
+export const metadata: Metadata = {
+  title: "Book Hijama Appointment | Online Booking & Home Service Lahore",
+  description: "Schedule your Hijama session online. Choose from Sunnah dates, Home Service, or Clinic Visit in Bahria Town Lahore. Certified Male & Female Staff available.",
+  alternates: {
+    canonical: 'https://almadinahijamacenter.com/booking',
+  },
+};
+
+// 👇 2. Loading State (Build error bachane ke liye)
 function BookingLoading() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-gray-50">
@@ -11,13 +20,12 @@ function BookingLoading() {
           Loading Booking Form...
         </h1>
         <p className="mt-2 text-gray-600">Please wait a moment.</p>
-        {/* You could add a spinner here */}
       </div>
     </div>
   );
 }
 
-// This is now your main page component
+// 👇 3. Main Page Logic
 export default function BookingPage() {
   return (
     <Suspense fallback={<BookingLoading />}>

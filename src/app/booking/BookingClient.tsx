@@ -1,4 +1,5 @@
 'use client';
+
 import React, { useState } from 'react'; 
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
@@ -9,7 +10,6 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { useSearchParams } from 'next/navigation';
 import Image from 'next/image';
-
 
 const servicesList = [
   {
@@ -141,18 +141,10 @@ const GENERAL_CUPS = 15;
 type ServiceOption = 'perCup' | 'sunnah' | 'general' | null;
 type HomeServiceFee = 0 | 450 | 500;
 
-const BookingPageWrapper = () => {
-  const searchParams = useSearchParams();
-  const serviceName = searchParams.get('service');
-  return <BookingPage serviceNameFromUrl={serviceName} />;
-}
-
-// --- 8. MAIN COMPONENT (Added once) ---
 const BookingPage = ({ serviceNameFromUrl }: { serviceNameFromUrl: string | null }) => {
   
-  // State
   const [selectedService, setSelectedService] = useState<string | null>(serviceNameFromUrl);
-  const [step, setStep] = useState(serviceNameFromUrl ? 2 : 1); // Start at step 2 if service is in URL
+  const [step, setStep] = useState(serviceNameFromUrl ? 2 : 1); 
   const [selectedOption, setSelectedOption] = useState<ServiceOption>(null);
   const [cupQuantity, setCupQuantity] = useState<number | ''>(1);
   const [totalPrice, setTotalPrice] = useState(0);
@@ -162,10 +154,9 @@ const BookingPage = ({ serviceNameFromUrl }: { serviceNameFromUrl: string | null
   const [phone, setPhone] = useState('');
   const [notes, setNotes] = useState('');
 
-  // --- Handlers (Added once) ---
   const handleServiceSelect = (serviceTitle: string) => {
     setSelectedService(serviceTitle);
-    setStep(2); // Move to next step
+    setStep(2); 
   };
   
   const handleOptionSelect = (option: ServiceOption) => {
@@ -186,7 +177,7 @@ const BookingPage = ({ serviceNameFromUrl }: { serviceNameFromUrl: string | null
         const price = GENERAL_CUPS * CUP_PRICE;
         setCupQuantity(GENERAL_CUPS);
         setTotalPrice(price);
-      } else { // 'perCup'
+      } else { 
         setCupQuantity(1);
         setTotalPrice(CUP_PRICE);
       }
@@ -261,7 +252,7 @@ const BookingPage = ({ serviceNameFromUrl }: { serviceNameFromUrl: string | null
       messageLines.push(`*Service:* ${selectedService}`);
     }
 
-    messageLines.push(`*Session:* ${serviceOptionName}`); // "Per Cup", "Sunnah", etc.
+    messageLines.push(`*Session:* ${serviceOptionName}`); 
     messageLines.push(`*Session Price:* Rs. ${servicePrice}`);
 
     if (homeServiceFee > 0) {
@@ -287,12 +278,10 @@ const BookingPage = ({ serviceNameFromUrl }: { serviceNameFromUrl: string | null
     window.location.href = whatsappUrl;
   };
 
-  // --- 9. Validation & Dynamic Text (Added once) ---
   const isStep2Valid = selectedOption && (selectedOption !== 'perCup' || (selectedOption === 'perCup' && Number(cupQuantity) >= 1));
   const isStep4Valid = name.trim() !== '' && phone.trim() !== '';
   const { name: serviceNameForReview, price: servicePriceForReview } = getBookingDetails();
 
-  // Dynamic titles
   const pageTitle = selectedService ? `Book ${selectedService}` : 'Book Your Session';
   const dynamicSubtitle = selectedService
     ? `You are booking a session for ${selectedService}. Please select a session type below.`
@@ -312,10 +301,9 @@ const BookingPage = ({ serviceNameFromUrl }: { serviceNameFromUrl: string | null
           </p>
         </div>
 
-        {/* --- 10. STEP INDICATOR (Corrected) --- */}
+        {/* --- STEP INDICATOR --- */}
         <div className="w-full max-w-4xl mx-auto mb-12">
           <div className="flex items-start sm:items-center justify-between">
-            {/* Array labels are changed as requested */}
             {['Services', 'Choose Session', 'Pick Date & Time', 'Confirm Details'].map((label, index) => {
               const stepNumber = index + 1;
               const isCompleted = step > stepNumber;
@@ -341,7 +329,7 @@ const BookingPage = ({ serviceNameFromUrl }: { serviceNameFromUrl: string | null
                     </span>
                   </div>
                   
-                  {index < 3 && ( // index < 3 because there are 4 items
+                  {index < 3 && ( 
                     <div className={`flex-1 h-0.5 mt-4 mx-1 sm:mx-2 transition-colors ${isCompleted ? 'bg-teal-600' : 'bg-gray-200'}`}></div>
                   )}
                 </React.Fragment>
@@ -350,7 +338,7 @@ const BookingPage = ({ serviceNameFromUrl }: { serviceNameFromUrl: string | null
           </div>
         </div>
 
-        {/* --- 11. STEP CONTENT (All steps cleaned) --- */}
+        {/* --- STEP CONTENT --- */}
         <div className="max-w-3xl mx-auto"> 
           <AnimatePresence mode="wait">
             <motion.div
@@ -502,7 +490,6 @@ const BookingPage = ({ serviceNameFromUrl }: { serviceNameFromUrl: string | null
                                   </div>
                                   
                                   <div className="flex w-full sm:w-auto sm:items-center sm:gap-x-4">
-                                    {/* Show "Back" button only if user didn't come from a direct link */}
                                     {!serviceNameFromUrl && (
                                       <button 
                                         onClick={() => setStep(1)} 
@@ -512,7 +499,7 @@ const BookingPage = ({ serviceNameFromUrl }: { serviceNameFromUrl: string | null
                                       </button>
                                     )}
                                     <button
-                                      onClick={() => setStep(3)} // Go to Step 3
+                                      onClick={() => setStep(3)} 
                                       disabled={!isStep2Valid}
                                       className={`w-full sm:w-auto inline-flex items-center justify-center px-6 py-3 font-semibold rounded-lg shadow-md transition-colors ${
                                         isStep2Valid
@@ -668,7 +655,7 @@ const BookingPage = ({ serviceNameFromUrl }: { serviceNameFromUrl: string | null
                       <textarea
                         id="notes"
                         value={notes}
-                        onChange={(e) => setNotes(e.target.value)} // <-- TYPO FIXED
+                        onChange={(e) => setNotes(e.target.value)}
                         rows={3}
                         className="w-full px-4 py-3 bg-gray-100 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-teal-500 text-black placeholder-gray-500"
                         placeholder="Any specific requests or health information?"
@@ -700,7 +687,6 @@ const BookingPage = ({ serviceNameFromUrl }: { serviceNameFromUrl: string | null
         </div>
       </div>
       
-      {/* --- 12. GLOBAL STYLES (Added once) --- */}
       <style jsx global>{`
         .react-datepicker-wrapper {
           width: 100%; 
@@ -717,5 +703,10 @@ const BookingPage = ({ serviceNameFromUrl }: { serviceNameFromUrl: string | null
   );
 };
 
-// --- 13. FINAL EXPORT (Added once) ---
-export default BookingPageWrapper;
+const BookingClient = () => {
+  const searchParams = useSearchParams();
+  const serviceName = searchParams.get('service');
+  return <BookingPage serviceNameFromUrl={serviceName} />;
+}
+
+export default BookingClient;
