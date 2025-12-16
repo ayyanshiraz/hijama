@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import BlogClient from './BlogClient';
-import { blogPageMetadata } from './data'; // Aapki data file import ki
+import { blogPageMetadata } from './data';
 
 export const metadata: Metadata = {
   title: blogPageMetadata.title,

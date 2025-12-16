@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowRight } from 'lucide-react';
-import Breadcrumbs from '../../components/Breadcrumbs'; // Path check kar lena
+import Breadcrumbs from '@/components/Breadcrumbs'; 
 import { blogPosts } from './data'; 
 
 const BlogClient = () => {
@@ -15,7 +15,6 @@ const BlogClient = () => {
     
     return (
         <main className="bg-white text-gray-800">
-            {/* --- Hero Section --- */}
             <section className="relative bg-gray-800 text-white py-32 sm:py-40 flex items-center justify-center">
                 <div 
                     className="absolute inset-0 bg-cover bg-center"
@@ -44,7 +43,6 @@ const BlogClient = () => {
 
             <Breadcrumbs items={breadcrumbItems} />
 
-            {/* --- Blog Grid Section --- */}
             <section className="py-16 sm:py-24">
                 <div className="container mx-auto px-8 sm:px-16">
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
