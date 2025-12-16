@@ -12,18 +12,19 @@ export const metadata: Metadata = {
     "24/7 Hijama Service",
     "Hijama Bahria Town Lahore"
   ],
-  // 👇 Canonical URL fix (Best Practice)
   alternates: {
-    canonical: 'https://almadinahijamacenter.com/services/pcos',
+    canonical: 'https://www.almadinahijamacenter.com/services/pcos',
   },
   openGraph: {
     title: "PCOS Management with Hijama | Female Specialist Lahore (24/7)",
     description: "Manage PCOS holistically with specialized Hijama therapy in Bahria Town Lahore. We offer 24/7 confidential care by female staff & home service. Book today!.",
-    url: "https://almadinahijamacenter.com/services/pcos",
+    url: "https://www.almadinahijamacenter.com/services/pcos",
+    siteName: 'Al Madina Hijama Center',
+    locale: 'en_PK',
     type: "website",
     images: [
       {
-        url: '/images/pcos-hijama.jpg', 
+        url: 'https://www.almadinahijamacenter.com/services/s13.webp',
         width: 1200,
         height: 630,
         alt: 'PCOS Hijama Therapy Lahore',

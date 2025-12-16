@@ -17,19 +17,28 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
         };
     }
 
+    const siteUrl = 'https://www.almadinahijamacenter.com';
+    const imageUrl = post.imageUrl.startsWith('http') 
+        ? post.imageUrl 
+        : `${siteUrl}${post.imageUrl}`;
+
     return {
         title: `${post.title} | Al Madina Hijama Center`,
         description: post.metaDescription, 
         alternates: {
-            canonical: `https://www.almadinahijamacenter.com/blog/${post.slug}`,
+            canonical: `${siteUrl}/blog/${post.slug}`,
         },
         openGraph: {
             title: post.title,
             description: post.metaDescription,
-            url: `https://www.almadinahijamacenter.com/blog/${post.slug}`,
+            url: `${siteUrl}/blog/${post.slug}`,
+            siteName: 'Al Madina Hijama Center',
+            locale: 'en_PK',
+            type: 'article',
+            authors: ['Al Madina Hijama Center'],
             images: [
                 {
-                    url: post.imageUrl,
+                    url: imageUrl,
                     width: 1200,
                     height: 630,
                     alt: post.altText,

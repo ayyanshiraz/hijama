@@ -13,6 +13,9 @@ export const metadata: Metadata = {
     description: 'Pain relief, Detox, and Sunnah healing. 24/7 Home visits available.',
     url: 'https://www.almadinahijamacenter.com/services',
     siteName: 'Al Madina Hijama Center',
+    // 👇 Consistency ke liye en_PK kar diya
+    locale: 'en_PK',
+    type: 'website',
     images: [
       {
         url: 'https://www.almadinahijamacenter.com/services/1.avif', 
@@ -21,8 +24,6 @@ export const metadata: Metadata = {
         alt: 'Hijama Services Overview',
       },
     ],
-    locale: 'en_US',
-    type: 'website',
   },
 };
 

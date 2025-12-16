@@ -1,4 +1,4 @@
-import BeautyHijamaContent from './BeautyHijamaContent'; // Import the content component
+import BeautyHijamaContent from './BeautyHijamaContent';
 import { Metadata } from 'next';
 
 // --- SEO METADATA ---
@@ -15,6 +15,14 @@ export const metadata: Metadata = {
         siteName: 'Al Madina Hijama Center',
         locale: 'en_PK',
         type: 'website',
+        images: [
+            {
+                url: 'https://www.almadinahijamacenter.com/services/s9.webp',
+                width: 1200,
+                height: 630,
+                alt: 'Beauty Hijama & Facial Cupping',
+            },
+        ],
     },
 };
 

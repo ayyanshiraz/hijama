@@ -1,7 +1,6 @@
 import FemaleFaceHijamaContent from './FemaleFaceHijamaContent';
 import { Metadata } from 'next';
 
-// --- SEO METADATA ---
 export const metadata: Metadata = {
     title: "Female Face Hijama | Natural Facelift & Glow in Bahria Town, Lahore",
     description: "Get a natural face lift with Female Face Hijama (Facial Cupping) in Bahria Town, Lahore. 15 years of experience, certified female staff, Parda guarantee.",
@@ -15,6 +14,14 @@ export const metadata: Metadata = {
         siteName: 'Al Madinah Hijama Center',
         locale: 'en_PK',
         type: 'website',
+        images: [
+            {
+                url: 'https://www.almadinahijamacenter.com/services/s8.webp',
+                width: 1200,
+                height: 630,
+                alt: 'Female Face Hijama & Facial Cupping',
+            },
+        ],
     },
 };
 
