@@ -1,56 +1,80 @@
-// SchemaMarkup.tsx
-import React from 'react';
+'use client';
 
-const LocalBusinessSchema = {
+import Script from 'next/script';
+
+const SchemaMarkup = () => {
+  const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "Al-Madina Hijama Center",
-    "image": "https://www.almadinahijamacenter.com/ceo.webp",
-    "url": "https://www.almadinahijamacenter.com",
-    "telephone": "+92 300 7598000",
+    "@type": "MedicalBusiness",
+    "name": "Al Madina Hijama Center",
+    "image": "https://www.almadinahijamacenter.com/logo.png",
+    "description": "Best Hijama Center Lahore providing 24/7 services. We offer Islamic Sunnah Cupping, Fire Cupping, and Leech Therapy with separate male and female staff.",
+    "url": "https://www.almadinahijamacenter.com/",
+    "telephone": "+923007598000",
     "priceRange": "$$",
     "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "MashaAllah Center, 213-A, opp. Car Parking Grand Mosque, Commercial Sector C Bahria Town",
-        "addressLocality": "Lahore",
-        "postalCode": "53720",
-        "addressCountry": "PK"
+      "@type": "PostalAddress",
+      "streetAddress": "MashaAllah Center, 213-A, opp. Car Parking Grand Mosque, Commercial Sector C Bahria Town",
+      "addressLocality": "Lahore",
+      "addressRegion": "Punjab",
+      "postalCode": "53720",
+      "addressCountry": "PK"
     },
-    "openingHoursSpecification": {
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 31.3668,
+      "longitude": 74.1834
+    },
+    "openingHoursSpecification": [
+      {
         "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+        "dayOfWeek": [
+          "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"
+        ],
         "opens": "00:00",
         "closes": "23:59"
+      }
+    ],
+    "sameAs": [
+      "https://www.facebook.com/BestHijamaLahore/",
+      "https://www.instagram.com/almadinahijmacenter",
+      "https://www.youtube.com/@almadinahijamacenter4985",
+      "https://www.tiktok.com/@jameel.ur.rehman81"
+    ],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Hijama Services",
+      "itemListElement": [
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Wet Cupping (Hijama)" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Dry & Massage Cupping" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Fire Cupping Therapy" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Female Face Hijama (Jonk Therapy)" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Beauty Hijama & Detox" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Hijama for PCOS & Fertility" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Hijama for Hair Fall & Baldness" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Hijama for Migraine & Headaches" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Hijama for Back & Joint Pain" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Hijama for Sciatica & Leg Pain" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Hijama for Breast Cysts" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Hijama for Fistula" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Sports Recovery Hijama" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "24/7 Home Service Hijama" } }
+      ]
     },
-    "slogan": "One Of The Most Credible Hijama Centers In Lahore With 15 years of Experience in Hijama and Alternative medicine.",
-    "specialty": "Traditional Hijama and Fire Cupping Therapy"
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5.0",
+      "reviewCount": "250"
+    }
+  };
+
+  return (
+    <Script
+      id="json-ld-schema"
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+    />
+  );
 };
 
-const ServiceSchema = {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "serviceType": "Fire Cupping",
-    "name": "Fire Cupping Therapy and Specialized Hijama Services",
-    "description": "We offer a wide range of specialized traditional cupping therapies including Blood Cupping (Hijama), Dry & Massage Cupping, Fire Cupping, and targeted Hijama for conditions like Pain Relief, Sports Recovery, Detox & Wellness, Fertility, PCOS, Beauty Hijama, and specific issues like Breast Cysts, Baldness, and Fistula. We provide 24/7 service with gender-specific staff (Male for Male, Female for Ladies) and convenient home service, backed by 15 years of expertise.",
-    "provider": {
-        "@type": "LocalBusiness",
-        "name": "Al-Madina Hijama Center",
-        "image": "https://www.almadinahijamacenter.com/ceo.webp",
-        "telephone": "+92 300 7598000"
-    },
-    "url": "https://www.almadinahijamacenter.com/services/fire-cupping"
-};
-
-const combinedJsonLd = [
-    LocalBusinessSchema,
-    ServiceSchema
-];
-
-export default function SchemaMarkup() {
-    return (
-        <script
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{ __html: JSON.stringify(combinedJsonLd) }}
-        />
-    );
-}
+export default SchemaMarkup;
