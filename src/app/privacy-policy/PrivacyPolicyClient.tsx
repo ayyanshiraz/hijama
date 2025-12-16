@@ -11,7 +11,7 @@ const PrivacyPolicyClient = () => {
     ];
     
     return (
-        <main className="bg-gray-50 text-black-800">
+        <main className="bg-gray-50 text-gray-800">
             {/* --- Hero Section --- */}
             <section className="relative bg-gray-900 text-white py-32 sm:py-40 flex items-center justify-center">
                 <div 
@@ -64,10 +64,11 @@ const PrivacyPolicyClient = () => {
                         </div>
 
                         {/* Content Body */}
-                        <div className="p-8 sm:p-12 lg:p-16 text-black-800">
+                        <div className="p-8 sm:p-12 lg:p-16 text-gray-800">
                             <div className="prose prose-lg prose-teal max-w-none text-gray-600">
                                 <p className="lead text-xl text-gray-800 font-medium">
-                                    This Privacy Policy describes how <strong>Al Madina Hijama Center</strong> (referred to as "we", "us", or "our") collects, uses, and protects your personal information when you visit our website, <span className="text-teal-600">almadinahijamacenter.com</span> (the "Site"), and use our services.
+                                    {/* 👇 Fixed Quotes Here */}
+                                    This Privacy Policy describes how <strong>Al Madina Hijama Center</strong> (referred to as &quot;we&quot;, &quot;us&quot;, or &quot;our&quot;) collects, uses, and protects your personal information when you visit our website, <span className="text-teal-600">almadinahijamacenter.com</span> (the &quot;Site&quot;), and use our services.
                                 </p>
                                 <p>
                                     We are committed to protecting your privacy and ensuring the confidentiality of your personal and health information.
@@ -129,9 +130,9 @@ const PrivacyPolicyClient = () => {
                                 <p>Our services are not intended for individuals under the age of 18. We do not knowingly collect personal information from children. If we become aware that we have collected data from a child without parental consent, we will take steps to remove that information.</p>
 
                                 <h2 className="text-3xl font-bold text-gray-900 mt-6 mb-3">9. Changes to This Privacy Policy</h2>
-                                <p>We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new policy on this page and updating the "Last Updated" date at the top. We encourage you to review this policy periodically.</p>
+                                {/* 👇 Fixed Quotes Here */}
+                                <p>We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new policy on this page and updating the &quot;Last Updated&quot; date at the top. We encourage you to review this policy periodically.</p>
 
-                                
 
                                 <div className="bg-gray-50 p-8 rounded-2xl mt-6 border border-gray-100">
                                     <h2 className="text-2xl font-bold text-gray-900 mb-4">10. Contact Us</h2>
