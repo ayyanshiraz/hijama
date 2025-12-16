@@ -3,7 +3,6 @@ import { blogPosts } from './blog/data';
 
 export const dynamic = 'force-dynamic'; 
 
-// 👇 UPDATED THIS LINE: Added 'www' to the URL
 const BASE_URL = 'https://www.almadinahijamacenter.com';
 
 const serviceSlugs = [
@@ -21,7 +20,6 @@ const serviceSlugs = [
   'hijama-for-fistula',
   'pcos'
 ];
-
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const currentDate = new Date().toISOString();
@@ -57,11 +55,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: 'yearly',
       priority: 0.6,
     },
+    // 👇👇👇 UPDATED: Blog Main Page ab 'daily' check hoga 👇👇👇
     {
       url: `${BASE_URL}/blog`,
       lastModified: currentDate,
-      changeFrequency: 'weekly',
-      priority: 0.7,
+      changeFrequency: 'daily', // ✅ Changed from 'weekly' to 'daily'
+      priority: 0.9, // Priority bhi barha di taake Google jaldi aye
     },
     {
       url: `${BASE_URL}/privacy-policy`,
@@ -78,10 +77,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.8,
   }));
 
-  // 🚀 AUTOMATIC FIX: blogPosts array se slugs, title, aur date khud-ba-khud uthaenge
   const blogPages = blogPosts.map((post) => ({
     url: `${BASE_URL}/blog/${post.slug}`,
-    lastModified: new Date(post.date).toISOString(), // Blog ki actual date use hogi
+    lastModified: post.date ? new Date(post.date).toISOString() : currentDate,
     changeFrequency: 'weekly' as const, 
     priority: 0.6,
   }));
