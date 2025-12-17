@@ -30,7 +30,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
         : `${siteUrl}${post.imageUrl}`;
 
     return {
-        title: `${post.title} | Al Madina Hijama Center`,
+        title: `${post.title}`,
         description: post.metaDescription, 
         alternates: {
             canonical: `${siteUrl}/blog/${post.slug}`,

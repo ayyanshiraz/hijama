@@ -258,7 +258,7 @@ export const blogPosts: BlogPost[] = [
     </ul>
 
     <h2 class="text-3xl font-bold text-teal-700 mt-6 mb-4">VII. Services That Support Your Recovery</h2>
-    <p class="text-justify mb-4">This section reflects Arq-un-Nisa Treatment and practical services related to <a href="/services/hijama-for-pain-relief" class="text-teal-500">pain management</a>. Our center provides supportive services that are directly tailored to patient needs.</p>
+    <p class="text-justify mb-4">This section reflects Arq-un-Nisa Treatment and practical services related to <a href="services/hijama-for-pain-relief" class="text-teal-500">pain management</a>. Our center provides supportive services that are directly tailored to patient needs.</p>
     <ul class="list-disc list-inside ml-4 mb-6">
         <li class="mb-2"><strong>Consultation Services:</strong> Ensures that the root cause of your pain, whether it is sciatica or musculoskeletal issues, is accurately &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;diagnosed.</li>
         <li class="mb-2"><strong>Wet Cupping Therapy:</strong> This is a central treatment that releases toxins and relieves pressure by affecting specific cupping &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;points in the leg.</li>
