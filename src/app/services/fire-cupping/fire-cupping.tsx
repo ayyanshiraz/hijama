@@ -304,7 +304,7 @@ const FireCuppingPage = () => {
                                                 {indications.map((item, index) => (
                                                     <li key={index} className="flex items-start"><ChevronRight className="w-5 h-5 text-teal-500 mr-2 mt-1 flex-shrink-0" /><span>{item}</span></li>
                                                 ))}
-                                                <li className="flex items-start"><ChevronRight className="w-5 h-5 text-teal-500 mr-2 mt-1 flex-shrink-0" /><span>High-Intensity <Link href="/blog/hijama-for-sports-recovery" className="text-teal-600 hover:underline">Sports Recovery</Link></span></li>
+                                                <li className="flex items-start"><ChevronRight className="w-5 h-5 text-teal-500 mr-2 mt-1 flex-shrink-0" /><span>High-Intensity <Link href="/services/hijama-for-sports-recovery" className="text-teal-600 hover:underline">Sports Recovery</Link></span></li>
                                             </ul>
                                         </div>
                                         <div>
