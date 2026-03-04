@@ -12,7 +12,7 @@ export interface BlogPost {
     imageUrl: string
 }
 
-// Blog Listing Page Metadata (for SEO)
+
 export const blogPageMetadata = {
     title: "Best Hijama Specialist Lahore | Al Madina Hijama Center  ",
     description: "Explore the profound benefits of Hijama (cupping therapy), its Sunnah basis, and our expert approach to pain relief and detoxification.",

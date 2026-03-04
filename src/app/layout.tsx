@@ -14,6 +14,7 @@ const GTM_ID = 'GTM-MP4L5KDH';
 const GA4_MEASUREMENT_ID = 'G-CV880G5R1G';
 const CLIENT_GA4_ID = 'G-Y0CHQLBF3P';
 const GOOGLE_ADS_ID = 'AW-17679136193';
+const NEW_TRACKING_ID = 'AW-16532310584'; // ✅ Added your new Tag ID
 const CONTACT_CONVERSION_ID = 'AW-17679136193/M2glCPjItMUbEMHriO5B';
 const PURCHASE_EVENT_NAME = 'ads_conversion_Purchase_1';
 
@@ -50,7 +51,6 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  // ❌ Removed manual jsonLd object from here to keep file clean
   
   return (
     <html lang="en">
@@ -78,6 +78,7 @@ export default function RootLayout({
           gtag('config', '${GA4_MEASUREMENT_ID}');
           gtag('config', '${CLIENT_GA4_ID}');
           gtag('config', '${GOOGLE_ADS_ID}');
+          gtag('config', '${NEW_TRACKING_ID}'); // ✅ Configured your new tracking ID
           function gtag_report_conversion(url) {
             var callback = function () {
               if (typeof(url) != 'undefined') {
@@ -119,7 +120,6 @@ export default function RootLayout({
           ></iframe>
         </noscript>
         
-        {/* 👇 NEW: Schema ab yahan load hoga */}
         <SchemaMarkup />
 
         <Navbar />
