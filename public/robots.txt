@@ -1,0 +1,11 @@
+# Allow crawling for all compliant web crawlers
+User-agent: *
+Allow: /
+
+# Disallow specific paths (optional)
+# Disallow: /admin/
+# Disallow: /temp/
+# Disallow: /api/
+
+# Point crawlers to your sitemap
+Sitemap: https://www.almadinahijamacenter.com/sitemap.xml
