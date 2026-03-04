@@ -242,7 +242,7 @@ const ServicesContent = () => {
           <h2 className="text-4xl md:text-5xl font-extrabold text-gray-800">Ready to Begin Your Healing Journey?</h2>
           <p className="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">Book a free on-call consultation with our specialist to discuss your needs and find the perfect therapy for you.</p>
           <div className="mt-10">
-            <a href="tel:+923007598000" className="inline-flex items-center px-8 py-4 bg-[#FF6900] text-white font-bold text-lg rounded-full shadow-lg hover:brightness-90 transition-all duration-300 transform hover:scale-105">
+            <a href="tel:+923004700069" className="inline-flex items-center px-8 py-4 bg-[#FF6900] text-white font-bold text-lg rounded-full shadow-lg hover:brightness-90 transition-all duration-300 transform hover:scale-105">
               <Phone className="mr-3 h-5 w-5" /> Book Your Free Consultation
             </a>
           </div>

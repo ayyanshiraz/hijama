@@ -174,7 +174,7 @@ const Footer = () => {
             <h3 className="text-base sm:text-lg font-semibold uppercase tracking-wider mb-3 sm:mb-4">Contact Us</h3>
             <div className="flex flex-col space-y-4 sm:space-y-3 text-sm sm:text-base text-gray-300">
               {/* 'justify-center' (mobile) and 'sm:justify-start' (desktop). Set mobile 'gap-3'. */}
-              <a href="tel:+923007598000" className="hover:text-white transition-colors flex items-center justify-center sm:justify-start gap-3 sm:gap-2">
+              <a href="tel:+923004700069" className="hover:text-white transition-colors flex items-center justify-center sm:justify-start gap-3 sm:gap-2">
                 <Phone className="w-3.5 h-3.5 sm:w-4 sm:h-4 flex-shrink-0"/>
                 <span>+92 300 4700069</span>
               </a>

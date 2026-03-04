@@ -232,7 +232,7 @@ const BookingPage = ({ serviceNameFromUrl }: { serviceNameFromUrl: string | null
       return;
     }
 
-    const yourWhatsappNumber = '+923007598000';
+    const yourWhatsappNumber = '+923004700069';
     const formattedDate = selectedDate.toLocaleString('en-US', {
       weekday: 'long',
       year: 'numeric',
@@ -428,7 +428,7 @@ const BookingPage = ({ serviceNameFromUrl }: { serviceNameFromUrl: string | null
                                     <p className="text-sm text-gray-700 mb-4 italic">
                                       Unsure about the quantity?{' '}
                                       <a 
-                                        href="https://wa.me/923007598000" 
+                                        href="https://wa.me/923004700069" 
                                         target="_blank" 
                                         rel="noopener noreferrer" 
                                         className="text-teal-600 font-medium underline hover:text-teal-700"

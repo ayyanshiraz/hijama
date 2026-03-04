@@ -137,7 +137,7 @@ const Navbar = () => {
             ))}
             {/* Call Us Button - Responsive Styles */}
             <a
-              href="tel:+923007598000"
+              href="tel:+923004700069"
               // Adjusted padding and text size
               className="inline-flex items-center px-3 py-1.5 sm:px-4 sm:py-2 bg-[#FF6900] text-white text-sm sm:text-base font-semibold rounded-lg shadow-md hover:brightness-90 transition-all duration-300 transform hover:scale-105"
             >
@@ -242,7 +242,7 @@ const Navbar = () => {
               {/* Call Us Button for Mobile Menu */}
               <div className="p-4">
                   <a
-                    href="tel:+923007598000"
+                    href="tel:+923004700069"
                     // Adjusted padding and text size
                     className="w-full inline-flex items-center justify-center px-4 py-2.5 bg-[#FF6900] text-white text-base font-semibold rounded-lg shadow-md hover:brightness-90 transition-colors duration-300"
                     onClick={closeAllMenus} // Close menu on click

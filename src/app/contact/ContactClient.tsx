@@ -16,7 +16,7 @@ const contactDetails = [
     icon: Phone,
     title: 'Call Us',
     lines: ['+92 300 4700069'],
-    href: 'tel:+923007598000',
+    href: 'tel:+923004700069',
   },
   {
     icon: Mail,
@@ -28,7 +28,7 @@ const contactDetails = [
     icon: MessageSquare,
     title: 'WhatsApp',
     lines: ['+92 300 4700069'],
-    href: 'https://wa.me/923007598000',
+    href: 'https://wa.me/923004700069',
   },
 ];
 
@@ -109,7 +109,7 @@ const ContactClient = () => {
   const handleWhatsAppSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    const whatsappNumber = "923007598000"; 
+    const whatsappNumber = "923004700069"; 
     const formattedMessage = `
 *New Inquiry from Contact Page:*
 ---------------------------

@@ -356,7 +356,7 @@ const HomePage = () => {
   const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    const whatsappNumber = "923007598000"; 
+    const whatsappNumber = "923004700069"; 
     const formattedMessage = `
 *New Inquiry from Website:*
 ---------------------------

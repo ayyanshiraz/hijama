@@ -10,7 +10,7 @@ const SchemaMarkup = () => {
     "image": "https://www.almadinahijamacenter.com/logo.png",
     "description": "Best Hijama Center Lahore providing 24/7 services. We offer Islamic Sunnah Cupping, Fire Cupping, and Leech Therapy with separate male and female staff.",
     "url": "https://www.almadinahijamacenter.com/",
-    "telephone": "+923007598000",
+    "telephone": "+923004700069",
     "priceRange": "$$",
     "address": {
       "@type": "PostalAddress",
