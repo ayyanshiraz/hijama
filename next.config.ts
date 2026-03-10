@@ -6,17 +6,7 @@ const nextConfig = {
 
   async redirects() {
     return [
-      // Old redirects
-      {
-        source: '/blog/benefits-of-blood-cupping',
-        destination: '/services/wet-cupping', // Updated directly to wet-cupping
-        permanent: true,
-      },
-      {
-        source: '/blog/the-sunnah-of-hijama',
-        destination: '/blog/hijama-sunnah-benefits-wellness-path',
-        permanent: true,
-      },
+     
       // New redirects
       {
         source: '/services/dry-and-massage-cupping',
