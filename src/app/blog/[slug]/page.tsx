@@ -7,7 +7,6 @@ interface PageProps {
     params: Promise<{ slug: string }>;
 }
 
-// 👇👇👇 NEW ADDITION: Ye function page ko Static bana de ga (Super Fast Speed) 👇👇👇
 export async function generateStaticParams() {
     return blogPosts.map((post) => ({
         slug: post.slug,
@@ -20,29 +19,30 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
     if (!post) {
         return {
-            title: 'Post Not Found',
+            title: `Post Not Found`,
         };
     }
 
-    const siteUrl = 'https://www.almadinahijamacenter.com';
-    const imageUrl = post.imageUrl.startsWith('http') 
+    const siteUrl = `https://www.almadinahijamacenter.com`;
+    const imageUrl = post.imageUrl.startsWith(`http`) 
         ? post.imageUrl 
         : `${siteUrl}${post.imageUrl}`;
 
+    // SEO Title logic: Pehlay seoTitle check ho ga, warna default title
     return {
-        title: `${post.title}`,
+        title: post.seoTitle || post.title,
         description: post.metaDescription, 
         alternates: {
             canonical: `${siteUrl}/blog/${post.slug}`,
         },
         openGraph: {
-            title: post.title,
+            title: post.seoTitle || post.title,
             description: post.metaDescription,
             url: `${siteUrl}/blog/${post.slug}`,
-            siteName: 'Al Madina Hijama Center',
-            locale: 'en_PK',
-            type: 'article',
-            authors: ['Al Madina Hijama Center'],
+            siteName: `Al Madina Hijama Center`,
+            locale: `en_PK`,
+            type: `article`,
+            authors: [`Al Madina Hijama Center`],
             images: [
                 {
                     url: imageUrl,
