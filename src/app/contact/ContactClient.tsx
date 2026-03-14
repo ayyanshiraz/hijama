@@ -15,7 +15,7 @@ const contactDetails = [
   {
     icon: Phone,
     title: 'Call Us',
-    lines: ['+92 300 4700069'],
+    lines: ['+92 300 7598000'],
     href: 'tel:+923004700069',
   },
   {
@@ -27,7 +27,7 @@ const contactDetails = [
   {
     icon: MessageSquare,
     title: 'WhatsApp',
-    lines: ['+92 300 4700069'],
+    lines: ['+92 300 7598000'],
     href: 'https://wa.me/923004700069',
   },
 ];

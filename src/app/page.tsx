@@ -69,8 +69,8 @@ const slideshowData = [
       </>
     ),
     subtitle: 'Take the first step towards better health at the best Hijama center Lahore. Schedule your personal consultation today.',
-    buttonText: 'Call +92 300 4700069',
-    buttonLink: 'tel:+92 300 4700069',
+    buttonText: 'Call +92 300 7598000',
+    buttonLink: 'tel:+92 300 7598000',
     hasIcon: true,
   },
 ];
@@ -524,7 +524,7 @@ ${message}
 
               <div className="mt-8 sm:mt-10 text-center">
                 <motion.a
-                  href="tel:+92 300 4700069"
+                  href="tel:+92 300 7598000"
                   className="inline-flex items-center justify-center px-5 py-2.5 sm:px-6 sm:py-3 bg-[#FF6900] text-white text-sm sm:text-base font-medium rounded-full shadow-lg hover:brightness-90 transition-all duration-300 transform hover:scale-105"
                   variants={itemVariants}
                 >
@@ -624,7 +624,7 @@ ${message}
 
               <div className="mt-8 sm:mt-10 text-center lg:text-left">
                 <a
-                  href="tel:+92 300 4700069"
+                  href="tel:+92 300 7598000"
                   className="inline-flex items-center px-6 py-3 sm:px-8 sm:py-4 bg-[#FF6900] text-white text-sm sm:text-base font-semibold rounded-lg shadow-md hover:brightness-90 transition-all duration-300 transform hover:scale-105"
                 >
                   Speak to a Specialist
@@ -774,7 +774,7 @@ ${message}
           </p>
           <div className="mt-8 sm:mt-10">
             <a
-              href="tel:+92 300 4700069"
+              href="tel:+92 300 7598000"
               className="inline-flex items-center px-6 py-3 sm:px-8 sm:py-4 bg-[#FF6900] text-white text-base sm:text-lg font-bold rounded-full shadow-lg hover:brightness-90 transition-all duration-300 transform hover:scale-105"
             >
               Call For Free Consultation
@@ -805,7 +805,7 @@ ${message}
                   </div>
                   <div>
                     <h3 className="text-lg sm:text-xl font-bold text-gray-800">Whatsapp</h3>
-                    <p className="text-gray-600 mt-1 text-sm sm:text-base">+92 300 4700069</p>
+                    <p className="text-gray-600 mt-1 text-sm sm:text-base">+92 300 7598000</p>
                   </div>
                 </div>
 

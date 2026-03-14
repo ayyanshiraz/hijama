@@ -23,6 +23,75 @@ export const blogPageMetadata = {
 // Array containing all blog 
 export const blogPosts: BlogPost[] = [ 
     {
+    id: 23,
+    slug: "hijama-before-and-after-care-guide",
+    seoTitle: "Complete Hijama Before and After Care Guide for Patients",
+    title: "What to Do Before and After Hijama Cupping Therapy?",
+    excerpt: "Master the essential Hijama before and after care tips for safe healing. Apply treatment guidelines at Al Madina Hijama Center in Lahore for best results.",
+    metaDescription: "Master the essential Hijama before and after care tips for safe healing. Apply treatment guidelines at Al Madina Hijama Center in Lahore for best results.",
+    imageUrl: "/blogs/b23.webp",
+    altText: "Professional Hijama experts in Lahore preparing a patient for natural healing",
+    category: "Natural Healing",
+    date: "March 13, 2026",
+    focusKeyphrase: "Hijama before and after care",
+    content: `
+    <h2 class="text-4xl font-extrabold text-teal-800 mb-6">What to Do Before and After Hijama Cupping Therapy? A Complete Guide</h2>
+    <p class="text-justify mb-4">Welcome to our comprehensive guide to natural detoxification. Understanding the Hijama treatment guidelines is essential to reaping the best health benefits from your upcoming session. Proper physical preparation significantly enhances the positive effects on your immune system and overall blood circulation.</p>
+    <p class="text-justify mb-6">Most people underestimate how much their daily habits affect this process. By knowing the Hijama before and after care you can ensure that your body is fully prepared to safely heal and rejuvenate. This guide provides you with all the essential information you need for a smooth and highly beneficial experience.</p>
+
+    <h2 class="text-3xl font-bold text-teal-700 mt-6 mb-4">Pre Hijama Care What to Do Before Your Session</h2>
+    <p class="text-justify mb-4"><strong>Fasting Before Hijama:</strong> An important aspect of preparation is understanding the Fasting before cupping benefits. Going to a Hijama session on an empty stomach focuses your internal energy towards detoxification instead of complex digestion. Experts strongly recommend avoiding eating for two to three hours before your appointment. This simple step prevents nausea and improves blood flow.</p>
+    <p class="text-justify mb-4"><strong>Hydration and Diet:</strong> Drinking water is very important so that the blood does not thicken. If you feel hungry before the start of the fast, eat light and nutritious snacks and drink plenty of plain water. Heavy, spicy and fried foods should be completely avoided as they make the healing process slower and less effective.</p>
+    <p class="text-justify mb-6"><strong>Physical Preparation:</strong> Cleanliness is very important for a healthy and safe procedure. Take a warm and relaxing bath early in the day to soften the skin and open the superficial pores. Always wear loose and comfortable clothing so that the therapist can easily reach your back or <a href="/blog/identify-hijama-trigger-points" class="text-teal-500">hijama trigger points</a> without you feeling any discomfort.</p>
+
+    <h2 class="text-3xl font-bold text-teal-700 mt-6 mb-4">Post Hijama Care Essential Guidelines for Quick Recovery</h2>
+    <p class="text-justify mb-4"><strong>Diet after Hijama:</strong> Hijama post care diet speeds up your physical healing process. Use light and energy boosting foods such as fresh dates and natural honey mixed with water. These simple foods quickly restore lost energy and do not cause any stomach discomfort.</p>
+    <p class="text-justify mb-4"><strong>Showering after Hijama:</strong> One of the most common questions new patients have is about water contact. It is important to keep the treated skin areas away from water for at least 24 hours. This waiting period is crucial to prevent bacterial infection and allow small superficial wounds to heal naturally.</p>
+    <p class="text-justify mb-6"><strong>Physical Activity:</strong> Complete physical rest is essential after the session. Avoid heavy lifting or strenuous exercise for a few days. Giving your muscles complete rest helps tissue repair happen faster and more effectively.</p>
+
+    <h2 class="text-3xl font-bold text-teal-700 mt-6 mb-4">Quick Checklist Dos and Do Not of Cupping Therapy</h2>
+    <div class="overflow-x-auto mt-4 mb-6">
+        <table class="min-w-full bg-white border-collapse border border-gray-300 shadow-sm rounded-lg">
+            <thead class="bg-teal-50">
+                <tr>
+                    <th class="py-3 px-4 border border-gray-300 text-left font-bold text-teal-800">Category</th>
+                    <th class="py-3 px-4 border border-gray-300 text-left font-bold text-teal-800">Guidelines</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="hover:bg-gray-50">
+                    <td class="py-2 px-4 border border-gray-300 font-bold text-green-700">Dos</td>
+                    <td class="py-2 px-4 border border-gray-300">Drink plenty of room temperature water, get eight hours of sleep, and eat fresh natural fruits.</td>
+                </tr>
+                <tr class="hover:bg-gray-50">
+                    <td class="py-2 px-4 border border-gray-300 font-bold text-red-700">Do Not</td>
+                    <td class="py-2 px-4 border border-gray-300">Avoid red meat, avoid all dairy products, do not drink cold drinks, and avoid direct exposure to cold air.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <img src="/blogs/b23(1).webp" alt="A checklist of Hijama before and after care steps for quick recovery" class="rounded-lg shadow-md w-full h-auto max-h-[500px] object-cover mt-3 mb-6" />
+
+    <h2 class="text-3xl font-bold text-teal-700 mt-6 mb-4">Why Choose a Professional Hijama Center in Lahore?</h2>
+    <p class="text-justify mb-4">Choosing a clean and sanitary clinic is essential to avoid serious medical complications. Choosing Professional Hijama experts in Lahore guarantees that the specialized equipment is sterilized properly and used safely on your skin. Never try to do this complex process at home without the right equipment.</p>
+    <p class="text-justify mb-6">If you live near Johar Town or Garden Town, choosing the Best Hijama center for pain relief in Lahore provides peace of mind. For high quality service and proper hygiene, Al Madina Hijama Center is a highly reputable institution where expert and trained staff are there to assist you.</p>
+
+    <h2 class="text-3xl font-bold text-teal-700 mt-6 mb-4">Conclusion</h2>
+    <p class="text-justify mb-4">Strictly following Hijama before and after care and basic Hijama treatment guidelines makes a big difference in your natural health journey. By following these simple steps you can get the most out of your treatment. Are you ready to naturally re energize your body and live a pain free life?</p>
+
+    <div class="bg-teal-50 p-6 rounded-lg border border-teal-200 mt-6">
+        <p class="font-bold text-xl text-teal-800">Start Your Healing Journey Today</p>
+        <p class="mt-2">Contact Al Madina Hijama Center in Lahore now to reserve your booking and experience professional care.</p>
+        <p class="mt-4 text-center">
+            <a href="/booking" class="inline-block bg-orange-600 hover:bg-teal-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300 shadow-md">
+                📞 Book Appointment Now
+            </a>
+        </p>
+    </div>
+    `
+},
+    {
     id: 22,
     slug: "identify-hijama-trigger-points",
     seoTitle: "How to Identify Hijama Trigger Points for Natural Pain Relief?",
@@ -1777,7 +1846,7 @@ content: `
                 <div class="bg-teal-50 p-6 rounded-lg border border-teal-200 mt-6">
             <h3 class="text-2xl font-bold  text-teal-800">Book Your Session with a Certified Lady Therapist</h3>
             <p class="mb-2"><strong>Al Madina Hijama Center</strong></p>
-            <p class="mb-2"><strong>Phone:</strong> +92 300 4700069</p>
+            <p class="mb-2"><strong>Phone:</strong> +92 300 7598000</p>
         </div>
     `
     },
@@ -1867,7 +1936,7 @@ content: `
          <div class="bg-teal-50 p-6 rounded-lg border border-teal-200 mt-6">
             <h3 class="text-2xl font-bold  text-teal-800">Book Your Consultation</h3>
             <p class="mb-2"><strong><a href="/" class="text-blue-500">Al Madina Hijama Center</a></strong></p>
-            <p class="mb-2"><strong>Phone:</strong> +92 300 4700069</p>
+            <p class="mb-2"><strong>Phone:</strong> +92 300 7598000</p>
         </div>
     `
     },
@@ -1924,7 +1993,7 @@ content: `
             <h3 class="text-2xl font-bold mb-4 text-teal-800">Book Your Deep Detox Session</h3>
             <p class="mb-2"><strong>Al Madina Hijama Center</strong></p>
             <p class="mb-2"><strong>Location:</strong> MashaAllah Center, 213-A, Opposite Car Parking Grand Mosque, Commercial Sector C, Bahria Town, Lahore.</p>
-            <p class="mb-2"><strong>Phone:</strong> +92 300 4700069</p>
+            <p class="mb-2"><strong>Phone:</strong> +92 300 7598000</p>
             <p class="mb-2"><strong>Note:</strong> Dedicated female staff available upon request.</p>
         </div>
     `
@@ -1983,7 +2052,7 @@ content: `
             <h3 class="text-2xl font-bold mb-4 text-teal-800">Book Your Consultation Today</h3>
             <p class="mb-2"><strong>Al Madina Hijama Center</strong></p>
             <p class="mb-2"><strong>Location:</strong> MashaAllah Center, 213-A, Opposite Car Parking Grand Mosque, Commercial Sector C, Bahria Town, Lahore.</p>
-            <p class="mb-2"><strong>Phone:</strong> +92 300 4700069</p>
+            <p class="mb-2"><strong>Phone:</strong> +92 300 7598000</p>
             <p class="mb-2"><strong>Note:</strong> Dedicated female staff available upon request.</p>
         </div>
     `
@@ -2075,7 +2144,7 @@ content: `
             <h3 class="text-2xl font-bold mb-4 text-teal-800">Book Your Consultation Today</h3>
             <p class="mb-2"><strong>Al Madina Hijama Center (Shifa Homeo Clinic)</strong></p>
             <p class="mb-2"><strong>Location:</strong> 1-J, Shop No. 2, F/F, Gulbahar Block, Near Talwar Chowk, Commercial Area, Sector C, Bahria Town, Lahore.</p>
-            <p class="mb-2"><strong>Phone:</strong> +92 300 4700069</p>
+            <p class="mb-2"><strong>Phone:</strong> +92 300 7598000</p>
             <p class="mb-2"><strong>Price:</strong> Affordable sessions starting from PKR 300/ per cup.</p>
         </div>
     `

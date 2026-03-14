@@ -139,7 +139,7 @@ const PrivacyPolicyClient = () => {
                                     <p className="mb-4">If you have any questions about this Privacy Policy or our privacy practices, please contact us:</p>
                                     <ul className="space-y-2 text-gray-700 font-medium">
                                         <li><span className="text-teal-600">📧 By Email:</span> almadinahijamaclinic1400@gmail.com</li>
-                                        <li><span className="text-teal-600">📞 By Phone:</span> +92 300 4700069</li>
+                                        <li><span className="text-teal-600">📞 By Phone:</span> +92 300 7598000</li>
                                         <li><span className="text-teal-600">📍 By Mail:</span> MashaAllah Center, 213-A, opp. Car Parking Grand Mosque, Commercial Sector C Bahria Town, Lahore, 53720</li>
                                     </ul>
                                 </div>

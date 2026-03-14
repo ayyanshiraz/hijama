@@ -176,7 +176,7 @@ const Footer = () => {
               {/* 'justify-center' (mobile) and 'sm:justify-start' (desktop). Set mobile 'gap-3'. */}
               <a href="tel:+923004700069" className="hover:text-white transition-colors flex items-center justify-center sm:justify-start gap-3 sm:gap-2">
                 <Phone className="w-3.5 h-3.5 sm:w-4 sm:h-4 flex-shrink-0"/>
-                <span>+92 300 4700069</span>
+                <span>+92 300 7598000</span>
               </a>
               {/* 'justify-center' (mobile) and 'sm:justify-start' (desktop). Set mobile 'gap-3'. */}
               <a href="mailto:info@almadinahijamacenter.com" className="hover:text-white transition-colors flex items-center justify-center sm:justify-start gap-3 sm:gap-2 break-all">
