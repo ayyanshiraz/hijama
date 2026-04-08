@@ -22,7 +22,7 @@ export const blogPageMetadata = {
     canonicalPath: "/blog"
 };
 
-// Array containing all blog 
+// Array containing all 
 export const blogPosts: BlogPost[] = [
     {
     id: 36,
